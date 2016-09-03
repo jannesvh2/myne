@@ -30,8 +30,9 @@ var roleUpgrader = {
             if (!atSource)
                 if (creep.moveTo(sources[creep.memory.source]) != OK)
                     for (var a = sources.length - 1; a >= 0; a--)
-                        if (creep.moveTo(sources[a]) == OK) {
+                        if (creep.moveTo(sources[a]) != ERR_NO_PATH) {
                             creep.memory.source = a;
+                            break;
                         }
         }
     }

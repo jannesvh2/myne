@@ -45,9 +45,10 @@ var roleBuilder = {
             }
             if (!atSource)
                 if (creep.moveTo(sources[creep.memory.source]) != OK)
-                    for (var a = 0; a < sources.length; a++)
-                        if (creep.moveTo(sources[a]) == OK) {
+                    for (var a = sources.length - 1; a >= 0; a--)
+                        if (creep.moveTo(sources[a]) != ERR_NO_PATH) {
                             creep.memory.source = a;
+                            break;
                         }
         }
     }
