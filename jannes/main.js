@@ -9,8 +9,12 @@ module.exports.loop = function () {
     var h = 5;
     var b = 4;
     var u = 4;
-    roleLogging.run(h,b,u);
-    roleSpawn.run(h,b,u);
+    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+    var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+
+    roleLogging.run(h, b, u, harvesters, builders, upgraders);
+    roleSpawn.run(h, b, u, harvesters, builders, upgraders);
     roleTower.run();
 
     for (var name in Game.creeps) {
@@ -22,7 +26,7 @@ module.exports.loop = function () {
             roleUpgrader.run(creep);
         }
         if (creep.memory.role == 'builder') {
-            roleBuilder.run(creep, h);
+            roleBuilder.run(creep);
         }
     }
 }

@@ -1,7 +1,7 @@
 var roleBuilder = {
 
     /** @param {Creep} creep **/
-    run: function (creep, h) {
+    run: function (creep) {
         var energyCount = 2;
 
         if (creep.memory.building && creep.carry.energy == 0) {
