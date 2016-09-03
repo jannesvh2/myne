@@ -19,6 +19,14 @@ var roleBuilder = {
                     creep.moveTo(targets[0]);
                 }
             }
+            else {
+                var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (structure) => structure.hits < structure.hitsMax
+                });
+                if (closestDamagedStructure) {
+                    creep.repair(closestDamagedStructure);
+                }
+            }
         }
         else {
             var sources = creep.room.find(FIND_SOURCES);
