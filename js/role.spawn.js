@@ -17,14 +17,14 @@ var roleSpawn = {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     //console.log('Harvesters: ' + harvesters.length);
 //spawn if less than 2
-    if(harvesters.length < 1) {
+    if(harvesters.length < 2) {
     var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE,MOVE], undefined, {role: 'harvester'});
     
     }
     
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     //console.log('Builders: ' + builders.length);
-    if(builders.length < 3) {
+    if(builders.length < 2) {
         var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE,MOVE], undefined, {role: 'builder'});
     }
     
