@@ -1,7 +1,7 @@
 var roleTower = {
 
     /** @param {Creep} creep **/
-    run: function() {
+    run: function () {
 
         //tower
         var tower = Game.getObjectById('579fa9450700be0674d2f083');
