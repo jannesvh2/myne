@@ -9,9 +9,9 @@ var roleSpawn = {
                 console.log('Clearing non-existing creep memory:', name);
             }
         }
-        var h = 2;
-        var b = 2;
-        var u = 4;
+        var h = 3;
+        var b = 5;
+        var u = 2;
         //spawn harvesters
         //get all harvesters
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
