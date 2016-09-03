@@ -8,7 +8,7 @@ var roleHarvester = {
             creep.memory.storing = false;
             creep.say('harvesting');
         }
-        if (!creep.memory.storing && creep.carry.energy == creep.carryCapacity) {
+        else if (!creep.memory.storing && creep.carry.energy == creep.carryCapacity) {
             creep.memory.storing = true;
             creep.say('storing');
         }
@@ -42,7 +42,7 @@ var roleHarvester = {
                     creep.memory.source++;
                     if (creep.memory.source >= energyCount)
                         creep.memory.source = 0;
-                    if (creep.moveTo(sources[creep.memory.source]) == ERR_NO_PATH) { }
+                    if (creep.moveTo(sources[creep.memory.source]) == OK) { }
                 }
         }
     }

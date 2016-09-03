@@ -8,7 +8,7 @@ var roleUpgrader = {
             creep.memory.upgrading = false;
             creep.say('harvesting');
         }
-        if (!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
+        else if (!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
             creep.memory.upgrading = true;
             creep.say('upgrading');
 
@@ -34,7 +34,7 @@ var roleUpgrader = {
                     creep.memory.source++;
                     if (creep.memory.source >= energyCount)
                         creep.memory.source = 0;
-                    if (creep.moveTo(sources[creep.memory.source]) == ERR_NO_PATH) { }
+                    if (creep.moveTo(sources[creep.memory.source]) == OK) { }
                 }
         }
     }
