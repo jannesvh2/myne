@@ -14,20 +14,10 @@ var roleUpgrader = {
 
         if (creep.memory.upgrading) {
             var targets = creep.room.find(creep.room.controller);
-            if (targets.length) {
 
                 if (creep.upgradeController(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
-            }
-            else {
-                var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
-                    filter: (structure) => structure.hits < structure.hitsMax
-                });
-                if (closestDamagedStructure) {
-                    creep.repair(closestDamagedStructure);
-                }
-            }
         }
         else {
             var sources = creep.room.find(FIND_SOURCES);
