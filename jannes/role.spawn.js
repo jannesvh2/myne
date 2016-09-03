@@ -17,11 +17,11 @@ var roleSpawn = {
 
             //console.log('Upgraders: ' + upgraders.length);
         else if (upgraders.length < u) {
-            var newName3 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'upgrader', source: 1 });
+            var newName3 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, { role: 'upgrader', source: 1 });
         }
             //console.log('Builders: ' + builders.length);
         else if (builders.length < b) {
-            var newName2 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'builder', source: 0 });
+            var newName2 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, { role: 'builder', source: 0 });
         }
 
 
