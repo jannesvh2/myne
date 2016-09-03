@@ -7,8 +7,8 @@ var roleLogging = require('role.logging');
 
 module.exports.loop = function () {
     var h = 5;
-    var b = 4;
-    var u = 4;
+    var b = 5;
+    var u = 5;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
