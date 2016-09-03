@@ -4,7 +4,6 @@ var roleUpgrader = {
     run: function(creep) {
         if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE)
         {
-            console.log(creep.carry.energy +"<" +creep.carryCapacity + " " +creep.name);
            if(creep.carry.energy < creep.carryCapacity) {
                     var sources = creep.room.find(FIND_SOURCES);
                     if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
