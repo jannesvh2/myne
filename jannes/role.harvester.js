@@ -2,6 +2,8 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
+        var energyCount = 2;
+
         if (creep.memory.storing && creep.carry.energy == 0) {
             creep.memory.storing = false;
             creep.say('harvesting');
@@ -37,11 +39,11 @@ var roleHarvester = {
             }
             if (!atSource)
                 if (creep.moveTo(sources[creep.memory.source]) != OK)
-                    for (var a = sources.length - 1; a >= 0; a--)
-                        if (creep.moveTo(sources[a]) != ERR_NO_PATH) {
-                            creep.memory.source = a;
-                            break;
-                        }
+                    if (creep.moveTo(sources[a]) == ERR_NO_PATH) {
+                        creep.memory.source++;
+                        if (creep.memory.source >= energyCount)
+                            creep.memory.source = 0;
+                    }
         }
     }
 };
