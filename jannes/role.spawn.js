@@ -1,7 +1,7 @@
 var roleSpawn = {
 
     /** @param {Creep} creep **/
-    run: function (h,b,u) {
+    run: function (h, b, u, harvesters, builders, upgraders) {
         //clearing memory of non existing creeps
         for (var name in Memory.creeps) {
             if (!Game.creeps[name]) {
