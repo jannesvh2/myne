@@ -6,7 +6,7 @@ var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 
 module.exports.loop = function () {
-    var h = 5;
+    var h = 6;
     var b = 5;
     var u = 5;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
