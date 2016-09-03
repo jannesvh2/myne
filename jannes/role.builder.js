@@ -13,7 +13,7 @@ var roleBuilder = {
                 creep.say('building');
             else
                 creep.say('repairing');
-            
+
         }
 
         if (creep.memory.building) {
@@ -35,9 +35,20 @@ var roleBuilder = {
         }
         else {
             var sources = creep.room.find(FIND_SOURCES);
-            if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0]);
+            var atSource = false;
+            for (var a = 0; a < sources.length; a++) {
+                if (creep.harvest(sources[a]) == OK) {
+                    creep.memory.source = a;
+                    atSource = true;
+                    break;
+                }
             }
+            if (!atSource)
+                if (creep.moveTo(sources[creep.memory.source]) != OK)
+                    for (var a = 0; a < sources.length; a++)
+                        if (creep.moveTo(sources[a]) == OK) {
+                            creep.memory.source = a;
+                        }
         }
     }
 };
