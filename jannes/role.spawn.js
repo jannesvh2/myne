@@ -1,7 +1,7 @@
 var roleSpawn = {
 
     /** @param {Creep} creep **/
-    run: function () {
+    run: function (h,b,u) {
         //clearing memory of non existing creeps
         for (var name in Memory.creeps) {
             if (!Game.creeps[name]) {
@@ -9,9 +9,6 @@ var roleSpawn = {
                 console.log('Clearing non-existing creep memory:', name);
             }
         }
-        var h = 4;
-        var b = 5;
-        var u = 4;
         //spawn harvesters
         //get all harvesters
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -32,7 +29,6 @@ var roleSpawn = {
         if (upgraders.length < u) {
             var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'upgrader', source: 1 });
         }
-        console.log("h: " + harvesters.length + "/" + h + ", b: " + builders.length + "/" + b + ", u: " + upgraders.length + "/" + u);
     }
 };
 

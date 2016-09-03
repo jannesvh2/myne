@@ -6,9 +6,11 @@ var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 
 module.exports.loop = function () {
-
-    roleLogging.run();
-    roleSpawn.run();
+    var h = 5;
+    var b = 4;
+    var u = 4;
+    roleLogging.run(h,b,u);
+    roleSpawn.run(h,b,u);
     roleTower.run();
 
     for (var name in Game.creeps) {
@@ -20,7 +22,7 @@ module.exports.loop = function () {
             roleUpgrader.run(creep);
         }
         if (creep.memory.role == 'builder') {
-            roleBuilder.run(creep);
+            roleBuilder.run(creep, h);
         }
     }
 }

@@ -1,7 +1,7 @@
 var roleBuilder = {
 
     /** @param {Creep} creep **/
-    run: function (creep) {
+    run: function (creep, h) {
         var energyCount = 2;
 
         if (creep.memory.building && creep.carry.energy == 0) {
@@ -19,7 +19,7 @@ var roleBuilder = {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         if (creep.memory.building) {
             var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-            if (targets.length && harvesters.length == 4) {
+            if (targets.length && harvesters.length == h) {
 
                 if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
