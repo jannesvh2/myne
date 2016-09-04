@@ -12,7 +12,7 @@ var roleSpawn = {
 
         //spawn harvesters
         if (harvesters.length < h) {
-            var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'harvester', source: 0 });
+            var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, { role: 'harvester', source: 0 });
         }
 
             //console.log('Upgraders: ' + upgraders.length);
