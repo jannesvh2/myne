@@ -8,9 +8,9 @@ var rolePath = require('role.path2');
 
 module.exports.loop = function () {
     PathFinder.use(true);
-    var h = 2;
-    var b = 3;
-    var u = 3;
+    var h = 3;
+    var b = 6;
+    var u = 6;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
