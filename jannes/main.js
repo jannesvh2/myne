@@ -7,7 +7,7 @@ var roleLogging = require('role.logging');
 
 module.exports.loop = function () {
     PathFinder.use(true);
-    var h = 3;
+    var h = 2;
     var b = 3;
     var u = 6;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
