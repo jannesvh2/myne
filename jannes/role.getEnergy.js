@@ -26,4 +26,4 @@ var roleGetEnergy = {
 	}
 };
 
-module.exports = roleGetEnergy; 
+module.exports = roleGetEnergy;
