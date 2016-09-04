@@ -4,25 +4,27 @@ var roleTower = {
     run: function () {
 
         //tower
-        try {
-            var tower = Game.getObjectById('57cc3ed5c78dae3f28b4dfd0');
-            if (tower) {
-                //tower attack
-                var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-                if (closestHostile) {
-                    tower.attack(closestHostile);
-                }
-                else if (tower.energyAvailable > tower.energyCapacity / 2) {
-                    //tower repair
-                    var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-                        filter: (structure) => structure.hits < structure.hitsMax
-                    });
-                    if (closestDamagedStructure) {
-                        tower.repair(closestDamagedStructure);
-                    }
+
+        for (var myRooms in Game.rooms) {
+            var hostiles = Game.rooms[myRooms].find(FIND_HOSTILE_CREEPS);
+            var towers = Game.rooms[myRooms].find(
+                FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } });
+
+            if (hostiles.length > 0) {
+                var username = hostiles[0].owner.username;
+                Game.notify(`User ${username} spotted in room ${myRooms}`);
+                towers.forEach(tower => tower.attack(hostiles[0]));
+            }
+            else if (towers.energyAvailable > towers.energyCapacity / 2) {
+                //tower repair
+                var closestDamagedStructure = towers.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (structure) => structure.hits < structure.hitsMax
+                });
+                if (closestDamagedStructure) {
+                    towers.repair(closestDamagedStructure);
                 }
             }
-        } catch (err) { }
+        }
     }
 };
 
