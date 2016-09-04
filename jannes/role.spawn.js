@@ -11,7 +11,10 @@ var roleSpawn = {
         }
         var keeper = _.filter(Game.creeps, (creep) => creep.memory.role == 'keeper');
 
-        if (typeof keeper == 'undefined' || !keeper[0].ticksToLive > 20) {
+        if (typeof keeper == 'undefined') {
+            var newName = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'keeper', source: 0 });
+        }
+        if (typeof keeper != 'undefined' && !keeper[0].ticksToLive > 20) {
             var newName = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'keeper', source: 0 });
         }
         //spawn harvesters
