@@ -19,8 +19,8 @@ module.exports.loop = function () {
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker');
 
-    roleLogging.run(h, b, u, harvesters, builders, upgraders);
-    roleSpawn.run(h, b, u, harvesters, builders, upgraders);
+    roleLogging.run(h, b, u, a, harvesters, builders, upgraders, attackers);
+    roleSpawn.run(h, b, u, a, harvesters, builders, upgraders, attackers);
     roleTower.run();
 
     for (var name in Game.creeps) {
