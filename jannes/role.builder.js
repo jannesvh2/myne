@@ -18,7 +18,10 @@ var roleBuilder = {
         }
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         if (creep.memory.building) {
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            var targets = Game.rooms.W14N58.find(FIND_CONSTRUCTION_SITES);
+            if (!targets.length)
+                targets = Game.rooms.W14N59.find(FIND_CONSTRUCTION_SITES);
+
             if (targets.length) {
 
                 if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
@@ -37,7 +40,8 @@ var roleBuilder = {
         else {
             //var sources = creep.room.find(FIND_SOURCES); 1 room
             var sources = Game.rooms.W14N58.find(FIND_SOURCES);
-            sources += Game.rooms.W14N59.find(FIND_SOURCES);
+            if (!sources.length)
+                sources = Game.rooms.W14N59.find(FIND_SOURCES);
             /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
