@@ -4,8 +4,8 @@ var roleBuilder = require('role.builder');
 var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
-var rolePath = require('role.path2');
-var roleKeeper = require('role.keeper');
+//var rolePath = require('role.path2');
+//var roleKeeper = require('role.keeper');
 
 module.exports.loop = function () {
     var startCpu = Game.getUsedCpu();
