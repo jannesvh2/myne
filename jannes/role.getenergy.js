@@ -1,5 +1,5 @@
 var roleGetEnergy = {
-    run: function(creep) {
+    run: function (creep) {
         //var sources = creep.room.find(FIND_SOURCES); 1 room
         
         for (var myRooms in Game.rooms) {
@@ -13,12 +13,12 @@ var roleGetEnergy = {
             }
             if (sources[creep.memory.source].energy < 100) {
                 creep.memory.source++;
-                if (creep.memory.source >= energyCount)
+                if (creep.memory.source >= sources.length)
                     creep.memory.source = 0;
             }
             if (creep.moveTo(sources[creep.memory.source]) == ERR_NO_PATH) {
                 creep.memory.source++;
-                if (creep.memory.source >= energyCount)
+                if (creep.memory.source >= sources.length)
                     creep.memory.source = 0;
                 if (creep.moveTo(sources[creep.memory.source]) == OK) { }
             }

@@ -3,7 +3,6 @@ var roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var energyCount = 4;
 
         if (creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;

@@ -4,7 +4,6 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var energyCount = 4;
 
         if (creep.memory.storing && creep.carry.energy == 0) {
             creep.memory.storing = false;
