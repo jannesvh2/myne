@@ -36,7 +36,7 @@ var roleSpawn = {
                 var newName2 = Game.spawns['Spawn1'].createCreep([WORK, WORK, CARRY, MOVE], undefined, { role: 'builder', source: 0 });
             }
             else if (attackers.length < a) {
-                var newName4 = Game.spawns['Spawn1'].createCreep([WORK, WORK, CARRY, MOVE], undefined, { role: 'attacker'});
+                var newName4 = Game.spawns['Spawn1'].createCreep([RANGED_ATTACK, RANGED_ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'attacker' });
             }
         }
 
