@@ -16,23 +16,17 @@ var roleHarvester = {
         }
 
         if (creep.memory.storing) {
-            var targets = Game.rooms.W14N59.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION ||
-                            structure.structureType == STRUCTURE_SPAWN ||
-                            structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
-                }
-            });
-            if (targets.length < 1)
-                try {
-                    targets = Game.rooms.W14N58.find(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_EXTENSION ||
-                                    structure.structureType == STRUCTURE_SPAWN ||
-                                    structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
-                        }
-                    });
-                } catch (err) { }
+            var targets = [];
+            for (var myRooms in Game.rooms) {
+                targets = myRooms.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_EXTENSION ||
+                                structure.structureType == STRUCTURE_SPAWN ||
+                                structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                    }
+                });
+            }
+
             if (targets.length > 0) {
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
