@@ -22,7 +22,7 @@ var roleHarvester = {
                 }
             });
             if (targets.length < 1)
-                targets = Game.rooms.W14N58.find(FIND_STRUCTURES, {
+                targets = Game.rooms.W14N59.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN ||
@@ -38,7 +38,7 @@ var roleHarvester = {
         else {
             //var sources = creep.room.find(FIND_SOURCES); 1 room
             var sources = Game.rooms.W14N59.find(FIND_SOURCES);
-            sources += Game.rooms.W14N58.find(FIND_SOURCES);
+            sources += Game.rooms.W14N59.find(FIND_SOURCES);
             /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
