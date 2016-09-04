@@ -1,4 +1,3 @@
-var rolePath = require('role.path');
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
