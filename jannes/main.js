@@ -35,7 +35,7 @@ module.exports.loop = function () {
             rolePath.run(creep);
         }
         if (creep.memory.role == 'keeper') {
-            rolePath.run(keeper);
+            rolePath.run(creep);
         }
     }
 }
