@@ -8,11 +8,12 @@ var rolePath = {
             creep.say("path");
             console.log(Memory.path);
             creep.moveByPath(Memory.path);
-            creep.build(STRUCTURE_ROAD);
+            GamecreateConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+            creep.memory.path = Memory.path;
         }
         else {
             creep.moveByPath(Memory.path);
-            creep.build(STRUCTURE_ROAD);
+            GamecreateConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
         }
     }
 };
