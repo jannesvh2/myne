@@ -2,7 +2,7 @@ var roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var energyCount = 2;
+        var energyCount = 4;
 
         if (creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;
@@ -15,12 +15,15 @@ var roleUpgrader = {
         }
 
         if (creep.memory.upgrading) {
-            if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.controller);
+            if (creep.upgradeController(Game.rooms.W14N59.controller) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.rooms.W14N59.controller);
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
+            //var sources = creep.room.find(FIND_SOURCES); 1 room
+            var sources = Game.rooms.W14N59.find(FIND_SOURCES);
+            sources += Game.rooms.W14N58.find(FIND_SOURCES);
+            /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
                     atSource = true;

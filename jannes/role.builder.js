@@ -2,7 +2,7 @@ var roleBuilder = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var energyCount = 2;
+        var energyCount = 4;
 
         if (creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
@@ -16,11 +16,11 @@ var roleBuilder = {
                 creep.say('repairing');
 
         }
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+
         if (creep.memory.building) {
-            var targets = Game.rooms.W14N58.find(FIND_CONSTRUCTION_SITES);
+            var targets = Game.rooms.W14N59.find(FIND_CONSTRUCTION_SITES);
             if (!targets.length) {
-                targets = Game.rooms.W14N59.find(FIND_CONSTRUCTION_SITES);
+                targets = Game.rooms.W14N58.find(FIND_CONSTRUCTION_SITES);
             }
 
             if (targets.length) {
@@ -33,6 +33,17 @@ var roleBuilder = {
                 var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => structure.hits < structure.hitsMax
                 });
+                if (!closestDamagedStructure) {
+                    closestDamagedStructure = Game.rooms.W14N59.find(FIND_STRUCTURES, {
+                        filter: (structure) => structure.hits < structure.hitsMax
+                    });
+                }
+                if (!closestDamagedStructure) {
+                    closestDamagedStructure = Game.rooms.W14N58.find(FIND_STRUCTURES, {
+                        filter: (structure) => structure.hits < structure.hitsMax
+                    });
+                }
+
                 if (closestDamagedStructure) {
                     creep.repair(closestDamagedStructure);
                 }
@@ -40,9 +51,8 @@ var roleBuilder = {
         }
         else {
             //var sources = creep.room.find(FIND_SOURCES); 1 room
-            var sources = Game.rooms.W14N58.find(FIND_SOURCES);
-            if (!sources.length)
-                sources = Game.rooms.W14N59.find(FIND_SOURCES);
+            var sources = Game.rooms.W14N59.find(FIND_SOURCES);
+            sources += Game.rooms.W14N58.find(FIND_SOURCES);
             /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {

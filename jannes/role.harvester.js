@@ -2,7 +2,7 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var energyCount = 2;
+        var energyCount = 4;
 
         if (creep.memory.storing && creep.carry.energy == 0) {
             creep.memory.storing = false;
@@ -14,13 +14,21 @@ var roleHarvester = {
         }
 
         if (creep.memory.storing) {
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            var targets = Game.rooms.W14N59.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN ||
                             structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
                 }
             });
+            if (targets.length < 1)
+                targets = Game.rooms.W14N58.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_EXTENSION ||
+                                structure.structureType == STRUCTURE_SPAWN ||
+                                structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                    }
+                });
             if (targets.length > 0) {
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
@@ -28,7 +36,10 @@ var roleHarvester = {
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
+            //var sources = creep.room.find(FIND_SOURCES); 1 room
+            var sources = Game.rooms.W14N59.find(FIND_SOURCES);
+            sources += Game.rooms.W14N58.find(FIND_SOURCES);
+            /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
                     atSource = true;
@@ -46,7 +57,6 @@ var roleHarvester = {
                     if (creep.moveTo(sources[creep.memory.source]) == OK) { }
                 }
             }
-                
         }
     }
 };
