@@ -22,7 +22,7 @@ var roleBuilder = {
         if (creep.memory.building) {
             var targets = [];
             for (var myRooms in Game.rooms) {
-                targets = myRooms.find(FIND_CONSTRUCTION_SITES);
+                targets = Game.rooms[myRooms].find(FIND_CONSTRUCTION_SITES);
             }
             if (targets.length) {
 
