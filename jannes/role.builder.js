@@ -36,10 +36,8 @@ var roleBuilder = {
         }
         else {
             //var sources = creep.room.find(FIND_SOURCES); 1 room
-            var sources = [];
-            for (var myRooms in Game.rooms) {
-                sources += Game.rooms.myRooms.find(FIND_SOURCES);
-            }
+            var sources = Game.rooms.W14N58.find(FIND_SOURCES);
+            sources += Game.rooms.W14N59.find(FIND_SOURCES);
             /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
