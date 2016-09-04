@@ -20,7 +20,7 @@ var roleBuilder = {
         if (creep.memory.building) {
             var targets = Game.rooms.W14N59.find(FIND_CONSTRUCTION_SITES);
             if (!targets.length) {
-                targets = Game.rooms.W14N58.find(FIND_CONSTRUCTION_SITES);
+                targets = Game.rooms.W14N59.find(FIND_CONSTRUCTION_SITES);
             }
 
             if (targets.length) {
@@ -39,7 +39,7 @@ var roleBuilder = {
                     });
                 }
                 if (!closestDamagedStructure) {
-                    closestDamagedStructure = Game.rooms.W14N58.find(FIND_STRUCTURES, {
+                    closestDamagedStructure = Game.rooms.W14N59.find(FIND_STRUCTURES, {
                         filter: (structure) => structure.hits < structure.hitsMax
                     });
                 }
