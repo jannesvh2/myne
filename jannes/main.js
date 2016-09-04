@@ -9,7 +9,7 @@ var roleKeeper = require('role.keeper');
 
 module.exports.loop = function () {
     PathFinder.use(true);
-    var h = 3;
+    var h = 6;
     var b = 6;
     var u = 6;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
