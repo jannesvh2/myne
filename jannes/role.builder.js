@@ -19,8 +19,9 @@ var roleBuilder = {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         if (creep.memory.building) {
             var targets = Game.rooms.W14N58.find(FIND_CONSTRUCTION_SITES);
-            if (!targets.length)
+            if (!targets.length) {
                 targets = Game.rooms.W14N59.find(FIND_CONSTRUCTION_SITES);
+            }
 
             if (targets.length) {
 
