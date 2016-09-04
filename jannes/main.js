@@ -6,6 +6,7 @@ var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 
 module.exports.loop = function () {
+    PathFinder.use(true);
     var h = 6;
     var b = 5;
     var u = 5;
