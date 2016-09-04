@@ -22,7 +22,7 @@ var roleUpgrader = {
         else {
             //var sources = creep.room.find(FIND_SOURCES); 1 room
             var sources = Game.rooms.W14N59.find(FIND_SOURCES);
-            sources = sources.concat(Game.rooms.W14N59.find(FIND_SOURCES));
+            sources = sources.concat(Game.rooms.W14N58.find(FIND_SOURCES));
             /// end
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
