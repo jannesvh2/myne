@@ -31,7 +31,7 @@ module.exports.loop = function () {
             roleBuilder.run(creep);
         }
         if (creep.memory.role == 'path') {
-            rolepath.run(creep);
+            rolePath.run(creep);
         }
     }
 }
