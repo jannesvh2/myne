@@ -2,7 +2,7 @@ var rolePath = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        if (screep.memory.path == null) {
+        if (creep.memory.path == null) {
             var path = creep.pos.findPathTo(4, 7, 'W14N58');
             Memory.path = Room.serializePath(path);
             creep.say("path");
