@@ -36,21 +36,18 @@ var roleBuilder = {
         }
         else {
             var sources = creep.room.find(FIND_SOURCES);
-            var atSource = false;
             for (var a = 0; a < sources.length; a++) {
-                if (creep.harvest(sources[a]) == OK) {
-                    creep.memory.source = a;
+                if (creep.harvest(sources[creep.memory.source]) == OK) {
                     atSource = true;
                     break;
                 }
-            }
-            if (!atSource)
                 if (creep.moveTo(sources[creep.memory.source]) == ERR_NO_PATH) {
                     creep.memory.source++;
                     if (creep.memory.source >= energyCount)
                         creep.memory.source = 0;
                     if (creep.moveTo(sources[creep.memory.source]) == OK) { }
                 }
+            }
         }
     }
 };
