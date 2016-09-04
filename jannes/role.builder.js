@@ -41,6 +41,11 @@ var roleBuilder = {
                     atSource = true;
                     break;
                 }
+                if (sources[creep.memory.source].energy < 100) {
+                    creep.memory.source++;
+                    if (creep.memory.source >= energyCount)
+                        creep.memory.source = 0;
+                }
                 if (creep.moveTo(sources[creep.memory.source]) == ERR_NO_PATH) {
                     creep.memory.source++;
                     if (creep.memory.source >= energyCount)
