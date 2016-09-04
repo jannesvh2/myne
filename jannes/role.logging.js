@@ -6,7 +6,7 @@ var roleLogging = {
         for (var name in Game.rooms) {
             console.log('Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy');
         }
-        console.log("h: " + harvesters.length + "/" + h + ", b: " + builders.length + "/" + b + ", u: " + upgraders.length + "/" + u + "a: " + attackers.length + "/" + a);
+        console.log("h: " + harvesters.length + "/" + h + ", b: " + builders.length + "/" + b + ", u: " + upgraders.length + "/" + u + ", a: " + attackers.length + "/" + a);
     }
 };
 
