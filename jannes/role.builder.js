@@ -35,7 +35,10 @@ var roleBuilder = {
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
+            var sources = [];
+            for (var rooms in Game.rooms) {
+                sources += rooms.find(FIND_SOURCES);
+            }
             for (var a = 0; a < sources.length; a++) {
                 if (creep.harvest(sources[creep.memory.source]) == OK) {
                     atSource = true;
