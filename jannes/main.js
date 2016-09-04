@@ -5,6 +5,7 @@ var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 var rolePath = require('role.path2');
+var roleKeeper = require('role.keeper');
 
 module.exports.loop = function () {
     PathFinder.use(true);
@@ -32,6 +33,9 @@ module.exports.loop = function () {
         }
         if (creep.memory.role == 'path2') {
             rolePath.run(creep);
+        }
+        if (creep.memory.role == 'keeper') {
+            rolePath.run(keeper);
         }
     }
 }

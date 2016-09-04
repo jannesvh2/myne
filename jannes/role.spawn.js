@@ -9,9 +9,13 @@ var roleSpawn = {
                 console.log('Clearing non-existing creep memory:', name);
             }
         }
+        var keeper = _.filter(Game.creeps, (creep) => creep.memory.role == 'keeper');
 
+        if (!keeper[0].ticksToLive >20) {
+            var newName = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'keeper', source: 0 });
+        }
         //spawn harvesters
-        if (harvesters.length < h) {
+        else if (harvesters.length < h) {
             var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'harvester', source: 0 });
         }
 
