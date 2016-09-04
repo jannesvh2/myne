@@ -55,7 +55,7 @@ var roleBuilder = {
             }
         }
         else {
-            rolegetEnergy.run(creep);
+            roleGetEnergy.run(creep);
         }
     }
 };

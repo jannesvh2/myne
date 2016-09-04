@@ -40,7 +40,7 @@ var roleHarvester = {
             }
         }
         else {
-            rolegetEnergy.run(creep);
+            roleGetEnergy.run(creep);
         }
     }
 };

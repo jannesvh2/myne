@@ -21,7 +21,7 @@ var roleUpgrader = {
             }
         }
         else {
-            rolegetEnergy.run(creep);
+            roleGetEnergy.run(creep);
         }
     }
 };
