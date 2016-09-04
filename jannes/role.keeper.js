@@ -5,7 +5,7 @@ var roleKeeper = {
         //clearing memory of non existing creeps
         var path = creep.pos.findPathTo(1, 9, 'W14N58');
         Memory.path = Room.serializePath(path);
-        creep.say("path");
+        creep.say("keeper");
         creep.moveByPath(Memory.path);
     }
 };
