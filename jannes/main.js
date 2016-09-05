@@ -58,9 +58,9 @@ module.exports.loop = function () {
         if (creep.memory.role == 'attacker') {
             roleAttackers.run(creep);
         }
-        //if (creep.memory.role == 'path2') {
-        //    rolePath.run(creep);
-        //}
+        if (creep.memory.role == 'path2') {
+            rolePath.run(creep);
+        }
         //if (creep.memory.role == 'keeper') {
         //    roleKeeper.run(creep);
         //}
