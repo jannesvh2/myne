@@ -16,7 +16,7 @@ var roleAttackers = {
             if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
         }
         //If not in the correct room, move towards it
-        if (creep.room.name != sourceRoom && sourceRoom != '') {
+        else if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
             creep.moveTo(Exit);
