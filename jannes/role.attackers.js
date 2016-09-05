@@ -17,6 +17,7 @@ var roleAttackers = {
                 return (structure.structureType == STRUCTURE_TOWER);
             }
         }));
+        targets.push(creep.pos.findInRange(FIND_HOSTILE_STRUCTURES, 3));
         if (targets.length > 0) {
             if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
         }
