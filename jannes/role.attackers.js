@@ -13,7 +13,7 @@ var roleAttackers = {
         //If not in the correct room, move towards it
         if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
-            var Exit = creep.pos.findClosestByPath(exitDir);
+            var Exit = creep.pos.findClosestByRange(exitDir);
             creep.moveTo(Exit);
         }
         else if (creep.pos != targetLocation.pos) {
