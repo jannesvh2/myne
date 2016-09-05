@@ -7,12 +7,12 @@ var rolePath = {
         if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit);
             Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+            creep.moveTo(Exit);
         }
         else if (creep.pos != targetLocation.pos) {
-            creep.moveTo(targetLocation)
             Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+            creep.moveTo(targetLocation)
         }
     }
 };
