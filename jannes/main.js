@@ -5,6 +5,7 @@ var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 var roleAttackers = require('role.attackers');
+var rolePath = require('role.path2');
 //var rolePath = require('role.path2');
 //var roleKeeper = require('role.keeper');
 
