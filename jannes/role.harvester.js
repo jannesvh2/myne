@@ -3,7 +3,7 @@ var roleGetEnergy = require('role.getenergy');
 var roleHarvester = {
 
     /** @param {Creep} creep **/
-    run: function (creep, sources, atSources) {
+    run: function (creep, sources, atSources, avgAtSource) {
 
         if (creep.memory.storing && creep.carry.energy == 0) {
             creep.memory.storing = false;
@@ -34,7 +34,7 @@ var roleHarvester = {
             }
         }
         else {
-            atSources = roleGetEnergy.run(creep, sources, atSources);
+            atSources = roleGetEnergy.run(creep, sources, atSources, avgAtSource);
         }
         return atSources;
     }

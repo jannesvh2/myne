@@ -1,5 +1,5 @@
 var roleGetEnergy = {
-    run: function (creep, sources, atSources) {
+    run: function (creep, sources, atSources, avgAtSource) {
         //go to closest source
         var source;
         if (!creep.memory.sourceId) {
@@ -7,7 +7,7 @@ var roleGetEnergy = {
 
             for (var s in sources) {
                 creep.memory.sourceId = creep.pos.findNearest(sources).id;
-                if (Memory[creep.memory.sourceId] > 2)
+                if (avgAtSource[creep.memory.sourceId] > 2)
                     for (var i = 0; i < sources.length; i++) {
                         if (sources[i] == s) {
                             sources.splice(i, 1);

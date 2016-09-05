@@ -3,7 +3,7 @@ var roleRepairer = require('role.repairer');
 var roleBuilder = {
 
     /** @param {Creep} creep **/
-    run: function (creep, sources, atSources) {
+    run: function (creep, sources, atSources, avgAtSource) {
 
         if (creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
@@ -35,7 +35,7 @@ var roleBuilder = {
             }
         }
         else {
-            atSources = roleGetEnergy.run(creep, sources, atSources);
+            atSources = roleGetEnergy.run(creep, sources, atSources, avgAtSource);
         }
         return atSources;
     }

@@ -2,7 +2,7 @@ var roleGetEnergy = require('role.getenergy');
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
-    run: function (creep, sources, atSources) {
+    run: function (creep, sources, atSources, avgAtSource) {
 
         if (creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;
@@ -21,7 +21,7 @@ var roleUpgrader = {
             }
         }
         else {
-            atSources = roleGetEnergy.run(creep, sources, atSources);
+            atSources = roleGetEnergy.run(creep, sources, atSources, avgAtSource);
         }
         return atSources;
     }
