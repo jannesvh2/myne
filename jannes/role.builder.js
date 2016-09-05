@@ -20,7 +20,7 @@ var roleBuilder = {
         }
         var canBuild = false;
         if (creep.memory.building) {
-            var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+            var targets = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
             if (targets) {
                 canBuild = true;
                 if (creep.build(targets) == ERR_NOT_IN_RANGE) {
