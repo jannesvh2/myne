@@ -3,7 +3,6 @@ var roleLogging = {
     /** @param {Creep} creep **/
     run: function (h, b, u, a, harvesters, builders, upgraders, attackers) {
 
-        console.log('bla');
         for (var name in Game.rooms) {
             console.log('Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy');
         }
