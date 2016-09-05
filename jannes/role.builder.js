@@ -27,9 +27,10 @@ var roleBuilder = {
                     creep.moveTo(targets);
                 }
             }
-            else{
+            else {
+                targets = [];
                 for (var myRooms in Game.rooms) {
-                    targets = Game.rooms[myRooms].find(FIND_CONSTRUCTION_SITES);
+                    targets.push(Game.rooms[myRooms].find(FIND_CONSTRUCTION_SITES));
                 }
                 if (targets.length) {
                     canBuild = true;
