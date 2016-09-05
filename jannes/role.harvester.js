@@ -23,7 +23,12 @@ var roleHarvester = {
                             structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
                 }
             });
-            if (!targets)
+            if (targets) {
+                if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets);
+                }
+            }
+            else {
                 for (var myRooms in Game.rooms) {
                     targets = Game.rooms[myRooms].find(FIND_STRUCTURES, {
                         filter: (structure) => {
@@ -33,12 +38,13 @@ var roleHarvester = {
                         }
                     });
                 }
-
-            if (targets.length > 0) {
-                if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0]);
+                if (targets.length > 0) {
+                    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(targets[0]);
+                    }
                 }
             }
+
         }
         else {
             roleGetEnergy.run(creep, sources);
