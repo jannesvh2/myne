@@ -21,6 +21,7 @@ module.exports.loop = function () {
 
     var sources = [];
     var atSources = [];
+    var avgAtSource = [];
     //add memory for all sources
     for (var myRooms in Game.rooms)
         sources = Game.rooms[myRooms].find(FIND_SOURCES);
@@ -28,6 +29,10 @@ module.exports.loop = function () {
         if (!Memory[s.id])
             Memory[s.id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         atSources[s.id] = 0;
+        avgAtSource[s.id] = 0;
+        for (var a in Memory[s.id])
+            avgAtSource[s.id] = Memory[s.id][a];
+        avgAtSource[s.id] = avgAtSource[s.id] / Memory[s.id].length;
     }
 
     roleLogging.run(h, b, u, a, harvesters, builders, upgraders, attackers);
