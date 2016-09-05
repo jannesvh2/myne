@@ -30,7 +30,7 @@ module.exports.loop = function () {
             sources.push(a);
     }
     for (s in sources) {
-        console.log(s.id);
+        console.log(s);
         if (!Memory[s.id])
             Memory[s.id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         atSources[s.id] = 0;
