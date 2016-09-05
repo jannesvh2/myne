@@ -20,7 +20,7 @@ var roleGetEnergy = {
             }
         }
         if (creep.harvest(Game.getObjectById(creep.memory.sourceId)) == ERR_NOT_IN_RANGE) {
-            if (creep.moveTo(Game.getObjectById(creep.memory.sourceId)) == OK) { }
+            creep.moveTo(Game.getObjectById(creep.memory.sourceId));
         }
         else
             Memory.atSources[creep.memory.sourceId]++;
