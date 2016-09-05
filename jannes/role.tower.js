@@ -18,7 +18,10 @@ var roleTower = {
             else if (towers.energyAvailable > towers.energyCapacity / 2) {
                 //tower repair
                 var closestDamagedStructure = towers.pos.findClosestByRange(FIND_STRUCTURES, {
-                    filter: (structure) => structure.hits < structure.hitsMax
+                    filter: (structure) => {
+                        return (structure.hits < structure.hitsMax &&
+                            structure.hits < 100000)
+                    }
                 });
                 if (closestDamagedStructure) {
                     towers.repair(closestDamagedStructure);
