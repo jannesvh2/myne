@@ -19,6 +19,17 @@ module.exports.loop = function () {
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker');
 
+    var sources = [];
+    var atSources = [];
+    //add memory for all sources
+    for (var myRooms in Game.rooms)
+        sources = Game.rooms[myRooms].find(FIND_SOURCES);
+    for (s in sources) {
+        if (!Memory[s.id])
+            Memory[s.id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        atSources[s.id] = 0;
+    }
+
     roleLogging.run(h, b, u, a, harvesters, builders, upgraders, attackers);
     roleSpawn.run(h, b, u, a, harvesters, builders, upgraders, attackers);
     roleTower.run();
@@ -26,16 +37,16 @@ module.exports.loop = function () {
     for (var name in Game.creeps) {
         var creep = Game.creeps[name];
         if (creep.memory.role == 'harvester') {
-            roleHarvester.run(creep);
+            atSources = roleHarvester.run(creep, sources, atSources);
         }
         if (creep.memory.role == 'upgrader') {
-            roleUpgrader.run(creep);
+            atSources = roleUpgrader.run(creep, sources, atSources);
         }
         if (creep.memory.role == 'builder') {
-            roleBuilder.run(creep);
+            atSources = roleBuilder.run(creep, sources, atSources);
         }
         if (creep.memory.role == 'attacker') {
-            roleAttackers.run(creep);
+            atSources = roleAttackers.run(creep);
         }
         //if (creep.memory.role == 'path2') {
         //    rolePath.run(creep);
@@ -43,5 +54,9 @@ module.exports.loop = function () {
         //if (creep.memory.role == 'keeper') {
         //    roleKeeper.run(creep);
         //}
+    }
+    for (s in sources) {
+        Memory[s.id].push(atSources[s.id])
+        Memory[s.id].splice(i, 1);
     }
 }

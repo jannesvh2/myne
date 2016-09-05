@@ -1,29 +1,33 @@
 var roleGetEnergy = {
-    run: function (creep) {
-        //var sources = creep.room.find(FIND_SOURCES); 1 room
-        
-        for (var myRooms in Game.rooms) {
-            var sources = Game.rooms[myRooms].find(FIND_SOURCES);
-        }
-        /// end
-        for (var a = 0; a < sources.length; a++) {
-            if (creep.harvest(sources[creep.memory.source]) == OK) {
-                atSource = true;
-                break;
-            }
-            if (sources[creep.memory.source].energy < 100) {
-                creep.memory.source++;
-                if (creep.memory.source >= sources.length)
-                    creep.memory.source = 0;
-            }
-            if (creep.moveTo(sources[creep.memory.source]) == ERR_NO_PATH) {
-                creep.memory.source++;
-                if (creep.memory.source >= sources.length)
-                    creep.memory.source = 0;
-                if (creep.moveTo(sources[creep.memory.source]) == OK) { }
+    run: function (creep, sources, atSources) {
+        //go to closest source
+        var source;
+        if (!creep.memory.sourceId) {
+            var sources = [];
+
+            for (var s in sources) {
+                creep.memory.sourceId = creep.pos.findNearest(sources).id;
+                if (Memory[creep.memory.sourceId] > 2)
+                    for (var i = 0; i < sources.length; i++) {
+                        if (sources[i] == s) {
+                            sources.splice(i, 1);
+                            break;
+                        }
+                    }
+                else {
+
+                    break;
+                }
             }
         }
-	}
+        if (creep.harvest(sources[creep.memory.sourceId]) == ERR_NOT_IN_RANGE) {
+            if (creep.moveTo(sources[creep.memory.sourceId]) == OK) { }
+        }
+        else
+            atSources[creep.memory.sourceId]++;
+        return atSources;
+    }
+
 };
 
 module.exports = roleGetEnergy;
