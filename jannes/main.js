@@ -25,6 +25,7 @@ module.exports.loop = function () {
     //add memory for all sources
     for (var myRooms in Game.rooms)
         sources.push(Game.rooms[myRooms].find(FIND_SOURCES));
+    Memory.sources = sources;
     for (s in sources) {
         console.log(s.id);
         if (!Memory[s.id])
