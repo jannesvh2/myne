@@ -18,7 +18,7 @@ var roleHarvester = {
         if (creep.memory.storing) {
             var targets = [];
             for (var myRooms in Game.rooms) {
-                targets = Game.rooms[myRooms].find(FIND_STRUCTURES, {
+                targets = Game.rooms[myRooms].findClosestByPath(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN ||
