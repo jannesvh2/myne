@@ -20,9 +20,8 @@ var roleBuilder = {
         }
 
         if (creep.memory.building) {
-            var targets = [];
-            targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
-            if (!targets.length)
+            var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+            if (!targets)
                 for (var myRooms in Game.rooms) {
                     targets = Game.rooms[myRooms].find(FIND_CONSTRUCTION_SITES);
                 }

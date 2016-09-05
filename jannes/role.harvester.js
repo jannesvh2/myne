@@ -16,15 +16,14 @@ var roleHarvester = {
         }
 
         if (creep.memory.storing) {
-            var targets = [];
-            targets = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            var targets = creep.pos.findClosestByPath(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN ||
                             structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
                 }
             });
-            if (!targets.length)
+            if (!targets)
                 for (var myRooms in Game.rooms) {
                     targets = Game.rooms[myRooms].find(FIND_STRUCTURES, {
                         filter: (structure) => {
