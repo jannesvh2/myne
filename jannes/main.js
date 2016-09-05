@@ -21,25 +21,27 @@ module.exports.loop = function () {
 
     var sources = [];
     var roomSources = [];
-    var atSources = [];
-    var avgAtSource = [];
+    Memory.avgAtSource = [];
+    Memory.atSources = [];
     //add memory for all sources
     for (var myRooms in Game.rooms) {
         roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
-        for (var a in roomSources)
-            sources.push(a);
-    }
-    for (s in sources) {
-        console.log(s);
-        if (!Memory[s.id])
-            Memory[s.id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        atSources[s.id] = 0;
-        avgAtSource[s.id] = 0;
-        for (var a in Memory[s.id])
-            avgAtSource[s.id] = Memory[s.id][a];
-        avgAtSource[s.id] = avgAtSource[s.id] / Memory[s.id].length;
-    }
+        for (var a = 0; a < roomSources.length; a++) {
+            sources.push(roomSources[a]);
 
+        }
+    }
+    for (var s = 0; s < sources.length; s++) {
+        if (!Memory[sources[s].id])
+            Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        Memory.atSources[sources[s].id] = 0;
+        Memory.avgAtSource[sources[s].id] = 0;
+        for (var a = 0; a < Memory[sources[s].id].length; a++)
+            Memory.avgAtSource[sources[s].id] += Memory[sources[s].id][a];
+        Memory.avgAtSource[sources[s].id] = Memory.avgAtSource[sources[s].id] / Memory[sources[s].id].length;
+        if (!Memory.avgAtSource[sources[s].id])
+            Memory.avgAtSource[sources[s].id] = 0;
+    }
     roleLogging.run(h, b, u, a, harvesters, builders, upgraders, attackers);
     roleSpawn.run(h, b, u, a, harvesters, builders, upgraders, attackers);
     roleTower.run();
@@ -47,16 +49,16 @@ module.exports.loop = function () {
     for (var name in Game.creeps) {
         var creep = Game.creeps[name];
         if (creep.memory.role == 'harvester') {
-            atSources = roleHarvester.run(creep, sources, atSources, avgAtSource);
+            roleHarvester.run(creep, sources);
         }
         if (creep.memory.role == 'upgrader') {
-            atSources = roleUpgrader.run(creep, sources, atSources, avgAtSource);
+            roleUpgrader.run(creep, sources);
         }
         if (creep.memory.role == 'builder') {
-            atSources = roleBuilder.run(creep, sources, atSources, avgAtSource);
+           roleBuilder.run(creep, sources);
         }
         if (creep.memory.role == 'attacker') {
-            atSources = roleAttackers.run(creep);
+            roleAttackers.run(creep);
         }
         //if (creep.memory.role == 'path2') {
         //    rolePath.run(creep);
@@ -65,8 +67,8 @@ module.exports.loop = function () {
         //    roleKeeper.run(creep);
         //}
     }
-    for (s in sources) {
-        Memory[s.id].push(atSources[s.id])
-        Memory[s.id].splice(0, 1);
+    for (var s = 0; s < sources.length; s++) {
+        Memory[sources[s].id].push(Memory.atSources[sources[s].id])
+        Memory[sources[s].id].splice(0, 1);
     }
 }
