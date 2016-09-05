@@ -5,7 +5,7 @@ var roleTower = {
 
         //tower
         var twrRep = function (tower) {
-            if (tower.energy > tower.energyCapacity / 2) {
+            if (tower.energy > tower.energyCapacity * 2 / 3) {
                 //tower repair
                 var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
