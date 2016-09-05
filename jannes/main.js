@@ -26,6 +26,7 @@ module.exports.loop = function () {
     for (var myRooms in Game.rooms)
         sources = Game.rooms[myRooms].find(FIND_SOURCES);
     for (s in sources) {
+        console.log(s.id);
         if (!Memory[s.id])
             Memory[s.id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         atSources[s.id] = 0;
