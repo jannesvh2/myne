@@ -12,12 +12,16 @@ var roleGetEnergy = {
                 var tmp = creep.pos.findClosestByPath(tmpsources[s])
                 if (tmp)
                     creep.memory.sourceId = tmp.id;
-                if (Memory.avgAtSource[creep.memory.sourceId] > 2.5 || tmpsources[s].energy < 100) {
+                if (creep.memory.sourceId && (Memory.avgAtSource[creep.memory.sourceId] > 2.5 || tmpsources[s].energy < 100)) {
                     tmpsources.splice(s, 1);
                 }
                 else {
                     break;
                 }
+            }
+            if (!creep.memory.sourceId) {
+                creep.memory.sourceId = sources[sources.length - 1].id;
+                console.log('NO ID');
             }
         }
         if (creep.harvest(Game.getObjectById(creep.memory.sourceId)) == ERR_NOT_IN_RANGE) {
