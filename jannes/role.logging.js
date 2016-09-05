@@ -3,10 +3,12 @@ var roleLogging = {
     /** @param {Creep} creep **/
     run: function (h, b, u, a, harvesters, builders, upgraders, attackers) {
 
+        var msg = '';
         for (var name in Game.rooms) {
-            console.log('Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy');
+            msg += 'Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy';
         }
-        console.log("h: " + harvesters.length + "/" + h + ", b: " + builders.length + "/" + b + ", u: " + upgraders.length + "/" + u + ", a: " + attackers.length + "/" + a);
+        msg += "h: " + harvesters.length + "/" + h + ", b: " + builders.length + "/" + b + ", u: " + upgraders.length + "/" + u + ", a: " + attackers.length + "/" + a;
+        console.log(msg);
     }
 };
 
