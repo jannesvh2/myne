@@ -57,6 +57,6 @@ module.exports.loop = function () {
     }
     for (s in sources) {
         Memory[s.id].push(atSources[s.id])
-        Memory[s.id].splice(i, 1);
+        Memory[s.id].splice(0, 1);
     }
 }
