@@ -10,6 +10,7 @@ var roleUpgrader = {
         }
         else if (!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
             creep.memory.upgrading = true;
+            delete creep.memory.sourceId;
             creep.say('upgrading');
 
         }

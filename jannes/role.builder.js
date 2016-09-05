@@ -11,6 +11,7 @@ var roleBuilder = {
         }
         else if (!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
             creep.memory.building = true;
+            delete creep.memory.sourceId;
             if (creep.room.find(FIND_CONSTRUCTION_SITES).length)
                 creep.say('building');
             else

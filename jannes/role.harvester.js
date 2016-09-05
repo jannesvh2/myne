@@ -11,6 +11,7 @@ var roleHarvester = {
         }
         else if (!creep.memory.storing && creep.carry.energy == creep.carryCapacity) {
             creep.memory.storing = true;
+            delete creep.memory.sourceId;
             creep.say('storing');
         }
 
