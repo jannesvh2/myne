@@ -24,16 +24,16 @@ var roleSpawn = {
         //spawn harvesters
         if (didSpawn == false) {
             if (harvesters.length < h) {
-                var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, CARRY, MOVE], undefined, { role: 'harvester', source: 0 });
+                var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'harvester', source: 0 });
             }
 
                 //console.log('Upgraders: ' + upgraders.length);
             else if (upgraders.length < u) {
-                var newName3 = Game.spawns['Spawn1'].createCreep([WORK, WORK, CARRY, MOVE], undefined, { role: 'upgrader', source: 0 });
+                var newName3 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'upgrader', source: 0 });
             }
                 //console.log('Builders: ' + builders.length);
             else if (builders.length < b) {
-                var newName2 = Game.spawns['Spawn1'].createCreep([WORK, WORK, CARRY, MOVE], undefined, { role: 'builder', source: 0 });
+                var newName2 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'builder', source: 0 });
             }
             else if (attackers.length < a) {
                 var newName4 = Game.spawns['Spawn1'].createCreep([RANGED_ATTACK, RANGED_ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'attacker' });
