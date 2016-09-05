@@ -14,7 +14,7 @@ var roleTower = {
                     }
                 });
                 if (closestDamagedStructure) {
-                    towers.repair(closestDamagedStructure);
+                    tower.repair(closestDamagedStructure);
                 }
             }
         }
