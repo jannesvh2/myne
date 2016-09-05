@@ -12,7 +12,7 @@ var roleAttackers = {
 
         var targets = [];
         targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
-        targets.push(Game.rooms[myRooms].findInRange(FIND_HOSTILE_STRUCTURES, 3, {
+        targets.push(creep.pos.findInRange(FIND_HOSTILE_STRUCTURES, 3, {
             filter: (structure) => {
                 return (structure.structureType == STRUCTURE_TOWER);
             }
@@ -39,7 +39,7 @@ var roleAttackers = {
                     return object.getActiveBodyparts(ATTACK) == 0 || object.getActiveBodyparts(RANGED_ATTACK) == 0;
                 }
             });
-           targets.push(Game.rooms[myRooms].find(FIND_HOSTILE_STRUCTURES, {
+           targets.push(creep.pos.find(FIND_HOSTILE_STRUCTURES, {
                filter: (structure) => {
                    return (structure.structureType == STRUCTURE_TOWER);
                }
