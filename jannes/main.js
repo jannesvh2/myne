@@ -13,7 +13,7 @@ module.exports.loop = function () {
     var h = 4;
     var b = 3;
     var u = 3;
-    var atk = 4;
+    var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
