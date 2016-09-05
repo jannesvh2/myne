@@ -10,6 +10,11 @@ var roleAttackers = {
         //var sourceRoom = targetLocation.room.name;
         var sourceRoom = 'W58S28';
 
+        var targets = [];
+        targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
+        if (targets.length > 0) {
+            if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+        }
         //If not in the correct room, move towards it
         if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
@@ -20,7 +25,6 @@ var roleAttackers = {
             creep.moveTo(targetLocation)
         }
         //Priority attack
-        var targets = [];
         if (enableID) {
             targets.push(priorityTarget);
         }
