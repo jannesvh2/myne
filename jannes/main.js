@@ -33,7 +33,7 @@ module.exports.loop = function () {
     }
     for (var s = 0; s < sources.length; s++) {
         if (!Memory[sources[s].id])
-            Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         Memory.atSources[sources[s].id] = 0;
         Memory.avgAtSource[sources[s].id] = 0;
         for (var a = 0; a < Memory[sources[s].id].length; a++)
