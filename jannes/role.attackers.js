@@ -7,7 +7,8 @@ var roleAttackers = {
         var targetLocation = Game.getObjectById('57c39db0fe945e772e27f387');
         var priorityTarget = Game.getObjectById('57cc37bffca092544afcc82d');
 
-        var sourceRoom = targetLocation.room.name;
+        //var sourceRoom = targetLocation.room.name;
+        var sourceRoom = 'W58S28';
 
         //If not in the correct room, move towards it
         if (creep.room.name != sourceRoom && sourceRoom != '') {
