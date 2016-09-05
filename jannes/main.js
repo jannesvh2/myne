@@ -20,12 +20,15 @@ module.exports.loop = function () {
     var attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker');
 
     var sources = [];
+    var roomSources = [];
     var atSources = [];
     var avgAtSource = [];
     //add memory for all sources
-    for (var myRooms in Game.rooms)
-        sources.push(Game.rooms[myRooms].find(FIND_SOURCES));
-    Memory.sources = sources;
+    for (var myRooms in Game.rooms) {
+        roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
+        for (var a in roomSources)
+            sources.push(a);
+    }
     for (s in sources) {
         console.log(s.id);
         if (!Memory[s.id])
