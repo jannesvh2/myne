@@ -11,8 +11,8 @@ var roleAttackers = require('role.attackers');
 module.exports.loop = function () {
     PathFinder.use(true);
     var h = 4;
-    var b = 4;
-    var u = 4;
+    var b = 3;
+    var u = 3;
     var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
