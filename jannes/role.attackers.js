@@ -4,7 +4,7 @@ var roleAttackers = {
     run: function (creep) {
         var enableID = false;
         var enablePriority = false;
-        var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefd9a');
+        var targetLocation = Game.getObjectById('57c39db0fe945e772e27f387');
         var priorityTarget = Game.getObjectById('57cc37bffca092544afcc82d');
 
         var sourceRoom = targetLocation.room.name;
