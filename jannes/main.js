@@ -24,7 +24,7 @@ module.exports.loop = function () {
     var avgAtSource = [];
     //add memory for all sources
     for (var myRooms in Game.rooms)
-        sources = Game.rooms[myRooms].find(FIND_SOURCES);
+        sources.push(Game.rooms[myRooms].find(FIND_SOURCES));
     for (s in sources) {
         console.log(s.id);
         if (!Memory[s.id])
