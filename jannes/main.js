@@ -13,7 +13,7 @@ module.exports.loop = function () {
     var h = 4;
     var b = 4;
     var u = 8;
-    var a = 0;
+    var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
@@ -40,8 +40,8 @@ module.exports.loop = function () {
             Memory.avgAtSource[sources[s].id] += Memory[sources[s].id][a];
         Memory.avgAtSource[sources[s].id] = Memory.avgAtSource[sources[s].id] / Memory[sources[s].id].length;
     }
-    roleLogging.run(h, b, u, a, harvesters, builders, upgraders, attackers);
-    roleSpawn.run(h, b, u, a, harvesters, builders, upgraders, attackers);
+    roleLogging.run(h, b, u, atk, harvesters, builders, upgraders, attackers);
+    roleSpawn.run(h, b, u, atk, harvesters, builders, upgraders, attackers);
     roleTower.run();
 
     for (var name in Game.creeps) {

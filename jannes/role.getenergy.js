@@ -4,16 +4,12 @@ var roleGetEnergy = {
         var source;
         if (!creep.memory.sourceId) {
 
-            for (var s in sources) {
-                console.log(s.energy);
+            for (var s = 0; s < sources.length; s++) {
                 creep.memory.sourceId = creep.pos.findClosestByPath(sources).id;
-                if (Memory.avgAtSource[creep.memory.sourceId] > 2 || s.energy < 100)
-                    for (var i = 0; i < sources.length; i++) {
-                        if (sources[i] == s) {
-                            sources.splice(i, 1);
-                            break;
-                        }
-                    }
+                if (Memory.avgAtSource[creep.memory.sourceId] > 2 || sources[s].energy < 100) {
+                    sources.splice(s, 1);
+                    s--;
+                }
                 else {
 
                     break;
