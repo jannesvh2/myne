@@ -1,7 +1,7 @@
 var roleAttackers = {
 
     /** @param {Creep} creep **/
-    run: function () {
+    run: function (creep) {
         var enableID = false;
         var enablePriority = false;
         var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefd9a');
