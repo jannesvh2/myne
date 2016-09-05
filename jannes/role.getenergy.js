@@ -19,8 +19,8 @@ var roleGetEnergy = {
                 }
             }
         }
-        if (creep.harvest(sources[creep.memory.sourceId]) == ERR_NOT_IN_RANGE) {
-            if (creep.moveTo(sources[creep.memory.sourceId]) == OK) { }
+        if (creep.harvest(Game.getObjectById(creep.memory.sourceId)) == ERR_NOT_IN_RANGE) {
+            if (creep.moveTo(Game.getObjectById(creep.memory.sourceId)) == OK) { }
         }
         else
             Memory.atSources[creep.memory.sourceId]++;
