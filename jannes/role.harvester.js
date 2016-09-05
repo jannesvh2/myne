@@ -18,11 +18,18 @@ var roleHarvester = {
         if (creep.memory.storing) {
             var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION ||
-                            structure.structureType == STRUCTURE_SPAWN ||
-                            structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                    return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2;
                 }
             });
+            if (!targets) {
+                targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_EXTENSION ||
+                                structure.structureType == STRUCTURE_SPAWN ||
+                                structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                    }
+                });
+            }
             if (targets) {
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets);
