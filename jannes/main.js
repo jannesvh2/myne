@@ -6,8 +6,7 @@ var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 var roleAttackers = require('role.attackers');
 var rolePath = require('role.path2');
-//var rolePath = require('role.path2');
-//var roleKeeper = require('role.keeper');
+var roleKeeper = require('role.keeper');
 
 module.exports.loop = function () {
     PathFinder.use(true);
@@ -67,8 +66,8 @@ module.exports.loop = function () {
         if (creep.memory.role == 'path2') {
             rolePath.run(creep);
         }
-        if (creep.memory.role == 'keeper') {
-            roleKeeper.run(creep, spots);
+        if (creep.memory.role == 'scout') {
+            roleKeeper.run(creep);
         }
     }
     for (var s = 0; s < sources.length; s++) {
