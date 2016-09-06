@@ -34,7 +34,9 @@ var roleBuilder = {
                 }
                 if (targets.length) {
                     canBuild = true;
-                    if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
+                    var builReturn = creep.build(targets[0]);
+                    console.log(builReturn);
+                    if (builReturn == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0]);
                     }
                 }
