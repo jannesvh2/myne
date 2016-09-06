@@ -23,7 +23,8 @@ var roleBuilder = {
             var targets = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES);
             if (targets) {
                 canBuild = true;
-                if (creep.build(targets) == ERR_NOT_IN_RANGE) {
+                var test = creep.build(targets);
+                if (test == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets);
                 }
             }
