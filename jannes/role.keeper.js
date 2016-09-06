@@ -15,9 +15,7 @@ var roleKeeper = {
             }
         }
 
-        var sourceRoom = '';
         //If not in the correct room, move towards it
-        var sourceRoom = 'W59S28';
         Memory.spots.forEach(spot => goTo(spot));
        
     
