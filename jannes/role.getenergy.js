@@ -4,6 +4,7 @@ var roleGetEnergy = {
         var source;
         var newSource = function () {
             if (!creep.memory.sourceId) {
+                console.log(creep.name);
                 var tmpsources = sources;
 
                 for (var s = 0; s < tmpsources.length; s++) {
@@ -23,9 +24,10 @@ var roleGetEnergy = {
         }
         newSource();
         var creepSource = Game.getObjectById(creep.memory.sourceId);
-        if (creepSource.ticksToRegeneration < 30 && creepSource.energy < 200 && creep.energy == 0) {
+        if (creepSource.ticksToRegeneration === undefined || (creepSource.ticksToRegeneration < 30 && creepSource.energy < 200 && creep.energy == 0)) {
             delete creep.memory.sourceId;
             newSource();
+            console.log(creep.name);
             creepSource = Game.getObjectById(creep.memory.sourceId);
         }
         var sourceEmpty = creep.harvest(creepSource);
