@@ -1,9 +1,9 @@
 var roleKeeper = {
 
     /** @param {Creep} creep **/
-    run: function (creep, spots) {
+    run: function (creep) {
         var goTo = function (spot) {
-            if (creep.memory.spot == spot) {
+            if (creep.memory.spot == spot.sourceRoom) {
                 if (creep.room.name != spot.sourceRoom && spot.sourceRoom != '') {
                     var exitDir = Game.map.findExit(creep.room.name, spot.sourceRoom);
                     var Exit = creep.pos.findClosestByRange(exitDir);
@@ -18,7 +18,7 @@ var roleKeeper = {
         var sourceRoom = '';
         //If not in the correct room, move towards it
         var sourceRoom = 'W59S28';
-        spots.forEach(spot => goTo(spot));
+        Memory.spots.forEach(spot => goTo(spot));
        
     
     }
