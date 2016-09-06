@@ -12,7 +12,7 @@ var roleBuilder = {
         else if (!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
             creep.memory.building = true;
             delete creep.memory.sourceId;
-            if (creep.room.find(FIND_CONSTRUCTION_SITES).length)
+            if (creep.room.find(FIND_MY_CONSTRUCTION_SITES).length)
                 creep.say('building');
             else
                 creep.say('repairing');
@@ -20,7 +20,7 @@ var roleBuilder = {
         }
         var canBuild = false;
         if (creep.memory.building) {
-            var targets = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+            var targets = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES);
             if (targets) {
                 canBuild = true;
                 if (creep.build(targets) == ERR_NOT_IN_RANGE) {
@@ -30,14 +30,25 @@ var roleBuilder = {
             else {
                 targets = [];
                 for (var myRooms in Game.rooms) {
-                    targets.push(Game.rooms[myRooms].find(FIND_CONSTRUCTION_SITES));
+                    var tmpTargets = Game.rooms[myRooms].find(FIND_MY_CONSTRUCTION_SITES);
+                    for (var t in tmpTargets)
+                        targets.push(tmpTargets[t]);
                 }
                 if (targets.length) {
                     canBuild = true;
-                    var builReturn = creep.build(targets[0]);
-                    console.log(builReturn);
-                    if (builReturn == ERR_NOT_IN_RANGE) {
+                    var buildReturn = creep.build(targets[0]);
+                    if (buildReturn == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0]);
+                    }
+                    if (buildReturn == ERR_INVALID_TARGET) {
+                        Memory.test = targets[0];
+                        var sourceRoom = targets[0].room.name;
+                        if (creep.room.name != sourceRoom && sourceRoom != '') {
+                            var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                            var Exit = creep.pos.findClosestByRange(exitDir);
+                            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+                            creep.moveTo(Exit);
+                        }
                     }
                 }
             }
