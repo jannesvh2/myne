@@ -5,12 +5,12 @@ var roleBuilder = {
     /** @param {Creep} creep **/
     run: function (creep, sources) {
 
-        if (creep.memory.building && creep.carry.energy == 0) {
-            creep.memory.building = false;
+        if (creep.memory.full && creep.carry.energy == 0) {
+            creep.memory.full = false;
             creep.say('harvesting');
         }
-        else if (!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-            creep.memory.building = true;
+        else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
+            creep.memory.full = true;
             delete creep.memory.sourceId;
             if (creep.room.find(FIND_MY_CONSTRUCTION_SITES).length)
                 creep.say('building');
@@ -19,7 +19,7 @@ var roleBuilder = {
 
         }
         var canBuild = false;
-        if (creep.memory.building) {
+        if (creep.memory.full) {
             var targets = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES);
             if (targets) {
                 canBuild = true;

@@ -5,17 +5,17 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function (creep, sources) {
 
-        if (creep.memory.storing && creep.carry.energy == 0) {
-            creep.memory.storing = false;
+        if (creep.memory.full && creep.carry.energy == 0) {
+            creep.memory.full = false;
             creep.say('harvesting');
         }
-        else if (!creep.memory.storing && creep.carry.energy == creep.carryCapacity) {
-            creep.memory.storing = true;
+        else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
+            creep.memory.full = true;
             delete creep.memory.sourceId;
             creep.say('storing');
         }
 
-        if (creep.memory.storing) {
+        if (creep.memory.full) {
             var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2;

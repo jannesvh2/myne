@@ -2,7 +2,7 @@ var roleGetEnergy = {
     run: function (creep, sources) {
         //go to closest source
         var source;
-        var newSource = function(){
+        var newSource = function () {
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
 
@@ -28,11 +28,16 @@ var roleGetEnergy = {
             newSource();
             creepSource = Game.getObjectById(creep.memory.sourceId);
         }
-            if (creep.harvest(creepSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creepSource);
+        var sourceEmpty = creep.harvest(creepSource);
+        if (sourceEmpty == ERR_NOT_IN_RANGE) {
+            creep.moveTo(creepSource);
         }
-        else
-            Memory.atSources[creep.memory.sourceId]++;
+        else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY)
+            creep.memory.full = true;
+
+        else {
+            console.log(sourceEmpty);
+        }
     }
 
 };
