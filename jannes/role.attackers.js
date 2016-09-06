@@ -50,7 +50,10 @@ var roleAttackers = {
         }
 
         if (targets.length > 0) {
-            if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+            if (creep.getActiveBodyparts(RANGED_ATTACK))
+                if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+            if (creep.getActiveBodyparts(ATTACK))
+                if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
         }
     }
 };
