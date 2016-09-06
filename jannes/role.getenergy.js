@@ -32,7 +32,7 @@ var roleGetEnergy = {
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             creep.moveTo(creepSource);
         }
-        else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.energy != 0)
+        else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
             creep.memory.full = true;
 
         else {
