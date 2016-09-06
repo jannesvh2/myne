@@ -36,7 +36,7 @@ var roleGetEnergy = {
             creep.memory.full = true;
 
         else {
-            console.log(sourceEmpty);
+            Memory.atSources[creep.memory.sourceId]++;
         }
     }
 
