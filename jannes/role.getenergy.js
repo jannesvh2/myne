@@ -9,11 +9,11 @@ var roleGetEnergy = {
 
                 while (tmpsources.length) {
                     var s = 0;
-                    if (tmpsources.length == 0)
-                        break;
                     creep.memory.sourceId = creep.pos.findClosestByRange(tmpsources).id;
                     if (Memory.avgAtSource[creep.memory.sourceId] > 2.5 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
-                        tmpsources.splice(s, 1);
+                        for (var trm = 0; trm < tmpsources.length; trm++)
+                            if (tmpsources[trm].id == creep.memory.sourceId)
+                                  tmpsources.splice(trm, 1);
                     }
                     else {
                         break;
