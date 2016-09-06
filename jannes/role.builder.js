@@ -38,8 +38,8 @@ var roleBuilder = {
                 if (targets.length) {
                     canBuild = true;
                     var buildReturn = creep.build(targets[0]);
-                    if (buildReturn == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0]);
+                    if (buildReturn != OK) {
+                        creep.moveTo(targets[0], [50000]);
                     }
                     //if (buildReturn == ERR_INVALID_TARGET) {
                     //    var sourceRoom = targets[0].room.name;
