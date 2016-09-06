@@ -13,15 +13,15 @@ var roleSpawn = {
         var didSpawn = false;
         for (var scout = 0; scout < Memory.spots.length; scout++) {
             var mustCreate = true;
-            for(var scoutCreep = 0; scoutCreep < scouts.length; scoutCreep++){
+            for (var scoutCreep = 0; scoutCreep < scouts.length; scoutCreep++) {
                 if (scouts[scoutCreep].memory.sourceRoom == Memory.spots[scout].sourceRoom) {
                     if (scouts[scoutCreep].ticksToLive > 200)
                         mustCreate = false;
                 }
-                if (mustCreate) {
-                    var newName5 = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
-                    didSpawn = true;
-                }
+            }
+            if (mustCreate) {
+                var newName5 = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
+                didSpawn = true;
             }
         }
         //spawn harvesters
