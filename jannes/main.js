@@ -21,7 +21,9 @@ module.exports.loop = function () {
     var attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker');
     var scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout');
 
-    Memory.spots = ({ x: '10', y: '45', sourceRoom: 'W59S28' }, { x: '12', y: '11', sourceRoom: 'W58S29' })
+    Memory.spots = [];
+    Memory.spots.push({ x: '10', y: '45', sourceRoom: 'W59S28' });
+    Memory.spots.push({ x: '12', y: '11', sourceRoom: 'W58S29' });
 
     var sources = [];
     var roomSources = [];
