@@ -3,7 +3,7 @@ var rolePath = {
     /** @param {Creep} creep **/
     run: function (creep) {
         //Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'path2' });
-        var targetLocation = Game.getObjectById('57cb94ac3133992c79fff597');
+        var targetLocation = Game.getObjectById('57cdb261c41e031e25ccf299');
         var sourceRoom = 'W59S28';
         if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
