@@ -44,8 +44,8 @@ module.exports.loop = function () {
             Memory.avgAtSource[sources[s].id] += Memory[sources[s].id][a];
         Memory.avgAtSource[sources[s].id] = Memory.avgAtSource[sources[s].id] / Memory[sources[s].id].length;
     }
-    roleLogging.run(h, b, u, atk, s, harvesters, builders, upgraders, attackers, scouts);
-    roleSpawn.run(h, b, u, atk, s, harvesters, builders, upgraders, attackers, scouts);
+    roleLogging.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
+    roleSpawn.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
     roleTower.run();
 
     for (var name in Game.creeps) {
