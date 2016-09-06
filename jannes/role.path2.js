@@ -16,7 +16,6 @@ var rolePath = {
                 creep.moveTo(targetLocation)
             }
         }
-    }
     };
 
 module.exports = rolePath;

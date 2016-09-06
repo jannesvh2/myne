@@ -41,16 +41,15 @@ var roleBuilder = {
                     if (buildReturn == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0]);
                     }
-                    if (buildReturn == ERR_INVALID_TARGET) {
-                        Memory.test = targets[0];
-                        var sourceRoom = targets[0].room.name;
-                        if (creep.room.name != sourceRoom && sourceRoom != '') {
-                            var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
-                            var Exit = creep.pos.findClosestByRange(exitDir);
-                            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
-                            creep.moveTo(Exit);
-                        }
-                    }
+                    //if (buildReturn == ERR_INVALID_TARGET) {
+                    //    var sourceRoom = targets[0].room.name;
+                    //    if (creep.room.name != sourceRoom && sourceRoom != '') {
+                    //        var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                    //        var Exit = creep.pos.findClosestByRange(exitDir);
+                    //        Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+                    //        creep.moveTo(Exit);
+                    //    }
+                    //}
                 }
             }
             if (!canBuild) {
