@@ -25,7 +25,7 @@ var roleGetEnergy = {
         }
         newSource();
         var creepSource = Game.getObjectById(creep.memory.sourceId);
-        if (creepSource.ticksToRegeneration === undefined || (creepSource.ticksToRegeneration < 30 && creepSource.energy < 300 && creep.energy == 0)) {
+        if (creepSource === undefined || (creepSource.ticksToRegeneration < 30 && creepSource.energy < 300 && creep.energy == 0)) {
             delete creep.memory.sourceId;
             newSource();
             creepSource = Game.getObjectById(creep.memory.sourceId);
