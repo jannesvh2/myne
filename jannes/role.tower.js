@@ -13,6 +13,14 @@ var roleTower = {
                             structure.hits < 100000)
                     }
                 });
+                if (!closestDamagedStructure) {
+                    var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_WALL && structure.hits < structure.hitsMax &&
+                                structure.hits < 100000)
+                        }
+                    });
+                }
                 if (closestDamagedStructure) {
                     tower.repair(closestDamagedStructure);
                 }
