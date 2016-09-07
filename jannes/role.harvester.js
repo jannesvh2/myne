@@ -16,13 +16,13 @@ var roleHarvester = {
         }
 
         if (creep.memory.full) {
-            var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+            var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2;
                 }
             });
             if (!targets) {
-                targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN ||
@@ -37,7 +37,7 @@ var roleHarvester = {
             }
             else {
                 for (var myRooms in Game.rooms) {
-                    targets = Game.rooms[myRooms].find(FIND_STRUCTURES, {
+                    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_EXTENSION ||
                                     structure.structureType == STRUCTURE_SPAWN ||

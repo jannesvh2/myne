@@ -1,6 +1,6 @@
 var roleRepairer = {
     run: function (creep) {
-        var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+        var closestDamagedStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
             filter: (structure) => {
                 return (structure.hits < structure.hitsMax &&
                     structure.hits < 100000)
@@ -9,7 +9,7 @@ var roleRepairer = {
         if (!closestDamagedStructure) {
             for (var myRooms in Game.rooms) {
                 if (!closestDamagedStructure) {
-                    closestDamagedStructure = Game.rooms[myRooms].find(FIND_STRUCTURES, {
+                    closestDamagedStructure = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.hits < structure.hitsMax &&
                                 structure.hits < 100000)
