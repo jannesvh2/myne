@@ -5,7 +5,6 @@ var roleGetEnergy = {
         var newSource = function () {
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
-
                 while (tmpsources.length) {
                     var s = 0;
                     creep.memory.sourceId = creep.pos.findClosestByRange(tmpsources);
@@ -15,7 +14,7 @@ var roleGetEnergy = {
                     if (Memory.avgAtSource[creep.memory.sourceId] > 2 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
                         for (var trm = 0; trm < tmpsources.length; trm++)
                             if (tmpsources[trm].id == creep.memory.sourceId)
-                                  tmpsources.splice(trm, 1);
+                                tmpsources.splice(trm, 1);
                     }
                     else {
                         break;
@@ -25,11 +24,21 @@ var roleGetEnergy = {
         }
         newSource();
         var creepSource = Game.getObjectById(creep.memory.sourceId);
+
         if (!creepSource || (creepSource.ticksToRegeneration > 30 && creepSource.energy < 300 && creep.energy == 0)) {
             delete creep.memory.sourceId;
             newSource();
             creepSource = Game.getObjectById(creep.memory.sourceId);
         }
+        if (creepSource.energy == 0) {
+            if (creepSource.ticksToRegeneration > 30) {
+                delete creep.memory.sourceId;
+                newSource();
+                creepSource = Game.getObjectById(creep.memory.sourceId);
+            }else
+                creep.moveTo(creepSource, { maxOps: 5000 });
+        }
+
         var sourceEmpty = creep.harvest(creepSource);
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             creep.moveTo(creepSource, { maxOps: 5000 });
