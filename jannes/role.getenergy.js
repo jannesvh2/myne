@@ -17,6 +17,7 @@ var roleGetEnergy = {
                             if (tmpsources[trm].id == creep.memory.sourceId) {
                                 tmpsources.splice(trm, 1);
                                 tmpsourcesLength--;
+                                break;
                             }
                     }
                     else {
