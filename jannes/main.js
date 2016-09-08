@@ -12,7 +12,7 @@ module.exports.loop = function () {
     PathFinder.use(true);
     var h = 4;
     var b = 1;
-    var u = 7;
+    var u = 10;
     var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -22,7 +22,7 @@ module.exports.loop = function () {
 
     Memory.spots = [];
     Memory.spots.push({ x: '10', y: '45', sourceRoom: 'W59S28' });
-    //Memory.spots.push({ x: '12', y: '11', sourceRoom: 'W58S29' });
+    Memory.spots.push({ x: '7', y: '40', sourceRoom: 'W58S28' });
 
     var sources = [];
     var roomSources = [];
@@ -31,17 +31,17 @@ module.exports.loop = function () {
     //add memory for all sources
     for (var myRooms in Game.rooms) {
         roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
-        for (var a = 0; a < roomSources.length; a++) {
+        for (var a = 0, length = roomSources.length; a < length; a++) {
             sources.push(roomSources[a]);
 
         }
     }
-    for (var s = 0; s < sources.length; s++) {
+    for (var s = 0, length = sources.length; s < length; s++) {
         if (!Memory[sources[s].id])
             Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         Memory.atSources[sources[s].id] = 0;
         Memory.avgAtSource[sources[s].id] = 0;
-        for (var a = 0; a < Memory[sources[s].id].length; a++)
+        for (var a = 0, length2 = Memory[sources[s].id].length; a < length2; a++)
             Memory.avgAtSource[sources[s].id] += Memory[sources[s].id][a];
         Memory.avgAtSource[sources[s].id] = Memory.avgAtSource[sources[s].id] / Memory[sources[s].id].length;
     }
@@ -70,7 +70,7 @@ module.exports.loop = function () {
             roleKeeper.run(creep);
         }
     }
-    for (var s = 0; s < sources.length; s++) {
+    for (var s = 0, length = sources.length; s < length; s++) {
         Memory[sources[s].id].push(Memory.atSources[sources[s].id])
         Memory[sources[s].id].splice(0, 1);
     }
