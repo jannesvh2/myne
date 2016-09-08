@@ -12,7 +12,7 @@ var roleKeeper = {
                     creep.moveTo(Exit);
                 }
                 else if (creep.pos.x != Memory.spots[spot].x && creep.pos.y != Memory.spots[spot].y) {
-                    console.log(creep.moveTo(new RoomPosition(Memory.spots[spot].x, Memory.spots[spot].y, Memory.spots[spot].sourceRoom)));
+                    creep.moveTo(new RoomPosition(Memory.spots[spot].x, Memory.spots[spot].y, Memory.spots[spot].sourceRoom));
                     
                 }
                 break;
