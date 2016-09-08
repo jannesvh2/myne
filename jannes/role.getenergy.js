@@ -5,7 +5,8 @@ var roleGetEnergy = {
         var newSource = function () {
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
-                while (tmpsources.length) {
+                var tmpsourcesLength = tmpsources.length;
+                while (tmpsourcesLength >= 0) {
                     var s = 0;
                     creep.memory.sourceId = creep.pos.findClosestByRange(tmpsources);
                     if (creep.memory.sourceId == null)
@@ -13,8 +14,10 @@ var roleGetEnergy = {
                     creep.memory.sourceId = creep.memory.sourceId.id;
                     if (Memory.avgAtSource[creep.memory.sourceId] > 2 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
                         for (var trm = 0, length = tmpsources.length; trm < length; trm++)
-                            if (tmpsources[trm].id == creep.memory.sourceId)
+                            if (tmpsources[trm].id == creep.memory.sourceId) {
                                 tmpsources.splice(trm, 1);
+                                tmpsourcesLength--;
+                            }
                     }
                     else {
                         break;
