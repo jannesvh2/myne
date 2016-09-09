@@ -41,16 +41,16 @@ var roleGetEnergy = {
                 creepSource = Game.getObjectById(creep.memory.sourceId);
             } else {
                 Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
-                //creep.moveTo(creepSource, { maxOps: 5000 });
-                creep.moveTo(creepSource);
+                creep.moveTo(creepSource, { maxOps: 5000 });
+                //creep.moveTo(creepSource);
             }
         }
 
         var sourceEmpty = creep.harvest(creepSource);
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
-            //creep.moveTo(creepSource, { maxOps: 5000 });
-            creep.moveTo(creepSource);
+            creep.moveTo(creepSource, { maxOps: 5000 });
+            //creep.moveTo(creepSource);
         }
         else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
             creep.memory.full = true;
