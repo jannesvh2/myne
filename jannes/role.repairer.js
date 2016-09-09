@@ -9,7 +9,7 @@ var roleRepairer = {
         if (!closestDamagedStructure) {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_RAMPART || structure.structureType == STRUCTURE_ROAD && structure.hits < 200000 && structure.hits > 1000)
+                    return ((structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 200000)
                 }
             });
         }
