@@ -40,15 +40,14 @@ var roleGetEnergy = {
                 newSource();
                 creepSource = Game.getObjectById(creep.memory.sourceId);
             } else {
-                Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
                 creep.moveTo(creepSource, { maxOps: 5000 });
                 //creep.moveTo(creepSource);
             }
         }
 
+        Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
         var sourceEmpty = creep.harvest(creepSource);
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
-            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
             creep.moveTo(creepSource, { maxOps: 5000 });
             //creep.moveTo(creepSource);
         }
