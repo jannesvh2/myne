@@ -3,6 +3,7 @@ var roleGetEnergy = {
         //go to closest source
         var source;
         var newSource = function () {
+            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
                 var tmpsourcesLength = tmpsources.length;
@@ -44,8 +45,6 @@ var roleGetEnergy = {
                 //creep.moveTo(creepSource);
             }
         }
-
-        Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
         var sourceEmpty = creep.harvest(creepSource);
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             creep.moveTo(creepSource, { maxOps: 5000 });
