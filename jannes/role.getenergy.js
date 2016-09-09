@@ -35,7 +35,7 @@ var roleGetEnergy = {
             newSource();
             creepSource = Game.getObjectById(creep.memory.sourceId);
         }
-        if (creepSource.carry.energy == 0) {
+        if (creepSource.energy == 0) {
             if (creepSource.ticksToRegeneration > 30) {
                 delete creep.memory.sourceId;
                 newSource();
