@@ -13,7 +13,7 @@ var roleGetEnergy = {
                     if (creep.memory.sourceId == null)
                         creep.memory.sourceId = tmpsources[Math.floor((Math.random() * tmpsources.length))];
                     creep.memory.sourceId = creep.memory.sourceId.id;
-                    if (Memory.avgAtSource[creep.memory.sourceId] > 2 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
+                    if (Memory.avgAtSource[creep.memory.sourceId] > 5 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
                         for (var trm = 0, length = tmpsources.length; trm < length; trm++)
                             if (tmpsources[trm].id == creep.memory.sourceId) {
                                 tmpsources.splice(trm, 1);
@@ -53,9 +53,7 @@ var roleGetEnergy = {
         else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
             creep.memory.full = true;
 
-        else {
-            Memory.atSources[creep.memory.sourceId]++;
-        }
+        Memory.atSources[creep.memory.sourceId]++;
     }
 
 };
