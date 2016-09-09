@@ -15,7 +15,7 @@ var roleSpawn = {
             var mustCreate = true;
             for (var scoutCreep = 0, length2 = scouts.length; scoutCreep < length2; scoutCreep++) {
                 if (scouts[scoutCreep].memory.sourceRoom == Memory.spots[scout].sourceRoom) {
-                    if (scouts[scoutCreep].ticksToLive > 100)
+                    if (scouts[scoutCreep].ticksToLive > 150)
                         mustCreate = false;
                 }
             }
