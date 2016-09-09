@@ -3,7 +3,8 @@ var roleGetEnergy = {
         //go to closest source
         var source;
         var newSource = function () {
-            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+            if (creep.memory.role != 'builder')
+                Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
                 var tmpsourcesLength = tmpsources.length;
