@@ -22,7 +22,7 @@ module.exports.loop = function () {
 
     Memory.spots = [];
     Memory.spots.push({ x: '10', y: '45', sourceRoom: 'W59S28' });
-    Memory.spots.push({ x: '6', y: '41', sourceRoom: 'W58S28' });
+    //Memory.spots.push({ x: '6', y: '41', sourceRoom: 'W58S28' });
 
     var sources = [];
     var roomSources = [];
