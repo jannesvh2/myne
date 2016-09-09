@@ -41,14 +41,17 @@ var roleGetEnergy = {
                 newSource();
                 creepSource = Game.getObjectById(creep.memory.sourceId);
             }
-            //else {
-            //    creep.moveTo(creepSource, { maxOps: 5000 });
-            //    //creep.moveTo(creepSource);
-            //}
+            else {
+                if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET)
+                    delete creep.memory._move;
+
+                //creep.moveTo(creepSource);
+            }
         }
         var sourceEmpty = creep.harvest(creepSource);
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
-            creep.moveTo(creepSource, { maxOps: 5000 });
+            if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET)
+                delete creep.memory._move;
             Memory.atSources[creep.memory.sourceId]++;
             //creep.moveTo(creepSource);
         }
