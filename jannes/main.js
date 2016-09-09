@@ -50,24 +50,29 @@ module.exports.loop = function () {
     roleTower.run();
 
     for (var name in Game.creeps) {
-        var creep = Game.creeps[name];
-        if (creep.memory.role == 'harvester') {
-            roleHarvester.run(creep, sources);
+        try{
+            var creep = Game.creeps[name];
+            if (creep.memory.role == 'harvester') {
+                roleHarvester.run(creep, sources);
+            }
+            if (creep.memory.role == 'upgrader') {
+                roleUpgrader.run(creep, sources);
+            }
+            if (creep.memory.role == 'builder') {
+                roleBuilder.run(creep, sources);
+            }
+            if (creep.memory.role == 'attacker') {
+                roleAttackers.run(creep);
+            }
+            if (creep.memory.role == 'path2') {
+                rolePath.run(creep);
+            }
+            if (creep.memory.role == 'scout') {
+                roleKeeper.run(creep);
+            }
         }
-        if (creep.memory.role == 'upgrader') {
-            roleUpgrader.run(creep, sources);
-        }
-        if (creep.memory.role == 'builder') {
-           roleBuilder.run(creep, sources);
-        }
-        if (creep.memory.role == 'attacker') {
-            roleAttackers.run(creep);
-        }
-        if (creep.memory.role == 'path2') {
-            rolePath.run(creep);
-        }
-        if (creep.memory.role == 'scout') {
-            roleKeeper.run(creep);
+        catch (err) {
+            console.log("creep: " + creep.name + " error: " + err);
         }
     }
     for (var s = 0, length = sources.length; s < length; s++) {
