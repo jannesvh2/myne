@@ -16,7 +16,7 @@ var roleRepairer = {
         if (!closestDamagedStructure) {
             for (var myRooms in Game.rooms) {
                 if (!closestDamagedStructure) {
-                    closestDamagedStructure = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
+                    closestDamagedStructure = Game.rooms[myRooms].find(FIND_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.hits < structure.hitsMax &&
                                 structure.hits < 100000)
