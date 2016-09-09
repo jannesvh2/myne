@@ -9,10 +9,10 @@ var roleKeeper = {
                 if (creep.room.name != Memory.spots[spot].sourceRoom && Memory.spots[spot].sourceRoom != '') {
                     var exitDir = Game.map.findExit(creep.room.name, Memory.spots[spot].sourceRoom);
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo(Exit);
+                    creep.moveTo(Exit, { maxOps: 5000 });
                 }
                 else if (creep.pos.x != Memory.spots[spot].x && creep.pos.y != Memory.spots[spot].y) {
-                    creep.moveTo(new RoomPosition(Memory.spots[spot].x, Memory.spots[spot].y, Memory.spots[spot].sourceRoom));
+                    creep.moveTo(new RoomPosition(Memory.spots[spot].x, Memory.spots[spot].y, Memory.spots[spot].sourceRoom, { maxOps: 5000 }));
                     
                 }
                 break;
