@@ -24,6 +24,7 @@ var roleSpawn = {
                 didSpawn = true;
             }
         }
+        //Game.rooms.W59S29.energyCapacityAvailable
         //spawn harvesters
         if (didSpawn == false) {
             if (harvesters.length < h) {
