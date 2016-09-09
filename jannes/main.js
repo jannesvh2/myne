@@ -38,12 +38,10 @@ module.exports.loop = function () {
     }
     for (var s = 0, length = sources.length; s < length; s++) {
         if (!Memory[sources[s].id])
-            Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+            Memory[sources[s].id] = 0;
+            //Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         Memory.atSources[sources[s].id] = 0;
-        Memory.avgAtSource[sources[s].id] = 0;
-        for (var a = 0, length2 = Memory[sources[s].id].length; a < length2; a++)
-            Memory.avgAtSource[sources[s].id] += Memory[sources[s].id][a];
-        Memory.avgAtSource[sources[s].id] = Memory.avgAtSource[sources[s].id] / Memory[sources[s].id].length;
+            Memory.avgAtSource[sources[s].id] = Memory[sources[s].id];
     }
     roleLogging.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
     roleSpawn.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
@@ -76,7 +74,6 @@ module.exports.loop = function () {
         }
     }
     for (var s = 0, length = sources.length; s < length; s++) {
-        Memory[sources[s].id].push(Memory.atSources[sources[s].id])
-        Memory[sources[s].id].splice(0, 1);
+        Memory[sources[s].id] = Memory.atSources[sources[s].id];
     }
 }
