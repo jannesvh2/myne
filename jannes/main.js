@@ -10,7 +10,7 @@ var roleKeeper = require('role.keeper');
 
 module.exports.loop = function () {
     PathFinder.use(true);
-    var h = 5;
+    var h = 4;
     var b = 2;
     var u = 8;
     var atk = 0;
