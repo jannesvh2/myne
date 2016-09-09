@@ -12,7 +12,7 @@ module.exports.loop = function () {
     PathFinder.use(true);
     var h = 5;
     var b = 2;
-    var u = 10;
+    var u = 8;
     var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
