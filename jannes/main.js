@@ -19,9 +19,18 @@ module.exports.loop = function () {
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker');
     var scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout');
+    var links = _.filter(Game.creeps, (creep) => creep.memory.role == 'link');
 
     Memory.spots = [];
     Memory.spots.push({ x: '10', y: '45', sourceRoom: 'W59S28' });
+    Memory.linkSource = [];
+    Memory.linkSource.push({ id: '579fa86e0700be0674d2d990', sourceRoom: 'W58S29' });
+    if (Memory.linkSource.length) {
+        //var LinkFrom = Game.getObjectById('');
+        //if(LinkFrom.energy != 0)
+        //LinkFrom.transferEnergy(Game.getObjectById(''));
+    }
+
     //Memory.spots.push({ x: '6', y: '41', sourceRoom: 'W58S28' });
 
     var sources = [];
@@ -43,8 +52,8 @@ module.exports.loop = function () {
         Memory.atSources[sources[s].id] = 0;
             Memory.avgAtSource[sources[s].id] = Memory[sources[s].id];
     }
-    roleLogging.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
-    roleSpawn.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
+    roleLogging.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts, links);
+    roleSpawn.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts, links);
     roleTower.run();
 
     for (var name in Game.creeps) {
@@ -66,6 +75,9 @@ module.exports.loop = function () {
                 rolePath.run(creep);
             }
             if (creep.memory.role == 'scout') {
+                roleKeeper.run(creep);
+            }
+            if (creep.memory.role == 'link') {
                 roleKeeper.run(creep);
             }
         }
