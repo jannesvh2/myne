@@ -4,24 +4,39 @@ var roleAttackers = {
     run: function (creep) {
         var enableID = false;
         var enablePriority = false;
-        //var targetLocation = Game.getObjectById('57d002bbbbd16aff3afd0b68');
+        //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
         var targetLocation = Game.getObjectById('57d2b615e7ba4597490c5023');
         var priorityTarget = Game.getObjectById('57d002bbbbd16aff3afd0b68');
 
         //var sourceRoom = targetLocation.room.name;
-        //var sourceRoom = 'W56S28';
+        //var sourceRoom = 'W58S26';
         var sourceRoom = 'W59S29';
 
         var targets = [];
         if (creep.getActiveBodyparts(RANGED_ATTACK)) {
             targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
-            targets.push(creep.pos.findInRange(FIND_HOSTILE_STRUCTURES, 3, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_TOWER);
-                }
-            }));
             if (targets.length > 0) {
                 if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+            }
+            else {
+                targets = creep.pos.findInRange(FIND_HOSTILE_STRUCTURES, 3, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_TOWER || structure.structureType == STRUCTURE_SPAWN);
+                    }
+                });
+                if (targets.length > 0) {
+                    if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                }
+                else if (creep.room.name == sourceRoom) {
+                    targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_WALL);
+                        }
+                    });
+                    if (targets.length > 0) {
+                        if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                    }
+                }
             }
         }
             //If not in the correct room, move towards it
@@ -45,7 +60,7 @@ var roleAttackers = {
             });
            targets.push(creep.pos.find(FIND_HOSTILE_STRUCTURES, {
                filter: (structure) => {
-                   return (structure.structureType == STRUCTURE_TOWER);
+                   return (structure.structureType == STRUCTURE_TOWER || structure.structureType == STRUCTURE_SPAWN);
                }
            }));
         }
