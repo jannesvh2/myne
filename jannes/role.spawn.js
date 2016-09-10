@@ -9,7 +9,6 @@ var roleSpawn = {
                 console.log('Clearing non-existing creep memory:', name);
             }
         }
-        var keeper = _.filter(Game.creeps, (creep) => creep.memory.role == 'keeper');
         var didSpawn = false;
         for (var scout = 0, length = Memory.spots.length; scout < length; scout++) {
             var mustCreate = true;
