@@ -4,11 +4,13 @@ var roleAttackers = {
     run: function (creep) {
         var enableID = false;
         var enablePriority = false;
-        var targetLocation = Game.getObjectById('579fa86e0700be0674d2d98c');
+        //var targetLocation = Game.getObjectById('57d002bbbbd16aff3afd0b68');
+        var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefd9a');
         var priorityTarget = Game.getObjectById('57cc37bffca092544afcc82d');
 
         //var sourceRoom = targetLocation.room.name;
-        var sourceRoom = 'W58S28';
+        //var sourceRoom = 'W56S28';
+        var sourceRoom = 'W59S29';
 
         var targets = [];
         if (creep.getActiveBodyparts(RANGED_ATTACK)) {
