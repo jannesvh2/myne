@@ -6,7 +6,7 @@ var roleAttackers = {
         var enablePriority = false;
         //var targetLocation = Game.getObjectById('57d002bbbbd16aff3afd0b68');
         var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefd9a');
-        var priorityTarget = Game.getObjectById('57cc37bffca092544afcc82d');
+        var priorityTarget = Game.getObjectById('57d002bbbbd16aff3afd0b68');
 
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W56S28';
