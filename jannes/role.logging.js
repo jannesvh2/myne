@@ -13,7 +13,7 @@ var roleLogging = {
             + ", u: " + upgraders.length + "/" + u
             + ", a: " + attackers.length + "/" + a
             + ", s: " + scouts.length + "/" + Memory.spots.length;
-        + ", l: " + links.length + "/" + Memory.linkSource.length * 2;
+        //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         console.log(msg);
     }
