@@ -39,10 +39,12 @@ module.exports.loop = function () {
     Memory.atSources = {};
     //add memory for all sources
     for (var myRooms in Game.rooms) {
-        roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
-        for (var a = 0, length = roomSources.length; a < length; a++) {
-            sources.push(roomSources[a]);
+        if (myRooms.name != 'W58S29') {
+            roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
+            for (var a = 0, length = roomSources.length; a < length; a++) {
+                sources.push(roomSources[a]);
 
+            }
         }
     }
     for (var s = 0, length = sources.length; s < length; s++) {
