@@ -28,10 +28,10 @@ var roleAttackers = {
         if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit);
+            creep.moveTo(Exit, { maxOps: 5000 });
         }
         else if (creep.pos != targetLocation.pos) {
-            creep.moveTo(targetLocation)
+            creep.moveTo(targetLocation, { maxOps: 5000 })
         }
         //Priority attack
         if (enableID) {
@@ -55,9 +55,26 @@ var roleAttackers = {
 
         if (targets.length > 0) {
             if (creep.getActiveBodyparts(RANGED_ATTACK))
-                if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+                if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                    //creep.moveTo(targets[0]);
             if (creep.getActiveBodyparts(ATTACK))
                 if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+        }
+
+
+
+        var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+            filter: function (object) {
+                return object.hits < object.hitsMax;
+            }
+        });
+        if (targetHeal) {
+            if (creep.pos.isNearTo(targetHeal)) {
+                creep.heal(targetHeal);
+            }
+            else {
+                creep.rangedHeal(targetHeal);
+            }
         }
     }
 };
