@@ -75,7 +75,7 @@ module.exports.loop = function () {
         Memory.atSources[sources[s].id] = 0;
             Memory.avgAtSource[sources[s].id] = Memory[sources[s].id];
     }
-    roleLogging.run(h, b, u, atk, harvesters, builders, upgraders, attackers, scouts);
+    roleLogging.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources);
     roleSpawn.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources);
     roleTower.run();
 
