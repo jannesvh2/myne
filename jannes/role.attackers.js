@@ -2,44 +2,47 @@ var roleAttackers = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
+        var guard = true;
         var enableID = false;
         var enablePriority = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
-        var targetLocation = Game.getObjectById('57d2b615e7ba4597490c5023');
+        var targetLocation = Game.getObjectById('57d40c7dbc3b5d244fa8802a');
         var priorityTarget = Game.getObjectById('57d002bbbbd16aff3afd0b68');
 
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W58S26';
-        var sourceRoom = 'W59S29';
+        var sourceRoom = 'W59S28';
 
         var targets = [];
-        if (creep.getActiveBodyparts(RANGED_ATTACK)) {
-            targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
-            if (targets.length > 0) {
-                if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
-            }
-            else {
-                targets = creep.pos.findInRange(FIND_HOSTILE_STRUCTURES, 3, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_TOWER || structure.structureType == STRUCTURE_SPAWN);
-                    }
-                });
+        if (!guard) {
+            if (creep.getActiveBodyparts(RANGED_ATTACK)) {
+                targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
                 if (targets.length > 0) {
                     if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
                 }
-                else if (creep.room.name == sourceRoom) {
-                    targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                else {
+                    targets = creep.pos.findInRange(FIND_HOSTILE_STRUCTURES, 3, {
                         filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_WALL);
+                            return (structure.structureType == STRUCTURE_TOWER || structure.structureType == STRUCTURE_SPAWN);
                         }
                     });
                     if (targets.length > 0) {
                         if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
                     }
+                    else if (creep.room.name == sourceRoom) {
+                        targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_WALL);
+                            }
+                        });
+                        if (targets.length > 0) {
+                            if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                        }
+                    }
                 }
             }
         }
-            //If not in the correct room, move towards it
+        //If not in the correct room, move towards it
         if (creep.room.name != sourceRoom && sourceRoom != '') {
             var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
@@ -53,27 +56,38 @@ var roleAttackers = {
             targets.push(priorityTarget);
         }
         else if (enablePriority) {
-           targets = creep.room.find(FIND_HOSTILE_CREEPS, {
+            targets = creep.room.find(FIND_HOSTILE_CREEPS, {
                 filter: function (object) {
                     return object.getActiveBodyparts(ATTACK) == 0 || object.getActiveBodyparts(RANGED_ATTACK) == 0;
                 }
             });
-           targets.push(creep.pos.find(FIND_HOSTILE_STRUCTURES, {
-               filter: (structure) => {
-                   return (structure.structureType == STRUCTURE_TOWER || structure.structureType == STRUCTURE_SPAWN);
-               }
-           }));
+            targets.push(creep.pos.find(FIND_HOSTILE_STRUCTURES, {
+                filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_TOWER || structure.structureType == STRUCTURE_SPAWN);
+                }
+            }));
         }
         else {
             targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 22);
         }
 
-        if (targets.length > 0) {
-            if (creep.getActiveBodyparts(RANGED_ATTACK))
-                if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
-                    //creep.moveTo(targets[0]);
-            if (creep.getActiveBodyparts(ATTACK))
-                if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+        if (guard) {
+            if (targets.length > 0) {
+                if (creep.getActiveBodyparts(RANGED_ATTACK))
+                    if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                creep.moveTo(targets[0], { maxOps: 5000 });
+                if (creep.getActiveBodyparts(ATTACK))
+                    if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+            }
+        }
+        else {
+            if (targets.length > 0) {
+                if (creep.getActiveBodyparts(RANGED_ATTACK))
+                    if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                //creep.moveTo(targets[0]);
+                if (creep.getActiveBodyparts(ATTACK))
+                    if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+            }
         }
 
 
