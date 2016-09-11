@@ -31,7 +31,7 @@ module.exports.loop = function () {
     //var links = _.filter(Game.creeps, (creep) => creep.memory.role == 'link');
 
     Memory.spots = [];
-    Memory.spots.push({ x: '39', y: '9', sourceRoom: 'W59S28' });
+    Memory.spots.push({ x: '41', y: '48', sourceRoom: 'W59S28' });
     //Memory.linkSource = [];
     //Memory.linkSource.push({ id: '579fa86e0700be0674d2d990', sourceRoom: 'W58S29' });
     //if (Memory.linkSource.length) {
