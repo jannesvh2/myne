@@ -39,7 +39,7 @@ var roleSpawn = {
                 }
                 if (mustCreate) {
                     //var newName5 = Game.spawns['Spawn1'].createCreep([MOVE, MOVE, CLAIM], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
-                    var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
+                    var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
                     didSpawn = true;
                 }
             }
