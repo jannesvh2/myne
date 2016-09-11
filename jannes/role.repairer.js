@@ -3,9 +3,10 @@ var roleRepairer = {
         var closestDamagedStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
             filter: (structure) => {
                 return (structure.hits < structure.hitsMax - 750 &&
-                    structure.hits < 130000)
+                    structure.hits < 100000)
             }
         });
+        //containers
         if (!closestDamagedStructure) {
             var closestDamagedStructure = Game.rooms[myRooms].find(FIND_STRUCTURES, {
                 filter: (structure) => {
@@ -16,7 +17,7 @@ var roleRepairer = {
         if (!closestDamagedStructure) {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 130000)
+                    return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_RAMPART || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 130000)
                 }
             });
         }
