@@ -16,9 +16,12 @@ var roleGetStore = {
                 for (var sl = 0, length = storeList.length; sl < length; sl++) {
                     filterStore.push(storeList[sl].container);
                 }
-
                 if (filterStore) {
-                    creep.memory.sourceId = creep.pos.findClosestByRange(filterStore).id;
+                    creep.memory.sourceId = creep.pos.findClosestByRange(filterStore);
+                    if (!creep.memory.sourceId) {
+                        creep.memory.sourceId = creep.pos.find(filterStore)[0];
+                    }
+                    creep.memory.sourceId = creep.memory.sourceId.id;
                     for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
                         if (Memory.store[u].container.id == creep.memory.sourceId)
                             Memory.store[u].energyUsed += creep.carryCapacity;
