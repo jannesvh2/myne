@@ -29,7 +29,7 @@ var roleGetStore = {
         newSource();
         //REMOVE getObjectById
         if (creep.memory.sourceId) {
-        var creepSource = Game.getObjectById(creep.memory.sourceId);
+        var creepSource = Game.getObjectById(creep.memory.sourceId.id);
 
         if (creepSource) {
             for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
