@@ -1,4 +1,6 @@
 var roleGetEnergy = require('role.getenergy');
+var roleGetStore = require('role.getstore');
+
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
@@ -21,7 +23,10 @@ var roleUpgrader = {
             }
         }
         else {
-            roleGetEnergy.run(creep, sources);
+            if (creep.memory.role == 'upgrader')
+                roleGetEnergy.run(creep, sources);
+            else
+                roleGetStore.run(creep);
         }
     }
 };

@@ -1,4 +1,5 @@
 var roleGetEnergy = require('role.getenergy');
+var roleGetStore = require('role.getstore');
 
 var roleHarvester = {
 
@@ -54,7 +55,10 @@ var roleHarvester = {
 
         }
         else {
-            roleGetEnergy.run(creep, sources);
+            if (creep.memory.role == 'harvester')
+                roleGetEnergy.run(creep, sources);
+            else
+                roleGetStore.run(creep);
         }
     }
 };

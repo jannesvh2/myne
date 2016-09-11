@@ -1,4 +1,5 @@
 var roleGetEnergy = require('role.getenergy');
+var roleGetStore = require('role.getstore');
 var roleRepairer = require('role.repairer');
 var roleBuilder = {
 
@@ -57,7 +58,10 @@ var roleBuilder = {
             }
         }
         else {
-            roleGetEnergy.run(creep, sources);
+            if (creep.memory.role == 'builder')
+                roleGetEnergy.run(creep, sources);
+            else
+                roleGetStore.run(creep);
         }
     }
 };
