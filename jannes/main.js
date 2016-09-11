@@ -12,11 +12,11 @@ var roleStore = require('role.store');
 module.exports.loop = function () {
     PathFinder.use(true);
     var h = 0;
-    var h2 = 3
+    var h2 = 2
     var b = 0;
     var b2 = 1;
     var u = 0;
-    var u2 = 4;
+    var u2 = 3;
     var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester2');
@@ -75,7 +75,7 @@ module.exports.loop = function () {
         Memory.atSources[sources[s].id] = 0;
             Memory.avgAtSource[sources[s].id] = Memory[sources[s].id];
     }
-    roleLogging.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources);
+    roleLogging.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, );
     roleSpawn.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources);
     roleTower.run();
 
