@@ -12,7 +12,7 @@ var roleStore = require('role.store');
 module.exports.loop = function () {
     PathFinder.use(true);
     var h = 0;
-    var h2 = 1
+    var h2 = 1;
     var b = 0;
     var b2 = 1;
     var u = 0;
