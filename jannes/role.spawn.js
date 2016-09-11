@@ -84,7 +84,7 @@ var roleSpawn = {
                 }
                     //console.log('Builders: ' + builders.length);
 
-                else if (attackers.length < a) {
+                else if (attackers.length < atk) {
                     //ranged
                     var newName4 = Game.spawns['Spawn1'].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, RANGED_ATTACK, RANGED_ATTACK], undefined, { role: 'attacker' });
                     //melee
