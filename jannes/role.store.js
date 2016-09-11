@@ -8,7 +8,6 @@ var roleStore = {
         }
         else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
             creep.memory.full = true;
-            delete creep.memory.sourceId;
             creep.say('storing');
         }
 
