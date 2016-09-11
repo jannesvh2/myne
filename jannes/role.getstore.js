@@ -35,7 +35,6 @@ var roleGetStore = {
             for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
                 if (Memory.store[u].container.id == creep.memory.sourceId)
                     Memory.store[u].energyUsed += creep.carryCapacity;
-                console.log(Memory.store[u].energyUsed);
             }
             if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creepSource);
