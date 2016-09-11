@@ -52,7 +52,7 @@ var roleHarvester = {
                     }
                 }
                 else {
-                    var storage = Game.getObjectById('');
+                    var storage = Game.getObjectById('57d57cd3636e2e351c38d6fe');
                     if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                         creep.moveTo(storage);
                 }
