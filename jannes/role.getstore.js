@@ -21,17 +21,24 @@ var roleGetStore = {
                     if (!creep.memory.sourceId) {
                         creep.memory.sourceId = filterStore[Math.floor((Math.random() * filterStore.length))];
                     }
+                    if (!creep.memory.sourceId)
                     creep.memory.sourceId = creep.memory.sourceId.id;
                     for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
                         if (Memory.store[u].container.id == creep.memory.sourceId)
                             Memory.store[u].energyUsed += creep.carryCapacity;
+                        console.log(Memory.store[u].energyUsed);
                     }
                 }
             }
         }
         newSource();
         //REMOVE getObjectById
-        if (creep.memory.sourceId){
+        if (creep.memory.sourceId) {
+            for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
+                if (Memory.store[u].container.id == creep.memory.sourceId)
+                    Memory.store[u].energyUsed += creep.carryCapacity;
+                console.log(Memory.store[u].energyUsed);
+            }
         var creepSource = Game.getObjectById(creep.memory.sourceId);
 
         if (creepSource) {
