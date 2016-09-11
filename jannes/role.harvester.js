@@ -52,9 +52,9 @@ var roleHarvester = {
                     }
                 }
                 else {
-                    if (creep.upgradeController(Game.rooms.W59S29.controller) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(Game.rooms.W59S29.controller);
-                    }
+                    var storage = Game.getObjectById('');
+                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                        creep.moveTo(storage);
                 }
             }
 

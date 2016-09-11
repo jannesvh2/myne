@@ -21,8 +21,8 @@ var roleSpawn = {
                 }
             }
             if (mustCreate) {
-                //var newName5 = Game.spawns['Spawn1'].createCreep([MOVE, MOVE, CLAIM], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
-                var newName5 = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
+                var newName5 = Game.spawns['Spawn1'].createCreep([MOVE, CLAIM], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
+                //var newName5 = Game.spawns['Spawn1'].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
                 didSpawn = true;
             }
         }
@@ -32,14 +32,14 @@ var roleSpawn = {
             for (var s = 0, length = sources.length; s < length; s++) {
                 var mustCreate = true;
                 for (var storeCreep = 0, length2 = stores.length; storeCreep < length2; storeCreep++) {
-                    if (stores[storeCreep] && stores[storeCreep].ticksToLive > 50 && stores[storeCreep].memory.sourceId.id == sources[s].id) {
+                    if (stores[storeCreep] && stores[storeCreep].ticksToLive > 100 && stores[storeCreep].memory.sourceId.id == sources[s].id) {
                         mustCreate = false;
                         break;
                     }
                 }
                 if (mustCreate) {
                     //var newName5 = Game.spawns['Spawn1'].createCreep([MOVE, MOVE, CLAIM], undefined, { role: 'scout', sourceRoom: Memory.spots[scout].sourceRoom });
-                    var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
+                    var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
                     didSpawn = true;
                 }
             }
@@ -50,7 +50,7 @@ var roleSpawn = {
                     var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'harvester' });
                 }
                 if (harvesters2.length < h2) {
-                    var newName = Game.spawns['Spawn1'].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'harvester2' });
+                    var newName = Game.spawns['Spawn1'].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'harvester2' });
                 }
                     //else if (links.length < Memory.linkSource.length * 2) {
                     //    for (var l = 0, length = Memory.linkSource.length; l < length; l++) {
@@ -73,14 +73,14 @@ var roleSpawn = {
                     var newName2 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'builder' });
                 }                
                 else if (builders2.length < b2) {
-                    var newName = Game.spawns['Spawn1'].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'builder2' });
+                    var newName = Game.spawns['Spawn1'].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'builder2' });
                 }
                     //console.log('Upgraders: ' + upgraders.length);
                 else if (upgraders.length < u) {
                     var newName3 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader' });
                 }
                 else if (upgraders2.length < u2) {
-                    var newName = Game.spawns['Spawn1'].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'upgrader2' });
+                    var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader2' });
                 }
                     //console.log('Builders: ' + builders.length);
 

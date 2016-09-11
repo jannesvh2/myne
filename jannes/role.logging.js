@@ -8,14 +8,14 @@ var roleLogging = {
             msg += 'Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy | ';
         }
         msg +=
-            "h: " + harvesters.length + "/" + h
-            + ", b: " + builders.length + "/" + b
-            + ", u: " + upgraders.length + "/" + u
+            //"h: " + harvesters.length + "/" + h
+            //+ ", b: " + builders.length + "/" + b
+            //+ ", u: " + upgraders.length + "/" + u
+            + ", H: " + harvesters2.length + "/" + h2
+            + ", B: " + builders2.length + "/" + b2
+            + ", U: " + upgraders2.length + "/" + u2
             + ", a: " + attackers.length + "/" + atk
             + ", s: " + scouts.length + "/" + Memory.spots.length
-            + ", H2: " + harvesters2.length + "/" + h2
-            + ", B2: " + builders2.length + "/" + b2
-            + ", U2: " + upgraders2.length + "/" + u2
             + ", ST: " + stores.length + "/" + sources.length;
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 

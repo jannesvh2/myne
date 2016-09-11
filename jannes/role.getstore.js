@@ -6,10 +6,13 @@ var roleGetStore = {
             Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
 
         function checkStore(store) {
-            return store.container.store.energy > creep.carryCapacity + store.energyUsed;
+            return store.container.store.energy > (creep.carryCapacity + store.energyUsed);
         }
 
         var newSource = function () {
+            if (creep.memory.sourceId && creep.memory.sourceId.store.energy < creep.carryCapacity)
+                delete creep.memory.sourceId;
+            
             if (!creep.memory.sourceId) {
                 var storeList = Memory.store.filter(checkStore);
                 var filterStore = [];
@@ -21,8 +24,6 @@ var roleGetStore = {
                     if (!creep.memory.sourceId) {
                         creep.memory.sourceId = filterStore[Math.floor((Math.random() * filterStore.length))];
                     }
-                    if (!creep.memory.sourceId)
-                    creep.memory.sourceId = creep.memory.sourceId.id;
                 }
             }
         }
@@ -39,6 +40,15 @@ var roleGetStore = {
             if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creepSource);
             }
+            var transferReturn = creepSource.transfer(creep, RESOURCE_ENERGY);
+            if (transferReturn == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creepSource);
+            }
+            if (transferReturn == ERR_NOT_ENOUGH_ENERGY) {
+                delete creep.memory.sourceId;
+                newSource();
+            }
+
         }
     }
 

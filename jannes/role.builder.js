@@ -26,7 +26,7 @@ var roleBuilder = {
                 canBuild = true;
                 var test = creep.build(targets);
                 if (test == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets), { maxOps: 5000 };
+                    creep.moveTo(targets, { maxOps: 5000 });
                 } 
             }
             else {

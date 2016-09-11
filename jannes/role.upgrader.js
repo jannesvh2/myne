@@ -25,8 +25,11 @@ var roleUpgrader = {
         else {
             if (creep.memory.role == 'upgrader')
                 roleGetEnergy.run(creep, sources);
-            else
-                roleGetStore.run(creep);
+            else {
+                var storage = Game.getObjectById('');
+                if (storage.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(storage);
+            }
         }
     }
 };

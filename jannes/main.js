@@ -12,11 +12,11 @@ var roleStore = require('role.store');
 module.exports.loop = function () {
     PathFinder.use(true);
     var h = 0;
-    var h2 = 3;
+    var h2 = 2;
     var b = 0;
     var b2 = 1;
     var u = 0;
-    var u2 = 0;
+    var u2 = 1;
     var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester2');
