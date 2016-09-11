@@ -43,6 +43,7 @@ var roleSpawn = {
                     didSpawn = true;
                 }
             }
+        }
         
             if (didSpawn == false) {
                 if (harvesters.length < h) {
