@@ -1,7 +1,7 @@
 var roleLogging = {
 
     /** @param {Creep} creep **/
-    run: function (h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources) {
+    run: function (h, b, u, h2, b2, u2, a, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources) {
 
         var msg = '';
         for (var name in Game.rooms) {
