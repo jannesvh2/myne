@@ -92,13 +92,13 @@ module.exports.loop = function () {
                 roleUpgrader.run(creep, sources);
             }
             if (creep.memory.role == 'upgrader2') {
-                roleHarvester.run(creep, sources);
+                roleUpgrader.run(creep, sources);
             }
             if (creep.memory.role == 'builder') {
                 roleBuilder.run(creep, sources);
             }
             if (creep.memory.role == 'builder2') {
-                roleHarvester.run(creep, sources);
+                roleBuilder.run(creep, sources);
             }
             if (creep.memory.role == 'store') {
                 roleStore.run(creep, sources);
