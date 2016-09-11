@@ -11,7 +11,7 @@ var roleLogging = {
             //"h: " + harvesters.length + "/" + h
             //+ ", b: " + builders.length + "/" + b
             //+ ", u: " + upgraders.length + "/" + u
-            + ", H: " + harvesters2.length + "/" + h2
+             ", H: " + harvesters2.length + "/" + h2
             + ", B: " + builders2.length + "/" + b2
             + ", U: " + upgraders2.length + "/" + u2
             + ", a: " + attackers.length + "/" + atk
