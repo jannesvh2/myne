@@ -39,7 +39,7 @@ var roleSpawn = {
                 }
                 if (mustCreate) {
                     if (sources[s].id == '579fa85c0700be0674d2d80c') {
-                        if (Memory.roomTicks > 1400) {
+                        if (Memory.roomTicks > 1100) {
                             Memory.roomTicks = 0;
                             didSpawn = true;
                             var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
