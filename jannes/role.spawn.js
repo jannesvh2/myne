@@ -32,7 +32,7 @@ var roleSpawn = {
             for (var s = 0, length = sources.length; s < length; s++) {
                 var mustCreate = true;
                 for (var storeCreep = 0, length2 = scouts.length; storeCreep < length2; storeCreep++) {
-                    if (stores[storeCreep] && stores[storeCreep].ticksToLive > 50) {
+                    if (stores[storeCreep] && stores[storeCreep].ticksToLive > 50 && creep.memory.sourceId == sources[s]) {
                         mustCreate = false;
                         break;
                     }
