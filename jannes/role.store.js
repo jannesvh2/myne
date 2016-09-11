@@ -28,6 +28,7 @@ var roleStore = {
 
         }
         else {
+            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty == ERR_NOT_IN_RANGE) {
                 if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET);
