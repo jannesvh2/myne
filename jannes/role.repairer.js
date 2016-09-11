@@ -7,9 +7,16 @@ var roleRepairer = {
             }
         });
         if (!closestDamagedStructure) {
+            var closestDamagedStructure = Game.rooms[myRooms].find(FIND_STRUCTURES, {
+                filter: (structure) => {
+                    return (structure.hits < structure.hitsMax - 750 && structure.structureType == STRUCTURE_CONTAINER && structure.hits < 250000)
+                }
+            });
+        }
+        if (!closestDamagedStructure) {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.hits < structure.hitsMax - 750 && (((structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 130000) || (structure.structureType == STRUCTURE_CONTAINER && structure.hits < 250000)))
+                    return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 130000)
                 }
             });
         }
