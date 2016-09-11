@@ -6,12 +6,17 @@ var roleGetStore = {
             Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
 
         function checkStore(store) {
-            return store.container.energy > creep.carryCapacity + store.energyUsed;
+            return store.container.store.energy > creep.carryCapacity + store.energyUsed;
         }
 
         var newSource = function () {
             if (!creep.memory.sourceId) {
-                var filterStore = Memory.store.filter(checkStore).container;
+                var storeList = Memory.store.filter(checkStore);
+                var filterStore = [];
+                for (var sl = 0, length = storeList.length; sl < length; sl++) {
+                    filterStore.push(storeList[sl].container);
+                }
+
                 if (filterStore) {
                     creep.memory.sourceId = creep.pos.findClosestByRange(filterStore).id;
                     for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
