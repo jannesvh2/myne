@@ -47,6 +47,7 @@ var roleGetStore = {
             if (transferReturn == ERR_NOT_ENOUGH_ENERGY) {
                 delete creep.memory.sourceId;
                 newSource();
+                creep.moveTo(creepSource);
             }
 
         }

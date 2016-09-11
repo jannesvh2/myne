@@ -17,7 +17,7 @@ module.exports.loop = function () {
     var b2 = 1;
     var u = 0;
     var u2 = 1;
-    var atk = 1;
+    var atk = 0;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester2');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -28,6 +28,13 @@ module.exports.loop = function () {
 
     var attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker');
     var scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout');
+
+    if (!Memory.upgradeTicks)
+        Memory.upgradeTicks = 0;
+    if (!Memory.roomTicks)
+        Memory.roomTicks = 0;
+    Memory.upgradeTicks++;
+    Memory.roomTicks++;
     //var links = _.filter(Game.creeps, (creep) => creep.memory.role == 'link');
 
     Memory.spots = [];
@@ -35,9 +42,9 @@ module.exports.loop = function () {
     //Memory.linkSource = [];
     //Memory.linkSource.push({ id: '579fa86e0700be0674d2d990', sourceRoom: 'W58S29' });
     //if (Memory.linkSource.length) {
-        //var LinkFrom = Game.getObjectById('');
-        //if(LinkFrom.energy != 0)
-        //LinkFrom.transferEnergy(Game.getObjectById(''));
+    //var LinkFrom = Game.getObjectById('');
+    //if(LinkFrom.energy != 0)
+    //LinkFrom.transferEnergy(Game.getObjectById(''));
     //}
 
     //Memory.spots.push({ x: '6', y: '41', sourceRoom: 'W58S28' });
@@ -63,24 +70,24 @@ module.exports.loop = function () {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
-            for (var a = 0, length = roomSources.length; a < length; a++) {
-                Memory.store.push({container : roomSources[a], energyUsed: 0});
+        for (var a = 0, length = roomSources.length; a < length; a++) {
+            Memory.store.push({ container: roomSources[a], energyUsed: 0 });
         }
     }
 
     for (var s = 0, length = sources.length; s < length; s++) {
         if (!Memory[sources[s].id])
             Memory[sources[s].id] = 0;
-            //Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        //Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         Memory.atSources[sources[s].id] = 0;
-            Memory.avgAtSource[sources[s].id] = Memory[sources[s].id];
+        Memory.avgAtSource[sources[s].id] = Memory[sources[s].id];
     }
     roleLogging.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources);
     roleSpawn.run(h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources);
     roleTower.run();
 
     for (var name in Game.creeps) {
-        try{
+        try {
             var creep = Game.creeps[name];
             if (creep.memory.role == 'harvester') {
                 roleHarvester.run(creep, sources);
