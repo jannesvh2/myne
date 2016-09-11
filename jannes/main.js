@@ -17,7 +17,7 @@ module.exports.loop = function () {
     var b2 = 1;
     var u = 0;
     var u2 = 1;
-    var atk = 0;
+    var atk = 1;
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester2');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
