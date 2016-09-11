@@ -58,7 +58,7 @@ module.exports.loop = function () {
         }
     }
     for (var myRooms in Game.rooms) {
-        roomSources = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
+        roomSources = Game.rooms[myRooms].find(FIND_STRUCTURES, {
             filter: (structure) => {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
