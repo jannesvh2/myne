@@ -19,7 +19,7 @@ var roleGetStore = {
                 if (filterStore) {
                     creep.memory.sourceId = creep.pos.findClosestByRange(filterStore);
                     if (!creep.memory.sourceId) {
-                        creep.memory.sourceId = creep.pos.find(filterStore)[0];
+                        creep.memory.sourceId = Game.rooms.find(filterStore)[0];
                     }
                     creep.memory.sourceId = creep.memory.sourceId.id;
                     for (var u = 0, length = Memory.store.length; u < Memory.store.length; u++) {
