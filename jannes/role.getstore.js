@@ -22,7 +22,7 @@ var roleGetStore = {
                 if (filterStore) {
                     creep.memory.sourceId = creep.pos.findClosestByRange(filterStore);
                     if (!creep.memory.sourceId) {
-                        creep.memory.sourceId = filterStore[Math.floor((Math.random() * filterStore.length))];
+                        creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))];
                     }
                 }
             }
@@ -45,17 +45,10 @@ var roleGetStore = {
                     creep.moveTo(creepSource);
                 }
                 if (transferReturn == ERR_NOT_ENOUGH_ENERGY) {
-                    delete creep.memory.sourceId;
-                    newSource();
                     creep.moveTo(creepSource);
                 }
 
             }
-        }
-        else {
-            creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))];
-            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
-            creep.moveTo(creepSource);
         }
 
     }
