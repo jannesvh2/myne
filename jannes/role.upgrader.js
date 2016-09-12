@@ -18,15 +18,16 @@ var roleUpgrader = {
         }
 
         if (creep.memory.full) {
-            if (creep.upgradeController(Game.rooms.W59S29.controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.rooms.W59S29.controller);
+            if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].room].controller) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].room].controller);
             }
         }
         else {
             if (creep.memory.role == 'upgrader')
                 roleGetEnergy.run(creep, sources);
-            else {
-                var storage = Game.getObjectById('57d57cd3636e2e351c38d6fe');
+            else if (Memory.spawns[creep.memory.spawn].random.storeId) {
+
+            var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                 if (storage.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(storage);
                 }

@@ -1,22 +1,20 @@
 var roleLogging = {
 
     /** @param {Creep} creep **/
-    run: function (h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources) {
+    run: function () {
 
         var msg = '';
-        for (var name in Game.rooms) {
-            msg += 'Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy | ';
-        }
+        msg += 'W59S29 has ' + Game.rooms.W59S29.energyAvailable + ' energy | ';
         msg +=
             //"h: " + harvesters.length + "/" + h
             //+ ", b: " + builders.length + "/" + b
             //+ ", u: " + upgraders.length + "/" + u
-             ", H: " + harvesters2.length + "/" + h2
-            + ", B: " + builders2.length + "/" + b2
-            + ", U: " + upgraders2.length + "/" + u2
-            + ", a: " + attackers.length + "/" + atk
-            + ", s: " + scouts.length + "/" + Memory.spots.length
-            + ", ST: " + stores.length + "/" + sources.length;
+             ", H: " + Memory.spawns[0].creeps.harvesters2.length + "/" + Memory.spawns[0].summon.h2
+            + ", B: " + Memory.spawns[0].creeps.builders2.length + "/" + Memory.spawns[0].summon.b2
+            + ", U: " + Memory.spawns[0].creeps.upgraders2.length + "/" + Memory.spawns[0].summon.u2
+            + ", a: " + Memory.spawns[0].creeps.attackers.length + "/" + Memory.spawns[0].summon.atk
+            + ", s: " + Memory.spawns[0].creeps.scouts.length + "/" + Memory.spawns[0].spots.length
+            + ", ST: " + Memory.spawns[0].creeps.stores.length + "/" + Memory.spawns[0].sources.sources.length;
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         console.log(msg);

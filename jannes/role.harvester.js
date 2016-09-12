@@ -36,32 +36,33 @@ var roleHarvester = {
                     creep.moveTo(targets);
                 }
             }
-            else {
-                for (var myRooms in Game.rooms) {
-                    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_EXTENSION ||
-                                    structure.structureType == STRUCTURE_SPAWN ||
-                                    structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
-                        }
-                    });
-                }
-                if (targets.length > 0) {
-                    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0]);
-                    }
-                }
-                else {
-                    var storage = Game.getObjectById('57d57cd3636e2e351c38d6fe');
+            else if (Memory.spawns[creep.memory.spawn].random.storeId) {
+                //for (var myRooms in Game.rooms) {
+                //    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
+                //        filter: (structure) => {
+                //            return (structure.structureType == STRUCTURE_EXTENSION ||
+                //                    structure.structureType == STRUCTURE_SPAWN ||
+                //                    structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                //        }
+                //    });
+                //}
+                //if (targets.length > 0) {
+                //    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                //        creep.moveTo(targets[0]);
+                //    }
+                //}
+                //else {
+
+                var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                         creep.moveTo(storage);
-                }
+                //}
             }
 
         }
         else {
             if (creep.memory.role == 'harvester')
-                roleGetEnergy.run(creep, sources);
+                roleGetEnergy.run(creep, Memory.spawns[creep.memory.spawn].sources.sources);
             else
                 roleGetStore.run(creep);
         }
