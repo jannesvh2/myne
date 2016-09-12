@@ -41,7 +41,7 @@ var roleCreateJSON = {
             Memory.spawns[0].random = {};
         Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
         Memory.spawns[0].random.mainRoom = 'W59S29';
-        if (Memory.spawns[0].random.rooms)
+        if (!Memory.spawns[0].random.rooms)
             Memory.spawns[0].random.rooms = [];
         Memory.spawns[0].random.rooms.push('W59S29');
         Memory.spawns[0].random.rooms.push('W59S28');
