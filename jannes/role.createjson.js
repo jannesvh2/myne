@@ -75,7 +75,6 @@ var roleCreateJSON = {
         //}
 
         //Memory.spots.push({ x: '6', y: '41', sourceRoom: 'W58S28' });
-        if (!Memory.spawns[0].sources)
             Memory.spawns[0].sources = [];
 
         Memory.spawns[0].store = [];
