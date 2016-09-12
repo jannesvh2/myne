@@ -61,6 +61,6 @@ module.exports.loop = function () {
         }
     }
     for (var s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
-        Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[sources[s].id];
+        Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[Memory.spawns[0].sources[s].id];
     }
 }
