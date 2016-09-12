@@ -25,17 +25,17 @@ var roleTower = {
                 }
             }
         }
-        var hostiles = Game.rooms.W59S29.find(FIND_HOSTILE_CREEPS);
-        var towers = Game.rooms.W59S29.find(
+        var hostiles = Game.rooms[Memory.spawns[0].random.mainRoom].find(FIND_HOSTILE_CREEPS);
+        var towers = Game.rooms.Memory.spawns[0].random.mainRoom.find(
             FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } });
-        var targetHeal = Game.rooms.W59S29.find(FIND_MY_CREEPS, {
+        var targetHeal = Game.rooms.Memory.spawns[0].random.mainRoom.find(FIND_MY_CREEPS, {
             filter: function (object) {
                 return object.hits < object.hitsMax;
             }
         });
         if (hostiles.length > 0) {
             var username = hostiles[0].owner.username;
-            Game.notify(`User ${username} spotted in room W59S29`);
+            Game.notify(`User ${username} spotted in room ${Memory.spawns[0].random.mainRoom}`);
             towers.forEach(tower => tower.attack(hostiles[0]));
         }
         else if (targetHeal) {
