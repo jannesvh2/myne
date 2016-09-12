@@ -36,7 +36,7 @@ var roleSpawn = {
                     if (sources[s].id == '579fa85c0700be0674d2d80c') {
                         if (Memory.spawns[spawn].counters.roomTicks > 1100) {
                             var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                            if (newName5 == OK)
+                            if (newName5 === parseInt(newName5, 10))
                                 Memory.spawns[spawn].counters.roomTicks = 0;
                             didSpawn = true;
                         }
@@ -85,7 +85,7 @@ var roleSpawn = {
             else if (upgraders2.length < u2 || (Game.getObjectById('57d57cd3636e2e351c38d6fe').store.energy > 25000 && Memory.spawns[spawn].counters.upgradeTicks > 400)) {
                 
                 var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader2', spawn: spawn });
-                if (newName == OK)
+                if (newName === parseInt(newName, 10))
                     Memory.spawns[spawn].counters.upgradeTicks = 0;
             }
                 //console.log('Builders: ' + builders.length);
