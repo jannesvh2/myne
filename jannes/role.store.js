@@ -14,7 +14,7 @@ var roleStore = {
         if (creep.memory.full) {
             var targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity);
+                    return (structure.structureType == STRUCTURE_CONTAINER);
                 }
             });
 
