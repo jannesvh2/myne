@@ -22,7 +22,7 @@ var roleStore = {
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => {
-                            return (structure.hits < structure.hitsMax && structure.structureType == STRUCTURE_ROAD)
+                            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
                         }
                     }));
                     creep.moveTo(targets[0]);
@@ -34,7 +34,7 @@ var roleStore = {
                 if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => {
-                            return (structure.hits < structure.hitsMax && structure.structureType == STRUCTURE_ROAD)
+                            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
                         }
                     }));
                     creep.moveTo(storage, { maxOps: 5000 });
