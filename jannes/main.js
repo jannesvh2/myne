@@ -55,7 +55,7 @@ module.exports.loop = function () {
             //if (creep.memory.role == 'link') {
             //    roleLink.run(creep);
             //}
-        }
+        //}
         //catch (err) {
        //     console.log("creep: " + creep.name + " error: " + err);
        // }
