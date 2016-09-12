@@ -19,12 +19,12 @@ var roleGetStore = {
                 for (var sl = 0, length = storeList.length; sl < length; sl++) {
                     filterStore.push(storeList[sl].container);
                 }
-                if (filterStore) {
+                if (filterStore)
                     creep.memory.sourceId = creep.pos.findClosestByRange(filterStore);
-                    if (!creep.memory.sourceId) {
-                        creep.memory.sourceId = filterStore[Math.floor((Math.random() * filterStore.length))];
-                    }
-                }
+                else
+                    creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))];
+
+
             }
         }
         newSource();
