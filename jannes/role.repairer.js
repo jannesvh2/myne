@@ -1,18 +1,10 @@
 var roleRepairer = {
     run: function (creep) {
-        var closestDamagedStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-            filter: (structure) => {
-                return (structure.hits < structure.hitsMax - 750 &&
-                    structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
-            }
-        });
-        if (!closestDamagedStructure) {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_RAMPART || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
+                    return (structure.hits < structure.hitsMax - 750 && structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
                 }
             });
-        }
         if (!closestDamagedStructure) {
             for (var myRooms, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
                 if (!closestDamagedStructure) {
