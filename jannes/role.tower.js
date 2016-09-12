@@ -38,8 +38,8 @@ var roleTower = {
             Game.notify(`User ${username} spotted in room ${Memory.spawns[0].random.mainRoom}`);
             towers.forEach(tower => tower.attack(hostiles[0]));
         }
-        else if (targetHeal) {
-                towers.forEach(tower => tower.heal(targetHeal));
+        else if (targetHeal.length) {
+                towers.forEach(tower => tower.heal(targetHeal[0]));
         }
         else
             towers.forEach(tower => twrRep(tower));
