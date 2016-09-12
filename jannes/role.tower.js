@@ -26,7 +26,7 @@ var roleTower = {
             }
         }
         var hostiles = Game.rooms[Memory.spawns[0].random.mainRoom].find(FIND_HOSTILE_CREEPS);
-        var towers = Game.rooms.Memory.spawns[0].random.mainRoom.find(
+        var towers = Game.rooms[Memory.spawns[0].random.mainRoom].find(
             FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } });
         var targetHeal = Game.rooms[Memory.spawns[0].random.mainRoom].find(FIND_MY_CREEPS, {
             filter: function (object) {
