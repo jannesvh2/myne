@@ -39,9 +39,7 @@ var roleTower = {
             towers.forEach(tower => tower.attack(hostiles[0]));
         }
         else if (targetHeal) {
-            if (creep.pos.isNearTo(targetHeal)) {
                 towers.forEach(tower => tower.heal(targetHeal));
-            }
         }
         else
             towers.forEach(tower => twrRep(tower));
