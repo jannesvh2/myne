@@ -23,25 +23,25 @@ module.exports.loop = function () {
         //try {
             var creep = Game.creeps[name];
             if (creep.memory.role == 'harvester') {
-                roleHarvester.run(creep, sources);
+                roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'harvester2') {
-                roleHarvester.run(creep, sources);
+                roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'upgrader') {
-                roleUpgrader.run(creep, sources);
+                roleUpgrader.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'upgrader2') {
-                roleUpgrader.run(creep, sources);
+                roleUpgrader.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'builder') {
-                roleBuilder.run(creep, sources);
+                roleBuilder.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'builder2') {
-                roleBuilder.run(creep, sources);
+                roleBuilder.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'store') {
-                roleStore.run(creep, sources);
+                roleStore.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             if (creep.memory.role == 'attacker') {
                 roleAttackers.run(creep);
