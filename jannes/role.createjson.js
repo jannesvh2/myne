@@ -86,7 +86,7 @@ var roleCreateJSON = {
             Memory.spawns[0].counters.atSources = {};
         //add memory for all sources
         for (var myRooms in Game.rooms) {
-            if (myRooms == 'W58S29' || myRooms == 'W59S28' || myRooms == 'W58S28') {
+            if (myRooms == 'W59S29' || myRooms == 'W59S28' || myRooms == 'W58S28') {
                 roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
                 for (var a = 0, length = roomSources.length; a < length; a++) {
                     Memory.spawns[0].sources.push(roomSources[a]);
