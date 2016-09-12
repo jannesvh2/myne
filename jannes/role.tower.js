@@ -10,13 +10,13 @@ var roleTower = {
                 var closestDamagedStructure = tower.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.hits < structure.hitsMax - 750 &&
-                            structure.hits < 130000)
+                            structure.hits < Memory.spawns[0].counters.repairLimit - 30000)
                     }
                 });
                 if (!closestDamagedStructure) {
                     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => {
-                            return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 130000)
+                            return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < Memory.spawns[0].counters.repairLimit - 30000)
                         }
                     });
                 }

@@ -3,13 +3,13 @@ var roleRepairer = {
         var closestDamagedStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
             filter: (structure) => {
                 return (structure.hits < structure.hitsMax - 750 &&
-                    structure.hits < 150000)
+                    structure.hits < Memory.spawns[0].counters.repairLimit)
             }
         });
         if (!closestDamagedStructure) {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_RAMPART || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < 150000)
+                    return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_RAMPART || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < Memory.spawns[0].counters.repairLimit)
                 }
             });
         }
@@ -19,7 +19,7 @@ var roleRepairer = {
                     closestDamagedStructure = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.hits < structure.hitsMax - 750 &&
-                                structure.hits < 150000)
+                                structure.hits < Memory.spawns[0].counters.repairLimit)
                         }
                     })[0];
                 }
@@ -31,6 +31,8 @@ var roleRepairer = {
             if (creep.repair(closestDamagedStructure) == ERR_NOT_IN_RANGE)
                 creep.moveTo(closestDamagedStructure, { maxOps: 5000 });
         }
+        else
+            Memory.spawns[0].counters.repairLimit += 30000;
     }
 }
 
