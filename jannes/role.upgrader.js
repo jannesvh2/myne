@@ -18,8 +18,8 @@ var roleUpgrader = {
         }
 
         if (creep.memory.full) {
-            if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].room].controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].room].controller);
+            if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
             }
         }
         else {

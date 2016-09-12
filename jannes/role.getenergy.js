@@ -53,14 +53,14 @@ var roleGetEnergy = {
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET)
                 delete creep.memory._move;
-            Memory.atSources[creep.memory.sourceId]++;
+            Memory.spawns[0].counters.atSources[creep.memory.sourceId]++;
             //creep.moveTo(creepSource);
         }
         else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
             creep.memory.full = true;
 
         else {
-            Memory.atSources[creep.memory.sourceId]++;
+            Memory.spawns[0].counters.atSources[creep.memory.sourceId]++;
         }
     }
 

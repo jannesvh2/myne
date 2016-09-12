@@ -52,15 +52,15 @@ module.exports.loop = function () {
             if (creep.memory.role == 'scout') {
                 roleKeeper.run(creep);
             }
-            if (creep.memory.role == 'link') {
-                roleKeeper.run(creep);
-            }
+            //if (creep.memory.role == 'link') {
+            //    roleLink.run(creep);
+            //}
         }
         catch (err) {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
-    for (var s = 0, length = sources.length; s < length; s++) {
-        Memory[sources[s].id] = Memory.atSources[sources[s].id];
+    for (var s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
+        Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[sources[s].id];
     }
 }
