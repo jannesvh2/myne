@@ -51,11 +51,6 @@ var roleGetStore = {
             }
 
         }
-        else {
-            creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))];
-            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
-            creep.moveTo(creepSource);
-        }
     }
 
 }
