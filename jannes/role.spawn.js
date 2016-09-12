@@ -40,9 +40,10 @@ var roleSpawn = {
                 if (mustCreate) {
                     if (sources[s].id == '579fa85c0700be0674d2d80c') {
                         if (Memory.roomTicks > 1100) {
-                            Memory.roomTicks = 0;
-                            didSpawn = true;
                             var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
+                            if (newName5 == OK)
+                                Memory.roomTicks = 0;
+                            didSpawn = true;
                         }
                     } else {
                         var newName5 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s] });
@@ -87,8 +88,10 @@ var roleSpawn = {
                 var newName3 = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader' });
             }
             else if (upgraders2.length < u2 || (Game.getObjectById('57d57cd3636e2e351c38d6fe').store.energy > 25000 && Memory.upgradeTicks > 400)) {
-                Memory.upgradeTicks = 0;
+                
                 var newName = Game.spawns['Spawn1'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader2' });
+                if (newName == OK)
+                    Memory.upgradeTicks = 0;
             }
                 //console.log('Builders: ' + builders.length);
 
