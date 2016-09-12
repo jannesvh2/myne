@@ -20,13 +20,25 @@ var roleStore = {
 
             if (targets[0]) {
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.hits < structure.hitsMax && structure.structureType == STRUCTURE_ROAD)
+                        }
+                    }));
                     creep.moveTo(targets[0]);
+                    
                 }
             }
             else {
                 var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.hits < structure.hitsMax && structure.structureType == STRUCTURE_ROAD)
+                        }
+                    }));
                     creep.moveTo(storage, { maxOps: 5000 });
+                }
                 }
 
 
