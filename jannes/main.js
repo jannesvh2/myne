@@ -20,7 +20,7 @@ module.exports.loop = function () {
     roleTower.run();
 
     for (var name in Game.creeps) {
-        //try {
+        try {
             var creep = Game.creeps[name];
             if (creep.memory.role == 'harvester') {
                 roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
@@ -55,10 +55,10 @@ module.exports.loop = function () {
             //if (creep.memory.role == 'link') {
             //    roleLink.run(creep);
             //}
-        //}
-        //catch (err) {
-       //     console.log("creep: " + creep.name + " error: " + err);
-       // }
+        }
+        catch (err) {
+            console.log("creep: " + creep.name + " error: " + err);
+        }
     }
     for (var s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
         Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[Memory.spawns[0].sources[s].id];
