@@ -12,7 +12,7 @@ var roleGetStore = {
         var newSource = function () {
             if (creep.memory.sourceId && creep.memory.sourceId.store.energy < creep.carryCapacity)
                 delete creep.memory.sourceId;
-            
+
             if (!creep.memory.sourceId) {
                 var storeList = Memory.spawns[creep.memory.spawn].store.filter(checkStore);
                 var filterStore = [];
@@ -30,30 +30,35 @@ var roleGetStore = {
         newSource();
         //REMOVE getObjectById
         if (creep.memory.sourceId) {
-        var creepSource = Game.getObjectById(creep.memory.sourceId.id);
+            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
 
-        if (creepSource) {
-            for (var u = 0, length = Memory.spawns[creep.memory.spawn].store.length; u < length; u++) {
-                if (Memory.spawns[creep.memory.spawn].store[u].container.id == creep.memory.sourceId)
-                    Memory.spawns[creep.memory.spawn].store[u].energyUsed += creep.carryCapacity;
-            }
-            if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creepSource);
-            }
-            var transferReturn = creepSource.transfer(creep, RESOURCE_ENERGY);
-            if (transferReturn == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creepSource);
-            }
-            if (transferReturn == ERR_NOT_ENOUGH_ENERGY) {
-                delete creep.memory.sourceId;
-                newSource();
-                creep.moveTo(creepSource);
-            }
+            if (creepSource) {
+                for (var u = 0, length = Memory.spawns[creep.memory.spawn].store.length; u < length; u++) {
+                    if (Memory.spawns[creep.memory.spawn].store[u].container.id == creep.memory.sourceId)
+                        Memory.spawns[creep.memory.spawn].store[u].energyUsed += creep.carryCapacity;
+                }
+                if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(creepSource);
+                }
+                var transferReturn = creepSource.transfer(creep, RESOURCE_ENERGY);
+                if (transferReturn == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(creepSource);
+                }
+                if (transferReturn == ERR_NOT_ENOUGH_ENERGY) {
+                    delete creep.memory.sourceId;
+                    newSource();
+                    creep.moveTo(creepSource);
+                }
 
+            }
         }
-    }
+        else {
+            creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))];
+            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
+            creep.moveTo(creepSource);
+        }
 
-}
+    }
 
 };
 
