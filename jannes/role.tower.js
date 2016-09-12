@@ -35,7 +35,7 @@ var roleTower = {
         });
         if (hostiles.length > 0) {
             var username = hostiles[0].owner.username;
-            Game.notify(`User ${username} spotted in room ${myRooms}`);
+            Game.notify(`User ${username} spotted in room W59S29`);
             towers.forEach(tower => tower.attack(hostiles[0]));
         }
         else if (targetHeal) {
