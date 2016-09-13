@@ -73,6 +73,8 @@ var roleCreateJSON = {
 
         if (!Memory.spawns[0].counters.repairLimit)
             Memory.spawns[0].counters.repairLimit = 100000;
+        if(Memory.spawns[0].counters.repairLimit > 300000)
+            Memory.spawns[0].counters.repairLimit = 100000;
 
 
         //keepers
@@ -181,6 +183,8 @@ var roleCreateJSON = {
         Memory.spawns[1].counters.roomTicks++;
 
         if (!Memory.spawns[1].counters.repairLimit)
+            Memory.spawns[1].counters.repairLimit = 100000;
+        if (Memory.spawns[1].counters.repairLimit > 300000)
             Memory.spawns[1].counters.repairLimit = 100000;
 
 
