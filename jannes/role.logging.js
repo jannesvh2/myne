@@ -29,7 +29,7 @@ var roleLogging = {
              ", h: " + Memory.spawns[1].creeps.harvesters.length + "/" + Memory.spawns[1].summon.h
             + ", b: " + Memory.spawns[1].creeps.builders.length + "/" + Memory.spawns[1].summon.b
             + ", u: " + Memory.spawns[1].creeps.upgraders.length + "/" + Memory.spawns[1].summon.u
-            + ", a: " + Memory.spawns[1].creeps.attacker.length + "/" + Memory.spawns[1].summon.atk
+            + ", a: " + Memory.spawns[1].creeps.attackers.length + "/" + Memory.spawns[1].summon.atk
             + ", s: " + Memory.spawns[1].creeps.scouts.length + "/" + Memory.spawns[1].spots.length
             + ", ST: " + Memory.spawns[1].creeps.stores.length + "/" + Memory.spawns[1].sources.length
             + " | rep: " + Memory.spawns[1].counters.repairLimit;
