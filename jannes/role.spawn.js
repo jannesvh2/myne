@@ -7,7 +7,7 @@ var roleSpawn = {
         if (Memory.spawns[spawn].spots.length) {
             for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
                 let ticks = _.filter(scouts, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
-                if (!ticks.length || (ticks.length == 1 && ticks.ticksToLive[0] < 120)) {
+                if (!ticks.length || (ticks.length == 1 && ticks.ticksToLive[0].ticksToLive < 120)) {
                     if (ticksToLive) {
                     if (Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation.ticksToEnd > 3500)
                         var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
@@ -36,7 +36,7 @@ var roleSpawn = {
                             break;
                         }
                     }
-                    else if (!filterLength.length || (filterLength.length == 1 && filterLength.ticksToLive < 80)) {
+                    else if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
 
                         var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
                         didSpawn = true;
