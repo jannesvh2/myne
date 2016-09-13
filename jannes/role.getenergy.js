@@ -44,9 +44,9 @@ var roleGetEnergy = {
             }
             else {
                 if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET)
-                    delete creep.memory._move;
+                    //delete creep.memory._move;
 
-                //creep.moveTo(creepSource);
+                creep.moveTo(creepSource);
             }
         }
         var sourceEmpty = creep.harvest(creepSource);
