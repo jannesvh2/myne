@@ -23,8 +23,8 @@ var roleGetStore = {
                 }
                 if (filterStore)
                     creep.memory.sourceId = creep.pos.findClosestByRange(filterStore);
-                else
-                    creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))];
+                if (!creep.memory.sourceId == null)
+                    creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[Math.floor((Math.random() * Memory.spawns[creep.memory.spawn].store.length))].container;
 
 
             }
