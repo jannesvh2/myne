@@ -9,6 +9,7 @@ var roleKeeper = {
             if (creep.memory.sourceRoom == Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom) {
                 if (creep.room.name != Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom && Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom != '') {
                     var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom);
+                    Memory.test = exitDir;
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit, { maxOps: 5000 });
                 }
