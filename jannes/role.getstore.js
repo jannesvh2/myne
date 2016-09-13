@@ -10,7 +10,9 @@ var roleGetStore = {
         }
 
         var newSource = function () {
-            if (creep.memory.sourceId && !creep.memory.sourceId.store)
+            if (!creep.memory.sourceId)
+                delete creep.memory.sourceId;
+            else if (creep.memory.sourceId && !creep.memory.sourceId.store)
                 delete creep.memory.sourceId;
             else if (creep.memory.sourceId && creep.memory.sourceId.store.energy < creep.carryCapacity)
                 delete creep.memory.sourceId;
