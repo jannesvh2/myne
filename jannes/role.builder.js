@@ -26,6 +26,11 @@ var roleBuilder = {
                 canBuild = true;
                 var test = creep.build(targets);
                 if (test == ERR_NOT_IN_RANGE) {
+                    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                        }
+                    }));
                     creep.moveTo(targets, { maxOps: 5000 });
                 } 
             }
@@ -40,6 +45,11 @@ var roleBuilder = {
                     canBuild = true;
                     var buildReturn = creep.build(targets[0]);
                     if (buildReturn != OK) {
+                        creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                            }
+                        }));
                         creep.moveTo(targets[0], { maxOps: 5000 });
                     }
                     //if (buildReturn == ERR_INVALID_TARGET) {
