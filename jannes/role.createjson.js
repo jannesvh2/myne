@@ -4,7 +4,7 @@ var roleCreateJSON = {
     run: function () {
 
         //clearing memory of non existing creeps
-        for (var name in Memory.creeps) {
+        for (let name in Memory.creeps) {
             if (!Game.creeps[name]) {
                 delete Memory.creeps[name];
                 console.log('Clearing non-existing creep memory:', name);
@@ -98,9 +98,9 @@ var roleCreateJSON = {
         if (!Memory.spawns[0].counters.atSources)
             Memory.spawns[0].counters.atSources = {};
         //add memory for all sources
-        for (var myRooms = 0, length = Memory.spawns[0].random.rooms.length; myRooms < length; myRooms++) {
+        for (let myRooms = 0, length = Memory.spawns[0].random.rooms.length; myRooms < length; myRooms++) {
             roomSources = Game.rooms[Memory.spawns[0].random.rooms[myRooms]].find(FIND_SOURCES);
-            for (var a = 0, length = roomSources.length; a < length; a++) {
+            for (let a = 0, length = roomSources.length; a < length; a++) {
                 Memory.spawns[0].sources.push(roomSources[a]);
 
             }
@@ -111,12 +111,12 @@ var roleCreateJSON = {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
-        for (var a = 0, length = roomSources.length; a < length; a++) {
+        for (let a = 0, length = roomSources.length; a < length; a++) {
             Memory.spawns[0].store.push({ container: roomSources[a], energyUsed: 0 });
         }
         if (!Memory.spawns[0].counters.history)
             Memory.spawns[0].counters.history = {};
-        for (var s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
+        for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
             if (!Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id])
                 Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = 0;
             //Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -198,10 +198,10 @@ var roleCreateJSON = {
         if (!Memory.spawns[1].counters.atSources)
             Memory.spawns[1].counters.atSources = {};
         //add memory for all sources
-        for (var myRooms in Game.rooms) {
+        for (let myRooms in Game.rooms) {
             if (myRooms == 'W56S28') {
                 roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
-                for (var a = 0, length = roomSources.length; a < length; a++) {
+                for (let a = 0, length = roomSources.length; a < length; a++) {
                     Memory.spawns[1].sources.push(roomSources[a]);
 
                 }
@@ -213,12 +213,12 @@ var roleCreateJSON = {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
-        //for (var a = 0, length = roomSources.length; a < length; a++) {
+        //for (let a = 0, length = roomSources.length; a < length; a++) {
         //    Memory.spawns[1].store.push({ container: roomSources[a], energyUsed: 0 });
         //}
         if (!Memory.spawns[1].counters.history)
             Memory.spawns[1].counters.history = {};
-        for (var s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
+        for (let s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
             if (!Memory.spawns[1].counters.history[Memory.spawns[1].sources[s].id])
                 Memory.spawns[1].counters.history[Memory.spawns[1].sources[s].id] = 0;
             //Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];

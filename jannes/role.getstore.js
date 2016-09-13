@@ -16,7 +16,7 @@ var roleGetStore = {
             if (!creep.memory.sourceId) {
                 var storeList = Memory.spawns[creep.memory.spawn].store.filter(checkStore);
                 var filterStore = [];
-                for (var sl = 0, length = storeList.length; sl < length; sl++) {
+                for (let sl = 0, length = storeList.length; sl < length; sl++) {
                     filterStore.push(storeList[sl].container);
                 }
                 if (filterStore)
@@ -33,7 +33,7 @@ var roleGetStore = {
             var creepSource = Game.getObjectById(creep.memory.sourceId.id);
 
             if (creepSource) {
-                for (var u = 0, length = Memory.spawns[creep.memory.spawn].store.length; u < length; u++) {
+                for (let u = 0, length = Memory.spawns[creep.memory.spawn].store.length; u < length; u++) {
                     if (Memory.spawns[creep.memory.spawn].store[u].container.id == creep.memory.sourceId)
                         Memory.spawns[creep.memory.spawn].store[u].energyUsed += creep.carryCapacity;
                 }

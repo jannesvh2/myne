@@ -4,7 +4,7 @@ var roleKeeper = {
     run: function (creep) {
 
         //If not in the correct room, move towards it
-        for (var spot = 0, length = Memory.spawns[creep.memory.spawn].spots.length; spot < length; spot++) {
+        for (let spot = 0, length = Memory.spawns[creep.memory.spawn].spots.length; spot < length; spot++) {
             if (creep.memory.sourceRoom == Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom) {
                 if (creep.room.name != Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom && Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom != '') {
                     var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom);

@@ -20,7 +20,7 @@ module.exports.loop = function () {
     roleSpawn.run(Memory.spawns[1].summon.h, Memory.spawns[1].summon.b, Memory.spawns[1].summon.u, Memory.spawns[1].summon.h2, Memory.spawns[1].summon.b2, Memory.spawns[1].summon.u2, Memory.spawns[1].summon.atk, Memory.spawns[1].creeps.harvesters, Memory.spawns[1].creeps.builders, Memory.spawns[1].creeps.upgraders, Memory.spawns[1].creeps.harvesters2, Memory.spawns[1].creeps.builders2, Memory.spawns[1].creeps.upgraders2, Memory.spawns[1].creeps.attackers, Memory.spawns[1].creeps.scouts, Memory.spawns[1].creeps.stores, Memory.spawns[1].sources, 1);
     roleTower.run();
 
-    for (var name in Game.creeps) {
+    for (let name in Game.creeps) {
         try {
             var creep = Game.creeps[name];
             if (creep.memory.role == 'harvester') {
@@ -61,10 +61,10 @@ module.exports.loop = function () {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
-    for (var s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
+    for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
         Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[Memory.spawns[0].sources[s].id];
     }
-    for (var s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
+    for (let s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
         Memory.spawns[1].counters.history[Memory.spawns[1].sources[s].id] = Memory.spawns[1].counters.atSources[Memory.spawns[1].sources[s].id];
     }
 }

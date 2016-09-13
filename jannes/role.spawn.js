@@ -5,9 +5,9 @@ var roleSpawn = {
 
         var didSpawn = false;
         if (Memory.spawns[spawn].spots.length) {
-            for (var scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
+            for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
                 var mustCreate = true;
-                for (var scoutCreep = 0, length2 = scouts.length; scoutCreep < length2; scoutCreep++) {
+                for (let scoutCreep = 0, length2 = scouts.length; scoutCreep < length2; scoutCreep++) {
                     if (scouts[scoutCreep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom) {
                         if (scouts[scoutCreep].ticksToLive > 150) {
                             mustCreate = false;
@@ -27,9 +27,9 @@ var roleSpawn = {
         
         if (Memory.spawns[spawn].random.useStore) {
             if (didSpawn == false) {
-                for (var s = 0, length = sources.length; s < length; s++) {
+                for (let s = 0, length = sources.length; s < length; s++) {
                     var mustCreate = true;
-                    for (var storeCreep = 0, length2 = stores.length; storeCreep < length2; storeCreep++) {
+                    for (let storeCreep = 0, length2 = stores.length; storeCreep < length2; storeCreep++) {
                         if (stores[storeCreep] && stores[storeCreep].ticksToLive > 100 && stores[storeCreep].memory.sourceId.id == sources[s].id) {
                             mustCreate = false;
                             break;
@@ -62,10 +62,10 @@ var roleSpawn = {
                 var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'harvester2', spawn: spawn });
             }
                 //else if (links.length < Memory.linkSource.length * 2) {
-                //    for (var l = 0, length = Memory.linkSource.length; l < length; l++) {
+                //    for (let l = 0, length = Memory.linkSource.length; l < length; l++) {
                 //        var summonSource = true;
                 //        var summonContainer = true;
-                //        for (var c = 0, length2 = links.length; c < length2; c++) {
+                //        for (let c = 0, length2 = links.length; c < length2; c++) {
                 //            if (links[c].memory.type == 'source' && links[c].ticksToLive > 200 && Memory.linkSource[l].id == links[c].memory.id)
                 //                summonSource = false;
                 //            if (links[c].memory.type == 'container' && links[c].ticksToLive > 200 && Memory.linkSource[l].sourceRoom == links[c].memory.sourceRoom)

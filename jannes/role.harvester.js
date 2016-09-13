@@ -37,7 +37,7 @@ var roleHarvester = {
                 }
             }
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
-                //for (var myRooms in Game.rooms) {
+                //for (let myRooms in Game.rooms) {
                 //    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
                 //        filter: (structure) => {
                 //            return (structure.structureType == STRUCTURE_EXTENSION ||

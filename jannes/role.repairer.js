@@ -6,7 +6,7 @@ var roleRepairer = {
                 }
             });
         if (!closestDamagedStructure) {
-            for (var myRooms, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
+            for (let myRooms, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
                 if (!closestDamagedStructure) {
                     closestDamagedStructure = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_STRUCTURES, {
                         filter: (structure) => {

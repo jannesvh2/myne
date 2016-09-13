@@ -3,7 +3,7 @@ var roleLink = {
     /** @param {Creep} creep **/
     run: function (creep) {
         if (creep.memory.role == 'source')
-            for (var spot = 0, length = Memory.linkSource.length; spot < length; spot++) {
+            for (let spot = 0, length = Memory.linkSource.length; spot < length; spot++) {
                 if (creep.memory.sourceRoom == Memory.spots[spot].sourceRoom) {
                     if (creep.room.name != Memory.spots[spot].sourceRoom && Memory.spots[spot].sourceRoom != '') {
                         var exitDir = Game.map.findExit(creep.room.name, Memory.spots[spot].sourceRoom);
