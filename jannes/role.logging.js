@@ -19,6 +19,23 @@ var roleLogging = {
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         console.log(msg);
+
+        var msg = '';
+        msg += 'W56S28 has ' + Game.rooms.W56S28.energyAvailable + ' energy | ';
+        msg +=
+            //"h: " + harvesters.length + "/" + h
+            //+ ", b: " + builders.length + "/" + b
+            //+ ", u: " + upgraders.length + "/" + u
+             ", h: " + Memory.spawns[1].creeps.harvesters.length + "/" + Memory.spawns[1].summon.h
+            + ", b: " + Memory.spawns[1].creeps.builders.length + "/" + Memory.spawns[1].summon.b
+            + ", u: " + Memory.spawns[1].creeps.upgraders.length + "/" + Memory.spawns[1].summon.u
+            + ", a: " + Memory.spawns[1].creeps.attacker.length + "/" + Memory.spawns[1].summon.atk
+            + ", s: " + Memory.spawns[1].creeps.scouts.length + "/" + Memory.spawns[1].spots.length
+            + ", ST: " + Memory.spawns[1].creeps.stores.length + "/" + Memory.spawns[1].sources.length
+            + " | rep: " + Memory.spawns[1].counters.repairLimit;
+        //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
+
+        console.log(msg);
     }
 };
 
