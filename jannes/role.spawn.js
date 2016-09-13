@@ -2,22 +2,24 @@ var roleSpawn = {
 
     /** @param {Creep} creep **/
     run: function (h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources, spawn) {
-        
+
         var didSpawn = false;
-        for (var scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
-            var mustCreate = true;
-            for (var scoutCreep = 0, length2 = scouts.length; scoutCreep < length2; scoutCreep++) {
-                if (scouts[scoutCreep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom) {
-                    if (scouts[scoutCreep].ticksToLive > 150) {
-                        mustCreate = false;
-                        break;
+        if (Memory.spawns[spawn].spots.length) {
+            for (var scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
+                var mustCreate = true;
+                for (var scoutCreep = 0, length2 = scouts.length; scoutCreep < length2; scoutCreep++) {
+                    if (scouts[scoutCreep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom) {
+                        if (scouts[scoutCreep].ticksToLive > 150) {
+                            mustCreate = false;
+                            break;
+                        }
                     }
                 }
-            }
-            if (mustCreate) {
-                //var newName5 = Game.spawns['Spawn' + spawn].createCreep([MOVE, CLAIM], undefined, { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
-                var newName5 = Game.spawns['Spawn' + spawn].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
-                didSpawn = true;
+                if (mustCreate) {
+                    //var newName5 = Game.spawns['Spawn' + spawn].createCreep([MOVE, CLAIM], undefined, { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
+                    var newName5 = Game.spawns['Spawn' + spawn].createCreep([MOVE], undefined, { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
+                    didSpawn = true;
+                }
             }
         }
         //Game.rooms.W59S29.energyCapacityAvailable
@@ -82,7 +84,7 @@ var roleSpawn = {
                 var newName3 = Game.spawns['Spawn' + spawn].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader', spawn: spawn });
             }
             else if (upgraders2.length < u2 || (Game.getObjectById('57d57cd3636e2e351c38d6fe').store.energy > 25000 && Memory.spawns[spawn].counters.upgradeTicks > 400)) {
-                
+
                 var newName = Game.spawns['Spawn' + spawn].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader2', spawn: spawn });
                 if (typeof newName == 'string')
                     Memory.spawns[spawn].counters.upgradeTicks = 0;
