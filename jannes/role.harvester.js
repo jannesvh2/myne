@@ -62,7 +62,7 @@ var roleHarvester = {
         }
         else {
             if (creep.memory.role == 'harvester')
-                roleGetEnergy.run(creep, Memory.spawns[creep.memory.spawn].sources.sources);
+                roleGetEnergy.run(creep, Memory.spawns[creep.memory.spawn].sources);
             else
                 roleGetStore.run(creep);
         }
