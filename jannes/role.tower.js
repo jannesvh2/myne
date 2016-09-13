@@ -35,6 +35,7 @@ var roleTower = {
         });
         if (hostiles.length > 0) {
             var username = hostiles[0].owner.username;
+            if (username != 'Invader')
             Game.notify(`User ${username} spotted in room ${Memory.spawns[0].random.mainRoom}`);
             towers.forEach(tower => tower.attack(hostiles[0]));
         }
