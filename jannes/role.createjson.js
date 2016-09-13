@@ -17,14 +17,29 @@ var roleCreateJSON = {
         }
 
         //spawn1
-        //spawn numbers
 
         if (!Memory.spawns[0].summon)
             Memory.spawns[0].summon = {};
+        if (!Memory.spawns[0].random)
+            Memory.spawns[0].random = {};
+        Memory.spawns[0].random.rooms = [];
+        Memory.spawns[0].spots = [];
+
+        //spawn numbers
         Memory.spawns[0].summon.h2 = 2;
         Memory.spawns[0].summon.b2 = 1;
         Memory.spawns[0].summon.u2 = 1;
         Memory.spawns[0].summon.atk = 0;
+        Memory.spawns[0].random.mainRoom = 'W59S29';
+        //RoomList
+        Memory.spawns[0].random.rooms.push('W59S29');
+        Memory.spawns[0].random.rooms.push('W59S28');
+        //keeper
+        Memory.spawns[0].spots.push({ x: '41', y: '48', sourceRoom: 'W59S28' });
+        //StoreId
+        Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
+        //UseStore
+        Memory.spawns[0].random.useStore = true;
 
         //current creeps
         if (!Memory.spawns[0].creeps)
@@ -39,15 +54,11 @@ var roleCreateJSON = {
         Memory.spawns[0].creeps.attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker' && creep.memory.spawn == 0);
         Memory.spawns[0].creeps.scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout' && creep.memory.spawn == 0);
 
-        if (!Memory.spawns[0].random)
-            Memory.spawns[0].random = {};
-        Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
-        Memory.spawns[0].random.mainRoom = 'W59S29';
 
-        Memory.spawns[0].random.rooms = [];
-        Memory.spawns[0].random.rooms.push('W59S29');
-        Memory.spawns[0].random.rooms.push('W59S28');
-        Memory.spawns[0].random.useStore = true;
+
+
+
+
 
         if (!Memory.spawns[0].counters)
             Memory.spawns[0].counters = {};
@@ -65,8 +76,7 @@ var roleCreateJSON = {
 
 
         //keepers
-        Memory.spawns[0].spots = [];
-        Memory.spawns[0].spots.push({ x: '41', y: '48', sourceRoom: 'W59S28' });
+
 
         //var links = _.filter(Game.creeps, (creep) => creep.memory.role == 'link');
         //Memory.linkSource = [];
@@ -88,17 +98,15 @@ var roleCreateJSON = {
         if (!Memory.spawns[0].counters.atSources)
             Memory.spawns[0].counters.atSources = {};
         //add memory for all sources
-        for (var myRooms in Game.rooms) {
-            if (myRooms == 'W59S29' || myRooms == 'W59S28' || myRooms == 'W58S28') {
-                roomSources = Game.rooms[myRooms].find(FIND_SOURCES);
-                for (var a = 0, length = roomSources.length; a < length; a++) {
-                    Memory.spawns[0].sources.push(roomSources[a]);
+        for (var myRooms = 0; length = Memory.spawns[0].random.rooms.length; myRooms++) {
+            roomSources = Game.rooms[Memory.spawns[0].random.rooms[myRooms]].find(FIND_SOURCES);
+            for (var a = 0, length = roomSources.length; a < length; a++) {
+                Memory.spawns[0].sources.push(roomSources[a]);
 
-                }
             }
         }
 
-        roomSources = Game.rooms.W59S29.find(FIND_STRUCTURES, {
+        roomSources = Game.rooms[Memory.spawns[0].random.mainRoom].find(FIND_STRUCTURES, {
             filter: (structure) => {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
