@@ -124,9 +124,9 @@ var roleCreateJSON = {
         //spawn numbers
         if (!Memory.spawns[1].summon)
             Memory.spawns[1].summon = {};
-        Memory.spawns[1].summon.h = 2;
-        Memory.spawns[1].summon.b = 4;
-        Memory.spawns[1].summon.u = 5;
+        Memory.spawns[1].summon.h = 3;
+        Memory.spawns[1].summon.b = 5;
+        Memory.spawns[1].summon.u = 3;
         Memory.spawns[1].summon.atk = 0;
 
         //current creeps
