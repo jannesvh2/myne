@@ -28,7 +28,7 @@ var roleSpawn = {
                     if (sources[s].id == '579fa85c0700be0674d2d80c') {
 
                         if (filterLength < 2 && Memory.spawns[spawn].counters.roomTicks > 600) {
-                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
+                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
                             if (typeof newName5 == 'string')
                                 Memory.spawns[spawn].counters.roomTicks = 0;
                             didSpawn = true;
