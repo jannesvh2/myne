@@ -53,7 +53,10 @@ var roleSpawn = {
         }
         if (didSpawn == false) {
             if (harvesters.length < h) {
-                var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'harvester', spawn: spawn });
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
+                    var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'harvester', spawn: spawn });
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
+                    var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'harvester', spawn: spawn });
             }
             else if (harvesters2.length < h2) {
                 var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'harvester2', spawn: spawn });
@@ -76,14 +79,22 @@ var roleSpawn = {
                 //    }
                 //}
             else if (builders.length < b) {
-                var newName2 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'builder', spawn: spawn });
+
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
+                    var newName2 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'builder', spawn: spawn });
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
+                    var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'builder', spawn: spawn });
             }
             else if (builders2.length < b2) {
                 var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'builder2', spawn: spawn });
             }
                 //console.log('Upgraders: ' + upgraders.length);
             else if (upgraders.length < u) {
-                var newName3 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'upgrader', spawn: spawn });
+
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
+                    var newName3 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'upgrader', spawn: spawn });
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
+                    var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'upgrader', spawn: spawn });
             }
             else if (upgraders2.length < u2 || (Game.getObjectById('57d57cd3636e2e351c38d6fe').store.energy > 25000 && Memory.spawns[spawn].counters.upgradeTicks > 400)) {
 
