@@ -24,31 +24,33 @@ var roleSpawn = {
         }
         //Game.rooms.W59S29.energyCapacityAvailable
         //spawn harvesters
-        if (didSpawn == false) {
-            for (var s = 0, length = sources.length; s < length; s++) {
-                var mustCreate = true;
-                for (var storeCreep = 0, length2 = stores.length; storeCreep < length2; storeCreep++) {
-                    if (stores[storeCreep] && stores[storeCreep].ticksToLive > 100 && stores[storeCreep].memory.sourceId.id == sources[s].id) {
-                        mustCreate = false;
-                        break;
+        
+        if (Memory.spawns[spawn].random.useStore) {
+            if (didSpawn == false) {
+                for (var s = 0, length = sources.length; s < length; s++) {
+                    var mustCreate = true;
+                    for (var storeCreep = 0, length2 = stores.length; storeCreep < length2; storeCreep++) {
+                        if (stores[storeCreep] && stores[storeCreep].ticksToLive > 100 && stores[storeCreep].memory.sourceId.id == sources[s].id) {
+                            mustCreate = false;
+                            break;
+                        }
                     }
-                }
-                if (mustCreate) {
-                    if (sources[s].id == '579fa85c0700be0674d2d80c') {
-                        if (Memory.spawns[spawn].counters.roomTicks > 1100) {
-                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                            if (typeof newName5 == 'string')
-                                Memory.spawns[spawn].counters.roomTicks = 0;
+                    if (mustCreate) {
+                        if (sources[s].id == '579fa85c0700be0674d2d80c') {
+                            if (Memory.spawns[spawn].counters.roomTicks > 1100) {
+                                var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
+                                if (typeof newName5 == 'string')
+                                    Memory.spawns[spawn].counters.roomTicks = 0;
+                                didSpawn = true;
+                            }
+                        } else {
+                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
                             didSpawn = true;
                         }
-                    } else {
-                        var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                        didSpawn = true;
                     }
                 }
             }
         }
-
         if (didSpawn == false) {
             if (harvesters.length < h) {
                 var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'harvester', spawn: spawn });

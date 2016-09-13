@@ -47,6 +47,7 @@ var roleCreateJSON = {
         Memory.spawns[0].random.rooms = [];
         Memory.spawns[0].random.rooms.push('W59S29');
         Memory.spawns[0].random.rooms.push('W59S28');
+        Memory.spawns[0].random.useStore = true;
 
         if (!Memory.spawns[0].counters)
             Memory.spawns[0].counters = {};
@@ -148,6 +149,7 @@ var roleCreateJSON = {
 
         Memory.spawns[1].random.rooms = [];
         Memory.spawns[1].random.rooms.push('W56S28');
+        Memory.spawns[1].random.useStore = false;
 
         if (!Memory.spawns[1].counters)
             Memory.spawns[1].counters = {};
@@ -203,9 +205,9 @@ var roleCreateJSON = {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
-        for (var a = 0, length = roomSources.length; a < length; a++) {
-            Memory.spawns[1].store.push({ container: roomSources[a], energyUsed: 0 });
-        }
+        //for (var a = 0, length = roomSources.length; a < length; a++) {
+        //    Memory.spawns[1].store.push({ container: roomSources[a], energyUsed: 0 });
+        //}
         if (!Memory.spawns[1].counters.history)
             Memory.spawns[1].counters.history = {};
         for (var s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
