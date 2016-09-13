@@ -19,11 +19,6 @@ var roleStore = {
             });
 
             if (targets[0]) {
-                creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD || structure.structureType == STRUCTURE_CONTAINER)
-                    }
-                }));
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
  
                     creep.moveTo(targets[0]);
