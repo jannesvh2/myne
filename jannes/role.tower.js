@@ -25,7 +25,7 @@ var roleTower = {
                 }
             }
         }
-        for (let a = 0, length = Game.spawns.length; a < length; a++) {
+        for (let a = 0, length = Memory.spawns.length; a < length; a++) {
             var hostiles = Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS);
             var towers = Game.rooms[Memory.spawns[a].random.mainRoom].find(
                 FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } });
