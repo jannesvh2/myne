@@ -49,7 +49,7 @@ var roleSpawn = {
             }
         }
 
-        if (Memory.spawns[spawn].spots.length) {
+        else if (Memory.spawns[spawn].spots.length) {
             if (didSpawn == false) {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
                     let ticks = _.filter(scouts, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
