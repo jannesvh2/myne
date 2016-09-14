@@ -11,6 +11,7 @@ var roleStore = require('role.store');
 var roleCreateJSON = require('role.createjson');
 
 module.exports.loop = function () {
+    //creep.moveTo(Game.flags['flagname'])  work even if there is no creep in room
     PathFinder.use(true);
     
     roleCreateJSON.run();

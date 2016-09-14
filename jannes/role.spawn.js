@@ -38,11 +38,13 @@ var roleSpawn = {
                             console.log(err);
                         }
                     }
-                    else if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
+                    if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
 
-                        var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                        didSpawn = true;
-                        break;
+                        if (didSpawn == false) {
+                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
+                            didSpawn = true;
+                            break;
+                        }
                     }
 
                 }
