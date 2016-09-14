@@ -73,7 +73,7 @@ var roleCreateJSON = {
 
         if (!Memory.spawns[0].counters.repairLimit)
             Memory.spawns[0].counters.repairLimit = 100000;
-        if(Memory.spawns[0].counters.repairLimit > 300000)
+        if (Memory.spawns[0].counters.repairLimit > 300000)
             Memory.spawns[0].counters.repairLimit = 100000;
 
 
@@ -101,10 +101,11 @@ var roleCreateJSON = {
             Memory.spawns[0].counters.atSources = {};
         //add memory for all sources
         for (let myRooms = 0, length = Memory.spawns[0].random.rooms.length; myRooms < length; myRooms++) {
-            roomSources = Game.rooms[Memory.spawns[0].random.rooms[myRooms]].find(FIND_SOURCES);
-            for (let a = 0, length = roomSources.length; a < length; a++) {
-                Memory.spawns[0].sources.push(roomSources[a]);
-
+            if (Game.rooms[Memory.spawns[0].random.rooms[myRooms]]) {
+                roomSources = Game.rooms[Memory.spawns[0].random.rooms[myRooms]].find(FIND_SOURCES);
+                for (let a = 0, length = roomSources.length; a < length; a++) {
+                    Memory.spawns[0].sources.push(roomSources[a]);
+                }
             }
         }
 
@@ -169,7 +170,7 @@ var roleCreateJSON = {
         Memory.spawns[1].creeps.scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout' && creep.memory.spawn == 1);
 
 
-        
+
 
         if (!Memory.spawns[1].counters)
             Memory.spawns[1].counters = {};
@@ -199,10 +200,11 @@ var roleCreateJSON = {
             Memory.spawns[1].counters.atSources = {};
         //add memory for all sources
         for (let myRooms = 0, length = Memory.spawns[1].random.rooms.length; myRooms < length; myRooms++) {
-            roomSources = Game.rooms[Memory.spawns[1].random.rooms[myRooms]].find(FIND_SOURCES);
-            for (let a = 0, length = roomSources.length; a < length; a++) {
-                Memory.spawns[1].sources.push(roomSources[a]);
-
+            if (Game.rooms[Memory.spawns[1].random.rooms[myRooms]]) {
+                roomSources = Game.rooms[Memory.spawns[1].random.rooms[myRooms]].find(FIND_SOURCES);
+                for (let a = 0, length = roomSources.length; a < length; a++) {
+                    Memory.spawns[1].sources.push(roomSources[a]);
+                }
             }
         }
 
