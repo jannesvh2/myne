@@ -22,7 +22,7 @@ var roleSpawn = {
                     let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
                     if (sources[s].id == '579fa85c0700be0674d2d80c') {
                         try{
-                            if (!filterLength && Memory.spawns[spawn].counters.roomTicks > 600 || filterLength.length < 2 && Memory.spawns[spawn].counters.roomTicks > 600) {
+                            if (!filterLength && Memory.spawns[spawn].counters.roomTicks > 500 || filterLength.length < 2 && Memory.spawns[spawn].counters.roomTicks > 500) {
                                 var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
                                 if (typeof newName5 == 'string')
                                     Memory.spawns[spawn].counters.roomTicks = 0;
