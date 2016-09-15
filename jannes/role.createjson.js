@@ -158,19 +158,23 @@ var roleCreateJSON = {
         Memory.spawns[1].spots = [];
 
         //spawn numbers
-        Memory.spawns[1].summon.h = 3;
-        Memory.spawns[1].summon.b = 4;
-        Memory.spawns[1].summon.u = 4;
+        //Memory.spawns[1].summon.h = 3;
+        //Memory.spawns[1].summon.b = 4;
+        //Memory.spawns[1].summon.u = 4;
+        Memory.spawns[0].summon.h2 = 2;
+        Memory.spawns[0].summon.b2 = 1;
+        Memory.spawns[0].summon.u2 = 1;
         Memory.spawns[1].summon.atk = 0;
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
         Memory.spawns[1].random.rooms.push('W56S28');
-        //Memory.spawns[1].random.rooms.push('W57S28');
-        //Memory.spawns[1].random.rooms.push('W57S27');
+        Memory.spawns[1].random.rooms.push('W57S28');
+        Memory.spawns[1].random.rooms.push('W57S27');
         //keeper
-        //Memory.spawns[1].spots.push({sourceRoom: 'W59S28' });
+        Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
+        Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
         //StoreId
-        //Memory.spawns[1].random.storeId = '57d57cd3636e2e351c38d6fe';
+        Memory.spawns[1].random.storeId = '57dae44209f6b4c92b1181e1';
         //UseStore
         Memory.spawns[1].random.useStore = false;
 
@@ -233,9 +237,20 @@ var roleCreateJSON = {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
-        //for (let a = 0, length = roomSources.length; a < length; a++) {
-        //    Memory.spawns[1].store.push({ container: roomSources[a], energyUsed: 0 });
-        //}
+        for (let a = 0, length = roomSources.length; a < length; a++) {
+            Memory.spawns[1].store.push(roomSources[a]);
+            for (let b = 0, length2 = Memory.spawns[1].creeps.stores.length; b < length2; b++) {
+                if (Memory.spawns[1].creeps.stores[b].memory.sourceId && Memory.spawns[1].creeps.stores[b].memory.sourceId == Memory.spawns[1].store[a].id) {
+                    Memory.spawns[1].store.splice(a, 1);
+                }
+
+            }
+
+        }
+        Memory.spawns[1].store.sort(function (a, b) {
+            return b.store.energy - a.store.energy;
+        });
+
         if (!Memory.spawns[1].counters.history)
             Memory.spawns[1].counters.history = {};
         for (let s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
