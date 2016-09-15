@@ -23,6 +23,8 @@ var roleCreateJSON = {
         if (!Memory.spawns[0].random)
             Memory.spawns[0].random = {};
         Memory.spawns[0].random.rooms = [];
+        if (!Memory.spawns[0].random.defenders)
+            Memory.spawns[0].random.defenders = [];
         Memory.spawns[0].spots = [];
 
         //spawn numbers
@@ -53,6 +55,7 @@ var roleCreateJSON = {
         Memory.spawns[0].creeps.stores = _.filter(Game.creeps, (creep) => creep.memory.role == 'store' && creep.memory.spawn == 0);
         Memory.spawns[0].creeps.attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker' && creep.memory.spawn == 0);
         Memory.spawns[0].creeps.scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout' && creep.memory.spawn == 0);
+        Memory.spawns[0].creeps.defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender' && creep.memory.spawn == 0);
 
 
 

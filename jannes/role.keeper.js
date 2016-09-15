@@ -2,6 +2,11 @@ var roleKeeper = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
+
+        var hostiles = creep.pos.find(FIND_HOSTILE_CREEPS);
+        if (hostiles.length)
+            Memory.spawns[0].random.defenders.push(creep.room.name);
+
         for (let spot = 0, length = Memory.spawns[creep.memory.spawn].spots.length; spot < length; spot++) {
             //If not in the correct room, move towards it
             if (creep.memory.sourceRoom == Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom) {
