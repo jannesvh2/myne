@@ -118,8 +118,20 @@ var roleCreateJSON = {
             }
         });
         for (let a = 0, length = roomSources.length; a < length; a++) {
-            Memory.spawns[0].store.push({ container: roomSources[a], energyUsed: 0 });
+            Memory.spawns[0].store.push(roomSources[a]);
+            for (let b = 0, length2 = Memory.spawns[0].creeps.stores.length; b < length2; b++){
+                if (Memory.spawns[0].creeps.stores[b].memory.sourceId && Memory.spawns[0].creeps.stores[b].memory.sourceId == Memory.spawns[0].store[a].id) {
+                    Memory.spawns[0].store.splice(a, 1);
+                }
+
+            }
+
         }
+        Memory.spawns[0].store.sort(function (a, b) {
+            return b.store.energy - a.store.energy;
+        });
+
+
         if (!Memory.spawns[0].counters.history)
             Memory.spawns[0].counters.history = {};
         for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
