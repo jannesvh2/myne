@@ -147,8 +147,8 @@ var roleCreateJSON = {
 
         //spawn numbers
         Memory.spawns[1].summon.h = 3;
-        Memory.spawns[1].summon.b = 2;
-        Memory.spawns[1].summon.u = 6;
+        Memory.spawns[1].summon.b = 4;
+        Memory.spawns[1].summon.u = 4;
         Memory.spawns[1].summon.atk = 0;
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
