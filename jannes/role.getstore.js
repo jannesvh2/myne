@@ -12,7 +12,7 @@ var roleGetStore = {
         }
 
         if (creep.memory.sourceId) {
-            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
+            var creepSource = Game.getObjectById(creep.memory.sourceId);
 
             if (creepSource) {
                 var transferReturn = creepSource.transfer(creep, RESOURCE_ENERGY);
