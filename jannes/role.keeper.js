@@ -13,7 +13,8 @@ var roleKeeper = {
                 if (Game.rooms[creep.memory.sourceRoom]) {
                     let reserveCheck = creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller);
                     if (reserveCheck == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(Game.rooms[creep.memory.sourceRoom].controller, { maxOps: 5000 });
+                        creep.moveTo(new RoomPosition(Game.rooms[creep.memory.sourceRoom].controller.pos.x, Game.rooms[creep.memory.sourceRoom].controller.pos.y, creep.memory.sourceRoom), { maxOps: 5000 });
+
                     }
                 }
                 else {
