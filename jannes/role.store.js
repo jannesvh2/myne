@@ -12,7 +12,11 @@ var roleStore = {
         }
 
         if (creep.memory.full) {
-            var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES));
+            var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                filter: (structure) => {
+                    return (structure.hits < structure.hitsMax - 850)
+                }
+            }));
             if (rep != OK) {
                 var targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
                     filter: (structure) => {
