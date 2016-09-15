@@ -45,9 +45,9 @@ var roleStore = {
             if (sourceEmpty != OK) {
                 if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET);
             }
-            else {
-                creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES));
-            }
+            //else {
+            //    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES));
+            //}
         }
     }
 };
