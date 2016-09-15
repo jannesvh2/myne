@@ -12,31 +12,33 @@ var roleStore = {
         }
 
         if (creep.memory.full) {
-            var targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_CONTAINER);
-                }
-            });
+            var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES));
+            if (rep != OK) {
+                var targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER);
+                    }
+                });
 
-            if (targets[0]) {
-                if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
- 
-                    creep.moveTo(targets[0]);
-                    
+                if (targets[0]) {
+                    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+
+                        creep.moveTo(targets[0]);
+
+                    }
+                }
+                else {
+                    var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                            }
+                        }));
+                        creep.moveTo(storage, { maxOps: 5000 });
+                    }
                 }
             }
-            else {
-                var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
-                        }
-                    }));
-                    creep.moveTo(storage, { maxOps: 5000 });
-                }
-                }
-
 
         }
         else {
@@ -45,9 +47,6 @@ var roleStore = {
             if (sourceEmpty != OK) {
                 if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET);
             }
-            //else {
-            //    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES));
-            //}
         }
     }
 };
