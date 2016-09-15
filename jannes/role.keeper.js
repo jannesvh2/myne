@@ -10,14 +10,13 @@ var roleKeeper = {
         for (let spot = 0, length = Memory.spawns[creep.memory.spawn].spots.length; spot < length; spot++) {
             //If not in the correct room, move towards it
             if (creep.memory.sourceRoom == Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom) {
-                if(Game.rooms[creep.memory.sourceRoom]){
+                if (Game.rooms[creep.memory.sourceRoom]) {
                     let reserveCheck = creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller);
-                if (reserveCheck == ERR_NOT_IN_RANGE)
-                    creep.moveTo(new RoomPosition(Game.rooms[Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom].controller.pos.x, Game.rooms[Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom].controller.pos.y, Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom), { maxOps: 5000 });
-                    
-
+                    if (reserveCheck == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(Game.rooms[creep.memory.sourceRoom].controller, { maxOps: 5000 });
+                    }
                 }
-                else{
+                else {
                     if (creep.room.name != Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom && Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom != '') {
                         var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom);
                         var Exit = creep.pos.findClosestByRange(exitDir);

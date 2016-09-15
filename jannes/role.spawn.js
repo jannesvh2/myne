@@ -31,22 +31,7 @@ var roleSpawn = {
             if (didSpawn == false) {
                 for (let s = 0, length = sources.length; s < length; s++) {
                     let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
-                    if (sources[s].id == '579fa85c0700be0674d2d80c' || sources[s].id == '579fa87d0700be0674d2db17' || sources[s].id == '579fa87d0700be0674d2db14') {
-                        try {
-                            if (!filterLength && Memory.spawns[spawn].counters.roomTicks > 500 || filterLength.length < 2 && Memory.spawns[spawn].counters.roomTicks > 500) {
-                                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable <= 1300)
-                                    var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                                else
-                                    var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                                if (typeof newName5 == 'string')
-                                    Memory.spawns[spawn].counters.roomTicks = 0;
-                                didSpawn = true;
-                                break;
-                            }
-                        } catch (err) {
-                            console.log(err);
-                        }
-                    }
+                    
                     if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
 
                         if (didSpawn == false) {

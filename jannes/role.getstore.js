@@ -25,7 +25,6 @@ var roleGetStore = {
                 if (transferReturn == OK) {
                     creep.memory.full = true;
                     delete creep.memory.sourceId;
-                    creep.say('storing');
                 }
 
             }

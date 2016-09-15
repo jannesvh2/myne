@@ -117,11 +117,16 @@ var roleCreateJSON = {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
+        var creeps = Memory.spawns[0].creeps.harvesters2.concat(Memory.spawns[0].creeps.builders2);
+
+        var counter = 0;
         for (let a = 0, length = roomSources.length; a < length; a++) {
             Memory.spawns[0].store.push(roomSources[a]);
-            for (let b = 0, length2 = Memory.spawns[0].creeps.stores.length; b < length2; b++){
-                if (Memory.spawns[0].creeps.stores[b].memory.sourceId && Memory.spawns[0].creeps.stores[b].memory.sourceId == Memory.spawns[0].store[a].id) {
-                    Memory.spawns[0].store.splice(a, 1);
+            for (let b = 0, length2 = creeps.length; b < length2; b++) {
+                if (creeps[b].memory.sourceId && creeps[b].memory.sourceId == Memory.spawns[0].store[a - counter].id) {
+                    Memory.spawns[0].store.splice(a - counter, 1);
+                    counter++;
+                    break;
                 }
 
             }
@@ -232,16 +237,22 @@ var roleCreateJSON = {
             }
         }
 
+
         roomSources = Game.rooms[Memory.spawns[1].random.mainRoom].find(FIND_STRUCTURES, {
             filter: (structure) => {
                 return (structure.structureType == STRUCTURE_CONTAINER);
             }
         });
+
+        var creeps = Memory.spawns[1].creeps.harvesters2.concat(Memory.spawns[1].creeps.builders2);
+        var counter = 0;
         for (let a = 0, length = roomSources.length; a < length; a++) {
             Memory.spawns[1].store.push(roomSources[a]);
-            for (let b = 0, length2 = Memory.spawns[1].creeps.stores.length; b < length2; b++) {
-                if (Memory.spawns[1].creeps.stores[b].memory.sourceId && Memory.spawns[1].creeps.stores[b].memory.sourceId == Memory.spawns[1].store[a].id) {
-                    Memory.spawns[1].store.splice(a, 1);
+            for (let b = 0, length2 = creeps.length; b < length2; b++) {
+                if (creeps[b].memory.sourceId && creeps[b].memory.sourceId == Memory.spawns[1].store[a - counter].id) {
+                    Memory.spawns[1].store.splice(a - counter, 1);
+                    counter++;
+                    break;
                 }
 
             }
