@@ -98,6 +98,7 @@ var roleCreateJSON = {
         Memory.spawns[0].store = [];
 
         var roomSources = [];
+        var roomContainers = [];
         if (!Memory.spawns[0].counters.avgAtSource)
             Memory.spawns[0].counters.avgAtSource = {};
         if (!Memory.spawns[0].counters.atSources)
@@ -109,19 +110,18 @@ var roleCreateJSON = {
                 for (let a = 0, length = roomSources.length; a < length; a++) {
                     Memory.spawns[0].sources.push(roomSources[a]);
                 }
+                roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[0].random.rooms[myRooms]].find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER);
+                    }
+                }))
             }
         }
-
-        roomSources = Game.rooms[Memory.spawns[0].random.mainRoom].find(FIND_STRUCTURES, {
-            filter: (structure) => {
-                return (structure.structureType == STRUCTURE_CONTAINER);
-            }
-        });
         var creeps = Memory.spawns[0].creeps.harvesters2.concat(Memory.spawns[0].creeps.builders2);
 
         var counter = 0;
-        for (let a = 0, length = roomSources.length; a < length; a++) {
-            Memory.spawns[0].store.push(roomSources[a]);
+        for (let a = 0, length = roomContainers.length; a < length; a++) {
+            Memory.spawns[0].store.push(roomContainers[a]);
             for (let b = 0, length2 = creeps.length; b < length2; b++) {
                 if (creeps[b].memory.sourceId && creeps[b].memory.sourceId == Memory.spawns[0].store[a - counter].id) {
                     Memory.spawns[0].store.splice(a - counter, 1);
@@ -223,6 +223,7 @@ var roleCreateJSON = {
         Memory.spawns[1].store = [];
 
         var roomSources = [];
+        var roomContainers = [];
         if (!Memory.spawns[1].counters.avgAtSource)
             Memory.spawns[1].counters.avgAtSource = {};
         if (!Memory.spawns[1].counters.atSources)
@@ -234,20 +235,18 @@ var roleCreateJSON = {
                 for (let a = 0, length = roomSources.length; a < length; a++) {
                     Memory.spawns[1].sources.push(roomSources[a]);
                 }
+                roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[1].random.rooms[myRooms]].find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER);
+                    }
+                }))
             }
         }
 
-
-        roomSources = Game.rooms[Memory.spawns[1].random.mainRoom].find(FIND_STRUCTURES, {
-            filter: (structure) => {
-                return (structure.structureType == STRUCTURE_CONTAINER);
-            }
-        });
-
         var creeps = Memory.spawns[1].creeps.harvesters2.concat(Memory.spawns[1].creeps.builders2);
         var counter = 0;
-        for (let a = 0, length = roomSources.length; a < length; a++) {
-            Memory.spawns[1].store.push(roomSources[a]);
+        for (let a = 0, length = roomContainers.length; a < length; a++) {
+            Memory.spawns[1].store.push(roomContainers[a]);
             for (let b = 0, length2 = creeps.length; b < length2; b++) {
                 if (creeps[b].memory.sourceId && creeps[b].memory.sourceId == Memory.spawns[1].store[a - counter].id) {
                     Memory.spawns[1].store.splice(a - counter, 1);

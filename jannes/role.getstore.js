@@ -1,8 +1,8 @@
 var roleGetStore = {
     run: function (creep) {
         //go to closest source
-        if (creep.memory.role != 'builder' && creep.memory.role != 'builder2')
-            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+       // if (creep.memory.role != 'builder' && creep.memory.role != 'builder2')
+        //    Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
 
         if (!creep.memory.sourceId) {
             if (Memory.spawns[creep.memory.spawn].store.length) {

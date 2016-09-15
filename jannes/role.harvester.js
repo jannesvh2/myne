@@ -31,6 +31,21 @@ var roleHarvester = {
                     }
                 });
             }
+            if (!targets) {
+                for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
+                    if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]]) {
+                        var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_MY_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_EXTENSION ||
+                                        structure.structureType == STRUCTURE_SPAWN ||
+                                        structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                            }
+                        })[0];
+                        if (targets)
+                            break;
+                    }
+                }
+            }
             if (targets) {
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets);
