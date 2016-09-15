@@ -176,7 +176,7 @@ var roleCreateJSON = {
         //StoreId
         Memory.spawns[1].random.storeId = '57dae44209f6b4c92b1181e1';
         //UseStore
-        Memory.spawns[1].random.useStore = false;
+        Memory.spawns[1].random.useStore = true;
 
 
         //current creeps
