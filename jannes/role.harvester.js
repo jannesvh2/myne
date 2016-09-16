@@ -51,6 +51,12 @@ var roleHarvester = {
                     creep.moveTo(targets);
                 }
             }
+            else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 10000) {
+
+                if (creep.transfer(Memory.spawns[creep.memory.spawn].random.terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(Memory.spawns[creep.memory.spawn].random.terminal);
+                //}
+            }
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
                 //for (let myRooms in Game.rooms) {
                 //    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
@@ -69,8 +75,8 @@ var roleHarvester = {
                 //else {
 
                 var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                        creep.moveTo(storage);
+                if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(storage);
                 //}
             }
 
