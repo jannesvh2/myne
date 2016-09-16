@@ -13,8 +13,10 @@ var roleExtractor = {
         }
 
         if (creep.memory.full) {
-            if (creep.transfer(Memory.spawns[creep.memory.spawn].random.terminal) == ERR_NOT_IN_RANGE)
-                creep.moveTo(Memory.spawns[creep.memory.spawn].random.terminal);
+
+            var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
+            if (creep.transfer(terminal) == ERR_NOT_IN_RANGE)
+                creep.moveTo(terminal);
 
         }
         else {

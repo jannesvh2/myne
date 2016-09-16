@@ -52,9 +52,9 @@ var roleHarvester = {
                 }
             }
             else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 10000) {
-
-                if (creep.transfer(Memory.spawns[creep.memory.spawn].random.terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(Memory.spawns[creep.memory.spawn].random.terminal);
+                var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
+                if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(terminal);
                 //}
             }
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
