@@ -12,14 +12,14 @@ var roleExtractor = {
         }
 
         if (creep.memory.full) {
-            var extractor = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.extractor);
-            if (creep.harvest(extractor) == ERR_NOT_IN_RANGE)
-                creep.moveTo(extractor);
+            if (creep.transfer(Memory.spawns[creep.memory.spawn].random.terminal) == ERR_NOT_IN_RANGE)
+                creep.moveTo(Memory.spawns[creep.memory.spawn].random.terminal);
 
         }
         else {
-            var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
-            if (creep.transfer(extractor) == ERR_NOT_IN_RANGE)
+
+            var extractor = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.extractor);
+            if (creep.harvest(extractor) == ERR_NOT_IN_RANGE)
                 creep.moveTo(extractor);
         }
     }

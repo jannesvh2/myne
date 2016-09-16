@@ -133,7 +133,7 @@ var roleSpawn = {
             }
                 //console.log('Builders: ' + builders.length);
 
-            else if (Memory.spawns[spawn].random.extractor) {
+            else if (Memory.spawns[spawn].random.extractor && Memory.spawns[spawn].random.terminal) {
                 if(!_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length)
                     var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'extractor', spawn: spawn });
             }
