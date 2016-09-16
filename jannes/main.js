@@ -36,7 +36,6 @@ module.exports.loop = function () {
                 creep.pickup(energy[0]);
                 if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
                     creep.memory.full = true;
-                    delete creep.memory.sourceId;
                 }
 
             }
