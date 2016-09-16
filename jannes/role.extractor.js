@@ -25,7 +25,13 @@ var roleExtractor = {
 
         }
         else {
-
+            var energy = creep.pos.findInRange(
+                FIND_DROPPED_ENERGY,
+                1
+            );
+            if (energy.length) {
+                creep.pickup(energy[0]);
+            }
             var extractor = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.extractor);
             if (creep.harvest(extractor) == ERR_NOT_IN_RANGE)
                 creep.moveTo(extractor);
