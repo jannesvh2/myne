@@ -45,8 +45,8 @@ var roleCreateJSON = {
         //UseStore
         Memory.spawns[0].random.useStore = true;
         //extractor
-        //Memory.spawns[0].random.extractor = '57db0899bcfa28e331b04f6f';
-       // Memory.spawns[0].random.terminal = '';
+        Memory.spawns[0].random.extractor = '57db0899bcfa28e331b04f6f';
+        Memory.spawns[0].random.terminal = '57dc6e2fe2d7cc5a33ae4da2';
 
         //current creeps
         if (!Memory.spawns[0].creeps)
