@@ -42,6 +42,9 @@ var roleCreateJSON = {
         Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
         Memory.spawns[0].random.useStore = true;
+        //extractor
+        //Memory.spawns[0].random.extractor = '57db0899bcfa28e331b04f6f';
+       // Memory.spawns[0].random.terminal = '';
 
         //current creeps
         if (!Memory.spawns[0].creeps)
@@ -182,6 +185,7 @@ var roleCreateJSON = {
         Memory.spawns[1].random.storeId = '57db65810f3c649e5b7c3d2d';
         //UseStore
         Memory.spawns[1].random.useStore = true;
+
 
 
         //current creeps
