@@ -25,9 +25,12 @@ var roleStore = {
                 });
 
                 if (targets[0]) {
-                    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-
+                    var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
+                    if (transfer == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0]);
+                    }
+                    else if (transfer == ERR_FULL) {
+                        Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
 
                     }
                 }
@@ -41,7 +44,7 @@ var roleStore = {
                             }
                         }));
                         creep.moveTo(storage, { maxOps: 5000 });
-                        
+
                     }
                     else if (transfer == ERR_FULL) {
                         Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
