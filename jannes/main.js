@@ -28,11 +28,15 @@ module.exports.loop = function () {
             var creep = Game.creeps[name];
             var energy = creep.pos.findInRange(
                 FIND_DROPPED_ENERGY,
-                1
+                1, {
+                    filter: function (object) {
+                        return object.resourceType == "energy";
+                    }
+                }
             );
             let mustDel = false;
             if (energy.length) {
-                //console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
+                console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
                 creep.pickup(energy[0]);
                 if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
                     creep.memory.full = true;
