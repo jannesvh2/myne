@@ -10,7 +10,7 @@ var roleBuilder = {
             creep.memory.full = false;
             creep.say('harvesting');
         }
-        else if (creep.memory.role == 'builder' && !creep.memory.full && creep.carry.energy == creep.carryCapacity) {
+        else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
             creep.memory.full = true;
             delete creep.memory.sourceId;
             if (creep.room.find(FIND_MY_CONSTRUCTION_SITES).length)
