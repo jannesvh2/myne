@@ -33,13 +33,19 @@ var roleStore = {
                 }
                 else {
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    var transfer = creep.transfer(storage, RESOURCE_ENERGY);
+                    if (transfer == ERR_NOT_IN_RANGE) {
                         creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                             filter: (structure) => {
                                 return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
                             }
                         }));
                         creep.moveTo(storage, { maxOps: 5000 });
+                        
+                    }
+                    else if (transfer == ERR_FULL) {
+                        Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
+
                     }
                 }
             }
