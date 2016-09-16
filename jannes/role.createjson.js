@@ -29,15 +29,17 @@ var roleCreateJSON = {
 
         //spawn numbers
         Memory.spawns[0].summon.h2 = 2;
-        Memory.spawns[0].summon.b2 = 1;
+        Memory.spawns[0].summon.b2 = 2;
         Memory.spawns[0].summon.u2 = 1;
         Memory.spawns[0].summon.atk = 0;
         Memory.spawns[0].random.mainRoom = 'W59S29';
         //RoomList
         Memory.spawns[0].random.rooms.push('W59S29');
         Memory.spawns[0].random.rooms.push('W59S28');
+        Memory.spawns[0].random.rooms.push('W58S28');
         //keeper
-        Memory.spawns[0].spots.push({ x: '41', y: '48', sourceRoom: 'W59S28' });
+        Memory.spawns[0].spots.push({ sourceRoom: 'W59S28' });
+        Memory.spawns[0].spots.push({ sourceRoom: 'W58S28' });
         //StoreId
         Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
