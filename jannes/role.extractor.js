@@ -16,9 +16,11 @@ var roleExtractor = {
 
             var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
             for (var resource in creep.carry) {
-                if (creep.transfer(terminal, resource) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(terminal);
-                break;
+                if (resource > 0) {
+                    if (creep.transfer(terminal, resource) == ERR_NOT_IN_RANGE)
+                        creep.moveTo(terminal);
+                    break;
+                }
             }
 
         }
