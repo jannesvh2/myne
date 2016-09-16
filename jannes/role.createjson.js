@@ -179,7 +179,7 @@ var roleCreateJSON = {
         Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
         Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
         //StoreId
-        Memory.spawns[1].random.storeId = '57dae44209f6b4c92b1181e1';
+        Memory.spawns[1].random.storeId = '57db65810f3c649e5b7c3d2d';
         //UseStore
         Memory.spawns[1].random.useStore = true;
 
