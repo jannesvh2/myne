@@ -112,7 +112,7 @@ var roleCreateJSON = {
                 }
                 roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[0].random.rooms[myRooms]].find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER);
+                        return (structure.structureType == STRUCTURE_CONTAINER && structure.store.energy > 500);
                     }
                 }))
             }
@@ -237,7 +237,7 @@ var roleCreateJSON = {
                 }
                 roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[1].random.rooms[myRooms]].find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER);
+                        return (structure.structureType == STRUCTURE_CONTAINER && structure.store.energy > 500);
                     }
                 }))
             }
