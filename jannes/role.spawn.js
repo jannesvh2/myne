@@ -6,6 +6,23 @@ var roleSpawn = {
         var didSpawn = false;
         //Game.rooms.W59S29.energyCapacityAvailable
         //spawn harvesters
+        if (Memory.spawns[spawn].random.defenders.length) {
+            if (didSpawn == false) {
+                for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
+                    def = 0;
+                    if (Memory.spawns[spawn].random.defenders[def] != Memory.spawns[spawn].random.mainRoom) {
+                        let defs = _.filter(defenders, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
+                        if (!defs.length) {
+                            var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK], undefined, { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
+                            didSpawn = true;
+                            break;
+                        }
+
+                    }
+                    Memory.spawns[spawn].random.defenders.splice(def, 1);
+                }
+            }
+        }
         if (harvesters.length < h) {
             didSpawn = true;
             if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
@@ -62,23 +79,6 @@ var roleSpawn = {
             }
         }
 
-        if (Memory.spawns[spawn].random.defenders.length) {
-            if (didSpawn == false) {
-                for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
-                    def = 0;
-                    if (Memory.spawns[spawn].random.defenders[def] != Memory.spawns[spawn].random.mainRoom) {
-                        let defs = _.filter(defenders, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
-                        if (!defs.length) {
-                            var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK], undefined, { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
-                            didSpawn = true;
-                            break;
-                        }
-
-                    }
-                    Memory.spawns[spawn].random.defenders.splice(def, 1);
-                }
-            }
-        }
         if (didSpawn == false) {
             //else if (links.length < Memory.linkSource.length * 2) {
             //    for (let l = 0, length = Memory.linkSource.length; l < length; l++) {
