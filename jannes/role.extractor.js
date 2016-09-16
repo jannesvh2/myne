@@ -2,11 +2,12 @@ var roleExtractor = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        if (creep.memory.full && creep.carry.energy == 0) {
+        var total = _.sum(creep.carry);
+        if (creep.memory.full && total == 0) {
             creep.memory.full = false;
             creep.say('harvesting');
         }
-        else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
+        else if (!creep.memory.full && total == creep.carryCapacity) {
             creep.memory.full = true;
             creep.say('storing');
         }
