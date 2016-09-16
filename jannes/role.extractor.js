@@ -15,7 +15,7 @@ var roleExtractor = {
         if (creep.memory.full) {
 
             var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
-            if (creep.transfer(terminal) == ERR_NOT_IN_RANGE)
+            if (creep.transfer(terminal, RESOURCES_ALL) == ERR_NOT_IN_RANGE)
                 creep.moveTo(terminal);
 
         }
