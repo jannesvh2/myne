@@ -3,20 +3,7 @@ var roleGetStore = {
         //go to closest source
        // if (creep.memory.role != 'builder' && creep.memory.role != 'builder2')
         //    Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
-        var energy = creep.pos.findInRange(
-            FIND_DROPPED_ENERGY,
-            1
-        );
 
-        if (energy.length) {
-            console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
-            creep.pickup(energy[0]);
-            if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
-                creep.memory.full = true;
-                delete creep.memory.sourceId;
-            }
-
-        }
         if (!creep.memory.sourceId) {
             if (Memory.spawns[creep.memory.spawn].store.length) {
                 creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[0].id;

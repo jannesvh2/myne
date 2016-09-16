@@ -15,7 +15,7 @@ var roleExtractor = require('role.extractor');
 module.exports.loop = function () {
     //creep.moveTo(Game.flags['flagname'])  work even if there is no creep in room
     PathFinder.use(true);
-    
+
     roleCreateJSON.run();
 
     roleLogging.run();
@@ -26,6 +26,20 @@ module.exports.loop = function () {
     for (let name in Game.creeps) {
         try {
             var creep = Game.creeps[name];
+            var energy = creep.pos.findInRange(
+                FIND_DROPPED_ENERGY,
+                1
+            );
+
+            if (energy.length) {
+                console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
+                creep.pickup(energy[0]);
+                if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
+                    creep.memory.full = true;
+                    delete creep.memory.sourceId;
+                }
+
+            }
             if (creep.memory.role == 'harvester') {
                 roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
