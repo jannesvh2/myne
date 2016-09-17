@@ -15,16 +15,8 @@ var roleGetStore = {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
 
             if (creepSource) {
-                var transferReturn = creepSource.transfer(creep, RESOURCE_ENERGY);
-                if (transferReturn == ERR_NOT_IN_RANGE) {
+                if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(creepSource);
-                }
-                if (transferReturn == ERR_NOT_ENOUGH_ENERGY) {
-                    creep.moveTo(creepSource);
-                }
-                if (transferReturn == OK) {
-                    creep.memory.full = true;
-                    delete creep.memory.sourceId;
                 }
 
             }
