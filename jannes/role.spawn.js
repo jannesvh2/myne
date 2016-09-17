@@ -125,8 +125,8 @@ var roleSpawn = {
                                 var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
                                     order.type == ORDER_BUY && order.price > 0.49 &&
                                     Game.market.calcTransactionCost(amountToSell, Memory.spawns[0].random.mainRoom, order.roomName) < maxTransferEnergyCost);
-                                Game.notify(orders);
-                                // if (orders)
+                                if (orders)
+                                    Game.notify(orders);
                                 //     Game.market.deal(orders[0].id, amountToSell, Memory.spawns[0].random.mainRoom);
 
                             }
