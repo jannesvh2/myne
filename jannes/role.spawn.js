@@ -112,6 +112,28 @@ var roleSpawn = {
                     var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'builder2', spawn: spawn });
                 else
                     var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE, WORK, WORK, MOVE], undefined, { role: 'builder2', spawn: spawn });
+
+                if (typeof newName == 'string') {
+                    //check order
+                    var total = _.sum(Memory.spawns[0].random.terminal.store);
+                    if (total > 50000) {
+                        var maxTransferEnergyCost = Memory.spawns[0].random.terminal.store.energy;
+                        for (var resource in Memory.spawns[0].random.terminal.store) {
+                            if (resource != 'energy') {
+                                var amountToSell = 50000;
+
+                                var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
+                                    order.type == ORDER_BUY && order.price > 0.49 &&
+                                    Game.market.calcTransactionCost(amountToSell, Memory.spawns[0].random.mainRoom, order.roomName) < maxTransferEnergyCost);
+                                Game.notify(orders);
+                                // if (orders)
+                                //     Game.market.deal(orders[0].id, amountToSell, Memory.spawns[0].random.mainRoom);
+
+                            }
+                        }
+                    }
+                }
+
             }
                 //console.log('Upgraders: ' + upgraders.length);
             else if (upgraders.length < u) {
