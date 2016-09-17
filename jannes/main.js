@@ -14,6 +14,7 @@ var roleExtractor = require('role.extractor');
 
 module.exports.loop = function () {
     //creep.moveTo(Game.flags['flagname'])  work even if there is no creep in room
+    //Game.market.deal('57dc7f507a5cbc6f245035ea', 6298, "W59S29")
     PathFinder.use(true);
 
     roleCreateJSON.run();

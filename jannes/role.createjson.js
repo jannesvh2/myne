@@ -7,7 +7,7 @@ var roleCreateJSON = {
         for (let name in Memory.creeps) {
             if (!Game.creeps[name]) {
                 delete Memory.creeps[name];
-                console.log('Clearing non-existing creep memory:', name);
+                //console.log('Clearing non-existing creep memory:', name);
             }
         }
         if (!Memory.spawns) {
@@ -28,8 +28,8 @@ var roleCreateJSON = {
         Memory.spawns[0].spots = [];
 
         //spawn numbers
-        Memory.spawns[0].summon.h2 = 2;
-        Memory.spawns[0].summon.b2 = 2;
+        Memory.spawns[0].summon.h2 = 4;
+        Memory.spawns[0].summon.b2 = 1;
         Memory.spawns[0].summon.u2 = 1;
         Memory.spawns[0].summon.atk = 0;
         Memory.spawns[0].random.mainRoom = 'W59S29';
@@ -171,8 +171,8 @@ var roleCreateJSON = {
         Memory.spawns[1].summon.h = 0;
         Memory.spawns[1].summon.b = 0;
         Memory.spawns[1].summon.u = 0;
-        Memory.spawns[1].summon.h2 = 4;
-        Memory.spawns[1].summon.b2 = 2;
+        Memory.spawns[1].summon.h2 = 5;
+        Memory.spawns[1].summon.b2 = 1;
         Memory.spawns[1].summon.u2 = 1;
         Memory.spawns[1].summon.atk = 0;
         Memory.spawns[1].random.mainRoom = 'W56S28';
