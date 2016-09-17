@@ -23,20 +23,20 @@ var roleCreateJSON = {
                 Memory.spawns[a].summon = {};
                 Memory.spawns[a].random = {};
                 Memory.spawns[a].random.defenders = [];
-                Memory.spawns[0].creeps = {};
-                Memory.spawns[0].counters = {};
-                Memory.spawns[0].counters.upgradeTicks = 0;
-                Memory.spawns[0].counters.roomTicks = 0;
-                Memory.spawns[0].counters.repairLimit = 50000;
-                Memory.spawns[0].counters.avgAtSource = {};
-                Memory.spawns[0].counters.atSources = {};
+                Memory.spawns[a].creeps = {};
+                Memory.spawns[a].counters = {};
+                Memory.spawns[a].counters.upgradeTicks = 0;
+                Memory.spawns[a].counters.roomTicks = 0;
+                Memory.spawns[a].counters.repairLimit = 50000;
+                Memory.spawns[a].counters.avgAtSource = {};
+                Memory.spawns[a].counters.atSources = {};
             }
 
             //reset for changes
             Memory.spawns[a].random.rooms = [];
             Memory.spawns[a].spots = [];
-            Memory.spawns[0].sources = [];
-            Memory.spawns[0].store = [];
+            Memory.spawns[a].sources = [];
+            Memory.spawns[a].store = [];
 
             //ticks
             Memory.spawns[a].counters.upgradeTicks++;
