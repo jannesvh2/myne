@@ -24,7 +24,7 @@ var roleSpawn = {
             }
         }
 
-        else if (Memory.spawns[spawn].random.useStore) {
+        if (Memory.spawns[spawn].random.useStore) {
             if (didSpawn == false) {
                 for (let s = 0, length = sources.length; s < length; s++) {
                     let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
@@ -61,7 +61,7 @@ var roleSpawn = {
                     var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'harvester2', spawn: spawn });
             }
         }
-        if (Memory.spawns[spawn].spots.length) {
+        else if (Memory.spawns[spawn].spots.length) {
             if (didSpawn == false) {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
                     let ticks = _.filter(scouts, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
