@@ -23,7 +23,7 @@ var roleSpawn = {
                 }
             }
         }
-
+        //dont else if
         if (Memory.spawns[spawn].random.useStore) {
             if (didSpawn == false) {
                 for (let s = 0, length = sources.length; s < length; s++) {
@@ -41,7 +41,8 @@ var roleSpawn = {
                 }
             }
         }
-        else if (harvesters.length < h) {
+        //dont else if
+        if (harvesters.length < h) {
             didSpawn = true;
             if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
                 var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'harvester', spawn: spawn });
