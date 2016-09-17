@@ -121,7 +121,7 @@ var roleCreateJSON = {
             for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
                 if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
                     roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
-                    for (let b = 0, length = roomSources.length; b < length; b++) {
+                    for (let b = 0, length2 = roomSources.length; b < length2; b++) {
                         Memory.spawns[a].sources.push(roomSources[b]);
                     }
                     roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
