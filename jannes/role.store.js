@@ -29,10 +29,10 @@ var roleStore = {
                     if (transfer == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0]);
                     }
-                    else if (transfer == ERR_FULL) {
-                        Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
+                    //else if (transfer == ERR_FULL) {
+                    //    Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
 
-                    }
+                    //}
                 }
                 else {
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
