@@ -121,8 +121,8 @@ var roleCreateJSON = {
             for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
                 if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
                     roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
-                    for (let a = 0, length = roomSources.length; a < length; a++) {
-                        Memory.spawns[a].sources.push(roomSources[a]);
+                    for (let b = 0, length = roomSources.length; b < length; b++) {
+                        Memory.spawns[a].sources.push(roomSources[b]);
                     }
                     roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
                         filter: (structure) => {
@@ -136,11 +136,11 @@ var roleCreateJSON = {
             //remove containers with a creep on the way
             var creeps = Memory.spawns[a].creeps.harvesters2.concat(Memory.spawns[a].creeps.builders2);
             var counter = 0;
-            for (let a = 0, length = roomContainers.length; a < length; a++) {
-                Memory.spawns[a].store.push(roomContainers[a]);
-                for (let b = 0, length2 = creeps.length; b < length2; b++) {
-                    if (creeps[b].memory.sourceId && creeps[b].memory.sourceId == Memory.spawns[a].store[a - counter].id) {
-                        Memory.spawns[a].store.splice(a - counter, 1);
+            for (let b = 0, length = roomContainers.length; b < length; b++) {
+                Memory.spawns[a].store.push(roomContainers[b]);
+                for (let c = 0, length2 = creeps.length; c < length2; c++) {
+                    if (creeps[c].memory.sourceId && creeps[c].memory.sourceId == Memory.spawns[a].store[b - counter].id) {
+                        Memory.spawns[a].store.splice(b - counter, 1);
                         counter++;
                         break;
                     }
