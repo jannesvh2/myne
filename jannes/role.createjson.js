@@ -46,10 +46,6 @@ var roleCreateJSON = {
             if (Memory.spawns[a].counters.repairLimit > 5000000)
                 Memory.spawns[a].counters.repairLimit = 50000;
 
-            //non Memory var
-            var roomSources = [];
-            var roomContainers = [];
-
             //current creeps
             Memory.spawns[a].creeps.harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.memory.spawn == a);
             Memory.spawns[a].creeps.harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester2' && creep.memory.spawn == a);
@@ -117,6 +113,10 @@ var roleCreateJSON = {
 
 
         for (let a = 0; a < rooms; a++) {
+            //non Memory var
+            var roomSources = [];
+            var roomContainers = [];
+
             //add memory for all sources and containers
             for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
                 if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
