@@ -23,7 +23,25 @@ var roleSpawn = {
                 }
             }
         }
-        if (harvesters.length < h) {
+
+        else if (Memory.spawns[spawn].random.useStore) {
+            if (didSpawn == false) {
+                for (let s = 0, length = sources.length; s < length; s++) {
+                    let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
+
+                    if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
+
+                        if (didSpawn == false) {
+                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
+                            didSpawn = true;
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
+        else if (harvesters.length < h) {
             didSpawn = true;
             if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
                 var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, CARRY, MOVE], undefined, { role: 'harvester', spawn: spawn });
@@ -43,25 +61,6 @@ var roleSpawn = {
                     var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], undefined, { role: 'harvester2', spawn: spawn });
             }
         }
-
-        else if (Memory.spawns[spawn].random.useStore) {
-            if (didSpawn == false) {
-                for (let s = 0, length = sources.length; s < length; s++) {
-                    let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
-
-                    if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
-
-                        if (didSpawn == false) {
-                            var newName5 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                            didSpawn = true;
-                            break;
-                        }
-                    }
-
-                }
-            }
-        }
-
         if (Memory.spawns[spawn].spots.length) {
             if (didSpawn == false) {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
