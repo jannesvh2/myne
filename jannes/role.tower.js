@@ -19,8 +19,11 @@ var roleTower = {
                         }
                     });
                 }
-                if (closestDamagedStructure)
+                if (closestDamagedStructure) {
                     tower.repair(closestDamagedStructure);
+                    if (!Memory.spawns[a].repairHp[closestDamagedStructure.id])
+                        Memory.spawns[a].repairHp[closestDamagedStructure.id] = closestDamagedStructure.hits;
+                }
             }
         }
         for (let a = 0, length = Memory.spawns.length; a < length; a++) {
