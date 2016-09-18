@@ -1,7 +1,7 @@
 var roleSpawn = {
 
     /** @param {Creep} creep **/
-    run: function (h, b, u, h2, b2, u2, atk, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackers, scouts, stores, sources, defenders, spawn) {
+    run: function (h, b, u, h2, b2, u2, atkM, atkR, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackersM, attackersR, scouts, stores, sources, defenders, spawn) {
 
         var didSpawn = false;
         //Game.rooms.W59S29.energyCapacityAvailable
@@ -162,7 +162,12 @@ var roleSpawn = {
                 if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 3 && Game.getObjectById(Memory.spawns[spawn].random.extractor).mineralAmount > 0)
                     var newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'extractor', spawn: spawn });
             }
-            else if (attackers.length < atk) {
+            else if (attackersM.length < atkM) {
+                //ranged
+                //var newName4 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK], undefined, { role: 'attacker', spawn: spawn });
+                //melee
+                var newName4 = Game.spawns['Spawn' + spawn + 1].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, ATTACK, ATTACK, ATTACK, ATTACK], undefined, { role: 'attacker', spawn: spawn });
+            } else if (attackersR.length < atkR) {
                 //ranged
                 var newName4 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK], undefined, { role: 'attacker', spawn: spawn });
                 //melee

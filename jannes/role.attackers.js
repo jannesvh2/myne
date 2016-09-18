@@ -41,6 +41,13 @@ var roleAttackers = {
                     }
                 }
             }
+            else {
+                targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 1);
+                if (targets.length > 0) {
+                    if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE);
+                }
+            }
+
         }
         //If not in the correct room, move towards it
         if (creep.room.name != sourceRoom && sourceRoom != '') {

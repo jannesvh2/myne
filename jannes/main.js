@@ -20,8 +20,8 @@ module.exports.loop = function () {
     roleCreateJSON.run();
 
     roleLogging.run();
-    roleSpawn.run(Memory.spawns[0].summon.h, Memory.spawns[0].summon.b, Memory.spawns[0].summon.u, Memory.spawns[0].summon.h2, Memory.spawns[0].summon.b2, Memory.spawns[0].summon.u2, Memory.spawns[0].summon.atk, Memory.spawns[0].creeps.harvesters, Memory.spawns[0].creeps.builders, Memory.spawns[0].creeps.upgraders, Memory.spawns[0].creeps.harvesters2, Memory.spawns[0].creeps.builders2, Memory.spawns[0].creeps.upgraders2, Memory.spawns[0].creeps.attackers, Memory.spawns[0].creeps.scouts, Memory.spawns[0].creeps.stores, Memory.spawns[0].sources, Memory.spawns[0].creeps.defenders, 0);
-    roleSpawn.run(Memory.spawns[1].summon.h, Memory.spawns[1].summon.b, Memory.spawns[1].summon.u, Memory.spawns[1].summon.h2, Memory.spawns[1].summon.b2, Memory.spawns[1].summon.u2, Memory.spawns[1].summon.atk, Memory.spawns[1].creeps.harvesters, Memory.spawns[1].creeps.builders, Memory.spawns[1].creeps.upgraders, Memory.spawns[1].creeps.harvesters2, Memory.spawns[1].creeps.builders2, Memory.spawns[1].creeps.upgraders2, Memory.spawns[1].creeps.attackers, Memory.spawns[1].creeps.scouts, Memory.spawns[1].creeps.stores, Memory.spawns[1].sources, Memory.spawns[1].creeps.defenders, 1);
+    roleSpawn.run(Memory.spawns[0].summon.h, Memory.spawns[0].summon.b, Memory.spawns[0].summon.u, Memory.spawns[0].summon.h2, Memory.spawns[0].summon.b2, Memory.spawns[0].summon.u2, Memory.spawns[0].summon.atkM, Memory.spawns[0].summon.atkR, Memory.spawns[0].creeps.harvesters, Memory.spawns[0].creeps.builders, Memory.spawns[0].creeps.upgraders, Memory.spawns[0].creeps.harvesters2, Memory.spawns[0].creeps.builders2, Memory.spawns[0].creeps.upgraders2, Memory.spawns[0].creeps.attackersM, Memory.spawns[0].creeps.attackersR, Memory.spawns[0].creeps.scouts, Memory.spawns[0].creeps.stores, Memory.spawns[0].sources, Memory.spawns[0].creeps.defenders, 0);
+    roleSpawn.run(Memory.spawns[1].summon.h, Memory.spawns[1].summon.b, Memory.spawns[1].summon.u, Memory.spawns[1].summon.h2, Memory.spawns[1].summon.b2, Memory.spawns[1].summon.u2, Memory.spawns[1].summon.atkM, Memory.spawns[1].summon.atkR, Memory.spawns[1].creeps.harvesters, Memory.spawns[1].creeps.builders, Memory.spawns[1].creeps.upgraders, Memory.spawns[1].creeps.harvesters2, Memory.spawns[1].creeps.builders2, Memory.spawns[1].creeps.upgraders2, Memory.spawns[1].creeps.attackersM, Memory.spawns[1].creeps.attackersR, Memory.spawns[1].creeps.scouts, Memory.spawns[1].creeps.stores, Memory.spawns[1].sources, Memory.spawns[1].creeps.defenders, 1);
     roleTower.run();
 
     for (let name in Game.creeps) {
@@ -50,45 +50,48 @@ module.exports.loop = function () {
                     delete creep.memory.sourceId;
                 roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'harvester2') {
+            else if (creep.memory.role == 'harvester2') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'upgrader') {
+            else if (creep.memory.role == 'upgrader') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleUpgrader.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'upgrader2') {
+            else if (creep.memory.role == 'upgrader2') {
                 roleUpgrader.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'builder') {
+            else if (creep.memory.role == 'builder') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleBuilder.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'builder2') {
+            else if (creep.memory.role == 'builder2') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleBuilder.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'store') {
+            else if (creep.memory.role == 'store') {
                 roleStore.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            if (creep.memory.role == 'attacker') {
+            else if (creep.memory.role == 'attackerM') {
                 roleAttackers.run(creep);
             }
-            if (creep.memory.role == 'path2') {
+            else if (creep.memory.role == 'attackerR') {
+                roleAttackers.run(creep);
+            }
+            else if (creep.memory.role == 'path2') {
                 rolePath.run(creep);
             }
-            if (creep.memory.role == 'scout') {
+            else if (creep.memory.role == 'scout') {
                 roleKeeper.run(creep);
             }
-            if (creep.memory.role == 'defender') {
+            else if (creep.memory.role == 'defender') {
                 roleDefender.run(creep);
             }
-            if (creep.memory.role == 'extractor') {
+            else if (creep.memory.role == 'extractor') {
                 roleExtractor.run(creep);
             }
             //if (creep.memory.role == 'link') {

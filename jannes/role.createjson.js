@@ -54,7 +54,8 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.memory.spawn == a);
             Memory.spawns[a].creeps.upgraders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader2' && creep.memory.spawn == a);
             Memory.spawns[a].creeps.stores = _.filter(Game.creeps, (creep) => creep.memory.role == 'store' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.attackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'attacker' && creep.memory.spawn == a);
+            Memory.spawns[a].creeps.attackersM = _.filter(Game.creeps, (creep) => creep.memory.role == 'attackerM' && creep.memory.spawn == a);
+            Memory.spawns[a].creeps.attackersR = _.filter(Game.creeps, (creep) => creep.memory.role == 'attackerR' && creep.memory.spawn == a);
             Memory.spawns[a].creeps.scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout' && creep.memory.spawn == a);
             Memory.spawns[a].creeps.defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender' && creep.memory.spawn == a);
         }
@@ -67,7 +68,8 @@ var roleCreateJSON = {
         Memory.spawns[0].summon.h2 = 4;
         Memory.spawns[0].summon.b2 = 1;
         Memory.spawns[0].summon.u2 = 1;
-        Memory.spawns[0].summon.atk = 0;
+        Memory.spawns[0].summon.atkM = 0;
+        Memory.spawns[0].summon.atkR = 0;
         Memory.spawns[0].random.mainRoom = 'W59S29';
         //RoomList
         Memory.spawns[0].random.rooms.push('W59S29');
@@ -92,7 +94,8 @@ var roleCreateJSON = {
         Memory.spawns[1].summon.h2 = 5;
         Memory.spawns[1].summon.b2 = 1;
         Memory.spawns[1].summon.u2 = 1;
-        Memory.spawns[1].summon.atk = 0;
+        Memory.spawns[1].summon.atkM = 0;
+        Memory.spawns[1].summon.atkR = 0;
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
         Memory.spawns[1].random.rooms.push('W56S28');
