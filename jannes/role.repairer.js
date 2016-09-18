@@ -22,6 +22,9 @@ var roleRepairer = {
         if (closestDamagedStructure) {
             if (creep.repair(closestDamagedStructure) == ERR_NOT_IN_RANGE)
                 creep.moveTo(closestDamagedStructure, { maxOps: 5000 });
+            else
+                if (Memory.spawns[a].repairHp[closestDamagedStructure.id] && Memory.spawns[a].repairHp[closestDamagedStructure.id] < closestDamagedStructure.hits)
+                    Memory.spawns[a].repairHp[closestDamagedStructure.id] = closestDamagedStructure.hits;
         }
         else {
             Memory.spawns[creep.memory.spawn].counters.repairLimit += 30000;
