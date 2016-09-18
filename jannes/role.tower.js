@@ -9,13 +9,13 @@ var roleTower = {
                 //tower repair
                 var closestDamagedStructure = tower.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
-                        return (Memory.spawns[a].repairHp[structure] && (structure.hits < Memory.spawns[a].repairHp[structure]))
+                        return (Memory.spawns[a].repairHp[structure.id] && (structure.hits < Memory.spawns[a].repairHp[structure.id]))
                     }
                 });
                 if (!closestDamagedStructure) {
                     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => {
-                            return (Memory.spawns[a].repairHp[structure] && (structure.hits < Memory.spawns[a].repairHp[structure]) && (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD))
+                            return (Memory.spawns[a].repairHp[structure.id] && (structure.hits < Memory.spawns[a].repairHp[structure.id]) && (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD))
                         }
                     });
                 }
