@@ -6,12 +6,12 @@ var roleAttackers = {
         var enableID = false;
         var enablePriority = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
-        var targetLocation = Game.getObjectById('57d40c7dbc3b5d244fa8802a');
+        var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefe03');
         var priorityTarget = Game.getObjectById('57d002bbbbd16aff3afd0b68');
 
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W58S26';
-        var sourceRoom = 'W59S28';
+        var sourceRoom = 'W58S26';
 
         var targets = [];
         if (!guard) {

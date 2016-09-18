@@ -25,10 +25,10 @@ var roleLogging = {
              ", H: " + Memory.spawns[1].creeps.harvesters2.length + "/" + Memory.spawns[1].summon.h2
             + ", B: " + Memory.spawns[1].creeps.builders2.length + "/" + Memory.spawns[1].summon.b2
             + ", U: " + Memory.spawns[1].creeps.upgraders2.length + "/" + Memory.spawns[1].summon.u2
-            + ", a: " + Memory.spawns[1].creeps.attackersM.length + "/" + Memory.spawns[1].summon.atkM +" "+ Memory.spawns[1].creeps.attackersR.length + "/" + Memory.spawns[1].summon.atkR
+            + ", m/r: " + Memory.spawns[1].creeps.attackersM.length + "/" + Memory.spawns[1].summon.atkM +" "+ Memory.spawns[1].creeps.attackersR.length + "/" + Memory.spawns[1].summon.atkR
             + ", s: " + Memory.spawns[1].creeps.scouts.length + "/" + Memory.spawns[1].spots.length
             + ", ST: " + Memory.spawns[1].creeps.stores.length + "/" + parseInt(Memory.spawns[1].sources.length)
-            + " | rep: " + String(Memory.spawns[1].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,');
+            + " | rep: " + String(Memory.spawns[1].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
         +" )";
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
