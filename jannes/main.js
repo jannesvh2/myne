@@ -118,13 +118,15 @@ module.exports.loop = function () {
             else if (creep.pos.y == 49)
                 creep.move(TOP);
 
-            notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu);
-            var cpu = Game.cpu.getUsed();
+            // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu);
+            //  var cpu = Game.cpu.getUsed();
         }
         catch (err) {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
+    notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu);
+    var cpu = Game.cpu.getUsed();
     for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
         Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[Memory.spawns[0].sources[s].id];
     }
