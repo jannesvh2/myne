@@ -26,13 +26,18 @@ var roleBuilder = {
                 canBuild = true;
                 var test = creep.build(targets);
                 if (test == ERR_NOT_IN_RANGE) {
-                    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                    var closestDamagedStructure = creep.pos.findInRange(FIND_STRUCTURES, 1, {
                         filter: (structure) => {
                             return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
                         }
-                    }));
+                    });
+
+                    if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK)) {
+                        if (!Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] || Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] < closestDamagedStructure[0].hits)
+                            Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
+                    }
                     creep.moveTo(targets, { maxOps: 5000 });
-                } 
+                }
             }
             else {
                 targets = [];
@@ -47,11 +52,16 @@ var roleBuilder = {
                     canBuild = true;
                     var buildReturn = creep.build(targets[0]);
                     if (buildReturn != OK) {
-                        creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                        var closestDamagedStructure = creep.pos.findInRange(FIND_STRUCTURES, 1, {
                             filter: (structure) => {
                                 return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
                             }
-                        }));
+                        });
+
+                        if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK)) {
+                            if (!Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] || Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] < closestDamagedStructure[0].hits)
+                                Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
+                        }
                         creep.moveTo(targets[0], { maxOps: 5000 });
                     }
                     //if (buildReturn == ERR_INVALID_TARGET) {
