@@ -19,7 +19,7 @@ var roleTower = {
                         }
                     });
                 }
-                if (closestDamagedStructure) {
+                if (closestDamagedStructure)
                     tower.repair(closestDamagedStructure);
             }
         }
