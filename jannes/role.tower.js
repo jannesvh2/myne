@@ -9,19 +9,20 @@ var roleTower = {
                 //tower repair
                 var closestDamagedStructure = tower.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.hits < structure.hitsMax - 750 &&
-                            structure.hits < Memory.spawns[a].counters.repairLimit - 30000)
+                        return (Memory.spawns[a].repairHp[structure] && (structure.hits < Memory.spawns[a].repairHp[structure]))
                     }
                 });
                 if (!closestDamagedStructure) {
                     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => {
-                            return (structure.hits < structure.hitsMax - 750 && (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD) && structure.hits < Memory.spawns[a].counters.repairLimit - 30000)
+                            return (Memory.spawns[a].repairHp[structure] && (structure.hits < Memory.spawns[a].repairHp[structure]) && (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_WALL || structure.structureType == STRUCTURE_ROAD))
                         }
                     });
                 }
                 if (closestDamagedStructure) {
                     tower.repair(closestDamagedStructure);
+                    if (Memory.spawns[a].repairHp[closestDamagedStructure.id] && Memory.spawns[a].repairHp[closestDamagedStructure.id] < closestDamagedStructure.hits)
+                        Memory.spawns[a].repairHp[closestDamagedStructure.id] = closestDamagedStructure.hits;
                 }
             }
         }

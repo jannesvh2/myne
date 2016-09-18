@@ -30,6 +30,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.repairLimit = 50000;
                 Memory.spawns[a].counters.avgAtSource = {};
                 Memory.spawns[a].counters.atSources = {};
+                Memory.spawns[a].repairHp = {};
             }
 
             //reset for changes
