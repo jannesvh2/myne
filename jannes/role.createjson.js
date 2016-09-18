@@ -27,7 +27,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters = {};
                 Memory.spawns[a].counters.upgradeTicks = 0;
                 Memory.spawns[a].counters.roomTicks = 0;
-                Memory.spawns[a].counters.repairLimit = 50000;
+                Memory.spawns[a].counters.repairLimit = 10000;
                 Memory.spawns[a].counters.avgAtSource = {};
                 Memory.spawns[a].counters.atSources = {};
                 Memory.spawns[a].repairHp = {};
@@ -45,7 +45,7 @@ var roleCreateJSON = {
 
             //repair reset if its to high
             if (Memory.spawns[a].counters.repairLimit > 5000000)
-                Memory.spawns[a].counters.repairLimit = 50000;
+                Memory.spawns[a].counters.repairLimit = 10000;
 
             //current creeps
             Memory.spawns[a].creeps.harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.memory.spawn == a);
