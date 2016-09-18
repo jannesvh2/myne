@@ -80,6 +80,13 @@ var roleHarvester = {
                 //}
             }
 
+            //need work part
+            //creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
+            //    filter: (structure) => {
+            //        return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+            //    }
+            //}));
+
         }
         else {
             if (creep.memory.role == 'harvester')
