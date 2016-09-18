@@ -20,18 +20,18 @@ module.exports.loop = function () {
     var notify = "start: " + cpu;
 
     roleCreateJSON.run();
-    notify += " | JSON: " + (Game.cpu.getUsed() - cpu);
+    notify += " | JSON: " + (Game.cpu.getUsed() - cpu).toFixed(2);
 
     roleLogging.run();
     var cpu = Game.cpu.getUsed();
 
     roleSpawn.run(Memory.spawns[0].summon.h, Memory.spawns[0].summon.b, Memory.spawns[0].summon.u, Memory.spawns[0].summon.h2, Memory.spawns[0].summon.b2, Memory.spawns[0].summon.u2, Memory.spawns[0].summon.atkM, Memory.spawns[0].summon.atkR, Memory.spawns[0].creeps.harvesters, Memory.spawns[0].creeps.builders, Memory.spawns[0].creeps.upgraders, Memory.spawns[0].creeps.harvesters2, Memory.spawns[0].creeps.builders2, Memory.spawns[0].creeps.upgraders2, Memory.spawns[0].creeps.attackersM, Memory.spawns[0].creeps.attackersR, Memory.spawns[0].creeps.scouts, Memory.spawns[0].creeps.stores, Memory.spawns[0].sources, Memory.spawns[0].creeps.defenders, 0);
     roleSpawn.run(Memory.spawns[1].summon.h, Memory.spawns[1].summon.b, Memory.spawns[1].summon.u, Memory.spawns[1].summon.h2, Memory.spawns[1].summon.b2, Memory.spawns[1].summon.u2, Memory.spawns[1].summon.atkM, Memory.spawns[1].summon.atkR, Memory.spawns[1].creeps.harvesters, Memory.spawns[1].creeps.builders, Memory.spawns[1].creeps.upgraders, Memory.spawns[1].creeps.harvesters2, Memory.spawns[1].creeps.builders2, Memory.spawns[1].creeps.upgraders2, Memory.spawns[1].creeps.attackersM, Memory.spawns[1].creeps.attackersR, Memory.spawns[1].creeps.scouts, Memory.spawns[1].creeps.stores, Memory.spawns[1].sources, Memory.spawns[1].creeps.defenders, 1);
-    notify += " | SPAWN: " + (Game.cpu.getUsed() - cpu);
+    notify += " | SPAWN: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
 
     roleTower.run();
-    notify += " | TOWER: " + (Game.cpu.getUsed() - cpu);
+    notify += " | TOWER: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
 
     for (let name in Game.creeps) {
@@ -116,14 +116,14 @@ module.exports.loop = function () {
             else if (creep.pos.y == 49)
                 creep.move(TOP);
 
-            // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu);
+            // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu).toFixed(2);
             //  var cpu = Game.cpu.getUsed();
         }
         catch (err) {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
-    notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu);
+    notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
     for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
         Memory.spawns[0].counters.history[Memory.spawns[0].sources[s].id] = Memory.spawns[0].counters.atSources[Memory.spawns[0].sources[s].id];
