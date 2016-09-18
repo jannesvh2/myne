@@ -17,7 +17,7 @@ module.exports.loop = function () {
     //Game.market.deal('57dc7f507a5cbc6f245035ea', 6298, "W59S29")
     PathFinder.use(true);
     var cpu = Game.cpu.getUsed();
-    var notify = "start: " + cpu;
+    var notify = "start: " + cpu.toFixed(2);
 
     roleCreateJSON.run();
     notify += " | JSON: " + (Game.cpu.getUsed() - cpu).toFixed(2);
