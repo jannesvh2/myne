@@ -21,10 +21,8 @@ module.exports.loop = function () {
 
     roleCreateJSON.run();
     notify += " | JSON: " + (Game.cpu.getUsed() - cpu);
-    var cpu = Game.cpu.getUsed();
 
     roleLogging.run();
-    notify += " | LOG: " + (Game.cpu.getUsed() - cpu);
     var cpu = Game.cpu.getUsed();
 
     roleSpawn.run(Memory.spawns[0].summon.h, Memory.spawns[0].summon.b, Memory.spawns[0].summon.u, Memory.spawns[0].summon.h2, Memory.spawns[0].summon.b2, Memory.spawns[0].summon.u2, Memory.spawns[0].summon.atkM, Memory.spawns[0].summon.atkR, Memory.spawns[0].creeps.harvesters, Memory.spawns[0].creeps.builders, Memory.spawns[0].creeps.upgraders, Memory.spawns[0].creeps.harvesters2, Memory.spawns[0].creeps.builders2, Memory.spawns[0].creeps.upgraders2, Memory.spawns[0].creeps.attackersM, Memory.spawns[0].creeps.attackersR, Memory.spawns[0].creeps.scouts, Memory.spawns[0].creeps.stores, Memory.spawns[0].sources, Memory.spawns[0].creeps.defenders, 0);
@@ -133,6 +131,5 @@ module.exports.loop = function () {
     for (let s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
         Memory.spawns[1].counters.history[Memory.spawns[1].sources[s].id] = Memory.spawns[1].counters.atSources[Memory.spawns[1].sources[s].id];
     }
-    notify += " | end: " + (Game.cpu.getUsed() - cpu);
     console.log(notify);
 }
