@@ -131,5 +131,5 @@ module.exports.loop = function () {
     for (let s = 0, length = Memory.spawns[1].sources.length; s < length; s++) {
         Memory.spawns[1].counters.history[Memory.spawns[1].sources[s].id] = Memory.spawns[1].counters.atSources[Memory.spawns[1].sources[s].id];
     }
-    console.log(notify + " total: " + cpu);
+    console.log(notify + " total: " + Game.cpu.getUsed().toFixed(2));
 }
