@@ -24,7 +24,7 @@ var roleRepairer = {
                 creep.moveTo(closestDamagedStructure, { maxOps: 5000 });
             else
                 if ((!Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure.id] || Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure.id] < closestDamagedStructure.hits) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom)
-                    Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure.id] = closestDamagedStructure.hits;
+                    Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure.id] = closestDamagedStructure.hits;
         }
         else {
             Memory.spawns[creep.memory.spawn].counters.repairLimit += 10000;

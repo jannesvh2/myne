@@ -31,6 +31,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.avgAtSource = {};
                 Memory.spawns[a].counters.atSources = {};
                 Memory.spawns[a].repairHp = {};
+                Memory.spawns[a].repairHpHistory = {};
             }
 
             //reset for changes
@@ -166,6 +167,14 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.atSources[Memory.spawns[a].sources[s].id] = 0;
                 Memory.spawns[a].counters.avgAtSource[Memory.spawns[a].sources[s].id] = Memory.spawns[a].counters.history[Memory.spawns[a].sources[s].id];
             }
+
+            //repair
+            for (let his in Memory.spawns[a].repairHpHistory) {
+                let repObj = Memory.spawns[a].repairHpHistory[his];
+                if (repObj.hits > Memory.spawns[a].repairHp[his])
+                    Memory.spawns[a].repairHp[his] = repObj.hits;
+            }
+            Memory.spawns[a].repairHpHistory = [];
         }
     }
 };
