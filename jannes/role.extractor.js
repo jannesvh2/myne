@@ -16,7 +16,7 @@ var roleExtractor = {
 
             var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
             var total = _.sum(terminal.store);
-            if (total < 240000) {
+            if (total < 260000) {
                 for (var resource in creep.carry) {
                     if (creep.carry[resource] > 0) {
                         if (creep.transfer(terminal, resource) == ERR_NOT_IN_RANGE)
