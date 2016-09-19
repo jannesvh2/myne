@@ -9,7 +9,7 @@ var roleLogging = {
             //"h: " + harvesters.length + "/" + h
             //+ ", b: " + builders.length + "/" + b
             //+ ", u: " + upgraders.length + "/" + u
-             "( W59S29 progress: " + (Game.rooms[Memory.spawns[0].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[0].random.mainRoom].controller.progressTotal).toFixed(2) + "% , H: " + Memory.spawns[0].creeps.harvesters2.length + "/" + Memory.spawns[0].summon.h2
+             "( GCL: "+(Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2)+"% )( W59S29 progress: " + (Game.rooms[Memory.spawns[0].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[0].random.mainRoom].controller.progressTotal).toFixed(2) + "% , H: " + Memory.spawns[0].creeps.harvesters2.length + "/" + Memory.spawns[0].summon.h2
             + ", B: " + Memory.spawns[0].creeps.builders2.length + "/" + Memory.spawns[0].summon.b2
             + ", U: " + Memory.spawns[0].creeps.upgraders2.length + "/" + Memory.spawns[0].summon.u2
             + ", m/r: " + Memory.spawns[0].creeps.attackersM.length + "/" + Memory.spawns[0].summon.atkM +" "+ Memory.spawns[0].creeps.attackersR.length + "/" + Memory.spawns[0].summon.atkR
