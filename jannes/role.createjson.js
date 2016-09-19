@@ -49,19 +49,42 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.repairLimit = 10000;
 
             //current creeps
-            Memory.spawns[a].creeps.harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester2' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.upgraders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader2' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.stores = _.filter(Game.creeps, (creep) => creep.memory.role == 'store' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.attackersM = _.filter(Game.creeps, (creep) => creep.memory.role == 'attackerM' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.attackersR = _.filter(Game.creeps, (creep) => creep.memory.role == 'attackerR' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout' && creep.memory.spawn == a);
-            Memory.spawns[a].creeps.defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender' && creep.memory.spawn == a);
+            Memory.spawns[a].creeps.harvesters = [];
+            Memory.spawns[a].creeps.harvesters2 = [];
+            Memory.spawns[a].creeps.builders = [];
+            Memory.spawns[a].creeps.builders2 = [];
+            Memory.spawns[a].creeps.upgraders = [];
+            Memory.spawns[a].creeps.upgraders2 = [];
+            Memory.spawns[a].creeps.stores = [];
+            Memory.spawns[a].creeps.attackersM = [];
+            Memory.spawns[a].creeps.attackersR = [];
+            Memory.spawns[a].creeps.scouts = [];
+            Memory.spawns[a].creeps.defenders = [];
         }
-
+        for (let creeps in Game.creeps) {
+            if (Game.creeps[creep].memory.role == 'harvester')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'harvester2')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters2.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'builder')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'builder2')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders2.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'upgrader')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.upgraders.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'upgrader2')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.upgraders2.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'store')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.stores.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'attackerM')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersM.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'attackerR')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersR.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'scout')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'defender')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.defenders.push(Game.creeps[creep]);
+        }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
