@@ -61,7 +61,7 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.scouts = [];
             Memory.spawns[a].creeps.defenders = [];
         }
-        for (let creeps in Game.creeps) {
+        for (let creep in Game.creeps) {
             if (Game.creeps[creep].memory.role == 'harvester')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'harvester2')
