@@ -32,7 +32,7 @@ var roleBuilder = {
                         }
                     });
 
-                    if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK)) {
+                    if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
                         if (!Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] || Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] < closestDamagedStructure[0].hits)
                             Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                     }
@@ -58,7 +58,7 @@ var roleBuilder = {
                             }
                         });
 
-                        if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK)) {
+                        if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
                             if (!Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] || Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] < closestDamagedStructure[0].hits)
                                 Memory.spawns[creep.memory.spawn].repairHp[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                         }
