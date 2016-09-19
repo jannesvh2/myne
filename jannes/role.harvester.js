@@ -51,7 +51,7 @@ var roleHarvester = {
                     creep.moveTo(targets);
                 }
             }
-            else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 10000) {
+            else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 40000) {
                 var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
                 if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                     creep.moveTo(terminal);
