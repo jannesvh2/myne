@@ -111,7 +111,7 @@ var roleAttackers = {
             else {
                 creep.rangedHeal(targetHeal);
             }
-            if (creep.memory.role == 'healer')
+            if (creep.memory.role == 'attackerH')
                 creep.moveTo(targetHeal);
         }
         if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax / 2)) {
