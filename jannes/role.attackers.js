@@ -2,7 +2,7 @@ var roleAttackers = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var guard = true;
+        var guard = false;
         var enableID = false;
         var enablePriority = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
@@ -111,6 +111,8 @@ var roleAttackers = {
             else {
                 creep.rangedHeal(targetHeal);
             }
+            if (creep.memory.role == 'healer')
+                creep.moveTo(targetHeal);
         }
     }
 };

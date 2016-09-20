@@ -58,6 +58,7 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.stores = [];
             Memory.spawns[a].creeps.attackersM = [];
             Memory.spawns[a].creeps.attackersR = [];
+            Memory.spawns[a].creeps.attackersH = [];
             Memory.spawns[a].creeps.scouts = [];
             Memory.spawns[a].creeps.defenders = [];
         }
@@ -80,6 +81,8 @@ var roleCreateJSON = {
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersM.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'attackerR')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersR.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'attackerH')
+                    Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersH.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'scout')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'defender')
@@ -95,6 +98,7 @@ var roleCreateJSON = {
         Memory.spawns[0].summon.u2 = 1;
         Memory.spawns[0].summon.atkM = 0;
         Memory.spawns[0].summon.atkR = 0;
+        Memory.spawns[0].summon.atkH = 0;
         Memory.spawns[0].random.mainRoom = 'W59S29';
         //RoomList
         Memory.spawns[0].random.rooms.push('W59S29');
@@ -121,6 +125,7 @@ var roleCreateJSON = {
         Memory.spawns[1].summon.u2 = 1;
         Memory.spawns[1].summon.atkM = 0;
         Memory.spawns[1].summon.atkR = 0;
+        Memory.spawns[1].summon.atkH = 0;
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
         Memory.spawns[1].random.rooms.push('W56S28');
