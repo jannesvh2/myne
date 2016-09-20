@@ -53,6 +53,7 @@ var roleLogging = {
 
         console.log(msg);
         console.log(msg2);
+        console.log(msg3);
         console.log(progress);
     }
 };
