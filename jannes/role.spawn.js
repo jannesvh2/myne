@@ -126,18 +126,18 @@ var roleSpawn = {
 
                 if (typeof newName == 'string') {
                     //check order
-                    var total = _.sum(Memory.spawns[0].random.terminal.store);
+                    var total = _.sum(Memory.spawns[spawn].random.terminal.store);
                     if (total > 100000) {
-                        var maxTransferEnergyCost = Memory.spawns[0].random.terminal.store.energy;
-                        for (var resource in Memory.spawns[0].random.terminal.store) {
+                        var maxTransferEnergyCost = Memory.spawns[spawn].random.terminal.store.energy;
+                        for (var resource in Memory.spawns[spawn].random.terminal.store) {
                             if (resource != 'energy') {
                                 var amountToSell = 50000;
 
                                 var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
                                     order.type == ORDER_BUY && order.price > 0.49 &&
-                                    Game.market.calcTransactionCost(1000, Memory.spawns[0].random.mainRoom, order.roomName) < 500);
+                                    Game.market.calcTransactionCost(1000, Memory.spawns[spawn].random.mainRoom, order.roomName) < 500);
                                 if (orders.length)
-                                    Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[0].random.mainRoom));
+                                    Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                             }
                         }
                     }
