@@ -12,7 +12,7 @@ var roleAttackers = {
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W58S26';
         var sourceRoom = 'W58S26';
-
+        var saveRoom = 'W58S26';
         var targets = [];
         if (!guard) {
             if (creep.getActiveBodyparts(RANGED_ATTACK)) {
@@ -29,16 +29,16 @@ var roleAttackers = {
                     if (targets.length > 0) {
                         if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
                     }
-                    else if (creep.room.name == sourceRoom) {
-                        targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
-                            filter: (structure) => {
-                                return (structure.structureType == STRUCTURE_WALL);
-                            }
-                        });
-                        if (targets.length > 0) {
-                            if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
-                        }
-                    }
+                    //else if (creep.room.name == sourceRoom) {
+                    //    targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                    //        filter: (structure) => {
+                    //            return (structure.structureType == STRUCTURE_WALL);
+                    //        }
+                    //    });
+                    //    if (targets.length > 0) {
+                    //        if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
+                    //    }
+                    //}
                 }
             }
             else {
@@ -74,7 +74,7 @@ var roleAttackers = {
                 }
             }));
         }
-        else {
+        else if (!targets.length) {
             targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 22);
         }
 
@@ -113,6 +113,11 @@ var roleAttackers = {
             }
             if (creep.memory.role == 'healer')
                 creep.moveTo(targetHeal);
+        }
+        if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax / 2)) {
+            var exitDir = Game.map.findExit(creep.room.name, saveRoom);
+            var Exit = creep.pos.findClosestByRange(exitDir);
+            creep.moveTo(Exit, { maxOps: 5000 });
         }
     }
 };
