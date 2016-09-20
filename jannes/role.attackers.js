@@ -114,7 +114,7 @@ var roleAttackers = {
             if (creep.memory.role == 'attackerH')
                 creep.moveTo(targetHeal);
         }
-        if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax / 2)) {
+        if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax * 2/ 3)) {
             var exitDir = Game.map.findExit(creep.room.name, saveRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
             creep.moveTo(Exit, { maxOps: 5000 });
