@@ -61,8 +61,11 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.attackersH = [];
             Memory.spawns[a].creeps.scouts = [];
             Memory.spawns[a].creeps.defenders = [];
+            Memory.spawns[a].counters.creeps = 0;
         }
         for (let creep in Game.creeps) {
+            Memory.spawns[Game.creeps[creep].memory.spawn].counters.creeps++;
+
             if (Game.creeps[creep].memory.role == 'harvester')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'harvester2')
@@ -139,8 +142,8 @@ var roleCreateJSON = {
         //UseStore
         Memory.spawns[1].random.useStore = true;
         //extractor
-        //Memory.spawns[1].random.extractor = '579fab82b1f02a3b0cfefd9a';
-        //Memory.spawns[1].random.terminal = Game.rooms[Memory.spawns[1].random.mainRoom].terminal;
+        Memory.spawns[1].random.extractor = '579fab83b1f02a3b0cfefec2';
+        Memory.spawns[1].random.terminal = Game.rooms[Memory.spawns[1].random.mainRoom].terminal;
 
         //spawn 2
         //spawn numbers
@@ -229,6 +232,10 @@ var roleCreateJSON = {
                     Memory.spawns[a].repairHp[his] = repObj;
             }
             Memory.spawns[a].repairHpHistory = {};
+
+
+            if (Memory.spawns[a].counters.creeps < 7)
+                Game.notify($("spawn {a} has less than 7 creeps"));
         }
     }
 };
