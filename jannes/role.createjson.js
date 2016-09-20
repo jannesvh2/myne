@@ -12,7 +12,7 @@ var roleCreateJSON = {
         }
 
         //init
-        var rooms = 2;
+        var rooms = 3;
         if (!Memory.spawns)
             Memory.spawns = [];
 
@@ -142,6 +142,32 @@ var roleCreateJSON = {
         //Memory.spawns[1].random.extractor = '579fab82b1f02a3b0cfefd9a';
         //Memory.spawns[1].random.terminal = Game.rooms[Memory.spawns[1].random.mainRoom].terminal;
 
+        //spawn 2
+        //spawn numbers
+        Memory.spawns[2].summon.h = 5;
+        Memory.spawns[2].summon.b = 5;
+        Memory.spawns[2].summon.u = 6;
+        Memory.spawns[2].summon.h2 = 0;
+        Memory.spawns[2].summon.b2 = 0;
+        Memory.spawns[2].summon.u2 = 0;
+        Memory.spawns[2].summon.atkM = 0;
+        Memory.spawns[2].summon.atkR = 0;
+        Memory.spawns[2].summon.atkH = 0;
+        Memory.spawns[2].random.mainRoom = 'W54S28';
+        //RoomList
+        Memory.spawns[2].random.rooms.push('W54S28');
+        //Memory.spawns[2].random.rooms.push('W59S28');
+        //Memory.spawns[2].random.rooms.push('W58S28');
+        //keeper
+        //Memory.spawns[2].spots.push({ sourceRoom: 'W59S28' });
+        //Memory.spawns[2].spots.push({ sourceRoom: 'W58S28' });
+        //StoreId
+        //Memory.spawns[2].random.storeId = '57d57cd3636e2e351c38d6fe';
+        //UseStore
+        Memory.spawns[2].random.useStore = false;
+        //extractor
+        //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';
+        //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
