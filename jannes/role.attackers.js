@@ -5,6 +5,7 @@ var roleAttackers = {
         var guard = false;
         var enableID = false;
         var enablePriority = false;
+        var flag = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
         var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefe03');
         var priorityTarget = Game.getObjectById('57d002bbbbd16aff3afd0b68');
@@ -49,14 +50,19 @@ var roleAttackers = {
             }
 
         }
-        //If not in the correct room, move towards it
-        if (creep.room.name != sourceRoom && sourceRoom != '') {
-            var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
-            var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit, { maxOps: 5000 });
-        }
-        else if (creep.pos != targetLocation.pos) {
-            creep.moveTo(targetLocation, { maxOps: 5000 })
+        
+        if (flag)
+            creep.moveTo(Game.flags['Flag1'])
+        else {
+            //If not in the correct room, move towards it
+            if (creep.room.name != sourceRoom && sourceRoom != '') {
+                var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit, { maxOps: 5000 });
+            }
+            else if (creep.pos != targetLocation.pos) {
+                creep.moveTo(targetLocation, { maxOps: 5000 })
+            }
         }
         //Priority attack
         if (enableID) {
