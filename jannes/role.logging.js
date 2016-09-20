@@ -5,6 +5,7 @@ var roleLogging = {
 
         var msg = '';
         var msg2 = '';
+        var msg3 = '';
         var progress = '';
         // msg += '( W59S29 has ' + Game.rooms.W59S29.energyAvailable + ' energy | ';
         msg +=
@@ -33,8 +34,22 @@ var roleLogging = {
             + " | rep: " + String(Memory.spawns[1].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,');
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
+        msg3 +=
+    //"h: " + harvesters.length + "/" + h
+    //+ ", b: " + builders.length + "/" + b
+    //+ ", u: " + upgraders.length + "/" + u
+     "(Spawn 2) h: " + Memory.spawns[2].creeps.harvesters.length + "/" + Memory.spawns[2].summon.h
+    + ", b: " + Memory.spawns[2].creeps.builders.length + "/" + Memory.spawns[2].summon.b
+    + ", u: " + Memory.spawns[2].creeps.upgraders.length + "/" + Memory.spawns[2].summon.u
+    + ", m/r/h: " + Memory.spawns[2].creeps.attackersM.length + "/" + Memory.spawns[2].summon.atkM + " " + Memory.spawns[2].creeps.attackersR.length + "/" + Memory.spawns[2].summon.atkR + " " + Memory.spawns[2].creeps.attackersH.length + "/" + Memory.spawns[2].summon.atkH
+    + ", s: " + Memory.spawns[2].creeps.scouts.length + "/" + Memory.spawns[2].spots.length
+    + ", ST: " + Memory.spawns[2].creeps.stores.length + "/" + parseInt(Memory.spawns[2].sources.length)
+    + " | rep: " + String(Memory.spawns[2].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,');
+        //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
+
         progress += "GCL " + Game.gcl.level + ": " + (Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2) + "% | W59S29 controller " + Game.rooms[Memory.spawns[0].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[0].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[0].random.mainRoom].controller.progressTotal).toFixed(2) +"%";
         progress += " | W56S28 controller " + Game.rooms[Memory.spawns[1].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[1].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[1].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
+        progress += " | W54S28 controller " + Game.rooms[Memory.spawns[2].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[2].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[2].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
 
         console.log(msg);
         console.log(msg2);
