@@ -1,7 +1,7 @@
 var roleSpawn = {
 
     /** @param {Creep} creep **/
-    run: function (h, b, u, h2, b2, u2, atkM, atkR, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackersM, attackersR, attackersH, scouts, stores, sources, defenders, spawn) {
+    run: function (h, b, u, h2, b2, u2, atkM, atkR, atkH, harvesters, builders, upgraders, harvesters2, builders2, upgraders2, attackersM, attackersR, attackersH, scouts, stores, sources, defenders, spawn) {
 
         var didSpawn = false;
         var newName;
