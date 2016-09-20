@@ -104,7 +104,7 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'extractor') {
                 roleExtractor.run(creep);
             }
-            else if (creep.memory.role == 'healer') {
+            else if (creep.memory.role == 'attackerH') {
                 roleAttackers.run(creep);
             }
             //if (creep.memory.role == 'link') {

@@ -14,7 +14,7 @@ var roleLogging = {
              "(Spawn 0) H: " + Memory.spawns[0].creeps.harvesters2.length + "/" + Memory.spawns[0].summon.h2
             + ", B: " + Memory.spawns[0].creeps.builders2.length + "/" + Memory.spawns[0].summon.b2
             + ", U: " + Memory.spawns[0].creeps.upgraders2.length + "/" + Memory.spawns[0].summon.u2
-            + ", m/r/h: " + Memory.spawns[0].creeps.attackersM.length + "/" + Memory.spawns[0].summon.atkM + " " + Memory.spawns[0].creeps.attackersR.length + "/" + Memory.spawns[0].summon.atk + " " + Memory.spawns[0].creeps.attackersH.length + "/" + Memory.spawns[0].summon.atkH
+            + ", m/r/h: " + Memory.spawns[0].creeps.attackersM.length + "/" + Memory.spawns[0].summon.atkM + " " + Memory.spawns[0].creeps.attackersR.length + "/" + Memory.spawns[0].summon.atkR + " " + Memory.spawns[0].creeps.attackersH.length + "/" + Memory.spawns[0].summon.atkH
             + ", s: " + Memory.spawns[0].creeps.scouts.length + "/" + Memory.spawns[0].spots.length
             + ", ST: " + Memory.spawns[0].creeps.stores.length + "/" + parseInt(Memory.spawns[0].sources.length)
             + " | rep: " + String(Memory.spawns[0].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,');
