@@ -21,7 +21,7 @@ var roleMover = {
                 }
             });
 
-            if (creep.withdraw(target) == ERR_NOT_IN_RANGE)
+            if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                 creep.moveTo(target);
         }
     }
