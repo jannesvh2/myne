@@ -43,7 +43,7 @@ var roleBuilder = {
                     });
 
                     if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
-                            Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
+                        Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                     }
                     creep.moveTo(targets, { maxOps: 5000 });
                 }
@@ -68,7 +68,7 @@ var roleBuilder = {
                         });
 
                         if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
-                                Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
+                            Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                         }
                         creep.moveTo(targets[0], { maxOps: 5000 });
                     }
@@ -90,8 +90,16 @@ var roleBuilder = {
         else {
             if (creep.memory.role == 'builder')
                 roleGetEnergy.run(creep, sources);
-            else
+            else {
+                if (Memory.spawns[spawn].random.useLinks) {
+                    var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                    if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(storage);
+                    }
+                    return;
+                }
                 roleGetStore.run(creep);
+            }
         }
     }
 };
