@@ -8,7 +8,7 @@ var roleRepairer = {
         if (!closestDamagedStructure) {
             for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
                 if (!closestDamagedStructure) {
-                    closestDamagedStructure = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_STRUCTURES, {
+                    closestDamagedStructure = Memory.spawns[creep.memory.spawn].random.rooms[myRooms].find(FIND_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.hits < structure.hitsMax - 750 &&
                                 structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
