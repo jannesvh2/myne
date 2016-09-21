@@ -91,22 +91,27 @@ var roleHarvester = {
             }
             else {
                 if (Memory.spawns[creep.memory.spawn].random.storeId) {
-                    //If not in the correct room, move towards it
-                    if (creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom) {
-                        var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].random.mainRoom);
-                        var Exit = creep.pos.findClosestByRange(exitDir);
-                        creep.moveTo(Exit, { maxOps: 5000 });
-                    }
-                    else {
-                        var target = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                    var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                             filter: (structure) => {
                                 return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                             }
                         });
-                        if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                            creep.moveTo(target);
+                        if (!targets) {
+                            for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
+                                if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]]) {
+                                    var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_MY_STRUCTURES, {
+                                        filter: (structure) => {
+                                            return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
+                                        }
+                                    })[0];
+                                    if (targets)
+                                        break;
+                                }
+                            }
+                        }
+                        if (creep.transfer(targets, RESOURCE_ENERGY) != ERR_NOT_IN_RANGE)
+                            creep.moveTo(targets);
                     }
-                }
             }
         }
         else {
