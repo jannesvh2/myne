@@ -159,7 +159,7 @@ var roleCreateJSON = {
         Memory.spawns[2].random.mainRoom = 'W54S28';
         //RoomList
         Memory.spawns[2].random.rooms.push('W54S28');
-        //Memory.spawns[2].random.rooms.push('W59S28');
+        Memory.spawns[2].random.rooms.push('W55S28');
         //Memory.spawns[2].random.rooms.push('W58S28');
         //keeper
         //Memory.spawns[2].spots.push({ sourceRoom: 'W59S28' });
