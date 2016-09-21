@@ -11,6 +11,8 @@ var roleStore = require('role.store');
 var roleCreateJSON = require('role.createjson');
 var roleDefender = require('role.defender');
 var roleExtractor = require('role.extractor');
+var roleMover = require('role.mover');
+var roleUser = require('role.user');
 
 module.exports.loop = function () {
     //creep.moveTo(Game.flags['flagname'])  work even if there is no creep in room
@@ -107,6 +109,12 @@ module.exports.loop = function () {
             }
             else if (creep.memory.role == 'attackerH') {
                 roleAttackers.run(creep);
+            }
+            else if (creep.memory.role == 'mover') {
+                roleMover.run(creep);
+            }
+            else if (creep.memory.role == 'user') {
+                roleUser.run(creep);
             }
             //if (creep.memory.role == 'link') {
             //    roleLink.run(creep);
