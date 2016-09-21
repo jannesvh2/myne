@@ -34,7 +34,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.atSources = {};
                 Memory.spawns[a].repairHp = {};
                 Memory.spawns[a].repairHpHistory = {};
-                Memory.spawns[0].links = {};
+                Memory.spawns[a].links = {};
             }
 
             //reset for changes
@@ -263,7 +263,7 @@ var roleCreateJSON = {
             if (Memory.spawns[a].counters.creeps < 7)
                 Game.notify("spawn " + a + " has " + Memory.spawns[a].counters.creeps + " creeps");
 
-            if (Memory.spawns[0].random.useLinks) {
+            if (Memory.spawns[a].random.useLinks) {
                 roleLink.run(a);
             }
         }
