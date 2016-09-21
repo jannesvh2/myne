@@ -62,7 +62,7 @@ var roleSpawn = {
 
             }
         }
-        if (Memory.spawns[a].creeps.users.length < 2) {
+        if (Memory.spawns[spawn].creeps.users.length < 2) {
             if (didSpawn == false) {
                 newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([Carry, Carry, Carry, Carry, Carry, Carry, Carry, Carry, Carry, Carry, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'user', spawn: spawn });
                 return;
