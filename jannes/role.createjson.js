@@ -235,7 +235,7 @@ var roleCreateJSON = {
 
 
             if (Memory.spawns[a].counters.creeps < 7)
-                Game.notify($("spawn {a} has less than 7 creeps"));
+                Game.notify("spawn {a} has less than 7 creeps");
         }
     }
 };
