@@ -93,7 +93,7 @@ var roleHarvester = {
                 if (Memory.spawns[creep.memory.spawn].random.storeId) {
                     //If not in the correct room, move towards it
                     if (creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom) {
-                        var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                        var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].random.mainRoom);
                         var Exit = creep.pos.findClosestByRange(exitDir);
                         creep.moveTo(Exit, { maxOps: 5000 });
                     }
