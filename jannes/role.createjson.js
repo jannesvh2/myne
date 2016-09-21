@@ -85,7 +85,7 @@ var roleCreateJSON = {
             else if (Game.creeps[creep].memory.role == 'attackerR')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersR.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'attackerH')
-                    Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersH.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersH.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'scout')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'defender')
@@ -235,7 +235,7 @@ var roleCreateJSON = {
 
 
             if (Memory.spawns[a].counters.creeps < 7)
-                Game.notify("spawn {a} has less than 7 creeps");
+                Game.notify("spawn " + a + " has " + Memory.spawns[a].counters.creep + " creeps");
         }
     }
 };
