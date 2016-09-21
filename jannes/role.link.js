@@ -6,7 +6,7 @@ var roleLink = {
 
             var linkFrom = Game.getObjectById(Memory.spawns[spawn].links.producers[a]);
 
-            var linkTo = Memory.spawns[spawn].links.receiver;
+            var linkTo =  Game.getObjectById(Memory.spawns[spawn].links.receiver);
 
             linkFrom.transferEnergy(linkTo);
         }
