@@ -24,8 +24,6 @@ var roleMover = {
             if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                 creep.moveTo(target);
         }
-        if (creep.memory.spawn == 0 && creep.pos.x != 20)
-            creep.moveTo(20, 9);
     }
 };
 
