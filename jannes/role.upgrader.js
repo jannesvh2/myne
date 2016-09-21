@@ -28,7 +28,7 @@ var roleUpgrader = {
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
 
             var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                if (storage.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(storage);
                 }
             }

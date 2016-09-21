@@ -44,6 +44,33 @@ var roleSpawn = {
                 }
             }
         }
+        if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[a].creeps.movers.length) {
+            if (didSpawn == false) {
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([Carry, Carry, Carry, Carry, Carry, MOVE], undefined, { role: 'mover', spawn: spawn });
+                return;
+                didSpawn = true;
+
+
+            }
+        }
+        if (Memory.spawns[a].creeps.users.length < 1) {
+            if (didSpawn == false) {
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([Carry, Carry, Carry, MOVE, MOVE, MOVE], undefined, { role: 'user', spawn: spawn });
+                return;
+                didSpawn = true;
+
+
+            }
+        }
+        if (Memory.spawns[a].creeps.users.length < 2) {
+            if (didSpawn == false) {
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([Carry, Carry, Carry, Carry, Carry, Carry, Carry, Carry, Carry, Carry, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'user', spawn: spawn });
+                return;
+                didSpawn = true;
+
+
+            }
+        }
         //dont else if
         if (harvesters.length < h) {
             if (didSpawn == false) {
@@ -156,7 +183,7 @@ var roleSpawn = {
                     newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader', spawn: spawn });
                 return;
             }
-            else if (upgraders2.length < u2 || (Memory.spawns[spawn].random.storeId && Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > 25000 && Memory.spawns[spawn].counters.upgradeTicks > 400)) {
+            else if (upgraders2.length < u2 || (Memory.spawns[spawn].random.storeId && Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > 250000 && Memory.spawns[spawn].counters.upgradeTicks > 400)) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
                     newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'upgrader2', spawn: spawn });
                 else
@@ -188,9 +215,21 @@ var roleSpawn = {
             }
             else if (attackersH.length < atkH) {
                 //ranged
-                var newName4 = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL], undefined, { role: 'attackerH', spawn: spawn });
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL], undefined, { role: 'attackerH', spawn: spawn });
+                return;
                 //melee
                 //var newName4 = Game.spawns['Spawn' + spawn+1].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK], undefined, { role: 'attacker' , spawn: spawn});
+            }
+            else if (attackersD.length < atkD) {
+                //ranged
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK], undefined, { role: 'attackerD', spawn: spawn });
+                return;
+                //melee
+                //var newName4 = Game.spawns['Spawn' + spawn+1].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK], undefined, { role: 'attacker' , spawn: spawn});
+            }
+            else if (Memory.spawns[spawn].counters.hostiles) {
+                    newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK], undefined, { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[a].random.mainRoom });
+                    return;
             }
         }
 

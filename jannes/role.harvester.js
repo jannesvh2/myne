@@ -17,76 +17,97 @@ var roleHarvester = {
         }
 
         if (creep.memory.full) {
-            var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2;
-                }
-            });
-            if (!targets) {
-                targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+            if (creep.memory.role == 'harvester') {
+                var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_EXTENSION ||
-                                structure.structureType == STRUCTURE_SPAWN ||
-                                structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                        return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2;
                     }
                 });
+                if (!targets) {
+                    targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_EXTENSION ||
+                                    structure.structureType == STRUCTURE_SPAWN ||
+                                    structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                        }
+                    });
+                }
+                if (!targets) {
+                    for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
+                        if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]]) {
+                            var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_MY_STRUCTURES, {
+                                filter: (structure) => {
+                                    return (structure.structureType == STRUCTURE_EXTENSION ||
+                                            structure.structureType == STRUCTURE_SPAWN ||
+                                            structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                                }
+                            })[0];
+                            if (targets)
+                                break;
+                        }
+                    }
+                }
+                if (targets) {
+                    if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(targets);
+                    }
+                }
+                else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 30000) {
+                    var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
+                    if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                        creep.moveTo(terminal);
+                    //}
+                }
+                else if (Memory.spawns[creep.memory.spawn].random.storeId) {
+                    //for (let myRooms in Game.rooms) {
+                    //    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
+                    //        filter: (structure) => {
+                    //            return (structure.structureType == STRUCTURE_EXTENSION ||
+                    //                    structure.structureType == STRUCTURE_SPAWN ||
+                    //                    structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                    //        }
+                    //    });
+                    //}
+                    //if (targets.length > 0) {
+                    //    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    //        creep.moveTo(targets[0]);
+                    //    }
+                    //}
+                    //else {
+
+                    var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                        creep.moveTo(storage);
+                    //}
+                }
+
+                //need work part
+                //creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
+                //    filter: (structure) => {
+                //        return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                //    }
+                //}));
+
             }
-            if (!targets) {
-                for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
-                    if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]]) {
-                        var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_MY_STRUCTURES, {
+            else {
+                if (Memory.spawns[creep.memory.spawn].random.storeId) {
+                    //If not in the correct room, move towards it
+                    if (creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom) {
+                        var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                        var Exit = creep.pos.findClosestByRange(exitDir);
+                        creep.moveTo(Exit, { maxOps: 5000 });
+                    }
+                    else {
+                        var target = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                             filter: (structure) => {
-                                return (structure.structureType == STRUCTURE_EXTENSION ||
-                                        structure.structureType == STRUCTURE_SPAWN ||
-                                        structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                                return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                             }
-                        })[0];
-                        if (targets)
-                            break;
+                        });
+                        if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                            creep.moveTo(target);
                     }
                 }
             }
-            if (targets) {
-                if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets);
-                }
-            }
-            else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 30000) {
-                var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
-                if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(terminal);
-                //}
-            }
-            else if (Memory.spawns[creep.memory.spawn].random.storeId) {
-                //for (let myRooms in Game.rooms) {
-                //    targets = Game.rooms[myRooms].find(FIND_MY_STRUCTURES, {
-                //        filter: (structure) => {
-                //            return (structure.structureType == STRUCTURE_EXTENSION ||
-                //                    structure.structureType == STRUCTURE_SPAWN ||
-                //                    structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
-                //        }
-                //    });
-                //}
-                //if (targets.length > 0) {
-                //    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                //        creep.moveTo(targets[0]);
-                //    }
-                //}
-                //else {
-
-                var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(storage);
-                //}
-            }
-
-            //need work part
-            //creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
-            //    filter: (structure) => {
-            //        return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
-            //    }
-            //}));
-
         }
         else {
             if (creep.memory.role == 'harvester')

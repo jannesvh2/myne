@@ -39,6 +39,7 @@ var roleCreateJSON = {
             Memory.spawns[a].spots = [];
             Memory.spawns[a].sources = [];
             Memory.spawns[a].store = [];
+            Memory.spawns[a].random.hostiles = false;
 
             //ticks
             Memory.spawns[a].counters.upgradeTicks++;
@@ -59,8 +60,11 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.attackersM = [];
             Memory.spawns[a].creeps.attackersR = [];
             Memory.spawns[a].creeps.attackersH = [];
+            Memory.spawns[a].creeps.attackersD = [];
             Memory.spawns[a].creeps.scouts = [];
             Memory.spawns[a].creeps.defenders = [];
+            Memory.spawns[a].creeps.movers = [];
+            Memory.spawns[a].creeps.users = [];
             Memory.spawns[a].counters.creeps = 0;
         }
         for (let creep in Game.creeps) {
@@ -90,6 +94,12 @@ var roleCreateJSON = {
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'defender')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.defenders.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'attackersD')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersD.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'mover')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.movers.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'user')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.users.push(Game.creeps[creep]);
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,6 +112,7 @@ var roleCreateJSON = {
         Memory.spawns[0].summon.atkM = 0;
         Memory.spawns[0].summon.atkR = 0;
         Memory.spawns[0].summon.atkH = 0;
+        Memory.spawns[0].summon.atkD = 0;
         Memory.spawns[0].random.mainRoom = 'W59S29';
         //RoomList
         Memory.spawns[0].random.rooms.push('W59S29');
@@ -114,6 +125,7 @@ var roleCreateJSON = {
         Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
         Memory.spawns[0].random.useStore = true;
+        Memory.spawns[0].random.useLinks = true;
         //extractor
         Memory.spawns[0].random.extractor = '579fab82b1f02a3b0cfefd9a';
         Memory.spawns[0].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
@@ -129,6 +141,7 @@ var roleCreateJSON = {
         Memory.spawns[1].summon.atkM = 0;
         Memory.spawns[1].summon.atkR = 0;
         Memory.spawns[1].summon.atkH = 0;
+        Memory.spawns[1].summon.atkD = 0;
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
         Memory.spawns[1].random.rooms.push('W56S28');
@@ -156,6 +169,7 @@ var roleCreateJSON = {
         Memory.spawns[2].summon.atkM = 0;
         Memory.spawns[2].summon.atkR = 0;
         Memory.spawns[2].summon.atkH = 0;
+        Memory.spawns[2].summon.atkD = 0;
         Memory.spawns[2].random.mainRoom = 'W54S28';
         //RoomList
         Memory.spawns[2].random.rooms.push('W54S28');
@@ -178,6 +192,12 @@ var roleCreateJSON = {
             //non Memory var
             var roomSources = [];
             var roomContainers = [];
+
+            if (Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS).length) {
+                Memory.spawns[a].random.hostiles = true;
+                Memory.spawns[a].random.rooms = [];
+                Memory.spawns[a].spots = [];
+            }
 
             //add memory for all sources and containers
             for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
@@ -232,7 +252,6 @@ var roleCreateJSON = {
                     Memory.spawns[a].repairHp[his] = repObj;
             }
             Memory.spawns[a].repairHpHistory = {};
-
 
             if (Memory.spawns[a].counters.creeps < 7)
                 Game.notify("spawn " + a + " has " + Memory.spawns[a].counters.creeps + " creeps");

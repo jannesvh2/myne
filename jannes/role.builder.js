@@ -7,14 +7,14 @@ var roleBuilder = {
     run: function (creep, sources) {
 
         //new spawn
-        if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
-            if (creep.room.name != "W54S28") {
-                var exitDir = Game.map.findExit(creep.room.name, "W54S28");
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit, { maxOps: 5000 });
-                return;
-            }
-        }
+        //if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
+        //    if (creep.room.name != "W54S28") {
+        //        var exitDir = Game.map.findExit(creep.room.name, "W54S28");
+        //        var Exit = creep.pos.findClosestByRange(exitDir);
+        //        creep.moveTo(Exit, { maxOps: 5000 });
+        //        return;
+        //    }
+        //}
 
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
