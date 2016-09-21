@@ -8,7 +8,8 @@ var roleLink = {
 
             var linkTo =  Game.getObjectById(Memory.spawns[spawn].links.receiver);
 
-            linkFrom.transferEnergy(linkTo);
+            if (linkFrom.transferEnergy(linkTo) == OK)
+                break;
         }
     }
 };
