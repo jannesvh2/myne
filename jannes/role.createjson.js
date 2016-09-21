@@ -123,12 +123,12 @@ var roleCreateJSON = {
         Memory.spawns[0].random.mainRoom = 'W59S29';
         //RoomList
         Memory.spawns[0].random.rooms.push('W59S29');
-        if (!Memory.spawns[a].random.hostiles) {
+        if (!Memory.spawns[0].random.hostiles) {
             Memory.spawns[0].random.rooms.push('W59S28');
             Memory.spawns[0].random.rooms.push('W58S28');
         }
         //keeper
-        if (!Memory.spawns[a].random.hostiles) {
+        if (!Memory.spawns[0].random.hostiles) {
             Memory.spawns[0].spots.push({ sourceRoom: 'W59S28' });
             Memory.spawns[0].spots.push({ sourceRoom: 'W58S28' });
         }
@@ -159,13 +159,13 @@ var roleCreateJSON = {
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
         Memory.spawns[1].random.rooms.push('W56S28');
-        if (!Memory.spawns[a].random.hostiles) {
+        if (!Memory.spawns[1].random.hostiles) {
             Memory.spawns[1].random.rooms.push('W57S28');
             Memory.spawns[1].random.rooms.push('W57S27');
         }
         //keeper
         
-        if (!Memory.spawns[a].random.hostiles) {
+        if (!Memory.spawns[1].random.hostiles) {
             Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
             Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
         }
@@ -192,12 +192,12 @@ var roleCreateJSON = {
         Memory.spawns[2].random.mainRoom = 'W54S28';
         //RoomList
         Memory.spawns[2].random.rooms.push('W54S28');
-        if (!Memory.spawns[a].random.hostiles) {
+        if (!Memory.spawns[2].random.hostiles) {
             Memory.spawns[2].random.rooms.push('W55S28');
         }
         //Memory.spawns[2].random.rooms.push('W58S28');
         //keeper
-        //if (!Memory.spawns[a].random.hostiles) {
+        //if (!Memory.spawns[2].random.hostiles) {
             //Memory.spawns[2].spots.push({ sourceRoom: 'W59S28' });
             //Memory.spawns[2].spots.push({ sourceRoom: 'W58S28' });
         //}
