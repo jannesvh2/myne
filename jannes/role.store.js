@@ -25,6 +25,7 @@ var roleStore = {
                         creep.moveTo(targets[0]);
                     }
                     return;
+                }
             }
             var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
