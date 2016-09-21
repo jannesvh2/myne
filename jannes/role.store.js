@@ -35,21 +35,26 @@ var roleStore = {
                     //}
                 }
                 else {
-                    var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                    var transfer = creep.transfer(storage, RESOURCE_ENERGY);
-                    if (transfer == ERR_NOT_IN_RANGE) {
-                        creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
-                            filter: (structure) => {
-                                return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
-                            }
-                        }));
-                        creep.moveTo(storage, { maxOps: 5000 });
+                    var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 3);
+                    if (!sites.length)
+                        Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
+                    else
+                        creep.build(sites[0]);
+                    //var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                    //var transfer = creep.transfer(storage, RESOURCE_ENERGY);
+                    //if (transfer == ERR_NOT_IN_RANGE) {
+                    //    creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                    //        filter: (structure) => {
+                    //            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                    //        }
+                    //    }));
+                    //    creep.moveTo(storage, { maxOps: 5000 });
 
-                    }
-                    else if (transfer == ERR_FULL) {
-                        Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
+                    //}
+                    //else if (transfer == ERR_FULL) {
+                    //    Game.notify(`Spawn ${creep.memory.spawn} container is full in ${creep.room.name}`);
 
-                    }
+                    //}
                 }
             }
 
