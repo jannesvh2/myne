@@ -70,6 +70,9 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.movers = [];
             Memory.spawns[a].creeps.users = [];
             Memory.spawns[a].counters.creeps = 0;
+            if (Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS).length) {
+                Memory.spawns[a].random.hostiles = true;
+            }
         }
         for (let creep in Game.creeps) {
             Memory.spawns[Game.creeps[creep].memory.spawn].counters.creeps++;
@@ -120,11 +123,15 @@ var roleCreateJSON = {
         Memory.spawns[0].random.mainRoom = 'W59S29';
         //RoomList
         Memory.spawns[0].random.rooms.push('W59S29');
-        Memory.spawns[0].random.rooms.push('W59S28');
-        Memory.spawns[0].random.rooms.push('W58S28');
+        if (!Memory.spawns[a].random.hostiles) {
+            Memory.spawns[0].random.rooms.push('W59S28');
+            Memory.spawns[0].random.rooms.push('W58S28');
+        }
         //keeper
-        Memory.spawns[0].spots.push({ sourceRoom: 'W59S28' });
-        Memory.spawns[0].spots.push({ sourceRoom: 'W58S28' });
+        if (!Memory.spawns[a].random.hostiles) {
+            Memory.spawns[0].spots.push({ sourceRoom: 'W59S28' });
+            Memory.spawns[0].spots.push({ sourceRoom: 'W58S28' });
+        }
         //StoreId
         Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
@@ -152,11 +159,16 @@ var roleCreateJSON = {
         Memory.spawns[1].random.mainRoom = 'W56S28';
         //RoomList
         Memory.spawns[1].random.rooms.push('W56S28');
-        Memory.spawns[1].random.rooms.push('W57S28');
-        Memory.spawns[1].random.rooms.push('W57S27');
+        if (!Memory.spawns[a].random.hostiles) {
+            Memory.spawns[1].random.rooms.push('W57S28');
+            Memory.spawns[1].random.rooms.push('W57S27');
+        }
         //keeper
-        Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
-        Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
+        
+        if (!Memory.spawns[a].random.hostiles) {
+            Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
+            Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
+        }
         //StoreId
         Memory.spawns[1].random.storeId = '57db65810f3c649e5b7c3d2d';
         //UseStore
@@ -180,11 +192,15 @@ var roleCreateJSON = {
         Memory.spawns[2].random.mainRoom = 'W54S28';
         //RoomList
         Memory.spawns[2].random.rooms.push('W54S28');
-        Memory.spawns[2].random.rooms.push('W55S28');
+        if (!Memory.spawns[a].random.hostiles) {
+            Memory.spawns[2].random.rooms.push('W55S28');
+        }
         //Memory.spawns[2].random.rooms.push('W58S28');
         //keeper
-        //Memory.spawns[2].spots.push({ sourceRoom: 'W59S28' });
-        //Memory.spawns[2].spots.push({ sourceRoom: 'W58S28' });
+        //if (!Memory.spawns[a].random.hostiles) {
+            //Memory.spawns[2].spots.push({ sourceRoom: 'W59S28' });
+            //Memory.spawns[2].spots.push({ sourceRoom: 'W58S28' });
+        //}
         //StoreId
         //Memory.spawns[2].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
@@ -199,12 +215,6 @@ var roleCreateJSON = {
             //non Memory var
             var roomSources = [];
             var roomContainers = [];
-
-            if (Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS).length) {
-                Memory.spawns[a].random.hostiles = true;
-                Memory.spawns[a].random.rooms = [];
-                Memory.spawns[a].spots = [];
-            }
 
             //add memory for all sources and containers
             for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
