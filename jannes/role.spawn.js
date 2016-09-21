@@ -46,7 +46,7 @@ var roleSpawn = {
         }
         if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length) {
             if (didSpawn == false) {
-                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([Carry, Carry, Carry, Carry, Carry, MOVE], undefined, { role: 'mover', spawn: spawn });
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, MOVE], undefined, { role: 'mover', spawn: spawn });
                 return;
                 didSpawn = true;
 
@@ -55,7 +55,7 @@ var roleSpawn = {
         }
         if (Memory.spawns[spawn].creeps.users.length < 1) {
             if (didSpawn == false) {
-                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([Carry, Carry, Carry, MOVE, MOVE, MOVE], undefined, { role: 'user', spawn: spawn });
+                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], undefined, { role: 'user', spawn: spawn });
                 return;
                 didSpawn = true;
 
