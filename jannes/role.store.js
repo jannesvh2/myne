@@ -12,6 +12,20 @@ var roleStore = {
         }
 
         if (creep.memory.full) {
+            if (Memory.spawns[0].random.useLinks) {
+                var targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_LINK);
+                    }
+                });
+
+                if (targets[0]) {
+                    var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
+                    if (transfer == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(targets[0]);
+                    }
+                    return;
+            }
             var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.hits < structure.hitsMax - 850 && (structure.structureType == STRUCTURE_ROAD || structure.structureType == STRUCTURE_CONTAINER))

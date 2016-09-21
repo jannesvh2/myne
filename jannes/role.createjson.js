@@ -1,3 +1,5 @@
+var roleLink = require('role.link');
+
 var roleCreateJSON = {
 
     /** @param {Creep} creep **/
@@ -32,6 +34,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.atSources = {};
                 Memory.spawns[a].repairHp = {};
                 Memory.spawns[a].repairHpHistory = {};
+                Memory.spawns[0].links = {};
             }
 
             //reset for changes
@@ -39,6 +42,7 @@ var roleCreateJSON = {
             Memory.spawns[a].spots = [];
             Memory.spawns[a].sources = [];
             Memory.spawns[a].store = [];
+            Memory.spawns[0].links.producers = [];
             Memory.spawns[a].random.hostiles = false;
 
             //ticks
@@ -126,6 +130,9 @@ var roleCreateJSON = {
         //UseStore
         Memory.spawns[0].random.useStore = true;
         Memory.spawns[0].random.useLinks = true;
+        Memory.spawns[0].links.receiver = '57e2f5927655afa549175b3a';
+        Memory.spawns[0].links.producers.push('57de74825294558044ba36a0');
+        Memory.spawns[0].links.producers.push('57de74c1bd52497b42f0c556');
         //extractor
         Memory.spawns[0].random.extractor = '579fab82b1f02a3b0cfefd9a';
         Memory.spawns[0].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
@@ -255,6 +262,10 @@ var roleCreateJSON = {
 
             if (Memory.spawns[a].counters.creeps < 7)
                 Game.notify("spawn " + a + " has " + Memory.spawns[a].counters.creeps + " creeps");
+
+            if (Memory.spawns[0].random.useLinks) {
+                roleLink.run(a);
+            }
         }
     }
 };

@@ -135,6 +135,7 @@ module.exports.loop = function () {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
+
     notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
     for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
