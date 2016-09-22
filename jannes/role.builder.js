@@ -7,14 +7,14 @@ var roleBuilder = {
     run: function (creep, sources) {
 
         //new spawn
-        if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
-            if (creep.room.name != "W59S26") {
-                var exitDir = Game.map.findExit(creep.room.name, "W59S26");
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit, { maxOps: 5000 });
-                return;
-            }
-        }
+        //if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
+        //    if (creep.room.name != "W59S26") {
+        //        var exitDir = Game.map.findExit(creep.room.name, "W59S26");
+        //        var Exit = creep.pos.findClosestByRange(exitDir);
+        //        creep.moveTo(Exit, { maxOps: 5000 });
+        //        return;
+        //    }
+        //}
 
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
@@ -31,12 +31,6 @@ var roleBuilder = {
         }
         var canBuild = false;
         if (creep.memory.full) {
-
-            if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
-                if (creep.build(Game.getObjectById('57e2db0eadafdf710cc2698a')) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(Game.getObjectById('57e2db0eadafdf710cc2698a'));
-                return;
-            }
             var targets = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES);
             if (targets) {
                 canBuild = true;
@@ -94,16 +88,6 @@ var roleBuilder = {
             }
         }
         else {
-            if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
-                var bla = creep.pos.findClosestByRange(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_WALL)
-                    }
-                });
-                if (creep.dismantle(bla) != OK)
-                    creep.moveTo(bla);
-                return;
-            }
             if (creep.memory.role == 'builder')
                 roleGetEnergy.run(creep, sources);
             else
