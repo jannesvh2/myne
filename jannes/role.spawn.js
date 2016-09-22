@@ -57,8 +57,18 @@ var roleSpawn = {
             if (didSpawn == false) {
                 for (let s = 0, length = sources.length; s < length; s++) {
                     let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
+                    if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
+                        if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 40)) {
 
-                    if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
+                            if (didSpawn == false) {
+                                newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
+                                return;
+                                didSpawn = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
 
                         if (didSpawn == false) {
                             newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
