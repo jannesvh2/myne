@@ -10,7 +10,7 @@ var roleMover = {
             creep.memory.full = true;
         }
         if (creep.memory.full) {
-            var storage = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+            var storage = creep.pos.findInRange(FIND_STRUCTURES, 1, {
                 filter:
                     (structure) => {
                         return (structure.structureType == STRUCTURE_SPAWN && structure.energy < 300)
