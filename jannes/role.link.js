@@ -5,7 +5,8 @@ var roleLink = {
         for (let a = 0, length = Memory.spawns[spawn].links.producers.length; a < length; a++) {
 
             var linkFrom = Game.getObjectById(Memory.spawns[spawn].links.producers[a]);
-
+            if (linkFrom.energy < 300)
+                break;
             var linkTo =  Game.getObjectById(Memory.spawns[spawn].links.receiver);
 
             if (linkFrom.transferEnergy(linkTo) == OK)
