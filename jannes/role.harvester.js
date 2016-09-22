@@ -101,7 +101,7 @@ var roleHarvester = {
                             return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
                         }
                     })[0];
-                if (creep.transfer(targets, RESOURCE_ENERGY) != ERR_NOT_IN_RANGE)
+                if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                     creep.moveTo(targets);
                 return;
             }
