@@ -13,7 +13,7 @@ var roleMover = {
             var storage = creep.pos.findInRange(FIND_STRUCTURES, 1, {
                 filter:
                     (structure) => {
-                        return (structure.structureType == STRUCTURE_SPAWN && structure.energy < 300)
+                        return ((structure.structureType == STRUCTURE_SPAWN || structure.structureType == STRUCTURE_EXTENSION) && structure.energy < structure.energyCapacity)
                     }
             })[0];
             if (!storage)
