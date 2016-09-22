@@ -29,7 +29,7 @@ var roleStore = {
             }
             var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.hits < structure.hitsMax - 850 && (structure.structureType == STRUCTURE_ROAD || structure.structureType == STRUCTURE_CONTAINER))
+                    return (structure.hits < structure.hitsMax - 1000 && (structure.structureType == STRUCTURE_ROAD || structure.structureType == STRUCTURE_CONTAINER))
                 }
             }));
             if (rep != OK) {

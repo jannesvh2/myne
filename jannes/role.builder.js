@@ -38,7 +38,7 @@ var roleBuilder = {
                 if (test == ERR_NOT_IN_RANGE) {
                     var closestDamagedStructure = creep.pos.findInRange(FIND_STRUCTURES, 1, {
                         filter: (structure) => {
-                            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                            return (structure.hits < structure.hitsMax - 1000 && structure.structureType == STRUCTURE_ROAD)
                         }
                     });
 
@@ -63,7 +63,7 @@ var roleBuilder = {
                     if (buildReturn != OK) {
                         var closestDamagedStructure = creep.pos.findInRange(FIND_STRUCTURES, 1, {
                             filter: (structure) => {
-                                return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                                return (structure.hits < structure.hitsMax - 1000 && structure.structureType == STRUCTURE_ROAD)
                             }
                         });
 
