@@ -40,7 +40,7 @@ var roleLogging = {
             //"h: " + harvesters.length + "/" + h
             //+ ", b: " + builders.length + "/" + b
             //+ ", u: " + upgraders.length + "/" + u
-             "(Spawn 1) H: " + Memory.spawns[2].creeps.harvesters2.length + "/" + Memory.spawns[2].summon.h2
+             "(Spawn 2) H: " + Memory.spawns[2].creeps.harvesters2.length + "/" + Memory.spawns[2].summon.h2
             + ", B: " + Memory.spawns[2].creeps.builders2.length + "/" + Memory.spawns[2].summon.b2
             + ", U: " + Memory.spawns[2].creeps.upgraders2.length + "/" + Memory.spawns[2].summon.u2
             + ", d/r/h: " + Memory.spawns[2].creeps.attackersD.length + "/" + Memory.spawns[2].summon.atkD + " " + Memory.spawns[2].creeps.attackersR.length + "/" + Memory.spawns[2].summon.atkR + " " + Memory.spawns[2].creeps.attackersH.length + "/" + Memory.spawns[2].summon.atkH
