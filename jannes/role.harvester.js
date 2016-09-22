@@ -101,8 +101,14 @@ var roleHarvester = {
                             return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
                         }
                     })[0];
-                if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
+                        filter: (structure) => {
+                            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
+                        }
+                    })[0]);
                     creep.moveTo(targets);
+                }
                 return;
             }
         }
