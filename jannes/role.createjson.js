@@ -42,7 +42,7 @@ var roleCreateJSON = {
             Memory.spawns[a].spots = [];
             Memory.spawns[a].sources = [];
             Memory.spawns[a].store = [];
-            Memory.spawns[0].links.producers = [];
+            Memory.spawns[a].links.producers = [];
             Memory.spawns[a].random.hostiles = false;
 
             //ticks
