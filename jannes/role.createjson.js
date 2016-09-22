@@ -208,11 +208,10 @@ var roleCreateJSON = {
             Memory.spawns[2].spots.push({ sourceRoom: 'W55S28' });
             //Memory.spawns[2].spots.push({ sourceRoom: 'W55S29' });
         }
-        }
         //StoreId
         //Memory.spawns[2].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
-        Memory.spawns[2].random.useStore = false;
+        Memory.spawns[2].random.useStore = true;
         //extractor
         //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';
         //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
