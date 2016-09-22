@@ -51,9 +51,10 @@ var roleStore = {
                 }
                 else {
                     var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 3);
-                    if (!sites.length)
-                        Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
-                    else
+                    //if (!sites.length)
+                    //    Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
+                    //else
+                    if (sites.length)
                         creep.build(sites[0]);
                     //var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     //var transfer = creep.transfer(storage, RESOURCE_ENERGY);
