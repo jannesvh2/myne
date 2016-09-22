@@ -10,7 +10,14 @@ var roleMover = {
             creep.memory.full = true;
         }
         if (creep.memory.full) {
-            var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+            var storage = creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                filter:
+                    (structure) => {
+                        return (structure.structureType == STRUCTURE_SPAWN && structure.energy < 300)
+                    }
+            })[0];
+            if (!storage)
+                storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                 creep.moveTo(storage);
         }
