@@ -103,6 +103,7 @@ var roleHarvester = {
                     })[0];
                 if (creep.transfer(targets, RESOURCE_ENERGY) != ERR_NOT_IN_RANGE)
                     creep.moveTo(targets);
+                return;
             }
         }
         else {
