@@ -25,25 +25,6 @@ var roleSpawn = {
                 }
             }
         }
-        //dont else if
-        if (Memory.spawns[spawn].random.useStore) {
-            if (didSpawn == false) {
-                for (let s = 0, length = sources.length; s < length; s++) {
-                    let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
-
-                    if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
-
-                        if (didSpawn == false) {
-                            newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
-                            return;
-                            didSpawn = true;
-                            break;
-                        }
-                    }
-
-                }
-            }
-        }
         if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length) {
             if (didSpawn == false) {
                 newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, MOVE], undefined, { role: 'mover', spawn: spawn });
@@ -69,6 +50,25 @@ var roleSpawn = {
                 didSpawn = true;
 
 
+            }
+        }
+        //dont else if
+        if (Memory.spawns[spawn].random.useStore) {
+            if (didSpawn == false) {
+                for (let s = 0, length = sources.length; s < length; s++) {
+                    let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
+
+                    if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
+
+                        if (didSpawn == false) {
+                            newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], undefined, { role: 'store', sourceId: sources[s], spawn: spawn });
+                            return;
+                            didSpawn = true;
+                            break;
+                        }
+                    }
+
+                }
             }
         }
         //dont else if
