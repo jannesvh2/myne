@@ -220,7 +220,7 @@ var roleSpawn = {
                 //melee
                 //var newName4 = Game.spawns['Spawn' + spawn+1].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK], undefined, { role: 'attacker' , spawn: spawn});
             }
-            else if (attackersD.length < atkD) {
+            else if (Memory.spawns[spawn].creeps.attackersD.length < atkD) {
                 //ranged
                 newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK], undefined, { role: 'attackerD', spawn: spawn });
                 return;
