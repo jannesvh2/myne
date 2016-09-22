@@ -137,7 +137,7 @@ var roleCreateJSON = {
         //UseStore
         Memory.spawns[0].random.useStore = true;
         Memory.spawns[0].random.useLinks = true;
-        Memory.spawns[0].links.receiver = '57e2f5927655afa549175b3a';
+        Memory.spawns[0].links.receiver = '57e322a114f3efa6216a00cb';
         Memory.spawns[0].links.producers.push('57de74825294558044ba36a0');
         Memory.spawns[0].links.producers.push('57de74c1bd52497b42f0c556');
         //extractor
@@ -173,6 +173,10 @@ var roleCreateJSON = {
         Memory.spawns[1].random.storeId = '57db65810f3c649e5b7c3d2d';
         //UseStore
         Memory.spawns[1].random.useStore = true;
+        Memory.spawns[1].random.useLinks = true;
+        Memory.spawns[1].links.receiver = '57e2f5927655afa549175b3a';
+        Memory.spawns[1].links.producers.push('57e30c3af21eff60481d0e0e');
+        Memory.spawns[1].links.producers.push('57e30bbd5f4eb75927267bba');
         //extractor
         Memory.spawns[1].random.extractor = '579fab83b1f02a3b0cfefec2';
         Memory.spawns[1].random.terminal = Game.rooms[Memory.spawns[1].random.mainRoom].terminal;
@@ -195,19 +199,18 @@ var roleCreateJSON = {
         if (!Memory.spawns[2].random.hostiles) {
             Memory.spawns[2].random.rooms.push('W55S28');
         }
-        //Memory.spawns[2].random.rooms.push('W58S28');
         //keeper
-        //if (!Memory.spawns[2].random.hostiles) {
-            //Memory.spawns[2].spots.push({ sourceRoom: 'W59S28' });
+        if (!Memory.spawns[2].random.hostiles) {
+            Memory.spawns[2].spots.push({ sourceRoom: 'W55S28' });
             //Memory.spawns[2].spots.push({ sourceRoom: 'W58S28' });
-        //}
+        }
         //StoreId
         //Memory.spawns[2].random.storeId = '57d57cd3636e2e351c38d6fe';
         //UseStore
         Memory.spawns[2].random.useStore = false;
         //extractor
         //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';
-        //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
+        //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
