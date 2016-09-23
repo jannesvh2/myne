@@ -29,6 +29,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters = {};
                 Memory.spawns[a].counters.upgradeTicks = 0;
                 Memory.spawns[a].counters.roomTicks = 0;
+                Memory.spawns[a].random.storageReserve = 0;
                 Memory.spawns[a].counters.repairLimit = 10000;
                 Memory.spawns[a].counters.avgAtSource = {};
                 Memory.spawns[a].counters.atSources = {};
@@ -48,6 +49,8 @@ var roleCreateJSON = {
             //ticks
             Memory.spawns[a].counters.upgradeTicks++;
             Memory.spawns[a].counters.roomTicks++;
+            if (Memory.spawns[a].random.storageReserve < 350000)
+                Memory.spawns[a].random.storageReserve += 3;
 
             //repair reset if its to high
             if (Memory.spawns[a].counters.repairLimit > 5000000)
@@ -113,10 +116,12 @@ var roleCreateJSON = {
 
         //spawn 0
         //spawn numbers
+        Memory.spawns[0].summon.h = 0;
+        Memory.spawns[0].summon.b = 0;
+        Memory.spawns[0].summon.u = 0;
         Memory.spawns[0].summon.h2 = 2;
         Memory.spawns[0].summon.b2 = 1;
-        Memory.spawns[0].summon.u2 = 1;
-        Memory.spawns[0].summon.b = 0;
+        Memory.spawns[0].summon.u2 = 0;
         Memory.spawns[0].summon.atkM = 0;
         Memory.spawns[0].summon.atkR = 0;
         Memory.spawns[0].summon.atkH = 0;
@@ -152,7 +157,7 @@ var roleCreateJSON = {
         Memory.spawns[1].summon.u = 0;
         Memory.spawns[1].summon.h2 = 2;
         Memory.spawns[1].summon.b2 = 1;
-        Memory.spawns[1].summon.u2 = 1;
+        Memory.spawns[1].summon.u2 = 0;
         Memory.spawns[1].summon.atkM = 0;
         Memory.spawns[1].summon.atkR = 0;
         Memory.spawns[1].summon.atkH = 0;
@@ -165,7 +170,7 @@ var roleCreateJSON = {
             Memory.spawns[1].random.rooms.push('W57S27');
         }
         //keeper
-        
+
         if (!Memory.spawns[1].random.hostiles) {
             Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
             Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
@@ -189,7 +194,7 @@ var roleCreateJSON = {
         Memory.spawns[2].summon.u = 0;
         Memory.spawns[2].summon.h2 = 4;
         Memory.spawns[2].summon.b2 = 1;
-        Memory.spawns[2].summon.u2 = 1;
+        Memory.spawns[2].summon.u2 = 0;
         Memory.spawns[2].summon.atkM = 0;
         Memory.spawns[2].summon.atkR = 0;
         Memory.spawns[2].summon.atkH = 0;
