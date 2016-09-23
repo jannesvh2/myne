@@ -200,13 +200,13 @@ var roleCreateJSON = {
         if (!Memory.spawns[2].random.hostiles) {
             Memory.spawns[2].random.rooms.push('W54S27');
             Memory.spawns[2].random.rooms.push('W55S28');
-            //Memory.spawns[2].random.rooms.push('W55S29');
+            Memory.spawns[2].random.rooms.push('W55S29');
         }
         //keeper
         if (!Memory.spawns[2].random.hostiles) {
             Memory.spawns[2].spots.push({ sourceRoom: 'W54S27' });
             Memory.spawns[2].spots.push({ sourceRoom: 'W55S28' });
-            //Memory.spawns[2].spots.push({ sourceRoom: 'W55S29' });
+            Memory.spawns[2].spots.push({ sourceRoom: 'W55S29' });
         }
         //StoreId
         Memory.spawns[2].random.storeId = '57e4459d7780877962a33b50';
