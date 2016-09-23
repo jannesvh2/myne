@@ -161,7 +161,7 @@ var roleSpawn = {
                 else
                     newName = Game.spawns['Spawn' + parseInt(spawn + 1)].createCreep([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], undefined, { role: 'builder2', spawn: spawn });
 
-                if (typeof newName == 'string') {
+                if (typeof newName == 'string' && Memory.spawns[spawn].random.terminal) {
                     //check order
                     var total = _.sum(Memory.spawns[spawn].random.terminal.store);
                     if (total > 100000) {
