@@ -27,9 +27,19 @@ var roleTower = {
                     continue;
                 }
 
-                var closestDamagedStructure = towers[0].pos.findClosestByRange(FIND_STRUCTURES, {
+                var repList = [];
+                for (var t in Memory.spawns[a].repairHp) {
+                    let rep = Game.getObjectById(t);
+                    if (!rep)
+                        delete Memory.spawns[a].repairHp[t]
+                    else
+                        repList.push(rep);
+
+                }
+
+                var closestDamagedStructure = towers[0].pos.findClosestByRange(repList, {
                     filter: (structure) => {
-                        return ((Memory.spawns[a].repairHp[structure.id] && structure.hits < Memory.spawns[a].repairHp[structure.id]) || structure.hits < 1000)
+                        return (structure.hits < Memory.spawns[a].repairHp[structure.id] || structure.hits < 1000)
                     }
                 });
                 if(closestDamagedStructure)
