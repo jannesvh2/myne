@@ -285,7 +285,7 @@ var roleCreateJSON = {
             //repair
             for (let his in Memory.spawns[a].repairHpHistory) {
                 let repObj = Game.getObjectById(his);
-                if (repObj && repObj.hits > Memory.spawns[a].repairHp[his])
+                if (repObj && (repObj.hits > Memory.spawns[a].repairHp[his] || !Memory.spawns[a].repairHp[his]))
                     Memory.spawns[a].repairHp[his] = repObj.hits;
             }
             Memory.spawns[a].repairHpHistory = {};
