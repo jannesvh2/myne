@@ -56,6 +56,13 @@ var roleStore = {
                     //else
                     if (sites.length)
                         creep.build(sites[0]);
+                    else {
+                        var creepSource = Game.getObjectById(creep.memory.sourceId.id);
+                        var sites = creep.pos.findInRange(creepSource, 3);
+                        if (!sites.length) {
+                            creep.moveTo(creepSource, { maxOps: 5000 });
+                        }
+                    }
                     //var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     //var transfer = creep.transfer(storage, RESOURCE_ENERGY);
                     //if (transfer == ERR_NOT_IN_RANGE) {
