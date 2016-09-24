@@ -53,7 +53,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.storageReserve += 3;
 
             //repair reset if its to high
-            if (Memory.spawns[a].counters.repairLimit > 5000000)
+            if (Memory.spawns[a].counters.repairLimit > 10000000)
                 Memory.spawns[a].counters.repairLimit = 10000;
 
             //current creeps
