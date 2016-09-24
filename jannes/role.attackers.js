@@ -16,7 +16,7 @@ var roleAttackers = {
         var sourceRoom = 'W55S28';
         var saveRoom = 'W55S28';
         var targets = [];
-        if (creep.memory.role != 'attackerH' || creep.memory.role != 'attackerD') {
+        if (creep.memory.role != 'attackerH' && creep.memory.role != 'attackerD') {
             if (!guard) {
                 if (creep.getActiveBodyparts(RANGED_ATTACK)) {
                     targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
@@ -95,7 +95,7 @@ var roleAttackers = {
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
             if (enableID)
-                creep.dismantle(Game.getObjectById(priorityTargetD));
+                creep.dismantle(priorityTargetD);
             else {
                 var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, 1, {
                     filter: (structure) => {
