@@ -48,7 +48,7 @@ var roleCreateJSON = {
 
             //ticks
             Memory.spawns[a].counters.upgradeTicks++;
-            Memory.spawns[a].counters.roomTicks++;
+            //Memory.spawns[a].counters.roomTicks++;
             if (Memory.spawns[a].random.storageReserve < 350000)
                 Memory.spawns[a].random.storageReserve += 3;
 
