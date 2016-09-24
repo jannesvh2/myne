@@ -15,7 +15,7 @@ var roleAttackers = {
         var sourceRoom = 'W58S26';
         var saveRoom = 'W58S26';
         var targets = [];
-        if (reep.memory.role != 'attackerH' || creep.memory.role != 'attackerD') {
+        if (creep.memory.role != 'attackerH' || creep.memory.role != 'attackerD') {
             if (!guard) {
                 if (creep.getActiveBodyparts(RANGED_ATTACK)) {
                     targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
