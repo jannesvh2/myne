@@ -9,7 +9,7 @@ var roleTower = {
                 //tower repair
                 var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (Memory.spawns[a].repairHp[structure.id] && (structure.hits < Memory.spawns[a].repairHp[structure.id]))
+                        return (Memory.spawns[a].repairHp[structure.id] && (structure.hits < Memory.spawns[a].repairHp[structure.id] || structure.hits < 1000))
                     }
                 });
                 if (closestDamagedStructure)
