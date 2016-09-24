@@ -59,11 +59,18 @@ var roleUser = {
             //}));
 
         }
-        else {
+        else if (!Memory.spawns[creep.memory.spawn].random.usersLink) {
             var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(storage);
             }
+        }
+        else {
+            var link = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.userLinkId);
+            if (creep.withdraw(link, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(link);
+            }
+
         }
     }
 };

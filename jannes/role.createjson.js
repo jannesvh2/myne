@@ -220,6 +220,11 @@ var roleCreateJSON = {
         Memory.spawns[2].random.storeId = '57e4459d7780877962a33b50';
         //UseStore
         Memory.spawns[2].random.useStore = true;
+        //Memory.spawns[2].random.userLinkId = '';
+        //Memory.spawns[2].random.useLinks = true;
+        //Memory.spawns[2].links.receiver = '57e3245703f840bf21b3f3be';
+        //Memory.spawns[2].links.producers.push('57e30c3af21eff60481d0e0e');
+        //Memory.spawns[2].links.producers.push('57e30bbd5f4eb75927267bba');
         //extractor
         //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';
         //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
