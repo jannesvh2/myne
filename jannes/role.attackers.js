@@ -7,13 +7,14 @@ var roleAttackers = {
         var enablePriority = false;
         var flag = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
-        var targetLocation = Game.getObjectById('579fab82b1f02a3b0cfefe03');
-        var priorityTarget = Game.getObjectById('57d002bbbbd16aff3afd0b68');
+        var targetLocation = Game.getObjectById('57e3db2d045623ce19ed98b1');
+        var priorityTarget = Game.getObjectById('57e3db2d045623ce19ed98b1');
+        var priorityTargetD = Game.getObjectById('57e3db2d045623ce19ed98b1');
 
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W58S26';
-        var sourceRoom = 'W58S26';
-        var saveRoom = 'W58S26';
+        var sourceRoom = 'W55S28';
+        var saveRoom = 'W55S28';
         var targets = [];
         if (creep.memory.role != 'attackerH' || creep.memory.role != 'attackerD') {
             if (!guard) {
@@ -94,7 +95,7 @@ var roleAttackers = {
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
             if (enableID)
-                creep.dismantle(Game.getObjectById('57d002bbbbd16aff3afd0b68'));
+                creep.dismantle(Game.getObjectById(priorityTargetD));
             else {
                 var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, 1, {
                     filter: (structure) => {
@@ -105,7 +106,6 @@ var roleAttackers = {
                     creep.moveTo(dism);
             }
         }
-
         if (flag)
             creep.moveTo(Game.flags['Flag1'])
         else {

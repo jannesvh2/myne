@@ -110,6 +110,9 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'attackerH') {
                 roleAttackers.run(creep);
             }
+            else if (creep.memory.role == 'attackerD') {
+                roleAttackers.run(creep);
+            }
             else if (creep.memory.role == 'mover') {
                 roleMover.run(creep);
             }
