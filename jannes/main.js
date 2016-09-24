@@ -52,38 +52,46 @@ module.exports.loop = function () {
             if (energy.length) {
                 //console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
                 creep.pickup(energy[0]);
-                if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
-                    creep.memory.full = true;
+                if (creep.carry.energy > (creep.carryCapacity * 0.70))
                     mustDel = true;
-                }
 
             }
             if (creep.memory.role == 'harvester') {
-                if (mustDel)
+                if (mustDel) {
+                    creep.memory.full = true;
                     delete creep.memory.sourceId;
+                }
                 roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             else if (creep.memory.role == 'harvester2') {
-                if (mustDel)
+                if (mustDel) {
+                    creep.memory.full = true;
                     delete creep.memory.sourceId;
+                }
                 roleHarvester.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             else if (creep.memory.role == 'upgrader') {
-                if (mustDel)
+                if (mustDel) {
+                    creep.memory.full = true;
                     delete creep.memory.sourceId;
+                }
                 roleUpgrader.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             else if (creep.memory.role == 'upgrader2') {
                 roleUpgrader.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             else if (creep.memory.role == 'builder') {
-                if (mustDel)
+                if (mustDel) {
+                    creep.memory.full = true;
                     delete creep.memory.sourceId;
+                }
                 roleBuilder.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             else if (creep.memory.role == 'builder2') {
-                if (mustDel)
+                if (mustDel) {
+                    creep.memory.full = true;
                     delete creep.memory.sourceId;
+                }
                 roleBuilder.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
             else if (creep.memory.role == 'store') {
