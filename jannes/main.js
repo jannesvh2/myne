@@ -14,6 +14,7 @@ var roleExtractor = require('role.extractor');
 var roleMover = require('role.mover');
 var roleUser = require('role.user');
 var roleTerminalMover = require('role.terminalmover');
+var roleLab = require('role.lab');
 
 module.exports.loop = function () {
     //creep.moveTo(Game.flags['flagname'])  work even if there is no creep in room
@@ -142,7 +143,7 @@ module.exports.loop = function () {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
-
+    roleLab.run();
     notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
     for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
