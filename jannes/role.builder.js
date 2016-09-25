@@ -92,7 +92,7 @@ var roleBuilder = {
                 roleGetEnergy.run(creep, sources);
                 return;
             }
-                else if (Memory.spawns[creep.memory.spawn].random.useLinks) {
+            else if (Memory.spawns[creep.memory.spawn].random.useStore) {
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(storage);
