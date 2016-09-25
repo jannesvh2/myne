@@ -5,10 +5,9 @@ var roleSpawn = {
 
         var didSpawn = false;
         var newName;
-        var multiLength = Memory.spawns[spawn].summon.spawns.length;
         var multiSpawn = function (parts, mem) {
             var spawnReturn = "";
-            for (let a = 0; a < multiLength; a++) {
+            for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                 let spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep(parts, null, mem);
                 if (spawnReturn != -4) {
                     return spawnReturn;
