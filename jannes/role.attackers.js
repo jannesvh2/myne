@@ -3,6 +3,7 @@ var roleAttackers = {
     /** @param {Creep} creep **/
     run: function (creep) {
         var guard = false;
+        var enableI = false;
         var enableID = false;
         var enablePriority = false;
         var flag = false;
@@ -53,7 +54,7 @@ var roleAttackers = {
 
             }
             //Priority attack
-            if (enableID) {
+            if (enableI) {
                 targets.push(priorityTarget);
             }
             else if (enablePriority) {

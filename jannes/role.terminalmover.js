@@ -15,12 +15,12 @@ var roleTerminalMover = {
         if (creep.memory.full) {
             let lab = Game.getObjectById('57ddc0f8c4053ddd7aeb3767');
 
-            if (creep.transfer(lab, "O") == ERR_NOT_IN_RANGE)
+            if (creep.transfer(lab, "X") == ERR_NOT_IN_RANGE)
                 creep.moveTo(lab);
         }
         else {
 
-            if (creep.withdraw(terminal, "O") == ERR_NOT_IN_RANGE)
+            if (creep.withdraw(terminal, "X") == ERR_NOT_IN_RANGE)
                 creep.moveTo(terminal);
         }
     }
