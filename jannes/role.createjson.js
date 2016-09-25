@@ -36,6 +36,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].repairHp = {};
                 Memory.spawns[a].repairHpHistory = {};
                 Memory.spawns[a].links = {};
+                Memory.spawns[a].random.hostiles = false;
             }
 
             //reset for changes
@@ -44,7 +45,6 @@ var roleCreateJSON = {
             Memory.spawns[a].sources = [];
             Memory.spawns[a].store = [];
             Memory.spawns[a].links.producers = [];
-            Memory.spawns[a].random.hostiles = false;
 
             //ticks
             Memory.spawns[a].counters.upgradeTicks++;
@@ -73,9 +73,6 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.movers = [];
             Memory.spawns[a].creeps.users = [];
             Memory.spawns[a].counters.creeps = 0;
-            if (Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS).length) {
-                Memory.spawns[a].random.hostiles = true;
-            }
         }
         for (let creep in Game.creeps) {
             Memory.spawns[Game.creeps[creep].memory.spawn].counters.creeps++;

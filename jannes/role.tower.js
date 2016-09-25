@@ -10,12 +10,14 @@ var roleTower = {
             if(towers){
                 var hostiles = Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS);
                 if (hostiles.length > 0) {
+                    Memory.spawns[a].random.hostiles = true;
                     var username = hostiles[0].owner.username;
                     if (username != 'Invader')
                         Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom}`);
                     towers.forEach(tower => tower.attack(hostiles[0]));
                     continue;
                 }
+                Memory.spawns[a].random.hostiles = false;
 
                 var targetHeal = towers[0].pos.findClosestByRange(FIND_MY_CREEPS, {
                     filter: function (object) {
