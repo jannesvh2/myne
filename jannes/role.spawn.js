@@ -206,7 +206,6 @@ var roleSpawn = {
                     newName = multiSpawn([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
                 return;
             }
-                //Game.spawns['Spawn10'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'upgrader2', spawn: 2 });
             else if (upgraders2.length < u2 || (Memory.spawns[spawn].random.storeId && Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > Memory.spawns[spawn].random.storageReserve && Memory.spawns[spawn].counters.upgradeTicks > 400)) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: spawn });
@@ -219,7 +218,7 @@ var roleSpawn = {
                 return;
             }
                 //console.log('Builders: ' + builders.length);
-            
+
             else if (Memory.spawns[spawn].random.extractor && Memory.spawns[spawn].random.terminal && Game.getObjectById(Memory.spawns[spawn].random.extractor).mineralAmount > 0 && _.sum(Memory.spawns[spawn].random.terminal.store) < Memory.spawns[spawn].random.terminal.storeCapacity - 50000) {
                 if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 3)
                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
