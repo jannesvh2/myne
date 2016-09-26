@@ -20,7 +20,7 @@ var roleSpawn = {
         //spawn harvesters
         if (Memory.spawns[spawn].random.useStore && !Memory.spawns[spawn].creeps.users.length) {
             if (didSpawn == false) {
-                newName = multiSpawn([CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
+                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, MOVE, MOVE], { role: 'user', spawn: spawn });
                 return;
                 didSpawn = true;
 
