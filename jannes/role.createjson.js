@@ -38,6 +38,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].links = {};
                 Memory.spawns[a].random.hostiles = false;
                 Memory.spawns[a].random.towerHostiles = {};
+                Memory.spawns[a].counters.towerHostiles = 1500;
             }
 
             //reset for changes

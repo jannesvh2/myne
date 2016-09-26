@@ -10,6 +10,7 @@ var roleTower = {
             if (towers) {
                 var hostiles = Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS);
                 if (hostiles.length > 0) {
+                    Memory.spawns[a].counters.towerHostiles = 0;
                     Memory.spawns[a].random.hostiles = true;
                     var username = hostiles[0].owner.username;
                     if (username != 'Invader')
@@ -32,7 +33,6 @@ var roleTower = {
                         }
                         else {
                             Memory.spawns[a].random.towerHostiles[hostiles[b].id] = hostiles[b];
-                            target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].id].id);
                             Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay = 8;
                         }
                     }
@@ -43,7 +43,10 @@ var roleTower = {
                     }
                 }
                 Memory.spawns[a].random.hostiles = false;
-                Memory.spawns[a].random.towerHostiles = {};
+
+                Memory.spawns[a].counters.towerHostiles++;
+                if (Memory.spawns[a].counters.towerHostiles > 1500)
+                    Memory.spawns[a].random.towerHostiles = {};
                 var targetHeal = towers[0].pos.findClosestByRange(FIND_MY_CREEPS, {
                     filter: function (object) {
                         return object.hits < object.hitsMax;
