@@ -36,7 +36,7 @@ var roleTower = {
                             Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay = 8;
                         }
                     }
-                    Memory.spawns[a].random.towerHostiles[target.name].delay = 15;
+                    Memory.spawns[a].random.towerHostiles[target.id].delay = 15;
                     towers.forEach(tower => tower.attack(target));
                     continue;
                 }
