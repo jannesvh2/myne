@@ -16,32 +16,32 @@ var roleTower = {
                         Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom}`);
                     var target;
                     for (let b = 0, length2 = hostiles.length; b < length2; b++) {
-                        if (Memory.spawns[a].random.towerHostile[hostiles[b].name]) {
-                            if (Memory.spawns[a].random.towerHostiles[hostiles[b].name].hits < Memory.spawns[a].random.towerHostiles[hostiles[b].name].hitsMax) {
-                                Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay = 0;
-                                target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
+                        if (Memory.spawns[a].random.towerHostiles[hostiles[b].id]) {
+                            if (Memory.spawns[a].random.towerHostiles[hostiles[b].id].hits < Memory.spawns[a].random.towerHostiles[hostiles[b].id].hitsMax) {
+                                Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay = 0;
+                                target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].id].id);
                                 break;
                             }
                             else {
                                 if (!target) {
-                                    Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay--;
-                                    if (Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay <= 0)
-                                        target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
+                                    Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay--;
+                                    if (Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay <= 0)
+                                        target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].id].id);
                                 }
                             }
                         }
                         else {
-                            Memory.spawns[a].random.towerHostile[hostiles[b].name] = hostiles[b];
-                            target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
-                            Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay = 8;
+                            Memory.spawns[a].random.towerHostiles[hostiles[b].id] = hostiles[b];
+                            target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].id].id);
+                            Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay = 8;
                         }
                     }
-                    Memory.spawns[a].random.towerHostile[target.name].delay = 15;
+                    Memory.spawns[a].random.towerHostiles[target.name].delay = 15;
                     towers.forEach(tower => tower.attack(target));
                     continue;
                 }
                 Memory.spawns[a].random.hostiles = false;
-                Memory.spawns[a].random.towerHostile = {};
+                Memory.spawns[a].random.towerHostiles = {};
                 var targetHeal = towers[0].pos.findClosestByRange(FIND_MY_CREEPS, {
                     filter: function (object) {
                         return object.hits < object.hitsMax;

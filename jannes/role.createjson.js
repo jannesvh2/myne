@@ -37,7 +37,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].repairHpHistory = {};
                 Memory.spawns[a].links = {};
                 Memory.spawns[a].random.hostiles = false;
-                Memory.spawns[a].random.towerHostile = {};
+                Memory.spawns[a].random.towerHostiles = {};
             }
 
             //reset for changes
