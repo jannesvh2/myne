@@ -27,7 +27,7 @@ var roleSpawn = {
 
             }
         }
-        if (Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length < Memory.spawns[spawn].summon.users) {
+        if ((Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length < Memory.spawns[spawn].summon.users) || (Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users[0].body.length == 6 && Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length <= Memory.spawns[spawn].summon.users)) {
             if (didSpawn == false) {
                 newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
                 return;
@@ -189,8 +189,10 @@ var roleSpawn = {
                                 var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
                                     order.type == ORDER_BUY && order.price > 0.49 &&
                                     Game.market.calcTransactionCost(1000, Memory.spawns[spawn].random.mainRoom, order.roomName) < 700);
-                                if (orders.length)
+                                if (orders.length) {
                                     Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
+                                    Game.notify(amountToSell + " " + resource);
+                                }
                             }
                         }
                     }
