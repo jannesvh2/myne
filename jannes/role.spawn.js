@@ -18,6 +18,25 @@ var roleSpawn = {
         }
         //Game.rooms.W59S29.energyCapacityAvailable
         //spawn harvesters
+        if (Memory.spawns[spawn].random.useStore && !Memory.spawns[spawn].creeps.users.length) {
+            if (didSpawn == false) {
+                newName = multiSpawn([CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
+                return;
+                didSpawn = true;
+
+
+            }
+        }
+        if (Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length < Memory.spawns[spawn].summon.users) {
+            if (didSpawn == false) {
+                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
+                return;
+                didSpawn = true;
+
+
+            }
+        }
+
         if (Memory.spawns[spawn].random.defenders.length) {
             if (didSpawn == false) {
                 for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
@@ -46,24 +65,7 @@ var roleSpawn = {
 
             }
         }
-        if (Memory.spawns[spawn].random.useStore && !Memory.spawns[spawn].creeps.users.length) {
-            if (didSpawn == false) {
-                newName = multiSpawn([CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
-                return;
-                didSpawn = true;
 
-
-            }
-        }
-        if (Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length < Memory.spawns[spawn].summon.users) {
-            if (didSpawn == false) {
-                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
-                return;
-                didSpawn = true;
-
-
-            }
-        }
         //dont else if
         if (Memory.spawns[spawn].random.useStore) {
             if (didSpawn == false) {
