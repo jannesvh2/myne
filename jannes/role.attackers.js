@@ -128,9 +128,9 @@ var roleAttackers = {
             if (enableID)
                 creep.dismantle(priorityTargetD);
             else {
-                var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, 1, {
+                var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART)
+                        return (structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART && structure.structureType != STRUCTURE_CONTROLLER)
                     }
                 });
                 if (creep.dismantle(dism) != OK)
