@@ -21,7 +21,7 @@ var roleSpawn = {
         if (Memory.spawns[spawn].random.defenders.length) {
             if (didSpawn == false) {
                 for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
-                    def = 0;
+                    //def = 0;
                     if (Memory.spawns[spawn].random.defenders[def] != Memory.spawns[spawn].random.mainRoom) {
                         let defs = _.filter(defenders, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
                         if (!defs.length) {
