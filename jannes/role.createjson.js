@@ -225,7 +225,7 @@ var roleCreateJSON = {
         Memory.spawns[2].random.useStore = true;
         Memory.spawns[2].random.useLinks = true;
         Memory.spawns[2].links.receiver = '57e954eb88b2062620818ce7';
-        Memory.spawns[2].links.producers.push('57e951281805f5575b06e84f');
+        Memory.spawns[2].links.producers.push('57e965880af20184158222d9');
         Memory.spawns[2].links.producers.push('57e95058625f8f03360f4cc8');
         //extractor
         //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';

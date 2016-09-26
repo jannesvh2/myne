@@ -26,7 +26,7 @@ var roleTower = {
                                 if (!target) {
                                     Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay--;
                                     if (Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay <= 0)
-                                        target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].id].id);
+                                        target = Game.getObjectById(hostiles[b].id);
                                 }
                             }
                         }
