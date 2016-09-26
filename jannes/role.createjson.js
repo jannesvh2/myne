@@ -37,6 +37,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].repairHpHistory = {};
                 Memory.spawns[a].links = {};
                 Memory.spawns[a].random.hostiles = false;
+                Memory.spawns[a].random.towerHostile = {};
             }
 
             //reset for changes
@@ -49,11 +50,11 @@ var roleCreateJSON = {
             //ticks
             Memory.spawns[a].counters.upgradeTicks++;
             //Memory.spawns[a].counters.roomTicks++;
-            if (Memory.spawns[a].random.storageReserve < 350000)
+            if (Memory.spawns[a].random.storageReserve < 450000)
                 Memory.spawns[a].random.storageReserve += 3;
 
             //repair reset if its to high
-            if (Memory.spawns[a].counters.repairLimit > 10000000)
+            if (Memory.spawns[a].counters.repairLimit > 15000000)
                 Memory.spawns[a].counters.repairLimit = 10000;
 
             //current creeps
@@ -195,7 +196,7 @@ var roleCreateJSON = {
         Memory.spawns[2].summon.h = 0;
         Memory.spawns[2].summon.b = 0;
         Memory.spawns[2].summon.u = 0;
-        Memory.spawns[2].summon.h2 = 5;
+        Memory.spawns[2].summon.h2 = 4;
         Memory.spawns[2].summon.b2 = 1;
         Memory.spawns[2].summon.u2 = 0;
         Memory.spawns[2].summon.users = 3;
@@ -221,11 +222,10 @@ var roleCreateJSON = {
         Memory.spawns[2].random.storeId = '57e4459d7780877962a33b50';
         //UseStore
         Memory.spawns[2].random.useStore = true;
-        //Memory.spawns[2].random.userLinkId = '';
-        //Memory.spawns[2].random.useLinks = true;
-        //Memory.spawns[2].links.receiver = '57e3245703f840bf21b3f3be';
-        //Memory.spawns[2].links.producers.push('57e30c3af21eff60481d0e0e');
-        //Memory.spawns[2].links.producers.push('57e30bbd5f4eb75927267bba');
+        Memory.spawns[2].random.useLinks = true;
+        Memory.spawns[2].links.receiver = '57e954eb88b2062620818ce7';
+        Memory.spawns[2].links.producers.push('57e951281805f5575b06e84f');
+        Memory.spawns[2].links.producers.push('57e95058625f8f03360f4cc8');
         //extractor
         //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';
         //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;

@@ -181,7 +181,7 @@ var roleSpawn = {
                     if (total > 100000) {
                         var maxTransferEnergyCost = Memory.spawns[spawn].random.terminal.store.energy;
                         for (var resource in Memory.spawns[spawn].random.terminal.store) {
-                            if (resource != 'energy') {
+                            if (resource != 'energy' && Memory.spawns[spawn].random.terminal.store[resource] > 50000) {
                                 var amountToSell = 50000;
 
                                 var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
