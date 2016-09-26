@@ -18,7 +18,7 @@ var roleTower = {
                     for (let b = 0, length2 = hostiles.length; b < length2; b++) {
                         if (Memory.spawns[a].random.towerHostile[hostiles[b].name]) {
                             if (Memory.spawns[a].random.towerHostiles[hostiles[b].name].hits < Memory.spawns[a].random.towerHostiles[hostiles[b].name].hitsMax) {
-                                towerHostiles[hostiles[b].name].delay = 0;
+                                Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay = 0;
                                 target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
                                 break;
                             }
@@ -32,8 +32,8 @@ var roleTower = {
                         }
                         else {
                             Memory.spawns[a].random.towerHostile[hostiles[b].name] = hostiles[b];
-                            target = Game.getObjectById(towerHostiles[hostiles[b].name].id);
-                            towerHostiles[hostiles[b].name].delay = 8;
+                            target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
+                            Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay = 8;
                         }
                     }
                     Memory.spawns[a].random.towerHostile[target.name].delay = 15;
