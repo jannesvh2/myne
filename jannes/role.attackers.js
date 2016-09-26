@@ -18,7 +18,7 @@ var roleAttackers = {
         var saveRoom = 'W52S30';
 
         
-        if (creep.memory.role != 'attackerH' && creep.memory.getBoost) {
+        if (creep.memory.role == 'attackerH' && creep.memory.getBoost) {
             let lab = Game.getObjectById('57deceb85b49191922741434');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
@@ -27,7 +27,7 @@ var roleAttackers = {
                 creep.memory.getBoost = false;
             return;
         }
-        if (creep.memory.role != 'attackerM' && creep.memory.getBoost) {
+        if (creep.memory.role == 'attackerM' && creep.memory.getBoost) {
             let lab = Game.getObjectById('57e84b5fbb15468048b138c5');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
@@ -36,7 +36,7 @@ var roleAttackers = {
                 creep.memory.getBoost = false;
             return;
         }
-        if (creep.memory.role != 'attackerD' && creep.memory.getBoost) {
+        if (creep.memory.role == 'attackerD' && creep.memory.getBoost) {
             let lab = Game.getObjectById('');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
