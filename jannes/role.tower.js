@@ -17,16 +17,16 @@ var roleTower = {
                     var target;
                     for (let b = 0, length2 = hostiles.length; b < length2; b++) {
                         if (Memory.spawns[a].random.towerHostile[hostiles[b].name]) {
-                            if (towerHostiles[hostiles[b].name].hits < towerHostiles[hostiles[b].name].hitsMax) {
+                            if (Memory.spawns[a].random.towerHostiles[hostiles[b].name].hits < Memory.spawns[a].random.towerHostiles[hostiles[b].name].hitsMax) {
                                 towerHostiles[hostiles[b].name].delay = 0;
-                                target = Game.getObjectById(towerHostiles[hostiles[b].name].id);
+                                target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
                                 break;
                             }
                             else {
                                 if (!target) {
-                                    towerHostiles[hostiles[b].name].delay--;
-                                    if (towerHostiles[hostiles[b].name].delay <= 0)
-                                        target = Game.getObjectById(towerHostiles[hostiles[b].name].id);
+                                    Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay--;
+                                    if (Memory.spawns[a].random.towerHostiles[hostiles[b].name].delay <= 0)
+                                        target = Game.getObjectById(Memory.spawns[a].random.towerHostiles[hostiles[b].name].id);
                                 }
                             }
                         }
