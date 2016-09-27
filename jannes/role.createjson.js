@@ -209,13 +209,13 @@ var roleCreateJSON = {
         //RoomList
         Memory.spawns[2].random.rooms.push('W54S28');
         if (!Memory.spawns[2].random.hostiles) {
-            Memory.spawns[2].random.rooms.push('W54S27');
+            //Memory.spawns[2].random.rooms.push('W54S27');
             Memory.spawns[2].random.rooms.push('W55S28');
             Memory.spawns[2].random.rooms.push('W55S29');
         }
         //keeper
         if (!Memory.spawns[2].random.hostiles) {
-            Memory.spawns[2].spots.push({ sourceRoom: 'W54S27' });
+            //Memory.spawns[2].spots.push({ sourceRoom: 'W54S27' });
             Memory.spawns[2].spots.push({ sourceRoom: 'W55S28' });
             Memory.spawns[2].spots.push({ sourceRoom: 'W55S29' });
         }
@@ -228,8 +228,8 @@ var roleCreateJSON = {
         Memory.spawns[2].links.producers.push('57e965880af20184158222d9');
         Memory.spawns[2].links.producers.push('57e993bc8a14ba8f0a2c9a7e');
         //extractor
-        //Memory.spawns[2].random.extractor = '579fab82b1f02a3b0cfefd9a';
-        //Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
+        Memory.spawns[2].random.extractor = '579fab83b1f02a3b0cfeff52';
+        Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

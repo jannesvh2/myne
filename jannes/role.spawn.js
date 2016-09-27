@@ -6,7 +6,7 @@ var roleSpawn = {
         var didSpawn = false;
         var newName;
         var multiSpawn = function (parts, mem) {
-            var spawnReturn = "";
+            var spawnReturn;
             for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                 let spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep(parts, null, mem);
                 if (spawnReturn != -4) {
@@ -221,6 +221,7 @@ var roleSpawn = {
                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: spawn });
                 if (typeof newName == 'string')
                     Memory.spawns[spawn].counters.upgradeTicks = 0;
+
                 return;
             }
                 //console.log('Builders: ' + builders.length);
