@@ -22,14 +22,21 @@ var roleMover = {
                 creep.moveTo(storage);
         }
         else {
-            var target = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_LINK);
-                }
-            });
+            if (creep.memory.atStore) {
+                var target = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_LINK);
+                    }
+                });
 
-            if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                creep.moveTo(target);
+                if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(target);
+            }
+            else {
+                storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                creep.memory.atStore = creep.pos.inRangeTo(storage, 2);
+                creep.moveTo(storage);
+            }
         }
     }
 };
