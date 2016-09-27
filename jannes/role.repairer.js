@@ -27,7 +27,7 @@ var roleRepairer = {
                     Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure.id] = closestDamagedStructure.hits;
         }
         else {
-            Memory.spawns[creep.memory.spawn].counters.repairLimit += 10000;
+            Memory.spawns[creep.memory.spawn].counters.repairLimit += 40000;
             Game.notify(`Spawn ${creep.memory.spawn} repairLimit is now ${Memory.spawns[creep.memory.spawn].counters.repairLimit}`);
         }
     }
