@@ -48,13 +48,13 @@ var roleHarvester = {
                     }
                 }
                 if (targets) {
-                    if (creep.transfer(targets, RESOURCE_ENERGY) != OK) {
+                    if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets);
                     }
                 }
                 else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 30000) {
                     var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
-                    if (creep.transfer(terminal, RESOURCE_ENERGY) != OK)
+                    if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                         creep.moveTo(terminal);
                     //}
                 }
@@ -76,7 +76,7 @@ var roleHarvester = {
                     //else {
 
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                    if (creep.transfer(storage, RESOURCE_ENERGY) != OK)
+                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                         creep.moveTo(storage);
                     //}
                 }
