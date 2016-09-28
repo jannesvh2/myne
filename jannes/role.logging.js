@@ -62,7 +62,7 @@ var roleLogging = {
     + ", s: " + Memory.spawns[3].creeps.scouts.length + "/" + Memory.spawns[3].spots.length
     + ", ST: " + Memory.spawns[3].creeps.stores.length + "/" + parseInt(Memory.spawns[3].sources.length)
     + " | rep: " + String(Memory.spawns[3].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-    + ", Store: " + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy;
+    //+ ", Store: " + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy;
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
 
