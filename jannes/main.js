@@ -156,7 +156,7 @@ module.exports.loop = function () {
     notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
     for (let b = 0, length2 = Memory.spawns.length; b < length2; b++)
-        for (let s = 0, length = Memory.spawns[0].sources.length; s < length; s++) {
+        for (let s = 0, length = Memory.spawns[b].sources.length; s < length; s++) {
             Memory.spawns[b].counters.history[Memory.spawns[b].sources[s].id] = Memory.spawns[b].counters.atSources[Memory.spawns[b].sources[s].id];
         }
     console.log(notify + " | TOTAL: " + Game.cpu.getUsed().toFixed(2));
