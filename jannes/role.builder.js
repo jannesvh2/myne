@@ -8,8 +8,8 @@ var roleBuilder = {
 
         //new spawn
         //if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
-        //    if (creep.room.name != "W59S26") {
-        //        var exitDir = Game.map.findExit(creep.room.name, "W59S26");
+        //    if (creep.room.name != "W52S29") {
+        //        var exitDir = Game.map.findExit(creep.room.name, "W52S29");
         //        var Exit = creep.pos.findClosestByRange(exitDir);
         //        creep.moveTo(Exit, { maxOps: 5000 });
         //        return;
