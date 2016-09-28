@@ -76,7 +76,7 @@ var roleHarvester = {
                     //else {
 
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                    if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    if (creep.transfer(storage, RESOURCE_ENERGY) != OK)
                         creep.moveTo(storage);
                     //}
                 }
