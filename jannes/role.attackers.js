@@ -125,8 +125,12 @@ var roleAttackers = {
 
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
-            if (enableID)
-                creep.dismantle(priorityTargetD);
+            if (enableID) {
+                if (creep.dismantle(priorityTargetD) != OK)
+                    creep.moveTo(priorityTargetD);
+                return;
+
+            }
             else {
                 var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
@@ -165,11 +169,11 @@ var roleAttackers = {
             if (creep.memory.role == 'attackerH')
                 creep.moveTo(targetHeal);
         }
-        if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax * 2 / 3)) {
-            var exitDir = Game.map.findExit(creep.room.name, saveRoom);
-            var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit, { maxOps: 5000 });
-        }
+        //if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax * 2 / 3)) {
+        //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
+        //    var Exit = creep.pos.findClosestByRange(exitDir);
+        //    creep.moveTo(Exit, { maxOps: 5000 });
+        //}
     }
 };
 
