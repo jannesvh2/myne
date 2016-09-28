@@ -25,8 +25,10 @@ module.exports.loop = function () {
 
     roleCreateJSON.run();
     notify += " | JSON: " + (Game.cpu.getUsed() - cpu).toFixed(2);
-
-    roleLogging.run();
+    try{
+        roleLogging.run();
+    }catch(err){
+    console.log(err)}
     var cpu = Game.cpu.getUsed();
 
     try{
