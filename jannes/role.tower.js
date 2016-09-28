@@ -18,7 +18,8 @@ var roleTower = {
                     var target;
                     for (let b = 0, length2 = hostiles.length; b < length2; b++) {
                         if (Memory.spawns[a].random.towerHostiles[hostiles[b].id]) {
-                            if (hostiles[b].hits < hostiles[b].hitsMax) {
+                            if (hostiles[b].hits < Memory.spawns[a].random.towerHostiles[hostiles[b].id].hits) {
+                                Memory.spawns[a].random.towerHostiles[hostiles[b].id].hits = hostiles[b].hits;
                                 target = Game.getObjectById(hostiles[b].id);
                                 break;
                             }
