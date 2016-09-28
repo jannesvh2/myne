@@ -99,7 +99,7 @@ var roleSpawn = {
         if (harvesters.length < h) {
             if (didSpawn == false) {
                 didSpawn = true;
-                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550 || harvesters.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 800)
                     newName = multiSpawn([WORK, CARRY, MOVE], { role: 'harvester', spawn: spawn });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
                     newName = multiSpawn([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'harvester', spawn: spawn });
