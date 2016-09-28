@@ -95,7 +95,7 @@ var roleHarvester = {
                         return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                     }
                 });
-                if (!targets) 
+                if (!targets)
                     var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].find(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
