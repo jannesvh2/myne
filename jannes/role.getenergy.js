@@ -14,7 +14,7 @@ var roleGetEnergy = {
                     if (creep.memory.sourceId == null || creep.memory.sourceId === undefined)
                         creep.memory.sourceId = tmpsources[Math.floor((Math.random() * tmpsources.length))];
                     creep.memory.sourceId = creep.memory.sourceId.id;
-                    if (Memory.spawns[creep.memory.spawn].counters.avgAtSource[creep.memory.sourceId] > 3 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
+                    if (Memory.spawns[creep.memory.spawn].counters.avgAtSource[creep.memory.sourceId] > 2 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
                         for (let trm = 0, length = tmpsources.length; trm < length; trm++)
                             if (tmpsources[trm].id == creep.memory.sourceId) {
                                 tmpsources.splice(trm, 1);
