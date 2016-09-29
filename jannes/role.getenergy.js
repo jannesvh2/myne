@@ -42,12 +42,6 @@ var roleGetEnergy = {
                 newSource();
                 creepSource = Game.getObjectById(creep.memory.sourceId);
             }
-            else {
-                if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET)
-                    //delete creep.memory._move;
-
-                creep.moveTo(creepSource);
-            }
         }
         var sourceEmpty = creep.harvest(creepSource);
         Memory.spawns[creep.memory.spawn].counters.atSources[creep.memory.sourceId]++;
