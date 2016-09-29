@@ -234,9 +234,9 @@ var roleCreateJSON = {
         //spawn 3
         //spawn numbers
         Memory.spawns[3].summon.spawns = 1;
-        Memory.spawns[3].summon.h = 2;
-        Memory.spawns[3].summon.b = 3;
-        Memory.spawns[3].summon.u = 4;
+        Memory.spawns[3].summon.h = 4;
+        Memory.spawns[3].summon.b = 4;
+        Memory.spawns[3].summon.u = 8;
         Memory.spawns[3].summon.h2 = 0;
         Memory.spawns[3].summon.b2 = 0;
         Memory.spawns[3].summon.u2 = 0;
@@ -249,13 +249,13 @@ var roleCreateJSON = {
         //RoomList
         Memory.spawns[3].random.rooms.push('W52S29');
         if (!Memory.spawns[3].random.hostiles) {
-            //Memory.spawns[3].random.rooms.push('W54S27');
+            Memory.spawns[3].random.rooms.push('W51S29');
             //Memory.spawns[3].random.rooms.push('W55S28');
             //Memory.spawns[3].random.rooms.push('W55S29');
         }
         //keeper
         if (!Memory.spawns[3].random.hostiles) {
-            //Memory.spawns[3].spots.push({ sourceRoom: 'W54S27' });
+            Memory.spawns[3].spots.push({ sourceRoom: 'W51S29' });
             //Memory.spawns[3].spots.push({ sourceRoom: 'W55S28' });
             //Memory.spawns[3].spots.push({ sourceRoom: 'W55S29' });
         }
