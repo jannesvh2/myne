@@ -12,11 +12,11 @@ var roleDefenders = {
             if (targets) {
 
                 if (creep.attack(targets) == ERR_NOT_IN_RANGE)
-                    if(creep.moveTo(targets, { maxOps: 5000 }) != OK){
+                    if(creep.moveTo(targets) != OK){
                         if (creep.room.name != creep.memory.sourceRoom) {
                             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                             var Exit = creep.pos.findClosestByRange(exitDir);
-                            creep.moveTo(Exit, { maxOps: 5000 });
+                            creep.moveTo(Exit);
                         }
                     }
             }
@@ -24,7 +24,7 @@ var roleDefenders = {
                 if (creep.room.name != creep.memory.sourceRoom) {
                     var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo(Exit, { maxOps: 5000 });
+                    creep.moveTo(Exit);
                 }
             }
         

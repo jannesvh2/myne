@@ -107,7 +107,7 @@ var roleAttackers = {
                 if (targets.length > 0) {
                     if (creep.getActiveBodyparts(RANGED_ATTACK))
                         if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
-                    creep.moveTo(targets[0], { maxOps: 5000 });
+                    creep.moveTo(targets[0]);
                     if (creep.getActiveBodyparts(ATTACK))
                         if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
                 }
@@ -148,10 +148,10 @@ var roleAttackers = {
             if (creep.room.name != sourceRoom && sourceRoom != '') {
                 var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit, { maxOps: 5000 });
+                creep.moveTo(Exit);
             }
             else if (creep.pos != targetLocation.pos) {
-                creep.moveTo(targetLocation, { maxOps: 5000 })
+                creep.moveTo(targetLocation)
             }
         }
         var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
@@ -172,7 +172,7 @@ var roleAttackers = {
         //if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax * 2 / 3)) {
         //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
         //    var Exit = creep.pos.findClosestByRange(exitDir);
-        //    creep.moveTo(Exit, { maxOps: 5000 });
+        //    creep.moveTo(Exit);
         //}
     }
 };

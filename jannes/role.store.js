@@ -60,7 +60,7 @@ var roleStore = {
                         var creepSource = Game.getObjectById(creep.memory.sourceId.id);
                         var sites = creep.pos.findInRange(creepSource, 3);
                         if (!sites.length) {
-                            creep.moveTo(creepSource, { maxOps: 5000 });
+                            creep.moveTo(creepSource);
                         }
                     }
                     //var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
@@ -71,7 +71,7 @@ var roleStore = {
                     //            return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
                     //        }
                     //    }));
-                    //    creep.moveTo(storage, { maxOps: 5000 });
+                    //    creep.moveTo(storage);
 
                     //}
                     //else if (transfer == ERR_FULL) {
@@ -86,7 +86,7 @@ var roleStore = {
             var creepSource = Game.getObjectById(creep.memory.sourceId.id);
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty != OK) {
-                if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET);
+                if (creep.moveTo(creepSource) == ERR_INVALID_TARGET);
             }
         }
     }
