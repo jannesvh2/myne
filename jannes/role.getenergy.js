@@ -47,7 +47,7 @@ var roleGetEnergy = {
         Memory.spawns[creep.memory.spawn].counters.atSources[creep.memory.sourceId]++;
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             var move = creep.moveTo(creepSource);
-            if (move == ERR_INVALID_TARGET)
+            if (move == ERR_INVALID_TARGET || move == ERR_NO_PATH)
                 delete creep.memory.sourceId;
         }
         else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
