@@ -3,8 +3,8 @@ var roleGetEnergy = {
         //go to closest source
         var source;
         var newSource = function () {
-           // if (creep.memory.role != 'builder' && creep.room.name != 'W59S29')
-             //   Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+            // if (creep.memory.role != 'builder' && creep.room.name != 'W59S29')
+            //   Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
                 var tmpsourcesLength = tmpsources.length;
@@ -50,6 +50,10 @@ var roleGetEnergy = {
         }
         else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
             creep.memory.full = true;
+        else {
+            if (creep.moveTo(creepSource, { maxOps: 5000 }) == ERR_INVALID_TARGET)
+                delete creep.memory.sourceId;
+        }
     }
 
 };
