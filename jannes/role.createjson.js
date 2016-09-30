@@ -234,11 +234,11 @@ var roleCreateJSON = {
         //spawn 3
         //spawn numbers
         Memory.spawns[3].summon.spawns = 1;
-        Memory.spawns[3].summon.h = 3;
-        Memory.spawns[3].summon.b = 3;
-        Memory.spawns[3].summon.u = 6;
-        Memory.spawns[3].summon.h2 = 0;
-        Memory.spawns[3].summon.b2 = 0;
+        Memory.spawns[3].summon.h = 0;
+        Memory.spawns[3].summon.b = 0;
+        Memory.spawns[3].summon.u = 0;
+        Memory.spawns[3].summon.h2 = 3;
+        Memory.spawns[3].summon.b2 = 1;
         Memory.spawns[3].summon.u2 = 0;
         Memory.spawns[3].summon.users = 0;
         Memory.spawns[3].summon.atkM = 0;
@@ -260,9 +260,9 @@ var roleCreateJSON = {
             //Memory.spawns[3].spots.push({ sourceRoom: 'W55S29' });
         }
         //StoreId
-        //Memory.spawns[3].random.storeId = '57e4459d7780877962a33b50';
+        Memory.spawns[3].random.storeId = '57ee3f378766a05b621a6eef';
         //UseStore
-        Memory.spawns[3].random.useStore = false;
+        Memory.spawns[3].random.useStore = true;
         Memory.spawns[3].random.useLinks = false;
         //Memory.spawns[3].links.receiver = '57ea5527d8ef7fdc5e44ee89';
         //Memory.spawns[3].links.producers.push('57e965880af20184158222d9');
