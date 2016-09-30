@@ -194,7 +194,7 @@ var roleSpawn = {
                                         Game.market.calcTransactionCost(1000, Memory.spawns[spawn].random.mainRoom, order.roomName) < 700);
                                     if (orders.length) {
                                         Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
-                                        Game.notify(amountToSell + " " + resource);
+                                        Game.notify(amountToSell + " " + resource +" "+ orders[0].id+ " " + Memory.spawns[spawn].random.mainRoom +" "+ Memory.spawns[spawn].random.terminal.store.energy);
                                     }
                                 }
                             }
