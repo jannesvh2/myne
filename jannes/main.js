@@ -149,7 +149,11 @@ module.exports.loop = function () {
             console.log("creep: " + creep.name + " error: " + err);
         }
     }
-    roleLab.run();
+    try{
+        roleLab.run();
+    } catch (err) {
+        console.log(err);
+    }
     notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
     for (let b = 0, length2 = Memory.spawns.length; b < length2; b++)
