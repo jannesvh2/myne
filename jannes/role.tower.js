@@ -12,10 +12,11 @@ var roleTower = {
                     var hostiles = Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_HOSTILE_CREEPS);
                     if (hostiles.length > 0) {
                         Memory.spawns[a].counters.towerHostiles = 0;
-                        Memory.spawns[a].random.hostiles = true;
                         var username = hostiles[0].owner.username;
-                        if (username != 'Invader')
+                        if (username != 'Invader') {
                             Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom}`);
+                            Memory.spawns[a].random.hostiles = true;
+                        }
                         var target;
                         for (let b = 0, length2 = hostiles.length; b < length2; b++) {
                             if (Memory.spawns[a].random.towerHostiles[hostiles[b].id]) {
