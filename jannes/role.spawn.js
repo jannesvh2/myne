@@ -51,21 +51,25 @@ var roleSpawn = {
 
             //dont else if
             if (Memory.spawns[spawn].random.useStore) {
-                for (let s = 0, length = sources.length; s < length; s++) {
-                    let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
-                    if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
-                        if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 40)) {
-                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
-                            return;
+                    for (let s = 0, length = sources.length; s < length; s++) {
+                        let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
+                        if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
+                            if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 40)) {
+                                    newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                                    return;
+                            }
                         }
                         else if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
-                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
-                            return;
+                                newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                                return;
                         }
 
-                    }
                 }
             }
+
+
+
+
             //dont else if
             if (harvesters.length < h) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550 || harvesters.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 550)
