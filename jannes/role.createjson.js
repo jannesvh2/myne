@@ -39,6 +39,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.hostiles = false;
                 Memory.spawns[a].random.towerHostiles = {};
                 Memory.spawns[a].counters.towerHostiles = 1500;
+                Memory.spawns[a].random.reactions = [];
             }
 
             //reset for changes
@@ -74,6 +75,7 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.defenders = [];
             Memory.spawns[a].creeps.movers = [];
             Memory.spawns[a].creeps.users = [];
+            Memory.spawns[a].creeps.terminals = [];
             Memory.spawns[a].counters.creeps = 0;
         }
         for (let creep in Game.creeps) {
@@ -109,6 +111,8 @@ var roleCreateJSON = {
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.movers.push(Game.creeps[creep]);
             else if (Game.creeps[creep].memory.role == 'user')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.users.push(Game.creeps[creep]);
+            else if (Game.creeps[creep].memory.role == 'terminal')
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.terminals.push(Game.creeps[creep]);
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,6 +155,18 @@ var roleCreateJSON = {
         //extractor
         Memory.spawns[0].random.extractor = '579fab82b1f02a3b0cfefd9a';
         Memory.spawns[0].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
+        //reactions
+        //Memory.spawns[0].random.runReaction = false;
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
 
         //spawn 1
         //spawn numbers
