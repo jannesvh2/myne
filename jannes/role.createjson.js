@@ -325,7 +325,7 @@ var roleCreateJSON = {
             for (let b = 0, length = Memory.spawns[a].random.roomContainers.length; b < length; b++) {
                 Memory.spawns[a].store.push(Memory.spawns[a].random.roomContainers[b]);
                 for (let c = 0, length2 = creeps.length; c < length2; c++) {
-                    if (creeps[c].memory.sourceId && creeps[c].memory.sourceId == Memory.spawns[a].store[b - counter].id) {
+                    if (Game.creeps[creeps[c]].memory.sourceId && Game.creeps[creeps[c]].memory.sourceId == Memory.spawns[a].store[b - counter].id) {
                         Memory.spawns[a].store.splice(b - counter, 1);
                         counter++;
                         break;
