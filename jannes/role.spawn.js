@@ -44,7 +44,7 @@ var roleSpawn = {
                 }
             }
             //Game.spawns['Spawn00'].createCreep([CARRY, CARRY, MOVE], null, { role: 'terminal', spawn: 0 });
-            if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length || Memory.spawns[spawn].creeps.movers[0] && Memory.spawns[spawn].creeps.movers[0].ticksToLive < 15) {
+            if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length || Memory.spawns[spawn].creeps.movers[0] && Game.creeps[Memory.spawns[spawn].creeps.movers[0]].ticksToLive < 15) {
                 newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'mover', spawn: spawn });
                 return;
             }
@@ -52,14 +52,14 @@ var roleSpawn = {
             //dont else if
             if (Memory.spawns[spawn].random.useStore) {
                     for (let s = 0, length = sources.length; s < length; s++) {
-                        let filterLength = _.filter(stores, (creep) => creep.memory.sourceId.id == sources[s].id);
+                        let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId.id == sources[s].id);
                         if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
-                            if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 40)) {
+                            if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 40)) {
                                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
                                     return;
                             }
                         }
-                        else if (!filterLength.length || (filterLength.length == 1 && filterLength[0].ticksToLive < 80)) {
+                        else if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
                                 newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
                                 return;
                         }
@@ -95,8 +95,8 @@ var roleSpawn = {
             }
             if (Memory.spawns[spawn].spots.length && !Memory.spawns[spawn].random.defenders.length) {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
-                    let ticks = _.filter(scouts, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
-                    if (!ticks.length || (ticks.length == 1 && ticks[0].ticksToLive < 120)) {
+                    let ticks = _.filter(scouts, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
+                    if (!ticks.length || (ticks.length == 1 && Game.creeps[ticks[0]].ticksToLive < 120)) {
                         if (Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom] && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation.ticksToEnd > 3500 || Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)
                             newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
                         else

@@ -40,16 +40,18 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.towerHostiles = {};
                 Memory.spawns[a].counters.towerHostiles = 1500;
                 Memory.spawns[a].random.reactions = [];
+                Memory.spawns[a].counters.roomCounter = 0;
+                Memory.spawns[a].random.roomContainers = [];
             }
 
             //reset for changes
             Memory.spawns[a].random.rooms = [];
             Memory.spawns[a].spots = [];
-            Memory.spawns[a].sources = [];
             Memory.spawns[a].store = [];
             Memory.spawns[a].links.producers = [];
 
             //ticks
+            Memory.spawns[a].counters.roomCounter++;
             Memory.spawns[a].counters.upgradeTicks++;
             //Memory.spawns[a].counters.roomTicks++;
             if (Memory.spawns[a].random.storageReserve < 450000)
@@ -82,37 +84,37 @@ var roleCreateJSON = {
             Memory.spawns[Game.creeps[creep].memory.spawn].counters.creeps++;
 
             if (Game.creeps[creep].memory.role == 'harvester')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'harvester2')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters2.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters2.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'builder')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'builder2')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders2.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders2.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'upgrader')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.upgraders.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.upgraders.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'upgrader2')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.upgraders2.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.upgraders2.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'store')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.stores.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.stores.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'attackerM')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersM.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersM.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'attackerR')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersR.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersR.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'attackerH')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersH.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersH.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'scout')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'defender')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.defenders.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.defenders.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'attackersD')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersD.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersD.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'mover')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.movers.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.movers.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'user')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.users.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.users.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'terminal')
-                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.terminals.push(Game.creeps[creep]);
+                Memory.spawns[Game.creeps[creep].memory.spawn].creeps.terminals.push(Game.creeps[creep].name);
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -291,31 +293,37 @@ var roleCreateJSON = {
 
 
         for (let a = 0; a < rooms; a++) {
-            //non Memory var
-            var roomSources = [];
-            var roomContainers = [];
 
-            //add memory for all sources and containers
-            for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
-                if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
-                    roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
-                    for (let b = 0, length2 = roomSources.length; b < length2; b++) {
-                        Memory.spawns[a].sources.push(roomSources[b]);
+            //non Memory var
+            if (Memory.spawns[a].counters.roomCounter > 10) {
+                Memory.spawns[a].counters.roomCounter = 0;
+                Memory.spawns[a].sources = [];
+
+                var roomSources = [];
+                Memory.spawns[a].random.roomContainers = [];
+
+                //add memory for all sources and containers
+                for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
+                    if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
+                        roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
+                        Memory.spawns[a].sources.concat(roomSources);
+
+                        Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_CONTAINER
+                                    //&& structure.store.energy > 500
+                                    );
+                            }
+                        }))
                     }
-                    roomContainers = roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_CONTAINER
-                                //&& structure.store.energy > 500
-                                );
-                        }
-                    }))
                 }
             }
+
             //remove containers with a creep on the way
             var creeps = Memory.spawns[a].creeps.harvesters2.concat(Memory.spawns[a].creeps.builders2);
             var counter = 0;
-            for (let b = 0, length = roomContainers.length; b < length; b++) {
-                Memory.spawns[a].store.push(roomContainers[b]);
+            for (let b = 0, length = Memory.spawns[a].random.roomContainers.length; b < length; b++) {
+                Memory.spawns[a].store.push(Memory.spawns[a].random.roomContainers[b]);
                 for (let c = 0, length2 = creeps.length; c < length2; c++) {
                     if (creeps[c].memory.sourceId && creeps[c].memory.sourceId == Memory.spawns[a].store[b - counter].id) {
                         Memory.spawns[a].store.splice(b - counter, 1);

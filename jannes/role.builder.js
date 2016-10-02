@@ -23,10 +23,6 @@ var roleBuilder = {
         else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
             creep.memory.full = true;
             delete creep.memory.sourceId;
-            if (creep.room.find(FIND_MY_CONSTRUCTION_SITES).length)
-                creep.say('building');
-            else
-                creep.say('repairing');
 
         }
         var canBuild = false;
@@ -51,11 +47,15 @@ var roleBuilder = {
             else {
                 targets = [];
                 for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
-                    if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]]) {
+                    if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]] && creep.pos.roomName != Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].name) {
                         var tmpTargets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms]].find(FIND_MY_CONSTRUCTION_SITES);
-                        for (let t in tmpTargets)
+                        for (let t in tmpTargets) {
                             targets.push(tmpTargets[t]);
+                            break;
+                        }
                     }
+                    if (targets)
+                        break;
                 }
                 if (targets.length) {
                     canBuild = true;
