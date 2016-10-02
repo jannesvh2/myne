@@ -93,7 +93,7 @@ var roleSpawn = {
                 }
                 return;
             }
-            else if (Memory.spawns[spawn].spots.length && !Memory.spawns[spawn].random.defenders.length) {
+            if (Memory.spawns[spawn].spots.length && !Memory.spawns[spawn].random.defenders.length) {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
                     let ticks = _.filter(scouts, (creep) => creep.memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
                     if (!ticks.length || (ticks.length == 1 && ticks[0].ticksToLive < 120)) {

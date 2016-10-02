@@ -4,7 +4,7 @@ var roleKeeper = {
     run: function (creep) {
 
         var hostiles = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if (hostiles)
+        if (hostiles && creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
             Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
 
         for (let spot = 0, length = Memory.spawns[creep.memory.spawn].spots.length; spot < length; spot++) {
