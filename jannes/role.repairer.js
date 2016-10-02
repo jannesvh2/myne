@@ -28,7 +28,7 @@ var roleRepairer = {
         }
         else {
             Memory.spawns[creep.memory.spawn].counters.repairLimit += 40000;
-            Game.notify(`Spawn ${creep.memory.spawn} repairLimit is now ${Memory.spawns[creep.memory.spawn].counters.repairLimit}`);
+            //Game.notify(`Spawn ${creep.memory.spawn} repairLimit is now ${Memory.spawns[creep.memory.spawn].counters.repairLimit}`);
         }
     }
 }
