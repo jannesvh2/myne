@@ -246,6 +246,7 @@ var roleCreateJSON = {
         Memory.spawns[2].links.receiver = '57ea5527d8ef7fdc5e44ee89';
         Memory.spawns[2].links.producers.push('57e965880af20184158222d9');
         Memory.spawns[2].links.producers.push('57e993bc8a14ba8f0a2c9a7e');
+        Memory.spawns[2].links.producers.push('57f2111065bb960f2067a1f0');
         //extractor
         Memory.spawns[2].random.extractor = '579fab83b1f02a3b0cfeff52';
         Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
