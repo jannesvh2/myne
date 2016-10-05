@@ -21,7 +21,7 @@ var roleRepairer = {
         }
         if (closestDamagedStructure) {
             if (creep.repair(closestDamagedStructure) == ERR_NOT_IN_RANGE)
-                creep.moveTo(closestDamagedStructure);
+                creep.moveTo(closestDamagedStructure, { reusePath: Memory.moveToCache });
             else
                 if (creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom)
                     Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure.id] = closestDamagedStructure.hits;

@@ -15,7 +15,7 @@ var roleGetStore = {
 
             if (creepSource) {
                 if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(creepSource);
+                    creep.moveTo(creepSource, { reusePath: Memory.moveToCache });
                 }
 
             }

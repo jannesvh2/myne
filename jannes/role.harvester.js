@@ -49,13 +49,13 @@ var roleHarvester = {
                 }
                 if (targets) {
                     if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets);
+                        creep.moveTo(targets, { reusePath: Memory.moveToCache });
                     }
                 }
                 else if (Memory.spawns[creep.memory.spawn].random.terminal && Memory.spawns[creep.memory.spawn].random.terminal.store.energy < 30000) {
                     var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal.id);
                     if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                        creep.moveTo(terminal);
+                        creep.moveTo(terminal, { reusePath: Memory.moveToCache });
                     //}
                 }
                 else if (Memory.spawns[creep.memory.spawn].random.storeId) {
@@ -77,7 +77,7 @@ var roleHarvester = {
 
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                        creep.moveTo(storage);
+                        creep.moveTo(storage, { reusePath: Memory.moveToCache });
                     //}
                 }
 
@@ -107,7 +107,7 @@ var roleHarvester = {
                             return (structure.hits < structure.hitsMax - 1000 && structure.structureType == STRUCTURE_ROAD)
                         }
                     })[0]);
-                    creep.moveTo(targets);
+                    creep.moveTo(targets, { reusePath: Memory.moveToCache });
                 }
                 return;
             }

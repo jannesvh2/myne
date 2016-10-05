@@ -2,7 +2,7 @@ var roleTerminalMover = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        
+
         for (let a = 0, length = Memory.spawns.length; a < length; a++) {
             if (Memory.spawns[a].random.runReaction) {
                 var total = _.sum(creep.carry);
@@ -18,12 +18,12 @@ var roleTerminalMover = {
                     let lab = Game.getObjectById('57ddc0f8c4053ddd7aeb3767');
 
                     if (creep.transfer(lab, "X") == ERR_NOT_IN_RANGE)
-                        creep.moveTo(lab);
+                        creep.moveTo(lab, { reusePath: Memory.moveToCache });
                 }
                 else {
 
                     if (creep.withdraw(terminal, "X") == ERR_NOT_IN_RANGE)
-                        creep.moveTo(terminal);
+                        creep.moveTo(terminal, { reusePath: Memory.moveToCache });
                 }
             }
         }

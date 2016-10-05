@@ -17,12 +17,12 @@ var roleAttackers = {
         var sourceRoom = 'W52S30';
         var saveRoom = 'W52S30';
 
-        
+
         if (creep.memory.role == 'attackerH' && creep.memory.getBoost) {
             let lab = Game.getObjectById('57deceb85b49191922741434');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo(lab);
+                creep.moveTo(lab, { reusePath: Memory.moveToCache });
             if (boost == OK)
                 creep.memory.getBoost = false;
             return;
@@ -31,7 +31,7 @@ var roleAttackers = {
             let lab = Game.getObjectById('57e84b5fbb15468048b138c5');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo(lab);
+                creep.moveTo(lab, { reusePath: Memory.moveToCache });
             if (boost == OK)
                 creep.memory.getBoost = false;
             return;
@@ -40,7 +40,7 @@ var roleAttackers = {
             let lab = Game.getObjectById('');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo(lab);
+                creep.moveTo(lab, { reusePath: Memory.moveToCache });
             if (boost == OK)
                 creep.memory.getBoost = false;
             return;
@@ -142,16 +142,16 @@ var roleAttackers = {
             }
         }
         if (flag)
-            creep.moveTo(Game.flags['Flag1'])
+            creep.moveTo(Game.flags['Flag1'], { reusePath: Memory.moveToCache })
         else {
             //If not in the correct room, move towards it
             if (creep.room.name != sourceRoom && sourceRoom != '') {
                 var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
+                creep.moveTo(Exit, { reusePath: Memory.moveToCache });
             }
             else if (creep.pos != targetLocation.pos) {
-                creep.moveTo(targetLocation)
+                creep.moveTo(targetLocation, { reusePath: Memory.moveToCache })
             }
         }
         var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
