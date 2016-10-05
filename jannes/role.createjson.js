@@ -327,7 +327,7 @@ var roleCreateJSON = {
             if (Memory.spawns[a].counters.avgUpgraders > 1000) {
                 Memory.spawns[a].counters.avgUpgraders = 0;
                 Memory.spawns[a].random.avgUpgraders.push(Memory.spawns[a].creeps.upgraders2.length);
-                if (Memory.spawns[a].random.avgUpgraders.length > 100)
+                if (Memory.spawns[a].random.avgUpgraders.length > 20)
                     Memory.spawns[a].random.avgUpgraders.splice(0, 1);
 
                 var sum = 0;
