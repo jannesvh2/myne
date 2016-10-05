@@ -37,7 +37,7 @@ var roleExtractor = {
             }
             var extractor = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.extractor);
             if (creep.harvest(extractor) == ERR_NOT_IN_RANGE)
-                creep.moveTo(extractor, { reusePath: Memory.moveToCache });
+                creep.moveTo(extractor);
         }
     }
 };

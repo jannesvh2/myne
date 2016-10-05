@@ -13,7 +13,7 @@ var roleKeeper = {
                 if (Game.rooms[creep.memory.sourceRoom]) {
                     let reserveCheck = creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller);
                     if (reserveCheck == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(new RoomPosition(Game.rooms[creep.memory.sourceRoom].controller.pos.x, Game.rooms[creep.memory.sourceRoom].controller.pos.y, creep.memory.sourceRoom), { reusePath: Memory.moveToCache });
+                        creep.moveTo(new RoomPosition(Game.rooms[creep.memory.sourceRoom].controller.pos.x, Game.rooms[creep.memory.sourceRoom].controller.pos.y, creep.memory.sourceRoom));
 
                     }
                 }
@@ -21,10 +21,10 @@ var roleKeeper = {
                     if (creep.room.name != Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom && Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom != '') {
                         var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom);
                         var Exit = creep.pos.findClosestByRange(exitDir);
-                        creep.moveTo(Exit, { reusePath: Memory.moveToCache });
+                        creep.moveTo(Exit);
                     }
                     else if (creep.reserveController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(creep.room.controller, { reusePath: Memory.moveToCache });
+                        creep.moveTo(creep.room.controller);
 
                     }
                 }

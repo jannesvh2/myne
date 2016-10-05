@@ -14,7 +14,6 @@ var roleCreateJSON = {
         }
 
         //init
-        Memory.moveToCache = 50;
         var rooms = 4;
         if (!Memory.spawns)
             Memory.spawns = [];
