@@ -54,7 +54,7 @@ var roleCreateJSON = {
             Memory.spawns[a].counters.roomCounter++;
             Memory.spawns[a].counters.upgradeTicks++;
             //Memory.spawns[a].counters.roomTicks++;
-            if (Memory.spawns[a].random.storageReserve < 450000)
+            if (Memory.spawns[a].random.storeId && Memory.spawns[a].random.storageReserve < 450000)
                 Memory.spawns[a].random.storageReserve += 3;
 
             //repair reset if its to high
