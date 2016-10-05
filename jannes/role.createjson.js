@@ -41,6 +41,9 @@ var roleCreateJSON = {
                 Memory.spawns[a].counters.towerHostiles = 1500;
                 Memory.spawns[a].random.reactions = [];
                 Memory.spawns[a].counters.roomCounter = 0;
+                Memory.spawns[a].counters.avgUpgraders = 0;
+                Memory.spawns[a].counters.avgUpgradersValue = 0;
+                Memory.spawns[a].random.avgUpgraders = [];
                 Memory.spawns[a].random.roomContainers = [];
             }
 
@@ -53,6 +56,7 @@ var roleCreateJSON = {
             //ticks
             Memory.spawns[a].counters.roomCounter++;
             Memory.spawns[a].counters.upgradeTicks++;
+            Memory.spawns[a].counters.avgUpgraders++;
             //Memory.spawns[a].counters.roomTicks++;
             if (Memory.spawns[a].random.storeId && Memory.spawns[a].random.storageReserve < 450000)
                 Memory.spawns[a].random.storageReserve += 3;
@@ -319,6 +323,20 @@ var roleCreateJSON = {
                         }))
                     }
                 }
+            }
+            if (Memory.spawns[a].counters.avgUpgraders > 1000) {
+                Memory.spawns[a].counters.avgUpgraders = 0;
+                Memory.spawns[a].random.avgUpgraders.push(Memory.spawns[a].creeps.upgraders2.length);
+                if (Memory.spawns[a].random.avgUpgraders.length > 100)
+                    Memory.spawns[a].random.avgUpgraders.splice(0, 1);
+
+                var sum = 0;
+                var count = 0;
+                for (var i = 0, ii = Memory.spawns[a].random.avgUpgraders.length; i < ii; ++i) {
+                    sum += Memory.spawns[a].random.avgUpgraders[i];
+                    ++count;
+                }
+                Memory.spawns[a].counters.avgUpgradersValue = (sum / count).toFixed(2);
             }
 
             //remove containers with a creep on the way

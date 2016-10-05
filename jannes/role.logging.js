@@ -15,7 +15,7 @@ var roleLogging = {
             //+ ", u: " + upgraders.length + "/" + u
              "(Spawn 0) H: " + Memory.spawns[0].creeps.harvesters2.length + "/" + Memory.spawns[0].summon.h2
             + ", B: " + Memory.spawns[0].creeps.builders2.length + "/" + Memory.spawns[0].summon.b2
-            + ", U: " + Memory.spawns[0].creeps.upgraders2.length + "/" + Memory.spawns[0].summon.u2
+            + ", U: " + Memory.spawns[0].creeps.upgraders2.length + "/" + Memory.spawns[0].counters.avgUpgradersValue
             + ", d/r/h: " + Memory.spawns[0].creeps.attackersD.length + "/" + Memory.spawns[0].summon.atkD + " " + Memory.spawns[0].creeps.attackersR.length + "/" + Memory.spawns[0].summon.atkR + " " + Memory.spawns[0].creeps.attackersH.length + "/" + Memory.spawns[0].summon.atkH
             + ", s: " + Memory.spawns[0].creeps.scouts.length + "/" + Memory.spawns[0].spots.length
             + ", ST: " + Memory.spawns[0].creeps.stores.length + "/" + parseInt(Memory.spawns[0].sources.length)
@@ -29,7 +29,7 @@ var roleLogging = {
             //+ ", u: " + upgraders.length + "/" + u
              "(Spawn 1) H: " + Memory.spawns[1].creeps.harvesters2.length + "/" + Memory.spawns[1].summon.h2
             + ", B: " + Memory.spawns[1].creeps.builders2.length + "/" + Memory.spawns[1].summon.b2
-            + ", U: " + Memory.spawns[1].creeps.upgraders2.length + "/" + Memory.spawns[1].summon.u2
+            + ", U: " + Memory.spawns[1].creeps.upgraders2.length + "/" + Memory.spawns[1].counters.avgUpgradersValue
             + ", d/r/h: " + Memory.spawns[1].creeps.attackersD.length + "/" + Memory.spawns[1].summon.atkD + " " + Memory.spawns[1].creeps.attackersR.length + "/" + Memory.spawns[1].summon.atkR + " " + Memory.spawns[1].creeps.attackersH.length + "/" + Memory.spawns[1].summon.atkH
             + ", s: " + Memory.spawns[1].creeps.scouts.length + "/" + Memory.spawns[1].spots.length
             + ", ST: " + Memory.spawns[1].creeps.stores.length + "/" + parseInt(Memory.spawns[1].sources.length)
@@ -43,7 +43,7 @@ var roleLogging = {
             //+ ", u: " + upgraders.length + "/" + u
              "(Spawn 2) H: " + Memory.spawns[2].creeps.harvesters2.length + "/" + Memory.spawns[2].summon.h2
             + ", B: " + Memory.spawns[2].creeps.builders2.length + "/" + Memory.spawns[2].summon.b2
-            + ", U: " + Memory.spawns[2].creeps.upgraders2.length + "/" + Memory.spawns[2].summon.u2
+            + ", U: " + Memory.spawns[2].creeps.upgraders2.length + "/" + Memory.spawns[2].counters.avgUpgradersValue
             + ", d/r/h: " + Memory.spawns[2].creeps.attackersD.length + "/" + Memory.spawns[2].summon.atkD + " " + Memory.spawns[2].creeps.attackersR.length + "/" + Memory.spawns[2].summon.atkR + " " + Memory.spawns[2].creeps.attackersH.length + "/" + Memory.spawns[2].summon.atkH
             + ", s: " + Memory.spawns[2].creeps.scouts.length + "/" + Memory.spawns[2].spots.length
             + ", ST: " + Memory.spawns[2].creeps.stores.length + "/" + parseInt(Memory.spawns[2].sources.length)
@@ -57,7 +57,7 @@ var roleLogging = {
     //+ ", u: " + upgraders.length + "/" + u
      "(Spawn 3) H: " + Memory.spawns[3].creeps.harvesters2.length + "/" + Memory.spawns[3].summon.h2
     + ", B: " + Memory.spawns[3].creeps.builders2.length + "/" + Memory.spawns[3].summon.b2
-    + ", U: " + Memory.spawns[3].creeps.upgraders2.length + "/" + Memory.spawns[3].summon.u2
+    + ", U: " + Memory.spawns[3].creeps.upgraders2.length + "/" + Memory.spawns[3].counters.avgUpgradersValue
     + ", d/r/h: " + Memory.spawns[3].creeps.attackersD.length + "/" + Memory.spawns[3].summon.atkD + " " + Memory.spawns[3].creeps.attackersR.length + "/" + Memory.spawns[3].summon.atkR + " " + Memory.spawns[3].creeps.attackersH.length + "/" + Memory.spawns[3].summon.atkH
     + ", s: " + Memory.spawns[3].creeps.scouts.length + "/" + Memory.spawns[3].spots.length
     + ", ST: " + Memory.spawns[3].creeps.stores.length + "/" + parseInt(Memory.spawns[3].sources.length)
