@@ -365,7 +365,7 @@ var roleCreateJSON = {
                     }
                 }
             }
-            if (!Memory.spawns[a].sources)
+            if (!Memory.spawns[a].sources.length)
                 for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
                     if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
                         roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
