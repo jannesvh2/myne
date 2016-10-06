@@ -40,7 +40,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.towerHostiles = {};
                 Memory.spawns[a].counters.towerHostiles = 1500;
                 Memory.spawns[a].random.reactions = [];
-                //Memory.spawns[a].counters.roomCounter = 0;
+                Memory.spawns[a].counters.roomCounter = 0;
                 Memory.spawns[a].counters.avgUpgraders = 0;
                 Memory.spawns[a].counters.avgUpgradersValue = 0;
                 Memory.spawns[a].random.avgUpgraders = [];
@@ -54,7 +54,7 @@ var roleCreateJSON = {
             Memory.spawns[a].links.producers = [];
 
             //ticks
-            //Memory.spawns[a].counters.roomCounter++;
+            Memory.spawns[a].counters.roomCounter++;
             Memory.spawns[a].counters.upgradeTicks++;
             Memory.spawns[a].counters.avgUpgraders++;
             //Memory.spawns[a].counters.roomTicks++;
@@ -314,14 +314,14 @@ var roleCreateJSON = {
         Memory.spawns[4].random.rooms.push('W52S28');
         //if (!Memory.spawns[4].random.hostiles) {
         //    Memory.spawns[4].random.rooms.push('W51S29');
-            //Memory.spawns[4].random.rooms.push('W55S28');
-            //Memory.spawns[4].random.rooms.push('W55S29');
+        //Memory.spawns[4].random.rooms.push('W55S28');
+        //Memory.spawns[4].random.rooms.push('W55S29');
         //}
         //keeper
         //if (!Memory.spawns[4].random.hostiles) {
-       //     Memory.spawns[4].spots.push({ sourceRoom: 'W51S29' });
-            //Memory.spawns[4].spots.push({ sourceRoom: 'W55S28' });
-            //Memory.spawns[4].spots.push({ sourceRoom: 'W55S29' });
+        //     Memory.spawns[4].spots.push({ sourceRoom: 'W51S29' });
+        //Memory.spawns[4].spots.push({ sourceRoom: 'W55S28' });
+        //Memory.spawns[4].spots.push({ sourceRoom: 'W55S29' });
         //}
         //StoreId
         //Memory.spawns[4].random.storeId = '57ee3f378766a05b621a6eef';
@@ -341,13 +341,31 @@ var roleCreateJSON = {
         for (let a = 0; a < rooms; a++) {
 
             //non Memory var
-
+            if (Memory.spawns[a].counters.roomCounter > 10) {
+                Memory.spawns[a].counters.roomCounter = 0;
                 Memory.spawns[a].sources = [];
 
                 var roomSources = [];
                 Memory.spawns[a].random.roomContainers = [];
 
                 //add memory for all sources and containers
+                for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
+                    if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
+                        roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
+                        for (let b = 0, length2 = roomSources.length; b < length2; b++) {
+                            Memory.spawns[a].sources.push(roomSources[b]);
+                        }
+                        Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_CONTAINER
+                                    //&& structure.store.energy > 500
+                                    );
+                            }
+                        }))
+                    }
+                }
+            }
+            if (!Memory.spawns[a].sources)
                 for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
                     if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
                         roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
