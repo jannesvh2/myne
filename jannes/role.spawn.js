@@ -75,7 +75,7 @@ var roleSpawn = {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550 || harvesters.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 550)
                     newName = multiSpawn([WORK, CARRY, MOVE], { role: 'harvester', spawn: spawn });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
-                    newName = multiSpawn([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'harvester', spawn: spawn });
+                    newName = multiSpawn([WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'harvester', spawn: spawn });
                 else
                     newName = multiSpawn([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'harvester', spawn: spawn });
                 return;
@@ -128,7 +128,7 @@ var roleSpawn = {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
                     newName = multiSpawn([WORK, CARRY, MOVE], { role: 'builder', spawn: spawn });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
-                    newName = multiSpawn([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'builder', spawn: spawn });
+                    newName = multiSpawn([WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'builder', spawn: spawn });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable >= 800)
                     newName = multiSpawn([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'builder', spawn: spawn });
                 return;
@@ -138,7 +138,7 @@ var roleSpawn = {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
                     newName = multiSpawn([WORK, CARRY, MOVE], { role: 'upgrader', spawn: spawn });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 800)
-                    newName = multiSpawn([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
+                    newName = multiSpawn([WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable >= 800)
                     newName = multiSpawn([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
                 return;
