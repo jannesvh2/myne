@@ -40,7 +40,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.towerHostiles = {};
                 Memory.spawns[a].counters.towerHostiles = 1500;
                 Memory.spawns[a].random.reactions = [];
-                Memory.spawns[a].counters.roomCounter = 0;
+                //Memory.spawns[a].counters.roomCounter = 0;
                 Memory.spawns[a].counters.avgUpgraders = 0;
                 Memory.spawns[a].counters.avgUpgradersValue = 0;
                 Memory.spawns[a].random.avgUpgraders = [];
@@ -54,7 +54,7 @@ var roleCreateJSON = {
             Memory.spawns[a].links.producers = [];
 
             //ticks
-            Memory.spawns[a].counters.roomCounter++;
+            //Memory.spawns[a].counters.roomCounter++;
             Memory.spawns[a].counters.upgradeTicks++;
             Memory.spawns[a].counters.avgUpgraders++;
             //Memory.spawns[a].counters.roomTicks++;
@@ -341,8 +341,7 @@ var roleCreateJSON = {
         for (let a = 0; a < rooms; a++) {
 
             //non Memory var
-            if (Memory.spawns[a].counters.roomCounter > 10) {
-                Memory.spawns[a].counters.roomCounter = 0;
+
                 Memory.spawns[a].sources = [];
 
                 var roomSources = [];
@@ -364,7 +363,6 @@ var roleCreateJSON = {
                         }))
                     }
                 }
-            }
             if (Memory.spawns[a].counters.avgUpgraders > 1000) {
                 Memory.spawns[a].counters.avgUpgraders = 0;
                 Memory.spawns[a].random.avgUpgraders.push(Memory.spawns[a].creeps.upgraders2.length);
