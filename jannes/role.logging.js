@@ -66,11 +66,11 @@ var roleLogging = {
             + ", Store: " + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy;
             //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
-        msg4 +=
+        msg5 +=
            //"h: " + harvesters.length + "/" + h
            //+ ", b: " + builders.length + "/" + b
            //+ ", u: " + upgraders.length + "/" + u
-            "(Spawn 3) H: " + Memory.spawns[4].creeps.harvesters.length + "/" + Memory.spawns[4].summon.h
+            "(Spawn 4) H: " + Memory.spawns[4].creeps.harvesters.length + "/" + Memory.spawns[4].summon.h
            + ", B: " + Memory.spawns[4].creeps.builders.length + "/" + Memory.spawns[4].summon.b
            + ", U: " + Memory.spawns[4].creeps.upgraders.length + "/" + Memory.spawns[4].summon.u
            + ", d/r/h: " + Memory.spawns[4].creeps.attackersD.length + "/" + Memory.spawns[4].summon.atkD + " " + Memory.spawns[4].creeps.attackersR.length + "/" + Memory.spawns[4].summon.atkR + " " + Memory.spawns[4].creeps.attackersH.length + "/" + Memory.spawns[4].summon.atkH
