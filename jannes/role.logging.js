@@ -70,14 +70,14 @@ var roleLogging = {
            //"h: " + harvesters.length + "/" + h
            //+ ", b: " + builders.length + "/" + b
            //+ ", u: " + upgraders.length + "/" + u
-            "(Spawn 4) H: " + Memory.spawns[4].creeps.harvesters.length + "/" + Memory.spawns[4].summon.h
-           + ", B: " + Memory.spawns[4].creeps.builders.length + "/" + Memory.spawns[4].summon.b
-           + ", U: " + Memory.spawns[4].creeps.upgraders.length + "/" + Memory.spawns[4].summon.u
+            "(Spawn 4) H: " + Memory.spawns[4].creeps.harvesters2.length + "/" + Memory.spawns[4].summon.h2
+           + ", B: " + Memory.spawns[4].creeps.builders2.length + "/" + Memory.spawns[4].summon.b2
+           + ", U: " + Memory.spawns[4].creeps.upgraders2.length + "/" + Memory.spawns[4].summon.u2
            + ", d/r/h: " + Memory.spawns[4].creeps.attackersD.length + "/" + Memory.spawns[4].summon.atkD + " " + Memory.spawns[4].creeps.attackersR.length + "/" + Memory.spawns[4].summon.atkR + " " + Memory.spawns[4].creeps.attackersH.length + "/" + Memory.spawns[4].summon.atkH
            + ", s: " + Memory.spawns[4].creeps.scouts.length + "/" + Memory.spawns[4].spots.length
            + ", ST: " + Memory.spawns[4].creeps.stores.length + "/" + parseInt(Memory.spawns[4].sources.length)
            + " | rep: " + String(Memory.spawns[4].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-          // + ", Store: " + Game.getObjectById(Memory.spawns[4].random.storeId).store.energy;
+           + ", Store: " + Game.getObjectById(Memory.spawns[4].random.storeId).store.energy;
           //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
 
