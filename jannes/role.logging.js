@@ -78,7 +78,7 @@ var roleLogging = {
            + ", ST: " + Memory.spawns[4].creeps.stores.length + "/" + parseInt(Memory.spawns[4].sources.length)
            + " | rep: " + String(Memory.spawns[4].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
           // + ", Store: " + Game.getObjectById(Memory.spawns[4].random.storeId).store.energy;
-            //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
+          //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
 
         progress += "GCL " + Game.gcl.level + ": " + (Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2) + "%";
