@@ -365,22 +365,22 @@ var roleCreateJSON = {
                     }
                 }
             }
-            if (!Memory.spawns[a].sources.length)
-                for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
-                    if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
-                        roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
-                        for (let b = 0, length2 = roomSources.length; b < length2; b++) {
-                            Memory.spawns[a].sources.push(roomSources[b]);
-                        }
-                        Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
-                            filter: (structure) => {
-                                return (structure.structureType == STRUCTURE_CONTAINER
-                                    //&& structure.store.energy > 500
-                                    );
-                            }
-                        }))
-                    }
-                }
+            //if (!Memory.spawns[a].sources.length)
+            //    for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
+            //        if (Game.rooms[Memory.spawns[a].random.rooms[myRooms]]) {
+            //            roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_SOURCES);
+            //            for (let b = 0, length2 = roomSources.length; b < length2; b++) {
+            //                Memory.spawns[a].sources.push(roomSources[b]);
+            //            }
+            //            Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms]].find(FIND_STRUCTURES, {
+            //                filter: (structure) => {
+            //                    return (structure.structureType == STRUCTURE_CONTAINER
+            //                        //&& structure.store.energy > 500
+            //                        );
+            //                }
+            //            }))
+            //        }
+            //    }
             if (Memory.spawns[a].counters.avgUpgraders > 1000) {
                 Memory.spawns[a].counters.avgUpgraders = 0;
                 Memory.spawns[a].random.avgUpgraders.push(Memory.spawns[a].creeps.upgraders2.length);
