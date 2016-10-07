@@ -55,7 +55,7 @@ var roleBuilder = {
                             break;
                         }
                     }
-                    if (targets)
+                    if (targets.length)
                         break;
                 }
                 if (targets.length) {
