@@ -111,7 +111,7 @@ var roleCreateJSON = {
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.scouts.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'defender')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.defenders.push(Game.creeps[creep].name);
-            else if (Game.creeps[creep].memory.role == 'attackersD')
+            else if (Game.creeps[creep].memory.role == 'attackerD')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.attackersD.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'mover')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.movers.push(Game.creeps[creep].name);
