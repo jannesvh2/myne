@@ -2,7 +2,9 @@ var roleDefenders = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-
+        var hostiles = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 1);
+        if (hostiles.length)
+            creep.attack(hostiles[0]);
 
         var targets = [];
 
