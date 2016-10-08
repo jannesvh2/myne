@@ -17,7 +17,7 @@ var roleSpawn = {
             }
             //Game.rooms.W59S29.energyCapacityAvailable
             //spawn harvesters
-            if (Memory.spawns[spawn].random.useStore && !Memory.spawns[spawn].creeps.users.length) {
+            if (Memory.spawns[spawn].random.useStore && !Memory.spawns[spawn].creeps.users.length && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 1300) {
                 newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, MOVE, MOVE], { role: 'user', spawn: spawn });
                 return;
             }
@@ -81,7 +81,7 @@ var roleSpawn = {
                 return;
             }
             else if (harvesters2.length < h2) {
-                if (harvesters2.length == 0)
+                if (harvesters2.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 1600)
                     newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'harvester2', spawn: spawn });
                 else {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
