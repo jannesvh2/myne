@@ -18,7 +18,7 @@ var roleDefenders = {
             }
             if (!creep.memory.atSpot) {
                 var rampObj = Game.getObjectById(creep.memory.rampartId);
-                if (!rampObj) {
+                if (!rampObj || creep.room.lookForAt(LOOK_CREEPS, rampObj).length) {
                     delete creep.memory.rampartId;
                     return;
                 }
