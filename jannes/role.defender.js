@@ -11,7 +11,7 @@ var roleDefenders = {
                 var targets = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
                 var rampart = targets.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_RAMPART && !creep.room.lookForAt(LOOK_CREEPS, structure).length)
+                        return (structure.structureType == STRUCTURE_RAMPART && creep.room.lookAt(structure).length && creep.room.lookAt(structure).length < 3)
                     }
                 });
                 creep.memory.rampartId = rampart.id;
