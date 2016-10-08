@@ -20,13 +20,17 @@ var roleDefenders = {
                     creep.memory.rampartId = rampart.id;
                 }
                 if (!creep.memory.atSpot) {
+                    var rampObj = Game.getObjectById(creep.memory.rampartId);
+                    if (!rampObj) {
+                        delete creep.memory.rampartId;
+                        return;
+                    }
                     if (creep.pos.isEqualTo(rampObj.pos)) {
                         creep.memory.noTarget = 0;
                         creep.memory.atSpot = true;
                     }
                     else {
-                        var rampObj = Game.getObjectById(creep.memory.rampartId);
-                        if (!rampObj || creep.room.lookForAt(LOOK_CREEPS, rampObj).length) {
+                        if (creep.room.lookForAt(LOOK_CREEPS, rampObj).length) {
                             delete creep.memory.rampartId;
                             return;
                         }
