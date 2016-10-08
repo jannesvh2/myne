@@ -20,18 +20,20 @@ var roleDefenders = {
                     creep.memory.rampartId = rampart.id;
                 }
                 if (!creep.memory.atSpot) {
-                    if (!creep.pos.isEqualTo(rampObj.pos)) {
+                    if (creep.pos.isEqualTo(rampObj.pos)) {
+                        creep.memory.noTarget = 0;
+                        creep.memory.atSpot = true;
+                    }
+                    else {
+                        var rampObj = Game.getObjectById(creep.memory.rampartId);
+                        if (!rampObj || creep.room.lookForAt(LOOK_CREEPS, rampObj).length) {
+                            delete creep.memory.rampartId;
+                            return;
+                        }
+
                         creep.moveTo(rampObj);
                         return;
                     }
-                    var rampObj = Game.getObjectById(creep.memory.rampartId);
-                    if (!rampObj || creep.room.lookForAt(LOOK_CREEPS, rampObj).length) {
-                        delete creep.memory.rampartId;
-                        return;
-                    }
-
-                    creep.memory.noTarget = 0;
-                    creep.memory.atSpot = true;
                 }
                 var hostiles = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 1);
                 if (hostiles.length)
