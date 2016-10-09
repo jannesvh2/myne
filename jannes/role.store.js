@@ -27,7 +27,7 @@ var roleStore = {
                     return;
                 }
             }
-            var repL = creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
+            var rep = creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
                 filter: (structure) => {
                     return (structure.hits < structure.hitsMax - 1000 && (structure.structureType == STRUCTURE_ROAD || structure.structureType == STRUCTURE_CONTAINER))
                 }
