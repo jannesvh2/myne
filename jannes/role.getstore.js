@@ -21,6 +21,11 @@ var roleGetStore = {
             }
 
         }
+
+        if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
+            creep.memory.full = true;
+            delete creep.memory.sourceId;
+        }
     }
 
 };
