@@ -122,218 +122,218 @@ var roleCreateJSON = {
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //spawn 0
-            //spawn numbers
-            Memory.spawns[0].summon.spawns = 2;
-            Memory.spawns[0].summon.h = 0;
-            Memory.spawns[0].summon.b = 0;
-            Memory.spawns[0].summon.u = 0;
-            Memory.spawns[0].summon.h2 = 2;
-            Memory.spawns[0].summon.b2 = 1;
-            Memory.spawns[0].summon.u2 = 0;
-            Memory.spawns[0].summon.users = 1;
-            Memory.spawns[0].summon.atkM = 0;
-            Memory.spawns[0].summon.atkR = 0;
-            Memory.spawns[0].summon.atkH = 0;
-            Memory.spawns[0].summon.atkD = 0;
-            Memory.spawns[0].random.mainRoom = 'W59S29';
-            //RoomList
-            Memory.spawns[0].random.rooms.push('W59S29');
-            if (!Memory.spawns[0].random.hostiles) {
-                Memory.spawns[0].random.rooms.push('W59S28');
-                Memory.spawns[0].random.rooms.push('W58S28');
-            }
-            //keeper
-            if (!Memory.spawns[0].random.hostiles) {
-                Memory.spawns[0].spots.push({ sourceRoom: 'W59S28' });
-                Memory.spawns[0].spots.push({ sourceRoom: 'W58S28' });
-            }
-            //StoreId
-            Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
-            //UseStore
-            Memory.spawns[0].random.useStore = true;
-            Memory.spawns[0].random.useLinks = true;
-            Memory.spawns[0].links.receiver = '57e322a114f3efa6216a00cb';
-            Memory.spawns[0].links.producers.push('57de74825294558044ba36a0');
-            Memory.spawns[0].links.producers.push('57de74c1bd52497b42f0c556');
-            Memory.spawns[0].links.producers.push('57e924dce942a7843ffd2d79');
-            //extractor
-            Memory.spawns[0].random.extractor = '579fab82b1f02a3b0cfefd9a';
-            Memory.spawns[0].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
-            //reactions
-            //Memory.spawns[0].random.runReaction = false;
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //spawn 0
+        //spawn numbers
+        Memory.spawns[0].summon.spawns = 2;
+        Memory.spawns[0].summon.h = 0;
+        Memory.spawns[0].summon.b = 0;
+        Memory.spawns[0].summon.u = 0;
+        Memory.spawns[0].summon.h2 = 2;
+        Memory.spawns[0].summon.b2 = 1;
+        Memory.spawns[0].summon.u2 = 0;
+        Memory.spawns[0].summon.users = 1;
+        Memory.spawns[0].summon.atkM = 0;
+        Memory.spawns[0].summon.atkR = 0;
+        Memory.spawns[0].summon.atkH = 0;
+        Memory.spawns[0].summon.atkD = 0;
+        Memory.spawns[0].random.mainRoom = 'W59S29';
+        //RoomList
+        Memory.spawns[0].random.rooms.push('W59S29');
+        if (!Memory.spawns[0].random.hostiles) {
+            Memory.spawns[0].random.rooms.push('W59S28');
+            Memory.spawns[0].random.rooms.push('W58S28');
+        }
+        //keeper
+        if (!Memory.spawns[0].random.hostiles) {
+            Memory.spawns[0].spots.push({ sourceRoom: 'W59S28' });
+            Memory.spawns[0].spots.push({ sourceRoom: 'W58S28' });
+        }
+        //StoreId
+        Memory.spawns[0].random.storeId = '57d57cd3636e2e351c38d6fe';
+        //UseStore
+        Memory.spawns[0].random.useStore = true;
+        Memory.spawns[0].random.useLinks = true;
+        Memory.spawns[0].links.receiver = '57e322a114f3efa6216a00cb';
+        Memory.spawns[0].links.producers.push('57de74825294558044ba36a0');
+        Memory.spawns[0].links.producers.push('57de74c1bd52497b42f0c556');
+        Memory.spawns[0].links.producers.push('57e924dce942a7843ffd2d79');
+        //extractor
+        Memory.spawns[0].random.extractor = '579fab82b1f02a3b0cfefd9a';
+        Memory.spawns[0].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
+        //reactions
+        //Memory.spawns[0].random.runReaction = false;
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
+        //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
 
-            //spawn 1
-            //spawn numbers
-            Memory.spawns[1].summon.spawns = 2;
-            Memory.spawns[1].summon.h = 0;
-            Memory.spawns[1].summon.b = 0;
-            Memory.spawns[1].summon.u = 0;
-            Memory.spawns[1].summon.h2 = 2;
-            Memory.spawns[1].summon.b2 = 1;
-            Memory.spawns[1].summon.u2 = 0;
-            Memory.spawns[1].summon.users = 1;
-            Memory.spawns[1].summon.atkM = 0;
-            Memory.spawns[1].summon.atkR = 0;
-            Memory.spawns[1].summon.atkH = 0;
-            Memory.spawns[1].summon.atkD = 0;
-            Memory.spawns[1].random.mainRoom = 'W56S28';
-            //RoomList
-            Memory.spawns[1].random.rooms.push('W56S28');
-            if (!Memory.spawns[1].random.hostiles) {
-                Memory.spawns[1].random.rooms.push('W57S28');
-                Memory.spawns[1].random.rooms.push('W57S27');
-            }
-            //keeper
+        //spawn 1
+        //spawn numbers
+        Memory.spawns[1].summon.spawns = 2;
+        Memory.spawns[1].summon.h = 0;
+        Memory.spawns[1].summon.b = 0;
+        Memory.spawns[1].summon.u = 0;
+        Memory.spawns[1].summon.h2 = 2;
+        Memory.spawns[1].summon.b2 = 1;
+        Memory.spawns[1].summon.u2 = 0;
+        Memory.spawns[1].summon.users = 1;
+        Memory.spawns[1].summon.atkM = 0;
+        Memory.spawns[1].summon.atkR = 0;
+        Memory.spawns[1].summon.atkH = 0;
+        Memory.spawns[1].summon.atkD = 0;
+        Memory.spawns[1].random.mainRoom = 'W56S28';
+        //RoomList
+        Memory.spawns[1].random.rooms.push('W56S28');
+        if (!Memory.spawns[1].random.hostiles) {
+            Memory.spawns[1].random.rooms.push('W57S28');
+            Memory.spawns[1].random.rooms.push('W57S27');
+        }
+        //keeper
 
-            if (!Memory.spawns[1].random.hostiles) {
-                Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
-                Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
-            }
-            //StoreId
-            Memory.spawns[1].random.storeId = '57db65810f3c649e5b7c3d2d';
-            //UseStore
-            Memory.spawns[1].random.useStore = true;
-            Memory.spawns[1].random.useLinks = true;
-            Memory.spawns[1].links.receiver = '57e3245703f840bf21b3f3be';
-            Memory.spawns[1].links.producers.push('57e30c3af21eff60481d0e0e');
-            Memory.spawns[1].links.producers.push('57e30bbd5f4eb75927267bba');
-            Memory.spawns[1].links.producers.push('57efa5bc2186ab5c7433626e');
-            //extractor
-            Memory.spawns[1].random.extractor = '579fab83b1f02a3b0cfefec2';
-            Memory.spawns[1].random.terminal = Game.rooms[Memory.spawns[1].random.mainRoom].terminal;
+        if (!Memory.spawns[1].random.hostiles) {
+            Memory.spawns[1].spots.push({ sourceRoom: 'W57S28' });
+            Memory.spawns[1].spots.push({ sourceRoom: 'W57S27' });
+        }
+        //StoreId
+        Memory.spawns[1].random.storeId = '57db65810f3c649e5b7c3d2d';
+        //UseStore
+        Memory.spawns[1].random.useStore = true;
+        Memory.spawns[1].random.useLinks = true;
+        Memory.spawns[1].links.receiver = '57e3245703f840bf21b3f3be';
+        Memory.spawns[1].links.producers.push('57e30c3af21eff60481d0e0e');
+        Memory.spawns[1].links.producers.push('57e30bbd5f4eb75927267bba');
+        Memory.spawns[1].links.producers.push('57efa5bc2186ab5c7433626e');
+        //extractor
+        Memory.spawns[1].random.extractor = '579fab83b1f02a3b0cfefec2';
+        Memory.spawns[1].random.terminal = Game.rooms[Memory.spawns[1].random.mainRoom].terminal;
 
-            //spawn 2
-            //spawn numbers
-            Memory.spawns[2].summon.spawns = 2;
-            Memory.spawns[2].summon.h = 0;
-            Memory.spawns[2].summon.b = 0;
-            Memory.spawns[2].summon.u = 0;
-            Memory.spawns[2].summon.h2 = 3;
-            Memory.spawns[2].summon.b2 = 1;
-            Memory.spawns[2].summon.u2 = 0;
-            Memory.spawns[2].summon.users = 2;
-            Memory.spawns[2].summon.atkM = 0;
-            Memory.spawns[2].summon.atkR = 0;
-            Memory.spawns[2].summon.atkH = 0;
-            Memory.spawns[2].summon.atkD = 0;
-            Memory.spawns[2].random.mainRoom = 'W54S28';
-            //RoomList
-            Memory.spawns[2].random.rooms.push('W54S28');
-            if (!Memory.spawns[2].random.hostiles) {
-                //Memory.spawns[2].random.rooms.push('W54S27');
-                Memory.spawns[2].random.rooms.push('W55S28');
-                Memory.spawns[2].random.rooms.push('W55S29');
-            }
-            //keeper
-            if (!Memory.spawns[2].random.hostiles) {
-                //Memory.spawns[2].spots.push({ sourceRoom: 'W54S27' });
-                Memory.spawns[2].spots.push({ sourceRoom: 'W55S28' });
-                Memory.spawns[2].spots.push({ sourceRoom: 'W55S29' });
-            }
-            //StoreId
-            Memory.spawns[2].random.storeId = '57e4459d7780877962a33b50';
-            //UseStore
-            Memory.spawns[2].random.useStore = true;
-            Memory.spawns[2].random.useLinks = true;
-            Memory.spawns[2].links.receiver = '57ea5527d8ef7fdc5e44ee89';
-            Memory.spawns[2].links.producers.push('57e965880af20184158222d9');
-            Memory.spawns[2].links.producers.push('57e993bc8a14ba8f0a2c9a7e');
-            Memory.spawns[2].links.producers.push('57f2111065bb960f2067a1f0');
-            //extractor
-            Memory.spawns[2].random.extractor = '579fab83b1f02a3b0cfeff52';
-            Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
+        //spawn 2
+        //spawn numbers
+        Memory.spawns[2].summon.spawns = 2;
+        Memory.spawns[2].summon.h = 0;
+        Memory.spawns[2].summon.b = 0;
+        Memory.spawns[2].summon.u = 0;
+        Memory.spawns[2].summon.h2 = 3;
+        Memory.spawns[2].summon.b2 = 1;
+        Memory.spawns[2].summon.u2 = 0;
+        Memory.spawns[2].summon.users = 2;
+        Memory.spawns[2].summon.atkM = 0;
+        Memory.spawns[2].summon.atkR = 0;
+        Memory.spawns[2].summon.atkH = 0;
+        Memory.spawns[2].summon.atkD = 0;
+        Memory.spawns[2].random.mainRoom = 'W54S28';
+        //RoomList
+        Memory.spawns[2].random.rooms.push('W54S28');
+        if (!Memory.spawns[2].random.hostiles) {
+            //Memory.spawns[2].random.rooms.push('W54S27');
+            Memory.spawns[2].random.rooms.push('W55S28');
+            Memory.spawns[2].random.rooms.push('W55S29');
+        }
+        //keeper
+        if (!Memory.spawns[2].random.hostiles) {
+            //Memory.spawns[2].spots.push({ sourceRoom: 'W54S27' });
+            Memory.spawns[2].spots.push({ sourceRoom: 'W55S28' });
+            Memory.spawns[2].spots.push({ sourceRoom: 'W55S29' });
+        }
+        //StoreId
+        Memory.spawns[2].random.storeId = '57e4459d7780877962a33b50';
+        //UseStore
+        Memory.spawns[2].random.useStore = true;
+        Memory.spawns[2].random.useLinks = true;
+        Memory.spawns[2].links.receiver = '57ea5527d8ef7fdc5e44ee89';
+        Memory.spawns[2].links.producers.push('57e965880af20184158222d9');
+        Memory.spawns[2].links.producers.push('57e993bc8a14ba8f0a2c9a7e');
+        Memory.spawns[2].links.producers.push('57f2111065bb960f2067a1f0');
+        //extractor
+        Memory.spawns[2].random.extractor = '579fab83b1f02a3b0cfeff52';
+        Memory.spawns[2].random.terminal = Game.rooms[Memory.spawns[2].random.mainRoom].terminal;
 
-            //spawn 3
-            //spawn numbers
-            Memory.spawns[3].summon.spawns = 1;
-            Memory.spawns[3].summon.h = 0;
-            Memory.spawns[3].summon.b = 0;
-            Memory.spawns[3].summon.u = 0;
-            Memory.spawns[3].summon.h2 = 2;
-            Memory.spawns[3].summon.b2 = 1;
-            Memory.spawns[3].summon.u2 = 0;
-            Memory.spawns[3].summon.users = 1;
-            Memory.spawns[3].summon.atkM = 0;
-            Memory.spawns[3].summon.atkR = 0;
-            Memory.spawns[3].summon.atkH = 0;
-            Memory.spawns[3].summon.atkD = 0;
-            Memory.spawns[3].random.mainRoom = 'W52S29';
-            //RoomList
-            Memory.spawns[3].random.rooms.push('W52S29');
-            if (!Memory.spawns[3].random.hostiles) {
-                Memory.spawns[3].random.rooms.push('W51S29');
-                //Memory.spawns[3].random.rooms.push('W55S28');
-                //Memory.spawns[3].random.rooms.push('W55S29');
-            }
-            //keeper
-            if (!Memory.spawns[3].random.hostiles) {
-                Memory.spawns[3].spots.push({ sourceRoom: 'W51S29' });
-                //Memory.spawns[3].spots.push({ sourceRoom: 'W55S28' });
-                //Memory.spawns[3].spots.push({ sourceRoom: 'W55S29' });
-            }
-            //StoreId
-            Memory.spawns[3].random.storeId = '57ee3f378766a05b621a6eef';
-            //UseStore
-            Memory.spawns[3].random.useStore = true;
-            Memory.spawns[3].random.useLinks = true;
-            Memory.spawns[3].links.receiver = '57ef75858a3103c00ed026d5';
-            Memory.spawns[3].links.producers.push('57ef7a913ff080a65447f8e6');
-            Memory.spawns[3].links.producers.push('57f34dacf228c057483e1267');
-            //extractor
-            Memory.spawns[3].random.extractor = '579fab83b1f02a3b0cff0022';
-            Memory.spawns[3].random.terminal = Game.rooms[Memory.spawns[3].random.mainRoom].terminal;
+        //spawn 3
+        //spawn numbers
+        Memory.spawns[3].summon.spawns = 1;
+        Memory.spawns[3].summon.h = 0;
+        Memory.spawns[3].summon.b = 0;
+        Memory.spawns[3].summon.u = 0;
+        Memory.spawns[3].summon.h2 = 2;
+        Memory.spawns[3].summon.b2 = 1;
+        Memory.spawns[3].summon.u2 = 0;
+        Memory.spawns[3].summon.users = 1;
+        Memory.spawns[3].summon.atkM = 0;
+        Memory.spawns[3].summon.atkR = 0;
+        Memory.spawns[3].summon.atkH = 0;
+        Memory.spawns[3].summon.atkD = 0;
+        Memory.spawns[3].random.mainRoom = 'W52S29';
+        //RoomList
+        Memory.spawns[3].random.rooms.push('W52S29');
+        if (!Memory.spawns[3].random.hostiles) {
+            Memory.spawns[3].random.rooms.push('W51S29');
+            //Memory.spawns[3].random.rooms.push('W55S28');
+            //Memory.spawns[3].random.rooms.push('W55S29');
+        }
+        //keeper
+        if (!Memory.spawns[3].random.hostiles) {
+            Memory.spawns[3].spots.push({ sourceRoom: 'W51S29' });
+            //Memory.spawns[3].spots.push({ sourceRoom: 'W55S28' });
+            //Memory.spawns[3].spots.push({ sourceRoom: 'W55S29' });
+        }
+        //StoreId
+        Memory.spawns[3].random.storeId = '57ee3f378766a05b621a6eef';
+        //UseStore
+        Memory.spawns[3].random.useStore = true;
+        Memory.spawns[3].random.useLinks = true;
+        Memory.spawns[3].links.receiver = '57ef75858a3103c00ed026d5';
+        Memory.spawns[3].links.producers.push('57ef7a913ff080a65447f8e6');
+        Memory.spawns[3].links.producers.push('57f34dacf228c057483e1267');
+        //extractor
+        Memory.spawns[3].random.extractor = '579fab83b1f02a3b0cff0022';
+        Memory.spawns[3].random.terminal = Game.rooms[Memory.spawns[3].random.mainRoom].terminal;
 
-            //spawn 4
-            //spawn numbers
-            Memory.spawns[4].summon.spawns = 1;
-            Memory.spawns[4].summon.h = 0;
-            Memory.spawns[4].summon.b = 0;
-            Memory.spawns[4].summon.u = 0;
-            Memory.spawns[4].summon.h2 = 3;
-            Memory.spawns[4].summon.b2 = 1;
-            Memory.spawns[4].summon.u2 = 0;
-            Memory.spawns[4].summon.users = 1;
-            Memory.spawns[4].summon.atkM = 0;
-            Memory.spawns[4].summon.atkR = 0;
-            Memory.spawns[4].summon.atkH = 0;
-            Memory.spawns[4].summon.atkD = 0;
-            Memory.spawns[4].random.mainRoom = 'W52S28';
-            //RoomList
-            Memory.spawns[4].random.rooms.push('W52S28');
-            if (!Memory.spawns[4].random.hostiles) {
-                Memory.spawns[4].random.rooms.push('W53S28');
-                //Memory.spawns[4].random.rooms.push('W55S28');
-                //Memory.spawns[4].random.rooms.push('W55S29');
-            }
-            //keeper
-            if (!Memory.spawns[4].random.hostiles) {
-                Memory.spawns[4].spots.push({ sourceRoom: 'W53S28' });
-                //Memory.spawns[4].spots.push({ sourceRoom: 'W55S28' });
-                //Memory.spawns[4].spots.push({ sourceRoom: 'W55S29' });
-            }
-            //StoreId
-            Memory.spawns[4].random.storeId = '57f80ff72ba1961556ed528e';
-            //UseStore
-            Memory.spawns[4].random.useStore = true;
-            Memory.spawns[4].random.useLinks = true;
-            Memory.spawns[4].links.receiver = '57f951a2aebee5d628780ab3';
-            Memory.spawns[4].links.producers.push('57f95a1f2ddfe86c1cb943ec');
-            //Memory.spawns[4].links.producers.push('57f34dacf228c057483e1267');
-            //extractor
-            //Memory.spawns[4].random.extractor = '579fab83b1f02a3b0cff0022';
-            //Memory.spawns[4].random.terminal = Game.rooms[Memory.spawns[4].random.mainRoom].terminal;
-        
+        //spawn 4
+        //spawn numbers
+        Memory.spawns[4].summon.spawns = 1;
+        Memory.spawns[4].summon.h = 0;
+        Memory.spawns[4].summon.b = 0;
+        Memory.spawns[4].summon.u = 0;
+        Memory.spawns[4].summon.h2 = 3;
+        Memory.spawns[4].summon.b2 = 1;
+        Memory.spawns[4].summon.u2 = 0;
+        Memory.spawns[4].summon.users = 1;
+        Memory.spawns[4].summon.atkM = 0;
+        Memory.spawns[4].summon.atkR = 0;
+        Memory.spawns[4].summon.atkH = 0;
+        Memory.spawns[4].summon.atkD = 0;
+        Memory.spawns[4].random.mainRoom = 'W52S28';
+        //RoomList
+        Memory.spawns[4].random.rooms.push('W52S28');
+        if (!Memory.spawns[4].random.hostiles) {
+            Memory.spawns[4].random.rooms.push('W53S28');
+            //Memory.spawns[4].random.rooms.push('W55S28');
+            //Memory.spawns[4].random.rooms.push('W55S29');
+        }
+        //keeper
+        if (!Memory.spawns[4].random.hostiles) {
+            Memory.spawns[4].spots.push({ sourceRoom: 'W53S28' });
+            //Memory.spawns[4].spots.push({ sourceRoom: 'W55S28' });
+            //Memory.spawns[4].spots.push({ sourceRoom: 'W55S29' });
+        }
+        //StoreId
+        Memory.spawns[4].random.storeId = '57f80ff72ba1961556ed528e';
+        //UseStore
+        Memory.spawns[4].random.useStore = true;
+        Memory.spawns[4].random.useLinks = true;
+        Memory.spawns[4].links.receiver = '57f951a2aebee5d628780ab3';
+        Memory.spawns[4].links.producers.push('57f95a1f2ddfe86c1cb943ec');
+        //Memory.spawns[4].links.producers.push('57f34dacf228c057483e1267');
+        //extractor
+        //Memory.spawns[4].random.extractor = '579fab83b1f02a3b0cff0022';
+        //Memory.spawns[4].random.terminal = Game.rooms[Memory.spawns[4].random.mainRoom].terminal;
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
