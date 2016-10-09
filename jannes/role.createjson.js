@@ -122,7 +122,6 @@ var roleCreateJSON = {
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (Memory.spawns[0].counters.roomCounter > 30) {
             //spawn 0
             //spawn numbers
             Memory.spawns[0].summon.spawns = 2;
@@ -334,7 +333,7 @@ var roleCreateJSON = {
             //extractor
             //Memory.spawns[4].random.extractor = '579fab83b1f02a3b0cff0022';
             //Memory.spawns[4].random.terminal = Game.rooms[Memory.spawns[4].random.mainRoom].terminal;
-        }
+        
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
