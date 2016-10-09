@@ -27,11 +27,11 @@ var roleStore = {
                     return;
                 }
             }
-            var rep = creep.repair(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+            var rep = creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
                 filter: (structure) => {
                     return (structure.hits < structure.hitsMax - 1000 && (structure.structureType == STRUCTURE_ROAD || structure.structureType == STRUCTURE_CONTAINER))
                 }
-            }));
+            }))[0];
             if (rep != OK) {
                 var targets = creep.pos.findInRange(FIND_STRUCTURES, 3, {
                     filter: (structure) => {
