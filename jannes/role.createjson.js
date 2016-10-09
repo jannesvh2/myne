@@ -339,7 +339,8 @@ var roleCreateJSON = {
 
 
         for (let a = 0; a < rooms; a++) {
-
+            if (Memory.spawns[a].random.hostiles)
+                Memory.spawns[a].summon.users++;
             //non Memory var
             if (Memory.spawns[a].counters.roomCounter > 10) {
                 Memory.spawns[a].counters.roomCounter = 0;
