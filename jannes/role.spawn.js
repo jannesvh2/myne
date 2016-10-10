@@ -51,18 +51,18 @@ var roleSpawn = {
 
             //dont else if
             if (Memory.spawns[spawn].random.useStore) {
-                    for (let s = 0, length = sources.length; s < length; s++) {
-                        let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId.id == sources[s].id);
-                        if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
-                            if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 40)) {
-                                    newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
-                                    return;
-                            }
+                for (let s = 0, length = sources.length; s < length; s++) {
+                    let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId.id == sources[s].id);
+                    if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
+                        if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 40)) {
+                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                            return;
                         }
-                        else if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
-                                newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
-                                return;
-                        }
+                    }
+                    else if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
+                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                        return;
+                    }
 
                 }
             }
@@ -280,8 +280,10 @@ var roleSpawn = {
             }
 
             if (Memory.spawns[spawn].random.hostiles && (!Memory.spawns[spawn].creeps.defenders.length || Memory.spawns[spawn].creeps.defenders.length < 5)) {
-                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
-                    newName = multiSpawn([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.mainRoom });
+                if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1640)
+                    newName = multiSpawn([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.mainRoom });
+                else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
+                    newName = multiSpawn([ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.mainRoom });
                 else
                     newName = multiSpawn([ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.mainRoom });
 
