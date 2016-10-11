@@ -56,20 +56,13 @@ var roleDefenders = {
         else {
             //If not in the correct room, move towards it
 
-            var targets = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+            var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS);
 
-            if (targets) {
+            if (targets.length) {
 
-                if (creep.attack(targets) == ERR_NOT_IN_RANGE)
-                    if (creep.moveTo(targets) != OK) {
-                        if (Game.rooms[creep.memory.sourceRoom]) {
-                            let reserveCheck = creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller);
-                            if (reserveCheck == ERR_NOT_IN_RANGE) {
-                                creep.moveTo(new RoomPosition(Game.rooms[creep.memory.sourceRoom].controller.pos.x, Game.rooms[creep.memory.sourceRoom].controller.pos.y, creep.memory.sourceRoom));
-
-                            }
-                        }
-                        else {
+                if (creep.attack(targets[0]) != OK)
+                    if (creep.moveTo(targets[0]) != OK) {
+                        if (creep.room.roomName != creep.memory.sourceRoom) {
                             if (creep.room.name != creep.memory.sourceRoom) {
                                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                                 var Exit = creep.pos.findClosestByRange(exitDir);
@@ -77,22 +70,6 @@ var roleDefenders = {
                             }
                         }
                     }
-            }
-            else {
-                if (Game.rooms[creep.memory.sourceRoom]) {
-                    let reserveCheck = creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller);
-                    if (reserveCheck == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(new RoomPosition(Game.rooms[creep.memory.sourceRoom].controller.pos.x, Game.rooms[creep.memory.sourceRoom].controller.pos.y, creep.memory.sourceRoom));
-
-                    }
-                }
-                else {
-                    if (creep.room.name != creep.memory.sourceRoom) {
-                        var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
-                        var Exit = creep.pos.findClosestByRange(exitDir);
-                        creep.moveTo(Exit);
-                    }
-                }
             }
         }
 
