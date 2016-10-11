@@ -55,14 +55,18 @@ var roleDefenders = {
         }
         else {
             //If not in the correct room, move towards it
-
+            if (!Game.rooms[creep.memory.sourceRoom]) {
+                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit);
+            }
             var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS);
 
             if (targets.length) {
 
                 if (creep.attack(targets[0]) != OK)
                     if (creep.moveTo(targets[0]) != OK) {
-                        if (creep.room.roomName != creep.memory.sourceRoom) {
+                        if (creep.room.name != creep.memory.sourceRoom) {
                             if (creep.room.name != creep.memory.sourceRoom) {
                                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                                 var Exit = creep.pos.findClosestByRange(exitDir);
