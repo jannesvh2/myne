@@ -4,20 +4,22 @@ var roleAttackers = {
     run: function (creep) {
         var guard = false;
         var enableI = false;
+        var enableIH = false;
         var enableID = false;
         var enablePriority = false;
         var flag = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
-        var targetLocation = Game.getObjectById('57e3db2d045623ce19ed98b1');
-        var priorityTarget = Game.getObjectById('57e3db2d045623ce19ed98b1');
-        var priorityTargetD = Game.getObjectById('57e3db2d045623ce19ed98b1');
+        var targetLocation = Game.getObjectById('57ff6652cf97af706d8c14d2');
+        var priorityTarget = Game.getObjectById('57ff6652cf97af706d8c14d2');
+        var priorityTargetD = Game.getObjectById('57ff6652cf97af706d8c14d2');
 
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W58S26';
-        var sourceRoom = 'W52S30';
-        var saveRoom = 'W52S30';
+        var sourceRoom = 'W51S26';
+        var sourceRoomH = 'W51S26';
+        var saveRoom = 'W51S26';
 
-        
+
         if (creep.memory.role == 'attackerH' && creep.memory.getBoost) {
             let lab = Game.getObjectById('57deceb85b49191922741434');
             let boost = lab.boostCreep(creep);
@@ -144,14 +146,27 @@ var roleAttackers = {
         if (flag)
             creep.moveTo(Game.flags['Flag1'])
         else {
-            //If not in the correct room, move towards it
-            if (creep.room.name != sourceRoom && sourceRoom != '') {
-                var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
+            if (creep.memory.role == 'attackerH' && enableIH) {
+                if (creep.room.name != sourceRoomH && sourceRoomH != '') {
+                    var exitDir = Game.map.findExit(creep.room.name, sourceRoomH);
+                    var Exit = creep.pos.findClosestByRange(exitDir);
+                    creep.moveTo(Exit);
+                }
+                else if (creep.pos != targetLocation.pos) {
+                    creep.moveTo(targetLocation)
+                }
             }
-            else if (creep.pos != targetLocation.pos) {
-                creep.moveTo(targetLocation)
+            else {
+
+                //If not in the correct room, move towards it
+                if (creep.room.name != sourceRoom && sourceRoom != '') {
+                    var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                    var Exit = creep.pos.findClosestByRange(exitDir);
+                    creep.moveTo(Exit);
+                }
+                else if (creep.pos != targetLocation.pos) {
+                    creep.moveTo(targetLocation)
+                }
             }
         }
         var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
