@@ -124,7 +124,7 @@ var roleAttackers = {
                 }
             }
 
-            if (!targets.length) {
+            if (!targets.length && creep.room.name == sourceRoom) {
                 var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType != STRUCTURE_CONTROLLER)
