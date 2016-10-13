@@ -160,7 +160,7 @@ var roleAttackers = {
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                 }
-                else if (creep.pos != targetLocation.pos) {
+                else if (creep.pos != targetLocation.pos && (enableI || enableIH)) {
                     creep.moveTo(targetLocation)
                 }
             }
@@ -172,7 +172,7 @@ var roleAttackers = {
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                 }
-                else if (creep.pos != targetLocation.pos) {
+                else if (creep.pos != targetLocation.pos && (enableI || enableIH)) {
                     creep.moveTo(targetLocation)
                 }
             }
