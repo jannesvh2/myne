@@ -124,7 +124,15 @@ var roleAttackers = {
                 }
             }
 
-
+            if (!targets.length) {
+                var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType != STRUCTURE_CONTROLLER)
+                    }
+                });
+                if (creep.attack(dism) != OK)
+                    creep.moveTo(dism);
+            }
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
             if (enableID) {
