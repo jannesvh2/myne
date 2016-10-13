@@ -1,3 +1,4 @@
+var rangeAttack = require('role.rangeattack');
 var roleAttackers = {
 
     /** @param {Creep} creep **/
@@ -107,20 +108,24 @@ var roleAttackers = {
 
             if (guard) {
                 if (targets.length > 0) {
-                    if (creep.getActiveBodyparts(RANGED_ATTACK))
-                        if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
-                    creep.moveTo(targets[0]);
-                    if (creep.getActiveBodyparts(ATTACK))
+                    if (creep.getActiveBodyparts(RANGED_ATTACK)) {
+                        if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE)
+                            rangeAttack.run(creep);
+                    }
+                    if (creep.getActiveBodyparts(ATTACK)) {
                         if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+                    }
                 }
             }
             else {
                 if (targets.length > 0) {
-                    if (creep.getActiveBodyparts(RANGED_ATTACK))
-                        if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE);
-                    //creep.moveTo(targets[0]);
-                    if (creep.getActiveBodyparts(ATTACK))
+                    if (creep.getActiveBodyparts(RANGED_ATTACK)) {
+                        if (creep.rangedAttack(targets[0]) == ERR_NOT_IN_RANGE)
+                            rangeAttack.run(creep);
+                    }
+                    if (creep.getActiveBodyparts(ATTACK)) {
                         if (creep.attack(targets[0]) == ERR_NOT_IN_RANGE) creep.moveTo(targets[0]);
+                    }
                 }
             }
 
@@ -172,7 +177,7 @@ var roleAttackers = {
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                 }
-                else if (creep.pos != targetLocation.pos && (enableI || enableIH)) {
+                else if (creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
                     creep.moveTo(targetLocation)
                 }
             }
