@@ -103,8 +103,9 @@ var roleAttackers = {
                 }));
             }
             else if (!targets.length) {
-                targets = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-                if ((!targets || !targets.length) && creep.room.name == sourceRoom)
+                let targets2 = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+                targets.push(targets);
+                if (!targets.length && creep.room.name == sourceRoom)
                     targets = Game.rooms[sourceRoom].find(FIND_HOSTILE_CREEPS);
             }
 
@@ -131,7 +132,7 @@ var roleAttackers = {
                 }
             }
 
-            if ((!targets || !targets.length) && creep.room.name == sourceRoom) {
+            if (!targets.length && creep.room.name == sourceRoom) {
                 var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType != STRUCTURE_CONTROLLER)
