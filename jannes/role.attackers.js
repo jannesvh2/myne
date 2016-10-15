@@ -11,8 +11,8 @@ var roleAttackers = {
         var flag = false;
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
         var targetLocation = Game.getObjectById('579fa8df0700be0674d2e665');
-        var priorityTarget = Game.getObjectById('57ff6652cf97af706d8c14d2');
-        var priorityTargetD = Game.getObjectById('57ff6652cf97af706d8c14d2');
+        var priorityTarget = Game.getObjectById('579fa8df0700be0674d2e665');
+        var priorityTargetD = Game.getObjectById('579fa8df0700be0674d2e665');
 
         //var sourceRoom = targetLocation.room.name;
         //var sourceRoom = 'W58S26';
@@ -103,8 +103,10 @@ var roleAttackers = {
                 }));
             }
             else if (!targets.length) {
+                if (creep.memory.role == 'attackerM')
+                    console.log('h2');
                 let targets2 = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-                targets.push(targets);
+                targets.push(targets2);
                 if (!targets.length && creep.room.name == sourceRoom)
                     targets = Game.rooms[sourceRoom].find(FIND_HOSTILE_CREEPS);
             }
