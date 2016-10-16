@@ -21,22 +21,62 @@ var roleAttackers = {
         var attacked;
 
         if (creep.memory.role == 'attackerH' && creep.memory.getBoost) {
-            let lab = Game.getObjectById('57deceb85b49191922741434');
-            let boost = lab.boostCreep(creep);
-            if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo(lab);
-            if (boost == OK)
-                creep.memory.getBoost = false;
-            return;
+            if (creep.memory.getBoostM) {
+                let lab = Game.getObjectById('580362aaa7d4bcb71097a6b9');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostM = false;
+                return;
+            }
+            if (creep.memory.getBoostH) {
+                let lab = Game.getObjectById('580355c1741c75d37e74ded3');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostH = false;
+                return;
+            }
+            if (creep.memory.getBoostT) {
+                let lab = Game.getObjectById('58035c231c11eedd5304f8b2');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostT = false;
+                return;
+            }
         }
         if (creep.memory.role == 'attackerM' && creep.memory.getBoost) {
-            let lab = Game.getObjectById('57e84b5fbb15468048b138c5');
-            let boost = lab.boostCreep(creep);
-            if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo(lab);
-            if (boost == OK)
-                creep.memory.getBoost = false;
-            return;
+            if (creep.memory.getBoostM) {
+                let lab = Game.getObjectById('5803684111a7e4fd53170d31');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostM = false;
+                return;
+            }
+            if (creep.memory.getBoostT) {
+                let lab = Game.getObjectById('58036b55f6996a1158265502');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostT = false;
+                return;
+            }
+            if (creep.memory.getBoostA) {
+                let lab = Game.getObjectById('58037c398140131e1a02b786');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostA = false;
+                return;
+            }
         }
         if (creep.memory.role == 'attackerD' && creep.memory.getBoost) {
             let lab = Game.getObjectById('');
@@ -159,8 +199,7 @@ var roleAttackers = {
                     creep.moveTo(dism);
             }
         }
-        if (flag)
-            creep.moveTo(Game.flags['Flag1'])
+
         else {
             if (creep.memory.role == 'attackerH' && enableIH && targetLocation) {
                 if (creep.room.name != sourceRoomH && sourceRoomH != '') {
@@ -168,6 +207,8 @@ var roleAttackers = {
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                 }
+                else if (flag)
+                    creep.moveTo(Game.flags['Flag1'])
                 else if (targetLocation && creep.pos != targetLocation.pos) {
                     creep.moveTo(targetLocation)
                 }
@@ -180,6 +221,8 @@ var roleAttackers = {
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                 }
+                else if (flag)
+                    creep.moveTo(Game.flags['Flag1'])
                 else if (targetLocation && creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
                     creep.moveTo(targetLocation)
                 }
