@@ -7,6 +7,8 @@ var roleAttackers = {
         var enableIH = false;
         var enableID = false;
         var flag = false;
+        var moveByFlag = true;
+        var moveByFlagFlag = Game.flags['Flag1'];
         //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
         var targetLocation = Game.getObjectById('579fa8df0700be0674d2e665');
         var priorityTarget = Game.getObjectById('579fa8df0700be0674d2e665');
@@ -19,7 +21,8 @@ var roleAttackers = {
         var saveRoom = '';
 
         var attacked;
-
+        if (creep.room.name == sourceRoomH)
+            moveByFlag = false;
         if (creep.memory.role == 'attackerH' && creep.memory.getBoost) {
             if (creep.memory.getBoostM) {
                 let lab = Game.getObjectById('580362aaa7d4bcb71097a6b9');
@@ -147,7 +150,6 @@ var roleAttackers = {
                     }
                 }
             }
-            targets = [];
             //Priority attack
             if (enableI && priorityTarget) {
                 targets.push(priorityTarget);
@@ -186,7 +188,7 @@ var roleAttackers = {
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
             if (enableID && priorityTargetD) {
-                if (creep.attack(priorityTargetD) != OK)
+                if (creep.dismantle(priorityTargetD) != OK)
                     creep.moveTo(priorityTargetD);
                 return;
 
@@ -197,35 +199,54 @@ var roleAttackers = {
                         return (structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART && structure.structureType != STRUCTURE_CONTROLLER)
                     }
                 });
-                if (creep.attack(dism) != OK)
+                if (!dism) {
+                    if (!targets.length && creep.room.name == sourceRoom) {
+                        var dism = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType != STRUCTURE_CONTROLLER)
+                            }
+                        });
+                    }
+                }
+                if (!dism)
+                    dism = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+
+                if (creep.dismantle(dism) != OK)
                     creep.moveTo(dism);
+                {
+
+                }
             }
+            return;
         }
 
         if (creep.memory.role == 'attackerH' && enableIH && targetLocation) {
-                if (creep.room.name != sourceRoomH && sourceRoomH != '') {
-                    var exitDir = Game.map.findExit(creep.room.name, sourceRoomH);
-                    var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo(Exit);
-                }
-                else if (flag)
-                    creep.moveTo(Game.flags['Flag1']);
-                else if (targetLocation && creep.pos != targetLocation.pos) {
-                    creep.moveTo(targetLocation)
+            if (!moveByFlag || !moveByFlagFlag || creep.moveTo(moveByFlagFlag) != OK) {
+                    if (creep.room.name != sourceRoomH && sourceRoomH != '') {
+                        var exitDir = Game.map.findExit(creep.room.name, sourceRoomH);
+                        var Exit = creep.pos.findClosestByRange(exitDir);
+                        creep.moveTo(Exit);
+                    }
+                    else if (flag)
+                        creep.moveTo(Game.flags['Flag1']);
+                    else if (targetLocation && creep.pos != targetLocation.pos) {
+                        creep.moveTo(targetLocation)
+                    }
                 }
             }
-            else {
-
-                //If not in the correct room, move towards it
-                if (creep.room.name != sourceRoom && sourceRoom != '') {
-                    var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
-                    var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo(Exit);
-                }
-                else if (flag)
-                    creep.moveTo(Game.flags['Flag1']);
-                else if (targetLocation && creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
-                    creep.moveTo(targetLocation)
+        else {
+            if (!moveByFlag || !moveByFlagFlag || creep.moveTo(moveByFlagFlag) != OK) {
+                    //If not in the correct room, move towards it
+                    if (creep.room.name != sourceRoom && sourceRoom != '') {
+                        var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
+                        var Exit = creep.pos.findClosestByRange(exitDir);
+                        creep.moveTo(Exit);
+                    }
+                    else if (flag)
+                        creep.moveTo(Game.flags['Flag1']);
+                    else if (targetLocation && creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
+                        creep.moveTo(targetLocation)
+                    }
                 }
         }
         if (creep.memory.role == 'attackerM')
