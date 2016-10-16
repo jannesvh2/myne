@@ -48,6 +48,7 @@ var roleAttackers = {
                     creep.memory.getBoostT = false;
                 return;
             }
+            creep.memory.getBoost = false;
         }
         if (creep.memory.role == 'attackerM' && creep.memory.getBoost) {
             if (creep.memory.getBoostM) {
@@ -146,6 +147,7 @@ var roleAttackers = {
                     }
                 }
             }
+            targets = [];
             //Priority attack
             if (enableI && priorityTarget) {
                 targets.push(priorityTarget);
@@ -184,7 +186,7 @@ var roleAttackers = {
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
             if (enableID && priorityTargetD) {
-                if (creep.dismantle(priorityTargetD) != OK)
+                if (creep.attack(priorityTargetD) != OK)
                     creep.moveTo(priorityTargetD);
                 return;
 
@@ -195,20 +197,19 @@ var roleAttackers = {
                         return (structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART && structure.structureType != STRUCTURE_CONTROLLER)
                     }
                 });
-                if (creep.dismantle(dism) != OK)
+                if (creep.attack(dism) != OK)
                     creep.moveTo(dism);
             }
         }
 
-        else {
-            if (creep.memory.role == 'attackerH' && enableIH && targetLocation) {
+        if (creep.memory.role == 'attackerH' && enableIH && targetLocation) {
                 if (creep.room.name != sourceRoomH && sourceRoomH != '') {
                     var exitDir = Game.map.findExit(creep.room.name, sourceRoomH);
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                 }
                 else if (flag)
-                    creep.moveTo(Game.flags['Flag1'])
+                    creep.moveTo(Game.flags['Flag1']);
                 else if (targetLocation && creep.pos != targetLocation.pos) {
                     creep.moveTo(targetLocation)
                 }
@@ -222,12 +223,13 @@ var roleAttackers = {
                     creep.moveTo(Exit);
                 }
                 else if (flag)
-                    creep.moveTo(Game.flags['Flag1'])
+                    creep.moveTo(Game.flags['Flag1']);
                 else if (targetLocation && creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
                     creep.moveTo(targetLocation)
                 }
-            }
         }
+        if (creep.memory.role == 'attackerM')
+            return;
         if (creep.memory.role != 'attackerM' || creep.memory.role != 'attackerR') {
             var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
                 filter: function (object) {
