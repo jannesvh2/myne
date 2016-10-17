@@ -342,11 +342,11 @@ var roleCreateJSON = {
             //spawn 4
             //spawn numbers
             Memory.spawns[5].summon.spawns = 1;
-            Memory.spawns[5].summon.h = 2;
-            Memory.spawns[5].summon.b = 2;
-            Memory.spawns[5].summon.u = 6;
-            Memory.spawns[5].summon.h2 = 0;
-            Memory.spawns[5].summon.b2 = 0;
+            Memory.spawns[5].summon.h = 0;
+            Memory.spawns[5].summon.b = 0;
+            Memory.spawns[5].summon.u = 0;
+            Memory.spawns[5].summon.h2 = 3;
+            Memory.spawns[5].summon.b2 = 1;
             Memory.spawns[5].summon.u2 = 0;
             Memory.spawns[5].summon.users = 1;
             Memory.spawns[5].summon.atkM = 0;
@@ -357,20 +357,20 @@ var roleCreateJSON = {
             //RoomList
             Memory.spawns[5].random.rooms.push('W59S26');
             if (!Memory.spawns[5].random.hostiles) {
-                //Memory.spawns[5].random.rooms.push('W53S28');
+                Memory.spawns[5].random.rooms.push('W58S26');
                 //Memory.spawns[5].random.rooms.push('W55S28');
                 //Memory.spawns[5].random.rooms.push('W55S29');
             }
             //keeper
             if (!Memory.spawns[5].random.hostiles) {
-                //Memory.spawns[5].spots.push({ sourceRoom: 'W53S28' });
+                Memory.spawns[5].spots.push({ sourceRoom: 'W58S26' });
                 //Memory.spawns[5].spots.push({ sourceRoom: 'W55S28' });
                 //Memory.spawns[5].spots.push({ sourceRoom: 'W55S29' });
             }
             //StoreId
-            //Memory.spawns[5].random.storeId = '57f80ff72ba1961556ed528e';
+            Memory.spawns[5].random.storeId = '5804f776b29031841fbdac74';
             //UseStore
-            Memory.spawns[5].random.useStore = false;
+            Memory.spawns[5].random.useStore = true;
             //Memory.spawns[5].random.useLinks = true;
             //Memory.spawns[5].links.receiver = '57f951a2aebee5d628780ab3';
             //Memory.spawns[5].links.producers.push('57f95a1f2ddfe86c1cb943ec');
