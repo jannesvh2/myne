@@ -60,6 +60,7 @@ var roleDefenders = {
                 var Exit = creep.pos.findClosestByRange(exitDir);
                 creep.moveTo(Exit);
             }
+            if (Game.rooms[creep.memory.sourceRoom])
             var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS);
 
             if (targets.length) {
