@@ -143,7 +143,7 @@ var roleSpawn = {
                     newName = multiSpawn([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
                 return;
             }
-            if (Game.rooms[Memory.spawns[spawn].random.mainRoom].controller.level < 8) {
+            if (Game.rooms[Memory.spawns[spawn].random.mainRoom].controller.level < 9) {
                 if (builders2.length < b2) {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
                         newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], { role: 'builder2', spawn: spawn });
