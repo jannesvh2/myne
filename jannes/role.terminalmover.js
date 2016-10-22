@@ -2,7 +2,7 @@ var roleTerminalMover = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        
+        //Game.spawns['Spawn00'].createCreep([CARRY, CARRY, MOVE], null, { role: 'terminal', spawn: 0 });
         for (let a = 0, length = Memory.spawns.length; a < length; a++) {
             if (Memory.spawns[a].random.runReaction) {
                 var total = _.sum(creep.carry);

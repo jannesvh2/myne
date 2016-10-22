@@ -14,11 +14,11 @@ var roleCreateJSON = {
         }
 
         //init
-        var rooms = 1;
+        Memory.global.roomCount = 1;
         if (!Memory.spawns)
             Memory.spawns = [];
 
-        for (let a = 0; a < rooms; a++) {
+        for (let a = 0; a < Memory.global.roomCount; a++) {
             if (!Memory.spawns[a]) {
                 Memory.spawns.push(new Object());
 
@@ -121,7 +121,7 @@ var roleCreateJSON = {
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (Memory.spawns[0].counters.roomCounter > 30) {
-            for (let a = 0; a < rooms; a++) {
+            for (let a = 0; a < Memory.global.roomCount; a++) {
 
                 //reset for changes
                 Memory.spawns[a].random.rooms = [];
@@ -134,8 +134,8 @@ var roleCreateJSON = {
             //spawn numbers
             Memory.spawns[0].summon.spawns = 1;
             Memory.spawns[0].summon.h = 2;
-            Memory.spawns[0].summon.b = 5;
-            Memory.spawns[0].summon.u = 5;
+            Memory.spawns[0].summon.b = 8;
+            Memory.spawns[0].summon.u = 2;
             Memory.spawns[0].summon.h2 = 0;
             Memory.spawns[0].summon.b2 = 0;
             Memory.spawns[0].summon.u2 = 0;
@@ -393,7 +393,7 @@ var roleCreateJSON = {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        for (let a = 0; a < rooms; a++) {
+        for (let a = 0; a < Memory.global.roomCount; a++) {
             if (Memory.spawns[a].random.hostiles)
                 Memory.spawns[a].summon.users++;
             //non Memory var
