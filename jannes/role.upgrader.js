@@ -20,10 +20,10 @@ var roleUpgrader = {
         if (creep.memory.full) {
             if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller) == ERR_NOT_IN_RANGE) {
                 if (Memory.spawns[creep.memory.spawn].random.useUpgradeSpots) {
-                    for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.UpgradeSpots.length; a < length; a++) {
-                        let lookAt = reep.room.lookAt(Memory.spawns[creep.memory.spawn].random.UpgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.UpgradeSpots[a].y);
-                        if(lookAt.length && lookAt.length < 3)
-                            creep.moveTo(Memory.spawns[creep.memory.spawn].random.UpgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.UpgradeSpots[a].y);
+                    for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.upgradeSpots.length; a < length; a++) {
+                        let lookAt = creep.room.lookAt(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
+                        if (lookAt.length && lookAt.length < 3)
+                            creep.moveTo(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
                     }
                 }
                 else
@@ -35,8 +35,8 @@ var roleUpgrader = {
                 roleGetEnergy.run(creep, sources);
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
 
-            var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-            if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(storage);
                 }
             }

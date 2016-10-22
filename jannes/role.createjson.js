@@ -128,13 +128,14 @@ var roleCreateJSON = {
                 Memory.spawns[a].spots = [];
                 Memory.spawns[a].store = [];
                 Memory.spawns[a].links.producers = [];
+                Memory.spawns[a].random.upgradeSpots = [];
             }
             //spawn 0
             //spawn numbers
             Memory.spawns[0].summon.spawns = 1;
-            Memory.spawns[0].summon.h = 3;
-            Memory.spawns[0].summon.b = 2;
-            Memory.spawns[0].summon.u = 6;
+            Memory.spawns[0].summon.h = 2;
+            Memory.spawns[0].summon.b = 3;
+            Memory.spawns[0].summon.u = 5;
             Memory.spawns[0].summon.h2 = 0;
             Memory.spawns[0].summon.b2 = 0;
             Memory.spawns[0].summon.u2 = 0;
