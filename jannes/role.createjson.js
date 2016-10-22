@@ -46,6 +46,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.avgUpgraders = [];
                 Memory.spawns[a].random.roomContainers = [];
                 Memory.spawns[a].sources = [];
+                Memory.spawns[0].random.upgradeSpots = [];
             }
 
             //ticks
@@ -143,6 +144,12 @@ var roleCreateJSON = {
             Memory.spawns[0].summon.atkH = 0;
             Memory.spawns[0].summon.atkD = 0;
             Memory.spawns[0].random.mainRoom = 'W4S59';
+
+            Memory.spawns[0].random.useUpgradeSpots = true;
+            Memory.spawns[0].random.upgradeSpots.push({ x: 10, y: 28 });
+            Memory.spawns[0].random.upgradeSpots.push({ x: 11, y: 28 });
+            Memory.spawns[0].random.upgradeSpots.push({ x: 12, y: 28 });
+            Memory.spawns[0].random.upgradeSpots.push({ x: 13, y: 28 });
             //RoomList
             Memory.spawns[0].random.rooms.push('W4S59');
             //if (!Memory.spawns[0].random.hostiles) {
