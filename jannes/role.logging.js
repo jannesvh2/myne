@@ -102,11 +102,11 @@ var roleLogging = {
         //progress += " | W59S26 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
 
         console.log(msg);
-        console.log(msg2);
-        console.log(msg3);
-        console.log(msg4);
-        console.log(msg5);
-        console.log(msg6);
+        //console.log(msg2);
+        //console.log(msg3);
+        //console.log(msg4);
+        //console.log(msg5);
+        //console.log(msg6);
         console.log(progress);
     }
 };
