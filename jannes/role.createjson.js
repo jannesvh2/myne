@@ -46,7 +46,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].random.avgUpgraders = [];
                 Memory.spawns[a].random.roomContainers = [];
                 Memory.spawns[a].sources = [];
-                Memory.spawns[0].random.upgradeSpots = [];
+                Memory.spawns[a].random.upgradeSpots = [];
             }
 
             //ticks
