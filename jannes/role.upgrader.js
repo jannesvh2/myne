@@ -22,8 +22,10 @@ var roleUpgrader = {
                 if (Memory.spawns[creep.memory.spawn].random.useUpgradeSpots) {
                     for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.upgradeSpots.length; a < length; a++) {
                         let lookAt = creep.room.lookAt(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
-                        if (lookAt.length && lookAt.length < 3)
+                        if (lookAt.length && lookAt.length < 2) {
                             creep.moveTo(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
+                            break;
+                        }
                     }
                 }
                 else
