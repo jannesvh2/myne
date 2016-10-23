@@ -8,14 +8,14 @@ var roleBuilder = {
 
         //new spawn
         //Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([WORK, WORK, WORK, WORK,WORK, WORK, WORK, WORK, WORK, WORK,WORK,WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'builder', spawn: spawn });
-        //if (creep.memory.role == "builder" && creep.memory.spawn == 0) {
-        //    if (creep.room.name != "W52S29") {
-        //        var exitDir = Game.map.findExit(creep.room.name, "W52S29");
-        //        var Exit = creep.pos.findClosestByRange(exitDir);
-        //        creep.moveTo(Exit);
-        //        return;
-        //    }
-        //}
+        if (creep.memory.helper) {
+            if (creep.room.name != "W52S29") {
+                var exitDir = Game.map.findExit(creep.room.name, "W52S29");
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit);
+                return;
+            }
+        }
 
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
