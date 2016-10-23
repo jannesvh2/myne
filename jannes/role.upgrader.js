@@ -5,6 +5,14 @@ var roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function (creep, sources) {
+        if (creep.memory.helper) {
+            if (creep.room.name != "W52S29") {
+                var exitDir = Game.map.findExit(creep.room.name, "W52S29");
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit);
+                return;
+            }
+        }
 
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
