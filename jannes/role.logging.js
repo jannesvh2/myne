@@ -94,15 +94,15 @@ var roleLogging = {
 
 
         progress += "GCL " + Game.gcl.level + ": " + (Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2) + "%";
-        progress += " | controller 0 lvl " + Game.rooms[Memory.spawns[0].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[0].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[0].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
-        //progress += " | W56S28 controller " + Game.rooms[Memory.spawns[1].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[1].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[1].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
+        progress += " | 0 controller " + Game.rooms[Memory.spawns[0].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[0].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[0].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
+        progress += " | 1 controller " + Game.rooms[Memory.spawns[1].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[1].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[1].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W54S28 controller " + Game.rooms[Memory.spawns[2].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[2].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[2].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W52S29 controller " + Game.rooms[Memory.spawns[3].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[3].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[3].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W52S29 controller " + Game.rooms[Memory.spawns[4].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[4].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[4].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W59S26 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
 
         console.log(msg);
-        //console.log(msg2);
+        console.log(msg2);
         //console.log(msg3);
         //console.log(msg4);
         //console.log(msg5);
