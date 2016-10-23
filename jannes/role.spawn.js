@@ -143,7 +143,7 @@ var roleSpawn = {
                     newName = multiSpawn([WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
                 return;
             }
-            if (Game.rooms[Memory.spawns[spawn].random.mainRoom].controller.level < 9) {
+            if (Game.rooms[Memory.spawns[spawn].random.mainRoom].controller.level < 8) {
                 if (builders2.length < b2) {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
                         newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE], { role: 'builder2', spawn: spawn });
@@ -224,8 +224,8 @@ var roleSpawn = {
                     return;
 
                 }
-                else if (!upgraders2.length) {
-                    newName = multiSpawn([WORK, CARRY, MOVE], { role: 'upgrader2', spawn: spawn });
+                else if (!upgraders2.length && Memory.spawns[spawn].random.storeId && Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > (Memory.spawns[spawn].random.storageReserve * 0.85)) {
+                    newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: spawn });
                     if (typeof newName == 'string')
                         Memory.spawns[spawn].counters.upgradeTicks = 0;
 
