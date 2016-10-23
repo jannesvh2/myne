@@ -17,7 +17,7 @@ var roleTerminalMover = require('role.terminalmover');
 var roleLab = require('role.lab');
 
 module.exports.loop = function () {
-    //creep.moveTo(Game.flags['flagname'])  work even if there is no creep in room
+    //Memory.global.isNew = true;
     //Game.market.deal('57dc7f507a5cbc6f245035ea', 6298, "W59S29")
     PathFinder.use(true);
     var cpu = Game.cpu.getUsed();
