@@ -88,7 +88,7 @@ var roleCreateJSON = {
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'harvester2')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.harvesters2.push(Game.creeps[creep].name);
-            else if (Game.creeps[creep].memory.role == 'builder' && Game.creeps[creep].memory.helper)
+            else if (Game.creeps[creep].memory.helper)
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.helpers.push(Game.creeps[creep].name);
             else if (Game.creeps[creep].memory.role == 'builder')
                 Memory.spawns[Game.creeps[creep].memory.spawn].creeps.builders.push(Game.creeps[creep].name);
