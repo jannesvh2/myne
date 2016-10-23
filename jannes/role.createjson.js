@@ -121,7 +121,8 @@ var roleCreateJSON = {
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (Memory.spawns[0].counters.roomCounter > 30) {
+        if (Memory.global.isNew) {
+            Memory.global.isNew = false;
             for (let a = 0; a < Memory.global.roomCount; a++) {
 
                 //reset for changes
@@ -134,9 +135,9 @@ var roleCreateJSON = {
             //spawn 0
             //spawn numbers
             Memory.spawns[0].summon.spawns = 1;
-            Memory.spawns[0].summon.h = 2;
-            Memory.spawns[0].summon.b = 4;
-            Memory.spawns[0].summon.u = 6;
+            Memory.spawns[0].summon.h = 4;
+            Memory.spawns[0].summon.b = 8;
+            Memory.spawns[0].summon.u = 2;
             Memory.spawns[0].summon.h2 = 0;
             Memory.spawns[0].summon.b2 = 0;
             Memory.spawns[0].summon.u2 = 0;
@@ -148,10 +149,10 @@ var roleCreateJSON = {
             Memory.spawns[0].random.mainRoom = 'W4S59';
 
             Memory.spawns[0].random.useUpgradeSpots = true;
-            Memory.spawns[0].random.upgradeSpots.push({ x: 10, y: 28 });
-            Memory.spawns[0].random.upgradeSpots.push({ x: 11, y: 28 });
-            Memory.spawns[0].random.upgradeSpots.push({ x: 12, y: 28 });
             Memory.spawns[0].random.upgradeSpots.push({ x: 13, y: 28 });
+            Memory.spawns[0].random.upgradeSpots.push({ x: 12, y: 28 });
+            Memory.spawns[0].random.upgradeSpots.push({ x: 11, y: 28 });
+            Memory.spawns[0].random.upgradeSpots.push({ x: 10, y: 28 });
             //RoomList
             Memory.spawns[0].random.rooms.push('W4S59');
             //if (!Memory.spawns[0].random.hostiles) {
