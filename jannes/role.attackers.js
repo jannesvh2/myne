@@ -3,7 +3,7 @@ var roleAttackers = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        //Game.spawns['Spawn00'].createCreep([[WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE]], null, { role: 'attackerD', spawn: 0 });
+        //Game.spawns['Spawn00'].createCreep([WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], null, { role: 'attackerD', spawn: 0 });
 
         var enableI = false;
         var enableIH = false;
