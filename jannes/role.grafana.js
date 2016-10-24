@@ -4,6 +4,7 @@ var roleGrafana = {
     run: function () {
         if (!Memory.global.grafanaTicks) {
             Memory.global.grafanaTicks = 0;
+            Memory.stats = {};
             Memory.stats.cpu = {};
             Memory.stats.gcl = {};
             Memory.stats.room = {};
