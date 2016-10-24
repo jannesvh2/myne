@@ -14,17 +14,14 @@ var roleGrafana = {
         if (Memory.global.grafanaTicks > 14) {
             Memory.global.grafanaTicks = 0;
 
-            Memory.stats.cpu.bucket = Game.cpu.bucket;
-            Memory.stats.cpu.getUsed = Game.cpu.getUsed();
-            Memory.stats.cpu.limit = Game.cpu.limit;
-
-            Memory.stats.gcl.progress = Game.gcl.progress;
-            Memory.stats.gcl.progressTotal = Game.gcl.progressTotal;
+            Memory.stats.cpu = Game.cpu;
+            Memory.stats.gcl = Game.gcl;
+            Memory.stats.tick = Game.time;
 
             for (let a = 0; a < Memory.global.roomCount; a++) {
                 let creeps = {};
                 for (var b in Memory.spawns[a].creeps)
-                    creeps.b = Memory.spawns[a].creeps[b].length;
+                    creeps[b] = Memory.spawns[a].creeps[b].length;
 
                 Memory.stats.room[Memory.spawns[a].random.mainRoom] = {
                     controllerProgress: Game.rooms[Memory.spawns[a].random.mainRoom].controller.progress,
