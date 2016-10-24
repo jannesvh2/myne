@@ -15,6 +15,7 @@ var roleMover = require('role.mover');
 var roleUser = require('role.user');
 var roleTerminalMover = require('role.terminalmover');
 var roleLab = require('role.lab');
+var roleGrafana = require('role.grafana');
 
 module.exports.loop = function () {
     //Memory.global.isNew = true;
@@ -163,4 +164,6 @@ module.exports.loop = function () {
             Memory.spawns[b].counters.history[Memory.spawns[b].sources[s].id] = Memory.spawns[b].counters.atSources[Memory.spawns[b].sources[s].id];
         }
     console.log(notify + " | TOTAL: " + Game.cpu.getUsed().toFixed(2));
+
+    roleGrafana.run();
 }
