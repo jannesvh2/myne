@@ -35,6 +35,7 @@ var roleGrafana = {
             }
 
 
+            Memory.stats.cpu.getUsed = Game.cpu.getUsed();
         }
 
 
