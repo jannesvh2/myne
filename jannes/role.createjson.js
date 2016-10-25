@@ -154,10 +154,10 @@ var roleCreateJSON = {
             Memory.spawns[0].random.upgradeSpots.push({ x: 11, y: 28 });
             Memory.spawns[0].random.upgradeSpots.push({ x: 10, y: 28 });
             //RoomList
-            Memory.spawns[0].random.rooms.push('W4S59');
+            Memory.spawns[0].random.rooms.push({room: 'W4S59', spawn: 1});
             if (!Memory.spawns[0].random.hostiles) {
-                Memory.spawns[0].random.rooms.push('W3S59');
-                Memory.spawns[0].random.rooms.push('W5S59');
+                Memory.spawns[0].random.rooms.push({room: 'W3S59', spawn: 3});
+                Memory.spawns[0].random.rooms.push({ room: 'W5S59', spawn: 3 });
             }
             //keeper
             if (!Memory.spawns[0].random.hostiles) {
@@ -211,7 +211,7 @@ var roleCreateJSON = {
             //Memory.spawns[1].random.upgradeSpots.push({ x: 11, y: 28 });
             //Memory.spawns[1].random.upgradeSpots.push({ x: 10, y: 28 });
             //RoomList
-            Memory.spawns[1].random.rooms.push('W9S59');
+            Memory.spawns[1].random.rooms.push({ room: 'W9S59', spawn: 1 });
             //if (!Memory.spawns[1].random.hostiles) {
             //    Memory.spawns[1].random.rooms.push('W59S28');
             //    Memory.spawns[1].random.rooms.push('W58S28');
@@ -416,7 +416,7 @@ var roleCreateJSON = {
             if (Memory.spawns[a].random.hostiles)
                 Memory.spawns[a].summon.users++;
             //non Memory var
-            if (Memory.spawns[a].counters.roomCounter > 30) {
+            if (Memory.spawns[a].counters.roomCounter > 200) {
                 Memory.spawns[a].counters.roomCounter = 0;
                 Memory.spawns[a].sources = [];
 
@@ -471,25 +471,6 @@ var roleCreateJSON = {
                 }
                 Memory.spawns[a].counters.avgUpgradersValue = (sum / count).toFixed(2);
             }
-
-            //remove containers with a creep on the way
-            var creeps = Memory.spawns[a].creeps.harvesters2.concat(Memory.spawns[a].creeps.builders2);
-            var counter = 0;
-            for (let b = 0, length = Memory.spawns[a].random.roomContainers.length; b < length; b++) {
-                Memory.spawns[a].store.push(Memory.spawns[a].random.roomContainers[b]);
-                for (let c = 0, length2 = creeps.length; c < length2; c++) {
-                    if (Game.creeps[creeps[c]].memory.sourceId && Game.creeps[creeps[c]].memory.sourceId == Memory.spawns[a].store[b - counter].id) {
-                        Memory.spawns[a].store.splice(b - counter, 1);
-                        counter++;
-                        break;
-                    }
-
-                }
-
-            }
-            Memory.spawns[a].store.sort(function (a, b) {
-                return b.store.energy - a.store.energy;
-            });
 
             //var for early game
             if (!Memory.spawns[a].random.useStore) {

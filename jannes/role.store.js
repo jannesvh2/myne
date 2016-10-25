@@ -83,7 +83,7 @@ var roleStore = {
 
         }
         else {
-            var creepSource = Game.getObjectById(creep.memory.sourceId.id);
+            var creepSource = Game.getObjectById(creep.memory.sourceId);
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty != OK) {
                 if (creep.moveTo(creepSource) == ERR_INVALID_TARGET);

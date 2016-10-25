@@ -50,17 +50,17 @@ var roleSpawn = {
             }
 
             //dont else if
-            if (Memory.spawns[spawn].random.useStore) {
+            if (Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.stores.length < sources.length) {
                 for (let s = 0, length = sources.length; s < length; s++) {
-                    let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId.id == sources[s].id);
+                    let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId == sources[s].id);
                     if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
                         if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 40)) {
-                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
                             return;
                         }
                     }
                     else if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
-                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
                         return;
                     }
 
@@ -81,17 +81,21 @@ var roleSpawn = {
                 return;
             }
             else if (harvesters2.length < h2) {
-                if (harvesters2.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 1600)
-                    newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'harvester2', spawn: spawn });
-                else {
-                    if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
-                        newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn });
-                        //else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 2050)
-                        //    newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn });
-                    else
-                        newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn });
+                for (let a = 0, length = Memory.spawns[0].random.rooms.length; a < length; a++) {
+                    if (Memory.spawns[0].random.rooms[a].spawn > _.filter(harvesters2, (creep) => Game.creeps[creep].memory.sourceId == sources[s].id).length) {
+                        if (harvesters2.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 1600)
+                            newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'harvester2', spawn: spawn, sourceId: Memory.spawns[0].random.rooms[a].room });
+                        else {
+                            if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
+                                newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn, sourceId: Memory.spawns[0].random.rooms[a].room});
+                                //else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 2050)
+                                //    newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn });
+                            else
+                                newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn, sourceId: Memory.spawns[0].random.rooms[a].room});
+                        }
+                        return;
+                    }
                 }
-                return;
             }
             if (Memory.spawns[spawn].spots.length && !Memory.spawns[spawn].random.defenders.length) {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
