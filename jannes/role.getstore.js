@@ -24,9 +24,9 @@ var roleGetStore = {
                     return b.store.energy - a.store.energy;
                 });
 
-                if (creep.memory.sourceId) {
+                if (creep.memory.room) {
                     for (let a = 0, length = Memory.spawns[creep.memory.spawn].store.length; a < length; a++) {
-                        if (Memory.spawns[creep.memory.spawn].store[a].pos.roomName == creep.pos.roomName) {
+                        if (Memory.spawns[creep.memory.spawn].store[a].pos.roomName == creep.memory.room) {
 
                             creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[a].id;
                             Memory.spawns[creep.memory.spawn].store.splice(a, 1);
