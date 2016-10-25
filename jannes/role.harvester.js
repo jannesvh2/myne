@@ -5,7 +5,14 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep, sources) {
-
+        if (creep.memory.helper) {
+            if (creep.room.name != "W9S59") {
+                var exitDir = Game.map.findExit(creep.room.name, "W9S59");
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit);
+                return;
+            }
+        }
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
             creep.say('harvesting');
