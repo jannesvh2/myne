@@ -80,6 +80,7 @@ var roleCreateJSON = {
             Memory.spawns[a].creeps.users = [];
             Memory.spawns[a].creeps.terminals = [];
             Memory.spawns[a].counters.creeps = 0;
+            Memory.spawns[a].store = [];
         }
         for (let creep in Game.creeps) {
             Memory.spawns[Game.creeps[creep].memory.spawn].counters.creeps++;
@@ -128,7 +129,6 @@ var roleCreateJSON = {
                 //reset for changes
                 Memory.spawns[a].random.rooms = [];
                 Memory.spawns[a].spots = [];
-                Memory.spawns[a].store = [];
                 Memory.spawns[a].links.producers = [];
                 Memory.spawns[a].random.upgradeSpots = [];
             }
