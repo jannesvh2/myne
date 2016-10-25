@@ -192,8 +192,8 @@ var roleCreateJSON = {
             //spawn 0
             //spawn numbers
             Memory.spawns[1].summon.spawns = 1;
-            Memory.spawns[1].summon.h = 2;
-            Memory.spawns[1].summon.b = 1;
+            Memory.spawns[1].summon.h = 3;
+            Memory.spawns[1].summon.b = 2;
             Memory.spawns[1].summon.u = 5;
             Memory.spawns[1].summon.h2 = 0;
             Memory.spawns[1].summon.b2 = 0;
