@@ -154,10 +154,10 @@ var roleCreateJSON = {
             Memory.spawns[0].random.upgradeSpots.push({ x: 11, y: 28 });
             Memory.spawns[0].random.upgradeSpots.push({ x: 10, y: 28 });
             //RoomList
-            Memory.spawns[0].random.rooms.push({room: 'W4S59', spawn: 1});
+            Memory.spawns[0].random.rooms.push({ name: 'W4S59', spawn: 1 });
             if (!Memory.spawns[0].random.hostiles) {
-                Memory.spawns[0].random.rooms.push({room: 'W3S59', spawn: 3});
-                Memory.spawns[0].random.rooms.push({ room: 'W5S59', spawn: 3 });
+                Memory.spawns[0].random.rooms.push({ name: 'W3S59', spawn: 3 });
+                Memory.spawns[0].random.rooms.push({ name: 'W5S59', spawn: 3 });
             }
             //keeper
             if (!Memory.spawns[0].random.hostiles) {
@@ -211,7 +211,7 @@ var roleCreateJSON = {
             //Memory.spawns[1].random.upgradeSpots.push({ x: 11, y: 28 });
             //Memory.spawns[1].random.upgradeSpots.push({ x: 10, y: 28 });
             //RoomList
-            Memory.spawns[1].random.rooms.push({ room: 'W9S59', spawn: 1 });
+            Memory.spawns[1].random.rooms.push({ name: 'W9S59', spawn: 1 });
             //if (!Memory.spawns[1].random.hostiles) {
             //    Memory.spawns[1].random.rooms.push('W59S28');
             //    Memory.spawns[1].random.rooms.push('W58S28');
