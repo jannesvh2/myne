@@ -20,6 +20,7 @@ var roleHarvester = {
         else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
             creep.memory.full = true;
             delete creep.memory.sourceId;
+            delete creep.memory.targetId;
             creep.say('storing');
         }
 
@@ -97,17 +98,23 @@ var roleHarvester = {
 
             }
             else {
-                var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
-                    }
-                });
-                if (!targets)
-                    var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].find(FIND_MY_STRUCTURES, {
+                if (!creep.memory.targetId || creep.room.name != creep.memory.currentRoom) {
+                    let targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
+                            return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                         }
-                    })[0];
+                    });
+                    if (!targets)
+                        var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].find(FIND_MY_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
+                            }
+                        })[0];
+                    if (targets && targets.id)
+                        creep.memory.targetId = targets.id;
+                }
+                else {
+                    let targets = Game.getObjectById(creep.memory.targetId);
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
                         filter: (structure) => {
@@ -115,6 +122,8 @@ var roleHarvester = {
                         }
                     })[0]);
                     creep.moveTo(targets);
+                    creep.memory.currentRoom = creep.room.name;
+                }
                 }
                 return;
             }
