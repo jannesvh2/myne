@@ -12,6 +12,8 @@ var roleGrafana = {
         Memory.global.grafanaTicks++;
 
         if (Memory.global.grafanaTicks > 15) {
+
+            Memory.stats.cpu.getUsed = Game.cpu.getUsed();
             Memory.global.grafanaTicks = 1;
 
             Memory.stats.cpu = Game.cpu;
@@ -35,7 +37,6 @@ var roleGrafana = {
             }
 
 
-            Memory.stats.cpu.getUsed = Game.cpu.getUsed();
         }
 
 
