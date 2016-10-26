@@ -7,7 +7,7 @@ var roleSpawn = {
             var multiSpawn = function (parts, mem) {
                 var spawnReturn;
                 for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
-                    let spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep(parts, null, mem);
+                    spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep(parts, null, mem);
                     if (spawnReturn != -4) {
                         break;
                     }
