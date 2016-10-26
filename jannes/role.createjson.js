@@ -86,7 +86,8 @@ var roleCreateJSON = {
             }
         }
 
-            if (Memory.global.checkCreeps) {
+        if (Memory.global.checkCreeps) {
+            Memory.global.checkCreeps = false;
                 for (let name in Game.creeps) {
                     let creep = Game.creeps[name];
                     Memory.spawns[creep.memory.spawn].counters.creeps++;
