@@ -5,7 +5,7 @@ var roleTower = {
 
         //tower
 
-        for (let a = 0, length = Memory.spawns.length; a < length; a++) {
+        for (let a = 0; a < Memory.global.roomCount; a++) {
             try {
                 var towers = Game.rooms[Memory.spawns[a].random.mainRoom].find(FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } });
                 if (towers.length) {
