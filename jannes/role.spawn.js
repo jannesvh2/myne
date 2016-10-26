@@ -8,49 +8,53 @@ var roleSpawn = {
                 var spawnReturn;
                 for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                     spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep(parts, null, mem);
+
+                    if (typeof spawnReturn == 'string') {
+                        let creep = Game.creeps[spawnReturn];
+                        Memory.spawns[creep.memory.spawn].counters.creeps++;
+                        if (creep.memory.helper)
+                            Memory.spawns[creep.memory.spawn].creeps.helpers.push(creep.name);
+                        else if (creep.memory.role == 'harvester')
+                            Memory.spawns[creep.memory.spawn].creeps.harvesters.push(creep.name);
+                        else if (creep.memory.role == 'harvester2')
+                            Memory.spawns[creep.memory.spawn].creeps.harvesters2.push(creep.name);
+                        else if (creep.memory.role == 'builder')
+                            Memory.spawns[creep.memory.spawn].creeps.builders.push(creep.name);
+                        else if (creep.memory.role == 'builder2')
+                            Memory.spawns[creep.memory.spawn].creeps.builders2.push(creep.name);
+                        else if (creep.memory.role == 'upgrader')
+                            Memory.spawns[creep.memory.spawn].creeps.upgraders.push(creep.name);
+                        else if (creep.memory.role == 'upgrader2')
+                            Memory.spawns[creep.memory.spawn].creeps.upgraders2.push(creep.name);
+                        else if (creep.memory.role == 'store')
+                            Memory.spawns[creep.memory.spawn].creeps.stores.push(creep.name);
+                        else if (creep.memory.role == 'attackerM')
+                            Memory.spawns[creep.memory.spawn].creeps.attackersM.push(creep.name);
+                        else if (creep.memory.role == 'attackerR')
+                            Memory.spawns[creep.memory.spawn].creeps.attackersR.push(creep.name);
+                        else if (creep.memory.role == 'attackerH')
+                            Memory.spawns[creep.memory.spawn].creeps.attackersH.push(creep.name);
+                        else if (creep.memory.role == 'scout')
+                            Memory.spawns[creep.memory.spawn].creeps.scouts.push(creep.name);
+                        else if (creep.memory.role == 'defender')
+                            Memory.spawns[creep.memory.spawn].creeps.defenders.push(creep.name);
+                        else if (creep.memory.role == 'attackerD')
+                            Memory.spawns[creep.memory.spawn].creeps.attackersD.push(creep.name);
+                        else if (creep.memory.role == 'mover')
+                            Memory.spawns[creep.memory.spawn].creeps.movers.push(creep.name);
+                        else if (creep.memory.role == 'user')
+                            Memory.spawns[creep.memory.spawn].creeps.users.push(creep.name);
+                        else if (creep.memory.role == 'terminal')
+                            Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
+
+                        return spawnReturn;
+                    }
                     if (spawnReturn != -4) {
-                        break;
+                        return spawnReturn
                     }
                 }
-                if (typeof spawnReturn == 'string') {
-                    let creep = Game.creeps[spawnReturn];
-                    Memory.spawns[creep.memory.spawn].counters.creeps++;
-                    if (creep.memory.helper)
-                        Memory.spawns[creep.memory.spawn].creeps.helpers.push(creep.name);
-                    else if (creep.memory.role == 'harvester')
-                        Memory.spawns[creep.memory.spawn].creeps.harvesters.push(creep.name);
-                    else if (creep.memory.role == 'harvester2')
-                        Memory.spawns[creep.memory.spawn].creeps.harvesters2.push(creep.name);
-                    else if (creep.memory.role == 'builder')
-                        Memory.spawns[creep.memory.spawn].creeps.builders.push(creep.name);
-                    else if (creep.memory.role == 'builder2')
-                        Memory.spawns[creep.memory.spawn].creeps.builders2.push(creep.name);
-                    else if (creep.memory.role == 'upgrader')
-                        Memory.spawns[creep.memory.spawn].creeps.upgraders.push(creep.name);
-                    else if (creep.memory.role == 'upgrader2')
-                        Memory.spawns[creep.memory.spawn].creeps.upgraders2.push(creep.name);
-                    else if (creep.memory.role == 'store')
-                        Memory.spawns[creep.memory.spawn].creeps.stores.push(creep.name);
-                    else if (creep.memory.role == 'attackerM')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersM.push(creep.name);
-                    else if (creep.memory.role == 'attackerR')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersR.push(creep.name);
-                    else if (creep.memory.role == 'attackerH')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersH.push(creep.name);
-                    else if (creep.memory.role == 'scout')
-                        Memory.spawns[creep.memory.spawn].creeps.scouts.push(creep.name);
-                    else if (creep.memory.role == 'defender')
-                        Memory.spawns[creep.memory.spawn].creeps.defenders.push(creep.name);
-                    else if (creep.memory.role == 'attackerD')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersD.push(creep.name);
-                    else if (creep.memory.role == 'mover')
-                        Memory.spawns[creep.memory.spawn].creeps.movers.push(creep.name);
-                    else if (creep.memory.role == 'user')
-                        Memory.spawns[creep.memory.spawn].creeps.users.push(creep.name);
-                    else if (creep.memory.role == 'terminal')
-                        Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
-                }
                 return spawnReturn;
+
 
             }
             //Game.rooms.W59S29.energyCapacityAvailable
@@ -193,7 +197,7 @@ var roleSpawn = {
                         newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
                     else
                         newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
-                        //newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
+                    //newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
 
                     if (typeof newName == 'string' && Memory.spawns[spawn].random.terminal) {
                         //check order
