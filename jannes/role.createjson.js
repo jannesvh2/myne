@@ -137,7 +137,7 @@ var roleCreateJSON = {
             Memory.spawns[0].summon.h = 0;
             Memory.spawns[0].summon.b = 0;
             Memory.spawns[0].summon.u = 0;
-            Memory.spawns[0].summon.h2 = 8;
+            Memory.spawns[0].summon.h2 = 7;
             Memory.spawns[0].summon.b2 = 1;
             Memory.spawns[0].summon.u2 = 0;
             Memory.spawns[0].summon.users = 1;
@@ -153,7 +153,7 @@ var roleCreateJSON = {
             Memory.spawns[0].random.upgradeSpots.push({ x: 11, y: 28 });
             Memory.spawns[0].random.upgradeSpots.push({ x: 10, y: 28 });
             //RoomList
-            Memory.spawns[0].random.rooms.push({ name: 'W4S59', spawn: 2 });
+            Memory.spawns[0].random.rooms.push({ name: 'W4S59', spawn: 1 });
             if (!Memory.spawns[0].random.hostiles) {
                 Memory.spawns[0].random.rooms.push({ name: 'W3S59', spawn: 3 });
                 Memory.spawns[0].random.rooms.push({ name: 'W5S59', spawn: 3 });
@@ -167,9 +167,9 @@ var roleCreateJSON = {
             Memory.spawns[0].random.storeId = '580ee259347303ff06fb0a94';
             //UseStore
             Memory.spawns[0].random.useStore = true;
-            //Memory.spawns[0].random.useLinks = true;
-            //Memory.spawns[0].links.receiver = '57e322a114f3efa6216a00cb';
-            //Memory.spawns[0].links.producers.push('57de74825294558044ba36a0');
+            Memory.spawns[0].random.useLinks = true;
+            Memory.spawns[0].links.receiver = '58107c1849b1120b2abb08ea';
+            Memory.spawns[0].links.producers.push('58107e321ac8625d740861f6');
             //Memory.spawns[0].links.producers.push('57de74c1bd52497b42f0c556');
             //Memory.spawns[0].links.producers.push('57e924dce942a7843ffd2d79');
             //extractor
