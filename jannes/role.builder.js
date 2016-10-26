@@ -48,7 +48,7 @@ var roleBuilder = {
             else {
                 targets = [];
                 for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
-                    if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name] && creep.pos.roomName != Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].room].name) {
+                    if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name] && creep.pos.roomName != Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name].name) {
                         var tmpTargets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name].find(FIND_MY_CONSTRUCTION_SITES);
                         for (let t in tmpTargets) {
                             targets.push(tmpTargets[t]);
