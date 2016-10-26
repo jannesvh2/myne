@@ -59,7 +59,7 @@ var roleSpawn = {
                 newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, MOVE, MOVE], { role: 'user', spawn: spawn });
                 return;
             }
-            if ((Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length < Memory.spawns[spawn].summon.users) || (Memory.spawns[spawn].random.useStore && Game.creeps[Memory.spawns[spawn].creeps.users[0]].body.length == 6 && Memory.spawns[spawn].creeps.users.length <= Memory.spawns[spawn].summon.users)) {
+            if ((Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.users.length < Memory.spawns[spawn].summon.users) || (Memory.spawns[spawn].random.useStore && Game.creeps[Memory.spawns[spawn].creeps.users[0]] && Game.creeps[Memory.spawns[spawn].creeps.users[0]].body.length == 6 && Memory.spawns[spawn].creeps.users.length <= Memory.spawns[spawn].summon.users)) {
                 newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
                 return;
             }

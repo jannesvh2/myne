@@ -8,7 +8,9 @@ var roleCreateJSON = {
         //clearing memory of non existing creeps
         for (let name in Memory.creeps) {
             if (!Game.creeps[name]) {
-                Memory.spawns[Game.creeps[name].spawn].random.checkCreeps = true;
+                if (Game.creeps[name] != undefined) {
+                    Memory.spawns[Game.creeps[name].spawn].random.checkCreeps = true;
+                }
                 delete Memory.creeps[name];
                 //console.log('Clearing non-existing creep memory:', name);
             }
