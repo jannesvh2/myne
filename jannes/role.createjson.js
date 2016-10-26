@@ -8,7 +8,7 @@ var roleCreateJSON = {
         //clearing memory of non existing creeps
         for (let name in Memory.creeps) {
             if (!Game.creeps[name]) {
-                Memory.spawns[Memory.creeps[name].spawn].random.checkCreeps = true;
+                Memory.global.checkCreeps = true;
                 delete Memory.creeps[name];
                 //console.log('Clearing non-existing creep memory:', name);
             }
@@ -62,8 +62,7 @@ var roleCreateJSON = {
             if (Memory.spawns[a].counters.repairLimit > 15000000)
                 Memory.spawns[a].counters.repairLimit = 10000;
 
-            if (Memory.spawns[a].random.checkCreeps) {
-                Memory.spawns[a].random.checkCreeps = false;
+            if (Memory.global.checkCreeps) {
                 //current creeps
                 Memory.spawns[a].creeps.harvesters = [];
                 Memory.spawns[a].creeps.harvesters2 = [];
@@ -84,7 +83,10 @@ var roleCreateJSON = {
                 Memory.spawns[a].creeps.terminals = [];
                 Memory.spawns[a].counters.creeps = 0;
                 Memory.spawns[a].store = [];
+            }
+        }
 
+            if (Memory.global.checkCreeps) {
                 for (let name in Game.creeps) {
                     let creep = Game.creeps[name];
                     Memory.spawns[creep.memory.spawn].counters.creeps++;
@@ -124,7 +126,6 @@ var roleCreateJSON = {
                         Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
                 }
             }
-        }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (Memory.global.isNew) {
