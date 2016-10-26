@@ -98,8 +98,9 @@ var roleHarvester = {
 
             }
             else {
+                var targets;
                 if (!creep.memory.targetId || creep.room.name != creep.memory.currentRoom) {
-                    var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                    targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                         }
@@ -114,7 +115,7 @@ var roleHarvester = {
                         creep.memory.targetId = targets.id;
                 }
                 else {
-                    let targets = Game.getObjectById(creep.memory.targetId);
+                    targets = Game.getObjectById(creep.memory.targetId);
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
                         filter: (structure) => {
