@@ -1,6 +1,6 @@
 var roleRepairer = {
     run: function (creep) {
-        if (!creep.memory.targetId) {
+        if (!creep.memory.targetId || creep.memory.type != 'repair') {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.hits < structure.hitsMax - 1000 && structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
