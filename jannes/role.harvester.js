@@ -115,6 +115,8 @@ var roleHarvester = {
                         creep.memory.targetId = targets.id;
                 }
                 targets = Game.getObjectById(creep.memory.targetId);
+                if (!targets)
+                    delete creep.memory.targetId;
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
                         filter: (structure) => {
