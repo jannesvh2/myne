@@ -48,7 +48,9 @@ module.exports.loop = function () {
     notify += " | TOWER: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
 
+    var creepCpu = [];
     for (let name in Game.creeps) {
+        let cpu2 = Game.cpu.getUsed();
         try {
             var creep = Game.creeps[name];
             var energy = creep.pos.findInRange(
@@ -151,7 +153,16 @@ module.exports.loop = function () {
         catch (err) {
             console.log("creep: " + creep.name + " error: " + err);
         }
+        creepCpu.push({ creep: creep.memory.role, used: (Game.cpu.getUsed() - cpu2).toFixed(2)})
     }
+    creepCpu.sort(function (a, b) {
+        return b.used - a.used;
+    });
+    let cPint = "";
+    for (let c = 0; c < 5; c++) {
+        cPint += creepCpu[c].creep + ": " + creepCpu[c].used + " | ";
+    }
+    console.log(cPint);
     try {
         roleLab.run();
     } catch (err) {
