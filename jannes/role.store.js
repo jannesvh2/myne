@@ -40,11 +40,7 @@ var roleStore = {
                 creep.memory.rep = 0;
 
                 if (!creep.memory.containerId) {
-                    creep.memory.containerId = creep.pos.findInRange(FIND_STRUCTURES, 2, {
-                        filter: (structure) => {
-                            return (structure.hits < structure.hitsMax - 1000 && (structure.structureType == STRUCTURE_CONTAINER))
-                        }
-                    })[0];
+                    creep.memory.containerId = creep.pos.findInRange(FIND_STRUCTURES, 2)[0];
                     if (creep.memory.containerId)
                         creep.memory.containerId = creep.memory.containerId.id;
                 }
