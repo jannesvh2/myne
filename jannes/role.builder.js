@@ -128,7 +128,7 @@ var roleBuilder = {
                     }
                 }
             }
-            else {
+            else if (creep.memory.type == 'build') {
                 var targetId = Game.getObjectById(creep.memory.targetId);
                 if (!targetId) {
                     delete creep.memory.type;
