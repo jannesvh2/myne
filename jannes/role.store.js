@@ -36,7 +36,7 @@ var roleStore = {
             if (!creep.memory.rep)
                 creep.memory.rep = 0;
             creep.memory.rep++;
-            if (creep.memory.rep > 6) {
+            if (creep.memory.rep > 7) {
                 creep.memory.rep = 0;
 
                 if (!creep.memory.containerId) {
