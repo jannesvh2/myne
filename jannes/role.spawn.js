@@ -97,12 +97,12 @@ var roleSpawn = {
                     let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId == sources[s].id);
                     if (Memory.spawns[spawn].random.useLinks && sources[s].pos.roomName == Memory.spawns[spawn].random.mainRoom) {
                         if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 40)) {
-                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
+                            newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
                             return;
                         }
                     }
                     else if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
-                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
+                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
                         return;
                     }
 
