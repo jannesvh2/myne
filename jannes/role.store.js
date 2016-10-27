@@ -55,8 +55,10 @@ var roleStore = {
                         var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 3);
                         //if (!sites.length)
                           //  Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
-                        if (sites.length)
+                        if (sites.length) {
                             creep.build(sites[0]);
+                            creep.memory.rep = 6;
+                        }
                         else {
                             var sites = creep.pos.findInRange(creepSource, 3);
                             if (!sites.length) {
