@@ -39,19 +39,19 @@ var roleLogging = {
            // + ", Store: " + Game.getObjectById(Memory.spawns[1].random.storeId).store.energy;
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
-        //msg3 +=
-        //    //"h: " + harvesters.length + "/" + h
-        //    //+ ", b: " + builders.length + "/" + b
-        //    //+ ", u: " + upgraders.length + "/" + u
-        //     "(Spawn 2) H: " + Memory.spawns[2].creeps.harvesters2.length + "/" + Memory.spawns[2].summon.h2
-        //    + ", B: " + Memory.spawns[2].creeps.builders2.length + "/" + Memory.spawns[2].summon.b2
-        //    + ", U: " + Memory.spawns[2].creeps.upgraders2.length + "/" + Memory.spawns[2].counters.avgUpgradersValue
-        //    + ", d/m/h: " + Memory.spawns[2].creeps.attackersD.length + "/" + Memory.spawns[2].summon.atkD + " " + Memory.spawns[2].creeps.attackersM.length + "/" + Memory.spawns[2].summon.atkM + " " + Memory.spawns[2].creeps.attackersH.length + "/" + Memory.spawns[2].summon.atkH
-        //    + ", s: " + Memory.spawns[2].creeps.scouts.length + "/" + Memory.spawns[2].spots.length
-        //    + ", ST: " + Memory.spawns[2].creeps.stores.length + "/" + parseInt(Memory.spawns[2].sources.length)
-        //    + " | rep: " + String(Memory.spawns[2].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-        //    + ", Store: " + Game.getObjectById(Memory.spawns[2].random.storeId).store.energy;
-        ////+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
+        msg3 +=
+            //"h: " + harvesters.length + "/" + h
+            //+ ", b: " + builders.length + "/" + b
+            //+ ", u: " + upgraders.length + "/" + u
+             "(Spawn 2) H: " + Memory.spawns[2].creeps.harvesters.length + "/" + Memory.spawns[2].summon.h
+            + ", B: " + Memory.spawns[2].creeps.builders.length + "/" + Memory.spawns[2].summon.b
+            + ", U: " + Memory.spawns[2].creeps.upgraders.length + "/" + Memory.spawns[2].summon.u
+            + ", d/m/h: " + Memory.spawns[2].creeps.attackersD.length + "/" + Memory.spawns[2].summon.atkD + " " + Memory.spawns[2].creeps.attackersM.length + "/" + Memory.spawns[2].summon.atkM + " " + Memory.spawns[2].creeps.attackersH.length + "/" + Memory.spawns[2].summon.atkH
+            + ", s: " + Memory.spawns[2].creeps.scouts.length + "/" + Memory.spawns[2].spots.length
+            + ", ST: " + Memory.spawns[2].creeps.stores.length + "/" + parseInt(Memory.spawns[2].sources.length)
+            + " | rep: " + String(Memory.spawns[2].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
+            //+ ", Store: " + Game.getObjectById(Memory.spawns[2].random.storeId).store.energy;
+        //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         //msg4 +=
         //    //"h: " + harvesters.length + "/" + h
@@ -96,14 +96,14 @@ var roleLogging = {
         progress += "GCL " + Game.gcl.level + ": " + (Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2) + "%";
         progress += " | 0 controller " + Game.rooms[Memory.spawns[0].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[0].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[0].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         progress += " | 1 controller " + Game.rooms[Memory.spawns[1].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[1].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[1].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
-        //progress += " | W54S28 controller " + Game.rooms[Memory.spawns[2].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[2].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[2].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
+        progress += " | 2 controller " + Game.rooms[Memory.spawns[2].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[2].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[2].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W52S29 controller " + Game.rooms[Memory.spawns[3].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[3].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[3].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W52S29 controller " + Game.rooms[Memory.spawns[4].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[4].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[4].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
         //progress += " | W59S26 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
 
         console.log(msg);
         console.log(msg2);
-        //console.log(msg3);
+        console.log(msg3);
         //console.log(msg4);
         //console.log(msg5);
         //console.log(msg6);
