@@ -36,7 +36,7 @@ var roleStore = {
             if (!creep.memory.rep)
                 creep.memory.rep = 0;
             creep.memory.rep++;
-            if(creep.memory.rep > 6 ){
+            if (creep.memory.rep > 6) {
                 creep.memory.rep = 0;
 
                 if (!creep.memory.containerId) {
@@ -52,27 +52,25 @@ var roleStore = {
                 if (!container) {
                     delete creep.memory.containerId;
                     //if (creep.pos.isNearTo(creepSource)) {
-                        var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 3);
-                        //if (!sites.length)
-                          //  Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
-                        if (sites.length) {
-                            creep.build(sites[0]);
-                            creep.memory.rep = 6;
-                        }
-                        else {
-                            var sites = creep.pos.findInRange(creepSource, 3);
-                            if (!sites.length) {
-                                creep.moveTo(creepSource);
-                            }
+                    var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 3);
+                    //if (!sites.length)
+                    //  Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
+                    if (sites.length) {
+                        creep.build(sites[0]);
+                        creep.memory.rep = 6;
+                    }
+                    else {
+                        var sites = creep.pos.findInRange(creepSource, 3);
+                        if (!sites.length) {
+                            creep.moveTo(creepSource);
                         }
                     }
-               // }
+                }
+                    // }
                 else {
-                    if (creep.repair(container) == ERR_NOT_IN_RANGE) {
-                        let range = creep.pos.getRangeTo(container);
-                        if (range > 0) {
-                            creep.moveTo(container);
-                        }
+                    (creep.repair(container) == ERR_NOT_IN_RANGE)
+                    if (creep.pos.getRangeTo(container) > 0) {
+                        creep.moveTo(container);
                     }
                 }
             }
