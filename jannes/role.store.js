@@ -51,10 +51,11 @@ var roleStore = {
                 let container = Game.getObjectById(creep.memory.containerId)
                 if (!container) {
                     delete creep.memory.containerId;
-                    //if (creep.pos.isNearTo(creepSource)) {
-                    var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 3);
-                    //if (!sites.length)
-                    //  Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
+                    if (creep.pos.isNearTo(creepSource)) {
+                        var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 2);
+                        if (!sites.length)
+                            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
+                    }
                     if (sites.length) {
                         creep.build(sites[0]);
                         creep.memory.rep = 6;
@@ -66,7 +67,6 @@ var roleStore = {
                         }
                     }
                 }
-                    // }
                 else {
                     (creep.repair(container) == ERR_NOT_IN_RANGE)
                     if (creep.pos.getRangeTo(container) > 0) {
