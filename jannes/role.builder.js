@@ -83,7 +83,7 @@ var roleBuilder = {
                         creep.moveTo(targets);
                     }
                     creep.memory.targetId = targets.id;
-                    creep.memory.type == 'build';
+                    creep.memory.type = 'build';
                 }
                 else {
                     targets = [];
@@ -100,7 +100,7 @@ var roleBuilder = {
                     }
                     if (targets.length) {
                         creep.memory.targetId = targets[0].id;
-                        creep.memory.type == 'build';
+                        creep.memory.type = 'build';
 
                         canBuild = true;
                         var buildReturn = creep.build(targets[0]);

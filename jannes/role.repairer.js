@@ -25,7 +25,7 @@ var roleRepairer = {
                 return;
             }
             creep.memory.targetId = closestDamagedStructure.id;
-            creep.memory.type == 'repair';
+            creep.memory.type = 'repair';
         }
         if (creep.memory.targetId) {
             var targetId = Game.getObjectById(creep.memory.targetId);
