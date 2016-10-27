@@ -68,8 +68,12 @@ var roleStore = {
                     }
                // }
                 else {
-                    if (creep.repair(container) == ERR_NOT_IN_RANGE)
-                        creep.moveTo(container);
+                    if (creep.repair(container) == ERR_NOT_IN_RANGE) {
+                        let range = creep.pos.getRangeTo(container);
+                        if (range > 0) {
+                            creep.moveTo(container);
+                        }
+                    }
                 }
             }
         }
