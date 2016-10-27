@@ -150,10 +150,10 @@ var roleBuilder = {
                     creep.moveTo(targetId);
 
                 }
+            }
                 if (!canBuild) {
                     roleRepairer.run(creep);
                 }
-            }
         }
         else {
             if (creep.memory.role == 'builder') {
