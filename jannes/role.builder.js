@@ -9,11 +9,19 @@ var roleBuilder = {
         //new spawn
         //Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([WORK, WORK, WORK, WORK,WORK, WORK, WORK, WORK, WORK, WORK,WORK,WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'builder', spawn: spawn });
         if (creep.memory.helper) {
-            if (creep.room.name != "W9S59") {
-                var exitDir = Game.map.findExit(creep.room.name, "W9S59");
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
-                return;
+
+            if (creep.room.name != "W9S52") {
+                let flag = Game.flags['Flag1'];
+                if (flag) {
+                    creep.moveTo(flag)
+
+                }
+                else {
+                    var exitDir = Game.map.findExit(creep.room.name, "W9S52");
+                    var Exit = creep.pos.findClosestByRange(exitDir);
+                    creep.moveTo(Exit);
+                    return;
+                }
             }
         }
 
@@ -94,12 +102,12 @@ var roleBuilder = {
                 return;
             }
             else if (Memory.spawns[creep.memory.spawn].random.useStore) {
-                    var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                    if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(storage);
-                    }
-                    return;
+                var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(storage);
                 }
+                return;
+            }
             roleGetStore.run(creep);
         }
     }

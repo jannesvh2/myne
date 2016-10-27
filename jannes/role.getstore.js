@@ -42,6 +42,8 @@ var roleGetStore = {
 
         if (creep.memory.sourceId) {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
+            if(!creepSource)
+                delete creep.memory.sourceId;
 
             if (creepSource) {
                 if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
