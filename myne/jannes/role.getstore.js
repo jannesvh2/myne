@@ -3,6 +3,7 @@ var roleGetStore = {
         //go to closest source
         // if (creep.memory.role != 'builder' && creep.memory.role != 'builder2')
         //    Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+        Memory.spawns[creep.memory.spawn].store = [];
         if (!creep.memory.sourceId) {
 
                 //remove containers with a creep on the way
