@@ -12,7 +12,7 @@ var roleKeeper = {
                 creep.moveTo(creep.room.controller);
         }
         else {
-            var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].spots[spot].sourceRoom);
+            var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
             creep.moveTo(Exit);
         }
