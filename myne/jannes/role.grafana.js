@@ -25,7 +25,7 @@ var roleGrafana = {
                 for (var b in Memory.spawns[a].creeps)
                     creeps[b] = Memory.spawns[a].creeps[b].length;
 
-                Memory.stats.room[Memory.spawns[a].random.mainRoom] = {
+                Memory.stats.room[a] = {
                     controllerProgress: Game.rooms[Memory.spawns[a].random.mainRoom].controller.progress,
                     controllerProgressTotal: Game.rooms[Memory.spawns[a].random.mainRoom].controller.progressTotal,
                     level: Game.rooms[Memory.spawns[a].random.mainRoom].controller.level,
