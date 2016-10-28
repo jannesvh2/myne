@@ -3,7 +3,7 @@ var roleRepairer = {
         if (!creep.memory.targetId || creep.memory.type != 'repair') {
             var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.hits < structure.hitsMax - 1000 && structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
+                    return (structure.structureType != STRUCTURE_CONTAINER && (structure.hits < structure.hitsMax - 1000 && structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit))
                 }
             });
             if (!closestDamagedStructure) {
@@ -11,8 +11,8 @@ var roleRepairer = {
                     if (!closestDamagedStructure && Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name]) {
                         closestDamagedStructure = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name].find(FIND_STRUCTURES, {
                             filter: (structure) => {
-                                return (structure.hits < structure.hitsMax - 1000 &&
-                                    structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit)
+                                return (structure.structureType != STRUCTURE_CONTAINER && (structure.hits < structure.hitsMax - 1000 &&
+                                    structure.hits < Memory.spawns[creep.memory.spawn].counters.repairLimit))
                             }
                         })[0];
                     }
