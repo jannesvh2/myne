@@ -28,6 +28,7 @@ var roleGrafana = {
                 Memory.stats.room[Memory.spawns[a].random.mainRoom] = {
                     controllerProgress: Game.rooms[Memory.spawns[a].random.mainRoom].controller.progress,
                     controllerProgressTotal: Game.rooms[Memory.spawns[a].random.mainRoom].controller.progressTotal,
+                    level: Game.rooms[Memory.spawns[a].random.mainRoom].controller.level,
                     creeps: creeps,
                     energyAvailable: Game.rooms[Memory.spawns[a].random.mainRoom].energyAvailable,
                     energyCapacityAvailable: Game.rooms[Memory.spawns[a].random.mainRoom].energyCapacityAvailable,
