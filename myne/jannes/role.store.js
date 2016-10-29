@@ -12,22 +12,53 @@ var roleStore = {
         }
 
         if (creep.memory.full) {
-            if (Memory.spawns[0].random.useLinks) {
-                var targets = creep.pos.findInRange(FIND_STRUCTURES, 1, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_LINK);
+            var creepSource = Game.getObjectById(creep.memory.sourceId);
+            if (Memory.spawns[creep.memory.spawn].random.useLinks && creep.room.name == Memory.spawns[creep.memory.spawn].random.mainRoom) {
+                if (creep.memory.linkId) {
+                    let link = Game.getObjectById(creep.memory.linkId);
+                    if (link) {
+                        var transfer = creep.transfer(link, RESOURCE_ENERGY);
+                        if (transfer != OK && transfer != ERR_FULL) {
+                            delete creep.memory.linkId;
+                        }
+                        else
+                            return;
                     }
-                });
 
-                if (targets[0]) {
-                    var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
-                    if (transfer == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0]);
+                }
+
+                if (creep.pos.getRangeTo(creepSource) < 2) {
+                    var targets = creep.pos.findInRange(FIND_STRUCTURES, 2, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_LINK);
+                        }
+                    });
+                    if (targets[0]) {
+                        creep.memory.linkId = targets[0].id;
+
+                        var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
+                        if (transfer == ERR_NOT_IN_RANGE) {
+                            creep.moveTo(targets[0]);
+                        }
+                        return;
                     }
-                    return;
+                }
+                else {
+                    var targets = creep.pos.findInRange(FIND_STRUCTURES, 2, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_LINK);
+                        }
+                    });
+
+                    if (targets[0]) {
+                        var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
+                        if (transfer == ERR_NOT_IN_RANGE) {
+                            creep.moveTo(targets[0]);
+                        }
+                        return;
+                    }
                 }
             }
-            var creepSource = Game.getObjectById(creep.memory.sourceId);
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty != OK) {
                 if (creep.moveTo(creepSource) == ERR_INVALID_TARGET);
