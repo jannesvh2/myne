@@ -7,10 +7,10 @@ var roleKeeper = {
         if (hostiles && creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
             Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
 
-        let controller = Game.rooms[creep.memory.sourceRoom].controller;
-        if (controller) {
-            if (creep.reserveController(controller) == ERR_NOT_IN_RANGE)
-                creep.moveTo(controller);
+        let room = Game.rooms[creep.memory.sourceRoom];
+        if (room) {
+            if (creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller) == ERR_NOT_IN_RANGE)
+                creep.moveTo(Game.rooms[creep.memory.sourceRoom].controller);
         }
         else {
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
