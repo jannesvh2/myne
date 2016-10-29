@@ -22,7 +22,7 @@ var roleLogging = {
             + ", s: " + Memory.spawns[0].creeps.scouts.length + "/" + Memory.spawns[0].spots.length
             + ", ST: " + Memory.spawns[0].creeps.stores.length + "/" + parseInt(Memory.spawns[0].sources.length)
             + " | rep: " + String(Memory.spawns[0].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-            + ", Store: <font color='green'>" + Game.getObjectById(Memory.spawns[0].random.storeId).store.energy + "</font>";
+            + ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[0].random.storeId).store.energy + "</font>";
 
         //  msg += ' ) ( W56S28 has ' + Game.rooms.W56S28.energyAvailable + ' energy | ';
         msg2 +=
@@ -36,7 +36,7 @@ var roleLogging = {
             + ", s: " + Memory.spawns[1].creeps.scouts.length + "/" + Memory.spawns[1].spots.length
             + ", ST: " + Memory.spawns[1].creeps.stores.length + "/" + parseInt(Memory.spawns[1].sources.length)
             + " | rep: " + String(Memory.spawns[1].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-            + ", Store: <font color='green'>" + Game.getObjectById(Memory.spawns[1].random.storeId).store.energy + "</font>";
+            + ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[1].random.storeId).store.energy + "</font>";
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         msg3 +=
@@ -50,7 +50,7 @@ var roleLogging = {
             + ", s: " + Memory.spawns[2].creeps.scouts.length + "/" + Memory.spawns[2].spots.length
             + ", ST: " + Memory.spawns[2].creeps.stores.length + "/" + parseInt(Memory.spawns[2].sources.length)
             + " | rep: " + String(Memory.spawns[2].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-        //+ ", Store: <font color='green'>" + Game.getObjectById(Memory.spawns[2].random.storeId).store.energy + "</font>";
+        //+ ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[2].random.storeId).store.energy + "</font>";
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         msg4 +=
@@ -64,7 +64,7 @@ var roleLogging = {
             + ", s: " + Memory.spawns[3].creeps.scouts.length + "/" + Memory.spawns[3].spots.length
             + ", ST: " + Memory.spawns[3].creeps.stores.length + "/" + parseInt(Memory.spawns[3].sources.length)
             + " | rep: " + String(Memory.spawns[3].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-        //+ ", Store: <font color='green'>" + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy + "</font>";
+        //+ ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy + "</font>";
             //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         //msg5 +=
