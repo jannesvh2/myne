@@ -89,7 +89,7 @@ var roleStore = {
                     }
                     if (sites.length) {
                         creep.build(sites[0]);
-                        creep.memory.rep = 6;
+                        creep.memory.rep = 7;
                     }
                     else {
                         var sites = creep.pos.findInRange(creepSource, 3);
