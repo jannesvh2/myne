@@ -10,13 +10,13 @@ var roleUser = {
             creep.memory.full = true;
         }
         if (creep.memory.full) {
-            var targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+            var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2;
                 }
             });
             if (!targets) {
-                targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+                targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN ||

@@ -100,7 +100,7 @@ var roleHarvester = {
             else {
                 var targets;
                 if (!creep.memory.targetId || creep.room.name != creep.memory.currentRoom) {
-                    targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+                    targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                         }
