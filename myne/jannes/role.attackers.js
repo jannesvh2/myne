@@ -158,7 +158,8 @@ var roleAttackers = {
             }
             else if (!targets.length) {
                 let targets2 = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-                targets.push(targets2);
+                if (targets2)
+                    targets.push(targets2);
                 if (!targets.length && creep.room.name == sourceRoom)
                     targets = Game.rooms[sourceRoom].find(FIND_HOSTILE_CREEPS);
             }

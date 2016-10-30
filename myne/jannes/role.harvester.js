@@ -118,7 +118,7 @@ var roleHarvester = {
                 if (!targets)
                     delete creep.memory.targetId;
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 3, {
+                    creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
                         filter: (structure) => {
                             return (structure.hits < structure.hitsMax - 800 && structure.structureType == STRUCTURE_ROAD)
                         }
