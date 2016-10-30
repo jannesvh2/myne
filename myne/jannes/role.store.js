@@ -98,7 +98,8 @@ var roleStore = {
                         }
                     }
                 }
-                else if (creep.repair(container) == ERR_NOT_IN_RANGE) {
+                else {
+                    creep.repair(container);
                     if (creep.pos.getRangeTo(container) > 0) {
                         creep.moveTo(container);
                         delete creep.memory.containerId;
