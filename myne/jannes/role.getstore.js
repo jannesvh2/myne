@@ -12,10 +12,10 @@ var roleGetStore = {
                             creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[a].id;
                             break;
                         }
-                        else {
-                            creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[0].id;
-                            break;
-                        }
+                    }
+                    else {
+                        creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[0].id;
+                        break;
                     }
                 }
             }
