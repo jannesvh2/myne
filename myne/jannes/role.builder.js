@@ -65,7 +65,7 @@ var roleBuilder = {
         }
         var canBuild = false;
         if (creep.memory.full) {
-            if (creep.memory.type != 'repair' || !creep.memory.targetId) {
+            if (creep.memory.type != 'build' || !creep.memory.targetId) {
                 var targets = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES);
                 if (targets) {
                     canBuild = true;
