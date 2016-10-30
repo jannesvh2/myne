@@ -5,7 +5,23 @@ var roleGetStore = {
         //    Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
 
         if (!creep.memory.sourceId) {
-            Memory.spawns[creep.memory.spawn].store = [];
+            for (let a = 0, length = Memory.spawns[creep.memory.spawn].random.roomContainers.length; a < length; a++) {
+                if (creep.memory.room && Memory.spawns[creep.memory.spawn].random.roomContainers[a].store.energy > 1900) {
+                    if (creep.memory.room) {
+                        if (Memory.spawns[creep.memory.spawn].random.roomContainers[a].pos.roomName) {
+                            creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[a].id;
+                            break;
+                        }
+                        else {
+                            creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[0].id;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (!creep.memory.sourceId) {
+                Memory.spawns[creep.memory.spawn].store = [];
                 //remove containers with a creep on the way
                 var creeps = Memory.spawns[creep.memory.spawn].creeps.harvesters2;
                 var counter = 0;
@@ -39,11 +55,12 @@ var roleGetStore = {
                     creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[0].id;
                     Memory.spawns[creep.memory.spawn].store.splice(0, 1);
                 }
+            }
         }
 
         if (creep.memory.sourceId) {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
-            if(!creepSource)
+            if (!creepSource)
                 delete creep.memory.sourceId;
 
             if (creepSource) {
