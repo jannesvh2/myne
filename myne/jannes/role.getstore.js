@@ -6,9 +6,9 @@ var roleGetStore = {
 
         if (!creep.memory.sourceId) {
             for (let a = 0, length = Memory.spawns[creep.memory.spawn].random.roomContainers.length; a < length; a++) {
-                if (creep.memory.room && Memory.spawns[creep.memory.spawn].random.roomContainers[a].store.energy > 1900) {
+                if (Memory.spawns[creep.memory.spawn].random.roomContainers[a].store.energy > 1900) {
                     if (creep.memory.room) {
-                        if (Memory.spawns[creep.memory.spawn].random.roomContainers[a].pos.roomName) {
+                        if (Memory.spawns[creep.memory.spawn].store[a].pos.roomName == creep.memory.room) {
                             creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[a].id;
                             break;
                         }
