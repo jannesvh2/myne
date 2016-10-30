@@ -269,11 +269,12 @@ var roleCreateJSON = {
             Memory.spawns[2].summon.atkD = 0;
             Memory.spawns[2].random.mainRoom = 'W9S52';
 
-            //Memory.spawns[2].random.useUpgradeSpots = true;
-            //Memory.spawns[2].random.upgradeSpots.push({ x: 13, y: 28 });
-            //Memory.spawns[2].random.upgradeSpots.push({ x: 12, y: 28 });
-            //Memory.spawns[2].random.upgradeSpots.push({ x: 11, y: 28 });
-            //Memory.spawns[2].random.upgradeSpots.push({ x: 10, y: 28 });
+            Memory.spawns[2].random.useUpgradeSpots = true;
+            Memory.spawns[2].random.upgradeSpots.push({ x: 33, y: 29 });
+            Memory.spawns[2].random.upgradeSpots.push({ x: 32, y: 29 });
+            Memory.spawns[2].random.upgradeSpots.push({ x: 31, y: 29 });
+            Memory.spawns[2].random.upgradeSpots.push({ x: 30, y: 29 });
+
             //RoomList
             Memory.spawns[2].random.rooms.push({ name: 'W9S52', spawn: 1 });
             //if (!Memory.spawns[2].random.hostiles) {
