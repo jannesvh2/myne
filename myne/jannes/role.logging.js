@@ -43,14 +43,14 @@ var roleLogging = {
             //"h: " + harvesters.length + "/" + h
             //+ ", b: " + builders.length + "/" + b
             //+ ", u: " + upgraders.length + "/" + u
-             "(Spawn 2) H: " + Memory.spawns[2].creeps.harvesters.length + "/" + Memory.spawns[2].summon.h
-            + ", B: " + Memory.spawns[2].creeps.builders.length + "/" + Memory.spawns[2].summon.b
-            + ", U: " + Memory.spawns[2].creeps.upgraders.length + "/" + Memory.spawns[2].summon.u
+             "(Spawn 2) H: " + Memory.spawns[2].creeps.harvesters2.length + "/" + Memory.spawns[2].summon.h2
+            + ", B: " + Memory.spawns[2].creeps.builders2.length + "/" + Memory.spawns[2].summon.b2
+            + ", U: " + Memory.spawns[2].creeps.upgraders2.length + "/" + Memory.spawns[3].counters.avgUpgradersValue
             + ", d/m/h: " + Memory.spawns[2].creeps.attackersD.length + "/" + Memory.spawns[2].summon.atkD + " " + Memory.spawns[2].creeps.attackersM.length + "/" + Memory.spawns[2].summon.atkM + " " + Memory.spawns[2].creeps.attackersH.length + "/" + Memory.spawns[2].summon.atkH
             + ", s: " + Memory.spawns[2].creeps.scouts.length + "/" + Memory.spawns[2].spots.length
             + ", ST: " + Memory.spawns[2].creeps.stores.length + "/" + parseInt(Memory.spawns[2].sources.length)
             + " | rep: " + String(Memory.spawns[2].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-        //+ ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[2].random.storeId).store.energy + "</font>";
+            + ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[2].random.storeId).store.energy + "</font>";
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         msg4 +=
@@ -64,7 +64,7 @@ var roleLogging = {
             + ", s: " + Memory.spawns[3].creeps.scouts.length + "/" + Memory.spawns[3].spots.length
             + ", ST: " + Memory.spawns[3].creeps.stores.length + "/" + parseInt(Memory.spawns[3].sources.length)
             + " | rep: " + String(Memory.spawns[3].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-        //+ ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy + "</font>";
+            + ", Store: <font color='#4EE2EC'>" + Game.getObjectById(Memory.spawns[3].random.storeId).store.energy + "</font>";
             //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         //msg5 +=
