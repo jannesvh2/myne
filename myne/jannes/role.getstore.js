@@ -14,7 +14,7 @@ var roleGetStore = {
                         }
                     }
                     else {
-                        creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[0].id;
+                        creep.memory.sourceId = Memory.spawns[creep.memory.spawn].random.roomContainers[a].id;
                         break;
                     }
                 }
