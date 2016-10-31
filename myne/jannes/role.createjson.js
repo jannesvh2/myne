@@ -368,7 +368,7 @@ var roleCreateJSON = {
             //Memory.spawns[3].random.reactions.push({ id: '', mineral: '' });
             //Memory.spawns[3].random.reactions.push({ id: '', mineral: '' });
 
-            //spawn 3
+            //spawn 4
             //spawn numbers
             Memory.spawns[4].summon.spawns = 1;
             Memory.spawns[4].summon.h = 0;
