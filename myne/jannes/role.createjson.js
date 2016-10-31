@@ -339,10 +339,10 @@ var roleCreateJSON = {
                 Memory.spawns[3].random.rooms.push({ name: 'W7S54', spawn: 3 });
             }
             //keeper
-            //if (!Memory.spawns[3].random.hostiles) {
-            //    Memory.spawns[3].spots.push({ sourceRoom: 'W59S28' });
-            //    Memory.spawns[3].spots.push({ sourceRoom: 'W58S28' });
-            //}
+            if (!Memory.spawns[3].random.hostiles) {
+                Memory.spawns[3].spots.push({ sourceRoom: 'W8S53' });
+                Memory.spawns[3].spots.push({ sourceRoom: 'W7S54' });
+            }
             //StoreId
             Memory.spawns[3].random.storeId = '5816b1a9ee81468a1507b67c';
             //UseStore
