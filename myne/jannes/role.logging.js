@@ -57,9 +57,9 @@ var roleLogging = {
             //"h: " + harvesters.length + "/" + h
             //+ ", b: " + builders.length + "/" + b
             //+ ", u: " + upgraders.length + "/" + u
-             "(Spawn 3) H: " + Memory.spawns[3].creeps.harvesters.length + "/" + Memory.spawns[3].summon.h
-            + ", B: " + Memory.spawns[3].creeps.builders.length + "/" + Memory.spawns[3].summon.b
-            + ", U: " + Memory.spawns[3].creeps.upgraders.length + "/" + Memory.spawns[3].summon.u
+             "(Spawn 3) H: " + Memory.spawns[3].creeps.harvesters2.length + "/" + Memory.spawns[3].summon.h2
+            + ", B: " + Memory.spawns[3].creeps.builders2.length + "/" + Memory.spawns[3].summon.b2
+            + ", U: " + Memory.spawns[3].creeps.upgraders2.length + "/" + Memory.spawns[3].counters.avgUpgradersValue
             + ", d/m/h: " + Memory.spawns[3].creeps.attackersD.length + "/" + Memory.spawns[3].summon.atkD + " " + Memory.spawns[3].creeps.attackersM.length + "/" + Memory.spawns[3].summon.atkM + " " + Memory.spawns[3].creeps.attackersH.length + "/" + Memory.spawns[3].summon.atkH
             + ", s: " + Memory.spawns[3].creeps.scouts.length + "/" + Memory.spawns[3].spots.length
             + ", ST: " + Memory.spawns[3].creeps.stores.length + "/" + parseInt(Memory.spawns[3].sources.length)
