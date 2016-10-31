@@ -281,7 +281,7 @@ var roleCreateJSON = {
                 Memory.spawns[2].random.rooms.push({ name: 'W9S51', spawn: 3 });
                 Memory.spawns[2].random.rooms.push({ name: 'W8S52', spawn: 3 });
             }
-            keeper
+            //keeper
             if (!Memory.spawns[2].random.hostiles) {
                 Memory.spawns[2].spots.push({ sourceRoom: 'W9S51' });
                 Memory.spawns[2].spots.push({ sourceRoom: 'W8S52' });
