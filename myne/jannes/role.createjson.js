@@ -402,9 +402,9 @@ var roleCreateJSON = {
             //    Memory.spawns[4].spots.push({ sourceRoom: 'W9S53' });
             //}
             //StoreId
-            //Memory.spawns[4].random.storeId = '5816a280256d601350f16cf0';
+            Memory.spawns[4].random.storeId = '57ef365d07b52c3e08f5aa07';
             //UseStore
-            Memory.spawns[4].random.useStore = false;
+            Memory.spawns[4].random.useStore = true;
             //Memory.spawns[4].random.useLinks = true;
             //Memory.spawns[4].links.receiver = '57e322a114f3efa6216a00cb';
             //Memory.spawns[4].links.producers.push('57de74825294558044ba36a0');
