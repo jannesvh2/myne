@@ -29,7 +29,7 @@ var roleRepairer = {
         }
         if (creep.memory.targetId) {
             var targetId = Game.getObjectById(creep.memory.targetId);
-            if (!targetId || targetId.hits < targetId.hitsMax - 1000) {
+            if (!targetId || targetId.hits >= targetId.hitsMax - 1000) {
                 delete creep.memory.type;
                 delete creep.memory.targetId;
                 return;
