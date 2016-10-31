@@ -211,11 +211,12 @@ var roleSpawn = {
 
                     if (typeof newName == 'string' && Memory.spawns[spawn].random.terminal) {
                         //check order
-                        var total = _.sum(Memory.spawns[spawn].random.terminal.store);
+                        let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
+                        var total = _.sum(terminal.store);
                         if (total > 100000) {
-                            var maxTransferEnergyCost = Memory.spawns[spawn].random.terminal.store.energy;
-                            for (var resource in Memory.spawns[spawn].random.terminal.store) {
-                                if (resource != 'energy' && Memory.spawns[spawn].random.terminal.store[resource] > 100000) {
+                            var maxTransferEnergyCost = terminal.store.energy;
+                            for (var resource in terminal.store) {
+                                if (resource != 'energy' && terminal.store[resource] > 100000) {
                                     var amountToSell = 50000;
 
                                     var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
@@ -256,11 +257,12 @@ var roleSpawn = {
 
                     if (typeof newName == 'string' && Memory.spawns[spawn].random.terminal) {
                         //check order
-                        var total = _.sum(Memory.spawns[spawn].random.terminal.store);
+                        let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
+                        var total = _.sum(terminal.store);
                         if (total > 100000) {
-                            var maxTransferEnergyCost = Memory.spawns[spawn].random.terminal.store.energy;
-                            for (var resource in Memory.spawns[spawn].random.terminal.store) {
-                                if (resource != 'energy' && Memory.spawns[spawn].random.terminal.store[resource] > 50000) {
+                            var maxTransferEnergyCost = terminal.store.energy;
+                            for (var resource in terminal.store) {
+                                if (resource != 'energy' && terminal.store[resource] > 100000) {
                                     var amountToSell = 50000;
 
                                     var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
@@ -295,7 +297,11 @@ var roleSpawn = {
             if (Memory.spawns[spawn].random.extractor && Memory.spawns[spawn].random.terminal && Game.getObjectById(Memory.spawns[spawn].random.extractor).mineralAmount > 0 && _.sum(Memory.spawns[spawn].random.terminal.store) < Memory.spawns[spawn].random.terminal.storeCapacity - 50000) {
 
                 if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 2 && !Memory.spawns[spawn].random.hostiles) {
-                    newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
+                    if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
+                        newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
+                    else
+                        newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
+                        
                     return;
                 }
             }

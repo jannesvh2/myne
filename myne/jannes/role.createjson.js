@@ -181,8 +181,8 @@ var roleCreateJSON = {
             Memory.spawns[0].links.producers.push('58151e89508d83ca5b57ba9a');
             //Memory.spawns[0].links.producers.push('57e924dce942a7843ffd2d79');
             //extractor
-            //Memory.spawns[0].random.extractor = '579fab82b1f02a3b0cfefd9a';
-            //Memory.spawns[0].random.terminal = Game.rooms[Memory.spawns[0].random.mainRoom].terminal;
+            Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
+            Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
             //reactions
             //Memory.spawns[0].random.runReaction = false;
             //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
