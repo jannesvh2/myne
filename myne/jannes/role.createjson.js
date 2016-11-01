@@ -88,45 +88,45 @@ var roleCreateJSON = {
 
         if (Memory.global.checkCreeps) {
             Memory.global.checkCreeps = false;
-                for (let name in Game.creeps) {
-                    let creep = Game.creeps[name];
-                    Memory.spawns[creep.memory.spawn].counters.creeps++;
-                    if (creep.memory.helper)
-                        Memory.spawns[creep.memory.spawn].creeps.helpers.push(creep.name);
-                    else if (creep.memory.role == 'harvester')
-                        Memory.spawns[creep.memory.spawn].creeps.harvesters.push(creep.name);
-                    else if (creep.memory.role == 'harvester2')
-                        Memory.spawns[creep.memory.spawn].creeps.harvesters2.push(creep.name);
-                    else if (creep.memory.role == 'builder')
-                        Memory.spawns[creep.memory.spawn].creeps.builders.push(creep.name);
-                    else if (creep.memory.role == 'builder2')
-                        Memory.spawns[creep.memory.spawn].creeps.builders2.push(creep.name);
-                    else if (creep.memory.role == 'upgrader')
-                        Memory.spawns[creep.memory.spawn].creeps.upgraders.push(creep.name);
-                    else if (creep.memory.role == 'upgrader2')
-                        Memory.spawns[creep.memory.spawn].creeps.upgraders2.push(creep.name);
-                    else if (creep.memory.role == 'store')
-                        Memory.spawns[creep.memory.spawn].creeps.stores.push(creep.name);
-                    else if (creep.memory.role == 'attackerM')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersM.push(creep.name);
-                    else if (creep.memory.role == 'attackerR')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersR.push(creep.name);
-                    else if (creep.memory.role == 'attackerH')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersH.push(creep.name);
-                    else if (creep.memory.role == 'scout')
-                        Memory.spawns[creep.memory.spawn].creeps.scouts.push(creep.name);
-                    else if (creep.memory.role == 'defender')
-                        Memory.spawns[creep.memory.spawn].creeps.defenders.push(creep.name);
-                    else if (creep.memory.role == 'attackerD')
-                        Memory.spawns[creep.memory.spawn].creeps.attackersD.push(creep.name);
-                    else if (creep.memory.role == 'mover')
-                        Memory.spawns[creep.memory.spawn].creeps.movers.push(creep.name);
-                    else if (creep.memory.role == 'user')
-                        Memory.spawns[creep.memory.spawn].creeps.users.push(creep.name);
-                    else if (creep.memory.role == 'terminal')
-                        Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
-                }
+            for (let name in Game.creeps) {
+                let creep = Game.creeps[name];
+                Memory.spawns[creep.memory.spawn].counters.creeps++;
+                if (creep.memory.helper)
+                    Memory.spawns[creep.memory.spawn].creeps.helpers.push(creep.name);
+                else if (creep.memory.role == 'harvester')
+                    Memory.spawns[creep.memory.spawn].creeps.harvesters.push(creep.name);
+                else if (creep.memory.role == 'harvester2')
+                    Memory.spawns[creep.memory.spawn].creeps.harvesters2.push(creep.name);
+                else if (creep.memory.role == 'builder')
+                    Memory.spawns[creep.memory.spawn].creeps.builders.push(creep.name);
+                else if (creep.memory.role == 'builder2')
+                    Memory.spawns[creep.memory.spawn].creeps.builders2.push(creep.name);
+                else if (creep.memory.role == 'upgrader')
+                    Memory.spawns[creep.memory.spawn].creeps.upgraders.push(creep.name);
+                else if (creep.memory.role == 'upgrader2')
+                    Memory.spawns[creep.memory.spawn].creeps.upgraders2.push(creep.name);
+                else if (creep.memory.role == 'store')
+                    Memory.spawns[creep.memory.spawn].creeps.stores.push(creep.name);
+                else if (creep.memory.role == 'attackerM')
+                    Memory.spawns[creep.memory.spawn].creeps.attackersM.push(creep.name);
+                else if (creep.memory.role == 'attackerR')
+                    Memory.spawns[creep.memory.spawn].creeps.attackersR.push(creep.name);
+                else if (creep.memory.role == 'attackerH')
+                    Memory.spawns[creep.memory.spawn].creeps.attackersH.push(creep.name);
+                else if (creep.memory.role == 'scout')
+                    Memory.spawns[creep.memory.spawn].creeps.scouts.push(creep.name);
+                else if (creep.memory.role == 'defender')
+                    Memory.spawns[creep.memory.spawn].creeps.defenders.push(creep.name);
+                else if (creep.memory.role == 'attackerD')
+                    Memory.spawns[creep.memory.spawn].creeps.attackersD.push(creep.name);
+                else if (creep.memory.role == 'mover')
+                    Memory.spawns[creep.memory.spawn].creeps.movers.push(creep.name);
+                else if (creep.memory.role == 'user')
+                    Memory.spawns[creep.memory.spawn].creeps.users.push(creep.name);
+                else if (creep.memory.role == 'terminal')
+                    Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
             }
+        }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (Memory.global.isNew) {
@@ -392,15 +392,15 @@ var roleCreateJSON = {
 
             ////RoomList
             Memory.spawns[4].random.rooms.push({ name: 'W8S56', spawn: 1 });
-            //if (!Memory.spawns[4].random.hostiles) {
-            //    Memory.spawns[4].random.rooms.push({ name: 'W9S51', spawn: 3 });
-            //    Memory.spawns[4].random.rooms.push({ name: 'W9S53', spawn: 3 });
-            //}
+            if (!Memory.spawns[4].random.hostiles) {
+                Memory.spawns[4].random.rooms.push({ name: 'W8S57', spawn: 3 });
+                Memory.spawns[4].random.rooms.push({ name: 'W7S56', spawn: 3 });
+            }
             ////keeper
-            //if (!Memory.spawns[4].random.hostiles) {
-            //    Memory.spawns[4].spots.push({ sourceRoom: 'W9S51' });
-            //    Memory.spawns[4].spots.push({ sourceRoom: 'W9S53' });
-            //}
+            if (!Memory.spawns[4].random.hostiles) {
+                Memory.spawns[4].spots.push({ sourceRoom: 'W8S57' });
+                Memory.spawns[4].spots.push({ sourceRoom: 'W7S56' });
+            }
             //StoreId
             Memory.spawns[4].random.storeId = '57ef365d07b52c3e08f5aa07';
             //UseStore
