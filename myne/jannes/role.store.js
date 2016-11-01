@@ -87,7 +87,7 @@ var roleStore = {
                         if (!sites.length)
                             Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
                     }
-                    if (sites.length) {
+                    if (sites && sites.length) {
                         creep.build(sites[0]);
                         creep.memory.rep = 7;
                     }
