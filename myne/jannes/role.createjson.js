@@ -434,6 +434,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].summon.users++;
             //non Memory var
             if (Memory.spawns[a].counters.roomCounter > 120) {
+                Memory.global.isNew = true;
                 Memory.spawns[a].counters.roomCounter = 0;
                 Memory.spawns[a].sources = [];
 
