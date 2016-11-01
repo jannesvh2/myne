@@ -82,15 +82,18 @@ var roleLogging = {
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
         msg6 +=
-            "(spawn 5) h: " + memory.spawns[5].creeps.harvesters.length + "/" + memory.spawns[5].summon.h
-           + ", b: " + memory.spawns[5].creeps.builders.length + "/" + memory.spawns[5].summon.b
-           + ", u: " + memory.spawns[5].creeps.upgraders.length + "/" + Memory.spawns[5].summon.u
-           + ", d/m/h: " + memory.spawns[5].creeps.attackersD.length + "/" + memory.spawns[5].summon.atkD + " " + memory.spawns[5].creeps.attackersM.length + "/" + memory.spawns[5].summon.atkM + " " + memory.spawns[5].creeps.attackersH.length + "/" + memory.spawns[5].summon.atkH
-           + ", s: " + memory.spawns[5].creeps.scouts.length + "/" + memory.spawns[5].spots.length
-           + ", st: " + memory.spawns[5].creeps.stores.length + "/" + parseint(memory.spawns[5].sources.length)
-           + " | rep: " + string(memory.spawns[5].counters.repairlimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-           //+ ", store: " + game.getobjectbyid(memory.spawns[5].random.storeid).store.energy;
-                //+ ", l: " + links.length + "/" + memory.linksource.length * 2;
+           //"h: " + harvesters.length + "/" + h
+           //+ ", b: " + builders.length + "/" + b
+           //+ ", u: " + upgraders.length + "/" + u
+            "(Spawn 4) H: " + Memory.spawns[5].creeps.harvesters.length + "/" + Memory.spawns[5].summon.h
+           + ", B: " + Memory.spawns[5].creeps.builders.length + "/" + Memory.spawns[5].summon.b
+           + ", U: " + Memory.spawns[5].creeps.upgraders.length + "/" + Memory.spawns[5].summon.u
+           + ", d/m/h: " + Memory.spawns[5].creeps.attackersD.length + "/" + Memory.spawns[5].summon.atkD + " " + Memory.spawns[5].creeps.attackersM.length + "/" + Memory.spawns[5].summon.atkM + " " + Memory.spawns[5].creeps.attackersH.length + "/" + Memory.spawns[5].summon.atkH
+           + ", s: " + Memory.spawns[5].creeps.scouts.length + "/" + Memory.spawns[5].spots.length
+           + ", ST: " + Memory.spawns[5].creeps.stores.length + "/" + parseInt(Memory.spawns[5].sources.length)
+           + " | rep: " + String(Memory.spawns[5].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
+        //   + ", Store: " + Game.getObjectById(Memory.spawns[5].random.storeId).store.energy;
+        //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
 
         progress += "GCL " + Game.gcl.level + ": " + (Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2) + "%";
