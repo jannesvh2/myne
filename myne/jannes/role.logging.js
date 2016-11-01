@@ -81,16 +81,16 @@ var roleLogging = {
         //   + ", Store: " + Game.getObjectById(Memory.spawns[4].random.storeId).store.energy;
         //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
 
-        //msg6 +=
-        //    "(Spawn 5) H: " + Memory.spawns[5].creeps.harvesters2.length + "/" + Memory.spawns[5].summon.h2
-        //   + ", B: " + Memory.spawns[5].creeps.builders2.length + "/" + Memory.spawns[5].summon.b2
-        //   + ", U: " + Memory.spawns[5].creeps.upgraders2.length + "/" + Memory.spawns[5].counters.avgUpgradersValue
-        //   + ", d/m/h: " + Memory.spawns[5].creeps.attackersD.length + "/" + Memory.spawns[5].summon.atkD + " " + Memory.spawns[5].creeps.attackersM.length + "/" + Memory.spawns[5].summon.atkM + " " + Memory.spawns[5].creeps.attackersH.length + "/" + Memory.spawns[5].summon.atkH
-        //   + ", s: " + Memory.spawns[5].creeps.scouts.length + "/" + Memory.spawns[5].spots.length
-        //   + ", ST: " + Memory.spawns[5].creeps.stores.length + "/" + parseInt(Memory.spawns[5].sources.length)
-        //   + " | rep: " + String(Memory.spawns[5].counters.repairLimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
-        //   + ", Store: " + Game.getObjectById(Memory.spawns[5].random.storeId).store.energy;
-        //        //+ ", l: " + links.length + "/" + Memory.linkSource.length * 2;
+        msg6 +=
+            "(spawn 5) h: " + memory.spawns[5].creeps.harvesters.length + "/" + memory.spawns[5].summon.h
+           + ", b: " + memory.spawns[5].creeps.builders.length + "/" + memory.spawns[5].summon.b
+           + ", u: " + memory.spawns[5].creeps.upgraders.length + "/" + Memory.spawns[5].summon.u
+           + ", d/m/h: " + memory.spawns[5].creeps.attackersD.length + "/" + memory.spawns[5].summon.atkD + " " + memory.spawns[5].creeps.attackersM.length + "/" + memory.spawns[5].summon.atkM + " " + memory.spawns[5].creeps.attackersH.length + "/" + memory.spawns[5].summon.atkH
+           + ", s: " + memory.spawns[5].creeps.scouts.length + "/" + memory.spawns[5].spots.length
+           + ", st: " + memory.spawns[5].creeps.stores.length + "/" + parseint(memory.spawns[5].sources.length)
+           + " | rep: " + string(memory.spawns[5].counters.repairlimit).replace(/(.)(?=(\d{3})+$)/g, '$1,')
+           //+ ", store: " + game.getobjectbyid(memory.spawns[5].random.storeid).store.energy;
+                //+ ", l: " + links.length + "/" + memory.linksource.length * 2;
 
 
         progress += "GCL " + Game.gcl.level + ": " + (Game.gcl.progress * 100 / Game.gcl.progressTotal).toFixed(2) + "%";
@@ -99,7 +99,7 @@ var roleLogging = {
         progress += " | <strong>2<strong> controller <strong>" + Game.rooms[Memory.spawns[2].random.mainRoom].controller.level + "</strong>: <font color='yellow'>" + (Game.rooms[Memory.spawns[2].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[2].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
         progress += " | 3 controller " + Game.rooms[Memory.spawns[3].random.mainRoom].controller.level + ": <font color='yellow'>" + (Game.rooms[Memory.spawns[3].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[3].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
         progress += " | 4 controller " + Game.rooms[Memory.spawns[4].random.mainRoom].controller.level + ": <font color='yellow'>" + (Game.rooms[Memory.spawns[4].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[4].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
-        //progress += " | W59S26 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
+        progress += " | W59S26 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": " + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%";
 
         console.log(msg);
         console.log(msg2);
