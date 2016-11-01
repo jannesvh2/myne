@@ -294,7 +294,9 @@ var roleSpawn = {
 
             //console.log('Builders: ' + builders.length);
 
-            if (Memory.spawns[spawn].random.extractor && Memory.spawns[spawn].random.terminal && Game.getObjectById(Memory.spawns[spawn].random.extractor).mineralAmount > 0 && _.sum(Memory.spawns[spawn].random.terminal.store) < Memory.spawns[spawn].random.terminal.storeCapacity - 50000) {
+            let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
+            let extractor = Game.getObjectById(Memory.spawns[spawn].random.extractor);
+            if (extractor && terminal && extractor.mineralAmount > 0 && _.sum(terminal.store) < terminal.storeCapacity - 50000) {
 
                 if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 1 && !Memory.spawns[spawn].random.hostiles) {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
