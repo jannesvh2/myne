@@ -303,7 +303,7 @@ var roleSpawn = {
                         newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
                     else
                         newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
-                        
+
                     return;
                 }
             }
@@ -359,7 +359,7 @@ var roleSpawn = {
                 return;
             }
             if (spawn == 1 || spawn == 0) {
-                if (Memory.spawns[3].creeps.helpers.length < 3) {
+                if (Memory.spawns[4].creeps.helpers.length < 4) {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
                         newName = multiSpawn([WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, MOVE, MOVE], { role: 'upgrader2', spawn: 4, helper: true });
                     else
