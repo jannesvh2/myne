@@ -102,7 +102,7 @@ var roleLogging = {
         progress += " | <strong>2<strong> controller <strong>" + Game.rooms[Memory.spawns[2].random.mainRoom].controller.level + "</strong>: <font color='yellow'>" + (Game.rooms[Memory.spawns[2].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[2].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
         progress += " | 3 controller " + Game.rooms[Memory.spawns[3].random.mainRoom].controller.level + ": <font color='yellow'>" + (Game.rooms[Memory.spawns[3].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[3].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
         progress += " | 4 controller " + Game.rooms[Memory.spawns[4].random.mainRoom].controller.level + ": <font color='yellow'>" + (Game.rooms[Memory.spawns[4].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[4].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
-        progress += " | W59S26 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": <font color='yellow'>" + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
+        progress += " | 5 controller " + Game.rooms[Memory.spawns[5].random.mainRoom].controller.level + ": <font color='yellow'>" + (Game.rooms[Memory.spawns[5].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[5].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
 
         console.log(msg);
         console.log(msg2);
