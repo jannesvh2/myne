@@ -7,7 +7,7 @@ var roleLogging = {
         for (let a = 0, length = Memory.global.roomCount; a < length; a++) {
             let msg;
             if (Memory.spawns[a].random.useStore) {
-                msg = "(Spawn 0) H: " + Memory.spawns[a].creeps.harvesters2.length + "/" + Memory.spawns[a].summon.h2
+                msg = "(Spawn " + a + ") H: " + Memory.spawns[a].creeps.harvesters2.length + "/" + Memory.spawns[a].summon.h2
                 + ", B: " + Memory.spawns[a].creeps.builders2.length + "/" + Memory.spawns[a].summon.b2
                 + ", U: " + Memory.spawns[a].creeps.upgraders2.length + "/" + Memory.spawns[a].counters.avgUpgradersValue
                 + ", d/m/h: " + Memory.spawns[a].creeps.attackersD.length + "/" + Memory.spawns[a].summon.atkD + " " + Memory.spawns[a].creeps.attackersM.length + "/" + Memory.spawns[a].summon.atkM + " " + Memory.spawns[a].creeps.attackersH.length + "/" + Memory.spawns[a].summon.atkH
@@ -18,7 +18,7 @@ var roleLogging = {
                 + " | <font color='yellow'>(" + Game.rooms[Memory.spawns[a].random.mainRoom].controller.level + ") " + (Game.rooms[Memory.spawns[a].random.mainRoom].controller.progress * 100 / Game.rooms[Memory.spawns[a].random.mainRoom].controller.progressTotal).toFixed(2) + "%</font>";
             }
             else {
-                msg = "(Spawn 0) H: " + Memory.spawns[a].creeps.harvesters.length + "/" + Memory.spawns[a].summon.h
+                msg = "(Spawn " + a + ") H: " + Memory.spawns[a].creeps.harvesters.length + "/" + Memory.spawns[a].summon.h
                + ", B: " + Memory.spawns[a].creeps.builders.length + "/" + Memory.spawns[a].summon.b
                + ", U: " + Memory.spawns[a].creeps.upgraders.length + "/" + Memory.spawns[a].summon.u
                + ", d/m/h: " + Memory.spawns[a].creeps.attackersD.length + "/" + Memory.spawns[a].summon.atkD + " " + Memory.spawns[a].creeps.attackersM.length + "/" + Memory.spawns[a].summon.atkM + " " + Memory.spawns[a].creeps.attackersH.length + "/" + Memory.spawns[a].summon.atkH
