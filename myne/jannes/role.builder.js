@@ -51,6 +51,25 @@ var roleBuilder = {
                // }
             }
         }
+        if (creep.memory.store) {
+            if (creep.memory.full && creep.carry.energy == 0) {
+                creep.memory.full = false;
+            }
+            else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
+                creep.memory.full = true;
+
+            }
+            if (creep.memory.full) {
+                if (creep.transfer(Game.getObjectById('5819ba83b0033eb058e0d032'), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(Game.getObjectById('5819ba83b0033eb058e0d032'));
+            }
+            else {
+                if (creep.withdraw(Game.getObjectById('57f2981f4cc6201d12be00cd'), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(Game.getObjectById('57f2981f4cc6201d12be00cd'));
+
+            }
+            return;
+        }
 
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;

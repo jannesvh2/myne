@@ -74,6 +74,10 @@ var roleSpawn = {
                 return;
             }
 
+            if (spawn == 4 && builders.length < 3) {
+                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'builder', spawn: spawn, store: true });
+                return;
+            }
             if (Memory.spawns[spawn].random.defenders.length) {
                 for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
                     //def = 0;
@@ -178,7 +182,6 @@ var roleSpawn = {
             //            var newName7 = Game.spawns['Spawn' + spawn+1].createCreep([CARRY, CARRY, CARRY, CARRY, MOVE, MOVE], { role: 'link', type: 'container', sourceRoom: Memory.linkSource[l].sourceRoom });
             //    }
             //}
-
             if (builders.length < b) {
 
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550)
