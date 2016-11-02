@@ -358,8 +358,8 @@ var roleSpawn = {
                 Memory.spawns[spawn].random.hostiles = false;
                 return;
             }
-            if (spawn == 1 || spawn == 0) {
-                if (Memory.spawns[4].creeps.helpers.length < 6) {
+            if (spawn == 0) {
+                if (Memory.spawns[4].creeps.helpers.length < 0) {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
                         newName = multiSpawn([WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, MOVE, MOVE], { role: 'upgrader2', spawn: 4, helper: true });
                     else
