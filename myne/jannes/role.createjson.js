@@ -202,7 +202,7 @@ var roleCreateJSON = {
             Memory.spawns[1].summon.h = 0;
             Memory.spawns[1].summon.b = 0;
             Memory.spawns[1].summon.u = 0;
-            Memory.spawns[1].summon.h2 = 6;
+            Memory.spawns[1].summon.h2 = 5;
             Memory.spawns[1].summon.b2 = 1;
             Memory.spawns[1].summon.u2 = 0;
             Memory.spawns[1].summon.users = 1;
@@ -218,7 +218,7 @@ var roleCreateJSON = {
             Memory.spawns[1].random.upgradeSpots.push({ x: 41, y: 23 });
             Memory.spawns[1].random.upgradeSpots.push({ x: 40, y: 23 });
             //RoomList
-            Memory.spawns[1].random.rooms.push({ name: 'W9S59', spawn: 1 });
+            Memory.spawns[1].random.rooms.push({ name: 'W9S59', spawn: 0 });
             if (!Memory.spawns[1].random.hostiles) {
                 Memory.spawns[1].random.rooms.push({ name: 'W9S58', spawn: 3 });
                 Memory.spawns[1].random.rooms.push({ name: 'W8S59', spawn: 2 });
@@ -235,7 +235,7 @@ var roleCreateJSON = {
             Memory.spawns[1].random.useLinks = true;
             Memory.spawns[1].links.receiver = '5815a1317c06f6d64c8fb4fd';
             Memory.spawns[1].links.producers.push('5815a0cbe8610d796bab068c');
-            //Memory.spawns[1].links.producers.push('57de74c1bd52497b42f0c556');
+            Memory.spawns[1].links.producers.push('58192e2de9f1f76e74e3292e');
             //Memory.spawns[1].links.producers.push('57e924dce942a7843ffd2d79');
             //extractor
             //Memory.spawns[1].random.extractor = '579fab82b1f02a3b0cfefd9a';
@@ -372,8 +372,8 @@ var roleCreateJSON = {
             //spawn numbers
             Memory.spawns[4].summon.spawns = 1;
             Memory.spawns[4].summon.h = 0;
-            Memory.spawns[4].summon.b = 3;
-            Memory.spawns[4].summon.u = 6;
+            Memory.spawns[4].summon.b = 2;
+            Memory.spawns[4].summon.u = 3;
             Memory.spawns[4].summon.h2 = 0;
             Memory.spawns[4].summon.b2 = 0;
             Memory.spawns[4].summon.u2 = 0;

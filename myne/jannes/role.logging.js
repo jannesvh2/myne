@@ -109,7 +109,7 @@ var roleLogging = {
         console.log(msg3);
         console.log(msg4);
         console.log(msg5);
-        //console.log(msg6);
+        console.log(msg6);
         console.log(progress);
     }
 };
