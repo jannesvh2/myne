@@ -429,11 +429,11 @@ var roleCreateJSON = {
             //spawn 5
             //spawn numbers
             Memory.spawns[5].summon.spawns = 1;
-            Memory.spawns[5].summon.h = 3;
-            Memory.spawns[5].summon.b = 3;
-            Memory.spawns[5].summon.u = 6;
-            Memory.spawns[5].summon.h2 = 0;
-            Memory.spawns[5].summon.b2 = 0;
+            Memory.spawns[5].summon.h = 0;
+            Memory.spawns[5].summon.b = 0;
+            Memory.spawns[5].summon.u = 0;
+            Memory.spawns[5].summon.h2 = 4;
+            Memory.spawns[5].summon.b2 = 1;
             Memory.spawns[5].summon.u2 = 0;
             Memory.spawns[5].summon.users = 1;
             Memory.spawns[5].summon.atkM = 0;
@@ -450,19 +450,19 @@ var roleCreateJSON = {
 
             ////RoomList
             Memory.spawns[5].random.rooms.push({ name: 'W6S51', spawn: 1 });
-            //if (!Memory.spawns[5].random.hostiles) {
-            //    Memory.spawns[5].random.rooms.push({ name: 'W8S57', spawn: 3 });
+            if (!Memory.spawns[5].random.hostiles) {
+                Memory.spawns[5].random.rooms.push({ name: 'W5S51', spawn: 3 });
             //    //Memory.spawns[5].random.rooms.push({ name: 'W7S56', spawn: 3 });
-            //}
-            ////keeper
-            //if (!Memory.spawns[5].random.hostiles) {
-            //    Memory.spawns[5].spots.push({ sourceRoom: 'W8S57' });
+            }
+            //keeper
+            if (!Memory.spawns[5].random.hostiles) {
+                Memory.spawns[5].spots.push({ sourceRoom: 'W5S51' });
             //    Memory.spawns[5].spots.push({ sourceRoom: 'W7S56' });
-            //}
+            }
             //StoreId
-            //Memory.spawns[5].random.storeId = '57ef365d07b52c3e08f5aa07';
+            Memory.spawns[5].random.storeId = '581b6cf4cc8f911d697145a3';
             //UseStore
-            Memory.spawns[5].random.useStore = false;
+            Memory.spawns[5].random.useStore = true;
             //Memory.spawns[5].random.useLinks = true;
             //Memory.spawns[5].links.receiver = '57e322a114f3efa6216a00cb';
             //Memory.spawns[5].links.producers.push('57de74825294558044ba36a0');
