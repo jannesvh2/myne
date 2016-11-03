@@ -271,7 +271,7 @@ var roleAttackers = {
                     creep.moveTo(targetHeal);
             }
         }
-        //if (creep.room.name == sourceRoom && creep.hits < (creep.hitsMax * 2 / 3)) {
+        //if ((creep.room.name == sourceRoom || creep.room.name == saveRoom) && creep.hits < (creep.hitsMax * 2 / 3)) {
         //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
         //    var Exit = creep.pos.findClosestByRange(exitDir);
         //    creep.moveTo(Exit);
