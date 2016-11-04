@@ -102,6 +102,7 @@ var roleStore = {
                     creep.repair(container);
                     if (creep.pos.getRangeTo(container) > 0) {
                         creep.moveTo(container);
+                        creep.memory.rep = 7;
                         delete creep.memory.containerId;
                     }
                 }
