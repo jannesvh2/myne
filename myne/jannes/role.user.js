@@ -50,6 +50,7 @@ var roleUser = {
                 }
                 if (!targets && creep.carry.energy != creep.carryCapacity) {
                     creep.memory.full = false;
+                    delete creep.memory.targetId;
                 }
                 if (targets && targets.id)
                     creep.memory.targetId = targets.id;
@@ -63,8 +64,10 @@ var roleUser = {
             }
             if (target && creep.pos.inRangeTo(target, 1)) {
                 creep.transfer(target, RESOURCE_ENERGY);
-                if (creep.carry.energy < 51)
+                if (creep.carry.energy < 51) {
                     creep.memory.full = false;
+                    delete creep.memory.targetId;
+                }
                 else {
                     myFunction();
                     creep.moveTo(Game.getObjectById(creep.memory.targetId));
