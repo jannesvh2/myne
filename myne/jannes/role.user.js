@@ -5,19 +5,20 @@ var roleUser = {
 
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
+            delete creep.memory.targetId;
         }
         else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
             creep.memory.full = true;
         }
         if (creep.memory.full) {
             function myFunction() {
-                var targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                var targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity / 2 && structure.id != creep.memory.targetId;
                     }
                 });
                 if (!targets) {
-                    targets = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                    targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_EXTENSION ||
                                     structure.structureType == STRUCTURE_SPAWN ||
@@ -50,7 +51,7 @@ var roleUser = {
                 if (!targets && creep.carry.energy != creep.carryCapacity) {
                     creep.memory.full = false;
                 }
-                if (targets.id)
+                if (targets && targets.id)
                     creep.memory.targetId = targets.id;
             }
             if (!creep.memory.targetId)
@@ -62,8 +63,12 @@ var roleUser = {
             }
             if (target && creep.pos.inRangeTo(target, 1)) {
                 creep.transfer(target, RESOURCE_ENERGY);
-                creep.moveTo(target);
-                myFunction();
+                if (creep.carry.energy < 51)
+                    creep.memory.full = false;
+                else {
+                    myFunction();
+                    creep.moveTo(Game.getObjectById(creep.memory.targetId));
+                }
             }
             else if (target) {
                 creep.moveTo(target);
@@ -77,11 +82,12 @@ var roleUser = {
             //}));
 
         }
-        else
+        if (!creep.memory.full) {
             var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(storage);
             }
+        }
     }
 };
 
