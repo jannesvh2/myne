@@ -415,9 +415,9 @@ var roleCreateJSON = {
             Memory.spawns[5].random.storeId = '581b6cf4cc8f911d697145a3';
             //UseStore
             Memory.spawns[5].random.useStore = true;
-            //Memory.spawns[5].random.useLinks = true;
-            //Memory.spawns[5].links.receiver = '57e322a114f3efa6216a00cb';
-            //Memory.spawns[5].links.producers.push('57de74825294558044ba36a0');
+            Memory.spawns[5].random.useLinks = true;
+            Memory.spawns[5].links.receiver = '581cdd6eb18e2ea86a0397dc';
+            Memory.spawns[5].links.producers.push('581ce19484f6ed0671281c7f');
             //Memory.spawns[5].links.producers.push('57de74c1bd52497b42f0c556');
             //Memory.spawns[5].links.producers.push('57e924dce942a7843ffd2d79');
             //extractor
