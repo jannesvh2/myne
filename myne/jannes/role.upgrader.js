@@ -49,7 +49,7 @@ var roleUpgrader = {
             }
         }
 
-        if (creep.memory.full && creep.carry.energy == 0) {
+        if (creep.memory.full && creep.carry.energy < 15) {
             creep.memory.full = false;
             creep.say('harvesting');
         }
@@ -60,7 +60,6 @@ var roleUpgrader = {
 
         }
 
-        if (creep.memory.full) {
             if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller) == ERR_NOT_IN_RANGE) {
                 if (Memory.spawns[creep.memory.spawn].random.useUpgradeSpots) {
                     for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.upgradeSpots.length; a < length; a++) {
@@ -74,8 +73,7 @@ var roleUpgrader = {
                 else
                     creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
             }
-        }
-        else {
+        if (!creep.memory.full) {
             if (creep.memory.role == 'upgrader')
                 roleGetEnergy.run(creep, sources);
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
