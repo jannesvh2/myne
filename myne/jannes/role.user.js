@@ -46,6 +46,7 @@ var roleUser = {
             if (targets) {
                 if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets);
+                    creep.transfer(targets);
                 }
             }
             else if (Memory.spawns[creep.memory.spawn].random.terminal && Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
