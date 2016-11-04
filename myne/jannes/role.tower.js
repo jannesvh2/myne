@@ -16,7 +16,7 @@ var roleTower = {
                         if (username != 'Invader') {
                             Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom}`);
                         }
-                            Memory.spawns[a].random.hostiles = true;
+                        Memory.spawns[a].random.hostiles = true;
                         //}
                         var target;
                         for (let b = 0, length2 = hostiles.length; b < length2; b++) {
@@ -45,7 +45,8 @@ var roleTower = {
                             continue;
                         }
                     }
-                    Memory.spawns[a].random.hostiles = false;
+                    else
+                        Memory.spawns[a].random.hostiles = false;
 
                     Memory.spawns[a].counters.towerHostiles++;
                     if (Memory.spawns[a].counters.towerHostiles > 1500)

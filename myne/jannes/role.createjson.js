@@ -475,7 +475,7 @@ var roleCreateJSON = {
 
         for (let a = 0; a < Memory.global.roomCount; a++) {
             if (Memory.spawns[a].random.hostiles)
-                Memory.spawns[a].summon.users++;
+                Memory.spawns[a].summon.users = 2;
             //non Memory var
             if (Memory.spawns[a].counters.roomCounter > 120) {
                 Memory.global.isNew = true;
