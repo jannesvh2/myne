@@ -73,11 +73,6 @@ var roleSpawn = {
                     newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'user', spawn: spawn });
                 return;
             }
-
-            if (spawn == 4 && builders.length < 1 && Game.getObjectById(Memory.spawns[4].random.storeId).store.energy < 700000) {
-                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], { role: 'builder', spawn: spawn, store: true });
-                return;
-            }
             if (Memory.spawns[spawn].random.defenders.length) {
                 for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
                     //def = 0;
