@@ -70,11 +70,13 @@ var roleUser = {
                 }
                 else {
                     myFunction();
-                    creep.moveTo(Game.getObjectById(creep.memory.targetId));
+                    if (creep.moveTo(Game.getObjectById(creep.memory.targetId)) == ERR_NO_PATH)
+                        delete creep.memory.targetId;
                 }
             }
             else if (target) {
-                creep.moveTo(target);
+                if (creep.moveTo(target) == ERR_NO_PATH)
+                delete creep.memory.targetId;
             }
 
             //need work part

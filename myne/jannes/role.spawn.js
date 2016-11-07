@@ -215,9 +215,10 @@ var roleSpawn = {
                                     var amountToSell = 50000;
 
                                     var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
-                                        order.type == ORDER_BUY && order.price > 0.99 &&
-                                        Game.market.calcTransactionCost(1000, Memory.spawns[spawn].random.mainRoom, order.roomName) < 700);
+                                        order.type == ORDER_BUY && order.price > 0.19);
+
                                     if (orders.length) {
+                                        orders = _.sortBy(orders, order => order.price + Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
                                         Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
                                         //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                                         //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
@@ -261,9 +262,10 @@ var roleSpawn = {
                                     var amountToSell = 50000;
 
                                     var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
-                                        order.type == ORDER_BUY && order.price > 0.99 &&
-                                        Game.market.calcTransactionCost(1000, Memory.spawns[spawn].random.mainRoom, order.roomName) < 700);
+                                        order.type == ORDER_BUY && order.price > 0.19);
+
                                     if (orders.length) {
+                                        orders = _.sortBy(orders, order => order.price + Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
                                         Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
                                         //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                                         //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
