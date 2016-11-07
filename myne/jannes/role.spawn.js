@@ -307,13 +307,17 @@ var roleSpawn = {
                 newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'terminal', spawn: spawn });
                 return;
             }
-
-            else if (attackersH.length < atkH) {
-                //ranged
-                newName = multiSpawn([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'attackerH', spawn: spawn, getBoost: true, getBoostM: true, getBoostH: true, getBoostT: true });
-                return;
-                //melee
-                //var newName4 = Game.spawns['Spawn' + spawn+1].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK], { role: 'attacker' , spawn: spawn});
+            if (atkH > 0) {
+                if (attackersH.length < atkH) {
+                    newName = multiSpawn([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'attackerH', spawn: spawn, getBoost: false, getBoostM: true, getBoostH: true, getBoostT: true });
+                    return;
+                }
+                for (let c = 0, length2 = attackersH.length; c < length2; c++) {
+                    if (Game.creeps[attackersH[c]] && Game.creeps[attackersH[c]].ticksToLive < 300) {
+                        newName = multiSpawn([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'attackerH', spawn: spawn, getBoost: false, getBoostM: true, getBoostH: true, getBoostT: true });
+                        return;
+                    }
+                }
             }
             else if (attackersM.length < atkM) {
                 //ranged
@@ -334,12 +338,17 @@ var roleSpawn = {
                 return;
             }
 
-            else if (Memory.spawns[spawn].creeps.attackersD.length < Memory.spawns[spawn].summon.atkD) {
-                //ranged
-                newName = multiSpawn([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK], { role: 'attackerD', spawn: spawn });
-                return;
-                //melee
-                //var newName4 = Game.spawns['Spawn' + spawn+1].createCreep([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK], { role: 'attacker' , spawn: spawn});
+            if (Memory.spawns[spawn].summon.atkD > 0) {
+                if (Memory.spawns[spawn].creeps.attackersD.length < Memory.spawns[spawn].summon.atkD) {
+                    newName = multiSpawn([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK], { role: 'attackerD', spawn: spawn });
+                    return;
+                }
+                for (let c = 0, length2 = Memory.spawns[spawn].creeps.attackersD.length; c < length2; c++) {
+                    if (Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]] && Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]].ticksToLive < 300) {
+                        newName = multiSpawn([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK], { role: 'attackerD', spawn: spawn });
+                        return;
+                    }
+                }
             }
 
             if (Memory.spawns[spawn].random.hostiles && (!Memory.spawns[spawn].creeps.defenders.length || Memory.spawns[spawn].creeps.defenders.length < 5)) {
