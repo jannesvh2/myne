@@ -7,8 +7,6 @@ var roleLink = {
             var linkFrom = Game.getObjectById(Memory.spawns[spawn].links.producers[a]);
             if (!linkFrom)
                 continue;
-            if (linkFrom.energy < 300)
-                continue;
             var linkTo =  Game.getObjectById(Memory.spawns[spawn].links.receiver);
 
             if (linkFrom.transferEnergy(linkTo) == OK)
