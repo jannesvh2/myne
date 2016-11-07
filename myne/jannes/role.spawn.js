@@ -347,10 +347,10 @@ var roleSpawn = {
                     return;
                 }
                 for (let c = 0, length2 = Memory.spawns[spawn].creeps.attackersD.length; c < length2; c++) {
-                    if (!Game.creeps[attackersD[c]].memory.resummoned && Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]] && Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]].ticksToLive < 300) {
+                    if (!Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]].memory.resummoned && Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]] && Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]].ticksToLive < 300) {
                         newName = multiSpawn([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK], { role: 'attackerD', spawn: spawn });
                         if (typeof newName == 'string') {
-                            Game.creeps[attackersD[c]].memory.resummoned = true;
+                            Game.creeps[Memory.spawns[spawn].creeps.attackersD[c]].memory.resummoned = true;
                         }
                         return;
                     }
