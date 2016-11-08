@@ -16,7 +16,6 @@ var roleTower = {
                         if (username != 'Invader') {
                             Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom}`);
                         }
-                        Memory.spawns[a].random.hostiles = true;
                         //}
                         var target;
                         for (let b = 0, length2 = hostiles.length; b < length2; b++) {
@@ -31,6 +30,9 @@ var roleTower = {
                                         Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay--;
                                         if (Memory.spawns[a].random.towerHostiles[hostiles[b].id].delay <= 0)
                                             target = Game.getObjectById(hostiles[b].id);
+                                    }
+                                    else {
+                                        Memory.spawns[a].random.hostiles = true;
                                     }
                                 }
                             }
