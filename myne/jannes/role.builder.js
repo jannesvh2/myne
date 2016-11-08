@@ -161,9 +161,16 @@ var roleBuilder = {
                 return;
             }
             else if (Memory.spawns[creep.memory.spawn].random.useStore) {
-                var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(storage);
+                if (creep.room.name == Memory.spawns[creep.memory.spawn].random.mainRoom) {
+                    var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+                    if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(storage);
+                    }
+                }
+                else {
+                    creep.memory.room = creep.room.name;
+                    roleGetStore.run(creep);
+
                 }
                 return;
             }
