@@ -52,6 +52,9 @@ var roleDefenders = {
                     }
                 }
             }
+            else {
+                delete creep.memory.rampartId;
+            }
         }
         else {
             //If not in the correct room, move towards it
