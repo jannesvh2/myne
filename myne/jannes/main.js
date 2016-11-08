@@ -138,14 +138,14 @@ module.exports.loop = function () {
             //if (creep.memory.role == 'link') {
             //    roleLink.run(creep);
             //}
-            if (creep.pos.x == 0)
-                creep.move(RIGHT);
-            else if (creep.pos.y == 0)
-                creep.move(BOTTOM);
-            else if (creep.pos.x == 49)
-                creep.move(LEFT);
-            else if (creep.pos.y == 49)
-                creep.move(TOP);
+            //if (creep.pos.x == 0)
+            //    creep.move(RIGHT);
+            //else if (creep.pos.y == 0)
+            //    creep.move(BOTTOM);
+            //else if (creep.pos.x == 49)
+            //    creep.move(LEFT);
+            //else if (creep.pos.y == 49)
+            //    creep.move(TOP);
 
             // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu).toFixed(2);
             //  var cpu = Game.cpu.getUsed();
