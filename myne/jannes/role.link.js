@@ -9,6 +9,9 @@ var roleLink = {
             if (!linkFrom || !linkTo)
                 continue;
 
+            if (linkFrom.energy < 200)
+                continue;
+
             linkFrom.transferEnergy(linkTo);
         }
     }
