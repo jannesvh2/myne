@@ -51,17 +51,18 @@ module.exports.loop = function () {
 
     //var creepCpu = [];
     for (let name in Game.creeps) {
-       // let cpu2 = Game.cpu.getUsed();
+        // let cpu2 = Game.cpu.getUsed();
         try {
             var creep = Game.creeps[name];
-            var energy = creep.pos.findInRange(
-                FIND_DROPPED_ENERGY,
-                1, {
-                    filter: function (object) {
-                        return object.resourceType == "energy";
+            if (creep.role != 'store')
+                var energy = creep.pos.findInRange(
+                    FIND_DROPPED_ENERGY,
+                    1, {
+                        filter: function (object) {
+                            return object.resourceType == "energy";
+                        }
                     }
-                }
-            );
+                );
             let mustDel = false;
             if (energy.length) {
                 //console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
