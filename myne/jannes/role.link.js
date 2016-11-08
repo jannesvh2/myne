@@ -5,12 +5,11 @@ var roleLink = {
         for (let a = 0, length = Memory.spawns[spawn].links.producers.length; a < length; a++) {
 
             var linkFrom = Game.getObjectById(Memory.spawns[spawn].links.producers[a]);
-            if (!linkFrom)
+            var linkTo = Game.getObjectById(Memory.spawns[spawn].links.receiver);
+            if (!linkFrom || !linkTo)
                 continue;
-            var linkTo =  Game.getObjectById(Memory.spawns[spawn].links.receiver);
 
-            if (linkFrom.transferEnergy(linkTo) == OK)
-                break;
+            linkFrom.transferEnergy(linkTo);
         }
     }
 };
