@@ -61,21 +61,29 @@ var roleDefenders = {
                 creep.moveTo(Exit);
             }
             if (Game.rooms[creep.memory.sourceRoom])
-            var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS);
+                var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS);
 
             if (targets.length) {
 
-                if (creep.attack(targets[0]) != OK)
-                    if (creep.moveTo(targets[0]) != OK) {
+                if (creep.moveTo(targets[0]) != OK) {
+                    if (creep.room.name != creep.memory.sourceRoom) {
                         if (creep.room.name != creep.memory.sourceRoom) {
-                            if (creep.room.name != creep.memory.sourceRoom) {
-                                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
-                                var Exit = creep.pos.findClosestByRange(exitDir);
-                                creep.moveTo(Exit);
-                            }
+                            var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
+                            var Exit = creep.pos.findClosestByRange(exitDir);
+                            creep.moveTo(Exit);
                         }
                     }
+                }
             }
+        }
+
+        var targetHeal = creep.pos.findInRange(FIND_MY_CREEPS, 0, {
+            filter: function (object) {
+                return object.hits < object.hitsMax;
+            }
+        });
+        if (targetHeal.length) {
+            creep.heal(targetHeal[0]);
         }
 
     }
