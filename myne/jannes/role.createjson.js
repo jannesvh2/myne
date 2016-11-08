@@ -179,9 +179,9 @@ var roleCreateJSON = {
             Memory.spawns[0].random.useStore = true;
             Memory.spawns[0].random.useLinks = true;
             Memory.spawns[0].links.receiver = '581dbc0d4683ee2165588003';
-            Memory.spawns[0].links.producers.push('58107e321ac8625d740861f6');
-            Memory.spawns[0].links.producers.push('58151e89508d83ca5b57ba9a');
-            Memory.spawns[0].links.producers.push('58206eea9ae716ef3b196dc9');
+            Memory.spawns[0].links.producers.push({ id: '58107e321ac8625d740861f6', source: true });
+            Memory.spawns[0].links.producers.push({ id: '58151e89508d83ca5b57ba9a', source: true });
+            Memory.spawns[0].links.producers.push({ id: '58206eea9ae716ef3b196dc9', source: true });
             //extractor
             Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
             Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
@@ -236,9 +236,9 @@ var roleCreateJSON = {
             Memory.spawns[1].random.useStore = true;
             Memory.spawns[1].random.useLinks = true;
             Memory.spawns[1].links.receiver = '5815a1317c06f6d64c8fb4fd';
-            Memory.spawns[1].links.producers.push('5815a0cbe8610d796bab068c');
-            Memory.spawns[1].links.producers.push('58192e2de9f1f76e74e3292e');
-            //Memory.spawns[1].links.producers.push('57e924dce942a7843ffd2d79');
+            Memory.spawns[1].links.producers.push({ id: '5815a0cbe8610d796bab068c', source: true });
+            Memory.spawns[1].links.producers.push({ id: '58192e2de9f1f76e74e3292e', source: true });
+            //Memory.spawns[1].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             Memory.spawns[1].random.extractor = '579fab87b1f02a3b0cff02fb';
             Memory.spawns[1].random.terminal = '581a76d942f613dc4a3544a6';
@@ -282,9 +282,9 @@ var roleCreateJSON = {
             Memory.spawns[2].random.useStore = true;
             Memory.spawns[2].random.useLinks = true;
             Memory.spawns[2].links.receiver = '58188d71ef9d4bed36853b9e';
-            Memory.spawns[2].links.producers.push('5818d44598bdae001bc6118d');
-            Memory.spawns[2].links.producers.push('581c65d61b577cff47ce83ca');
-            //Memory.spawns[2].links.producers.push('57e924dce942a7843ffd2d79');
+            Memory.spawns[2].links.producers.push({ id: '5818d44598bdae001bc6118d', source: true });
+            Memory.spawns[2].links.producers.push({ id: '581c65d61b577cff47ce83ca', source: true });
+            //Memory.spawns[2].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             Memory.spawns[2].random.extractor = '579fab87b1f02a3b0cff02f4';
             Memory.spawns[2].random.terminal = '581d19ac83ddc28b14a43a4e';
@@ -327,9 +327,10 @@ var roleCreateJSON = {
             Memory.spawns[3].random.useStore = true;
             Memory.spawns[3].random.useLinks = true;
             Memory.spawns[3].links.receiver = '5818d9ebb033e5a20dc5b4fe';
-            Memory.spawns[3].links.producers.push('5818d98cd1c6336f788895a0');
-            Memory.spawns[3].links.producers.push('581e2c2cff5ef5bb166df9cf');
-            //Memory.spawns[3].links.producers.push('57e924dce942a7843ffd2d79');
+            Memory.spawns[0].links.receiverC = '581dbc0d4683ee2165588003';
+            Memory.spawns[3].links.producers.push({ id: '5818d98cd1c6336f788895a0', source: true });
+            Memory.spawns[3].links.producers.push({ id: '581e2c2cff5ef5bb166df9cf', source: true });
+            //Memory.spawns[3].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             Memory.spawns[3].random.extractor = '579fab88b1f02a3b0cff0319';
             Memory.spawns[3].random.terminal = '581f779e324e9a5e7a755e2f';
@@ -373,9 +374,9 @@ var roleCreateJSON = {
             Memory.spawns[4].random.useStore = true;
             Memory.spawns[4].random.useLinks = true;
             Memory.spawns[4].links.receiver = '581b9a4cdc867c402c841458';
-            Memory.spawns[4].links.producers.push('5819a70eed4bc0052bfbc2fe');
-            Memory.spawns[4].links.producers.push('581d798c3cde9d443e4ec27a');
-            //Memory.spawns[4].links.producers.push('57e924dce942a7843ffd2d79');
+            Memory.spawns[4].links.producers.push({ id: '5819a70eed4bc0052bfbc2fe', source: true });
+            Memory.spawns[4].links.producers.push({ id: '581d798c3cde9d443e4ec27a', source: true });
+            //Memory.spawns[4].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             Memory.spawns[4].random.extractor = '579fab87b1f02a3b0cff030a';
             Memory.spawns[4].random.terminal = '581e93ab1ba2e0cc73e157bf';
@@ -406,12 +407,12 @@ var roleCreateJSON = {
             Memory.spawns[5].random.rooms.push({ name: 'W6S51', spawn: 0 });
             if (!Memory.spawns[5].random.hostiles) {
                 Memory.spawns[5].random.rooms.push({ name: 'W5S51', spawn: 2 });
-            //    //Memory.spawns[5].random.rooms.push({ name: 'W7S56', spawn: 3 });
+                //    //Memory.spawns[5].random.rooms.push({ name: 'W7S56', spawn: 3 });
             }
             //keeper
             if (!Memory.spawns[5].random.hostiles) {
                 Memory.spawns[5].spots.push({ sourceRoom: 'W5S51' });
-            //    Memory.spawns[5].spots.push({ sourceRoom: 'W7S56' });
+                //    Memory.spawns[5].spots.push({ sourceRoom: 'W7S56' });
             }
             //StoreId
             Memory.spawns[5].random.storeId = '581b6cf4cc8f911d697145a3';
@@ -419,9 +420,9 @@ var roleCreateJSON = {
             Memory.spawns[5].random.useStore = true;
             Memory.spawns[5].random.useLinks = true;
             Memory.spawns[5].links.receiver = '581cdd6eb18e2ea86a0397dc';
-            Memory.spawns[5].links.producers.push('581ce19484f6ed0671281c7f');
-            Memory.spawns[5].links.producers.push('5821821d2c332399063f8a1a');
-            //Memory.spawns[5].links.producers.push('57e924dce942a7843ffd2d79');
+            Memory.spawns[5].links.producers.push({ id: '581ce19484f6ed0671281c7f', source: true });
+            Memory.spawns[5].links.producers.push({ id: '5821821d2c332399063f8a1a', source: true });
+            //Memory.spawns[5].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             //Memory.spawns[5].random.extractor = '579fab82b1f02a3b0cfefd9a';
             //Memory.spawns[5].random.terminal = Game.rooms[Memory.spawns[5].random.mainRoom].terminal;
@@ -465,9 +466,9 @@ var roleCreateJSON = {
             Memory.spawns[6].random.useStore = true;
             //Memory.spawns[6].random.useLinks = true;
             //Memory.spawns[6].links.receiver = '57e322a114f3efa6216a00cb';
-            //Memory.spawns[6].links.producers.push('57de74825294558044ba36a0');
-            //Memory.spawns[6].links.producers.push('57de74c1bd52497b42f0c556');
-            //Memory.spawns[6].links.producers.push('57e924dce942a7843ffd2d79');
+            //Memory.spawns[6].links.producers.push({ id: '57de74825294558044ba36a0', source: true });
+            //Memory.spawns[6].links.producers.push({ id: '57de74c1bd52497b42f0c556', source: true });
+            //Memory.spawns[6].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             //Memory.spawns[6].random.extractor = '579fab82b1f02a3b0cfefd9a';
             //Memory.spawns[6].random.terminal = Game.rooms[Memory.spawns[6].random.mainRoom].terminal;
