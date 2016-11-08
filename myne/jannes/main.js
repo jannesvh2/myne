@@ -18,6 +18,7 @@ var roleLab = require('role.lab');
 var roleGrafana = require('role.grafana');
 
 module.exports.loop = function () {
+    Memory.spawns[3].random.storageReserve = 0;
     //Memory.global.isNew = true;
     //Game.market.deal('57dc7f507a5cbc6f245035ea', 6298, "W59S29")
     PathFinder.use(true);
