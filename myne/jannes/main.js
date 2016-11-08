@@ -71,6 +71,40 @@ module.exports.loop = function () {
                 }
 
             }
+            if (creep.memory.role == 'defender') {
+                roleDefender.run(creep);
+                warType = true;
+                continue;
+            }
+            else if (creep.memory.role == 'attackerD') {
+                roleAttackers.run(creep);
+                warType = true;
+                continue;
+            }
+            else if (creep.memory.role == 'attackerM') {
+                roleAttackers.run(creep);
+                warType = true;
+                continue;
+            }
+            else if (creep.memory.role == 'attackerR') {
+                roleAttackers.run(creep);
+                warType = true;
+                continue;
+            }
+            else if (creep.memory.role == 'path2') {
+                rolePath.run(creep);
+                warType = true;
+                continue;
+            }
+            else if (creep.memory.role == 'attackerH') {
+                roleAttackers.run(creep);
+                continue;
+            }
+            if (creep.hits < creep.hitsMax) {
+                creep.moveTo(Memory.spawns[creep.memory.spawn].random.mainRoom);
+                continue;
+            }
+
             if (creep.memory.role == 'harvester') {
                 if (mustDel)
                     delete creep.memory.sourceId;
@@ -102,29 +136,11 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'store') {
                 roleStore.run(creep, Memory.spawns[creep.memory.spawn].sources);
             }
-            else if (creep.memory.role == 'attackerM') {
-                roleAttackers.run(creep);
-            }
-            else if (creep.memory.role == 'attackerR') {
-                roleAttackers.run(creep);
-            }
-            else if (creep.memory.role == 'path2') {
-                rolePath.run(creep);
-            }
             else if (creep.memory.role == 'scout') {
                 roleKeeper.run(creep);
             }
-            else if (creep.memory.role == 'defender') {
-                roleDefender.run(creep);
-            }
             else if (creep.memory.role == 'extractor') {
                 roleExtractor.run(creep);
-            }
-            else if (creep.memory.role == 'attackerH') {
-                roleAttackers.run(creep);
-            }
-            else if (creep.memory.role == 'attackerD') {
-                roleAttackers.run(creep);
             }
             else if (creep.memory.role == 'mover') {
                 roleMover.run(creep);
