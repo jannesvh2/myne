@@ -2,6 +2,15 @@ var roleLink = {
 
     /** @param {Creep} creep **/
     run: function (spawn) {
+        var linkToC;
+
+        var linkTo = Game.getObjectById(Memory.spawns[spawn].links.receiver);
+        if (!linkTo)
+            return;
+
+        if(Memory.spawns[spawn].links.receiverC)
+            linkToC = Game.getObjectById(Memory.spawns[spawn].links.receiverC);
+
         for (let a = 0, length = Memory.spawns[spawn].links.producers.length; a < length; a++) {
             var linkFrom = Game.getObjectById(Memory.spawns[spawn].links.producers[a].id);
             if(!linkFrom)
@@ -9,23 +18,17 @@ var roleLink = {
             if (linkFrom.energy < 200)
                 continue;
 
-
-            var linkTo = Game.getObjectById(Memory.spawns[spawn].links.receiver);
-            if (!linkTo)
-                continue;
-
-            if (Memory.spawns[spawn].links.receiverC) {
-                var linkToC = Game.getObjectById(Memory.spawns[spawn].links.receiverC);
-                if (linkToC && linkToC.energy < 600 && Memory.spawns[spawn].links.producers[a].source) {
+            if (linkToC && Memory.spawns[spawn].links.producers[a].source && linkToC.energy < 600) {
                     linkFrom.transferEnergy(linkToC);
                     continue;
-                }
-                if (linkToC && linkToC.energy < 200 && linkTo > 199)
-                    linkTo.transferEnergy(linkToC);
             }
 
             linkFrom.transferEnergy(linkTo);
         }
+
+
+        if (linkToC && linkToC.energy < 300 && linkTo.energy > 199)
+            linkTo.transferEnergy(linkToC);
     }
 };
 
