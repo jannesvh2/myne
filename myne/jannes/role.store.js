@@ -43,25 +43,10 @@ var roleStore = {
                         return;
                     }
                 }
-                else {
-                    var targets = creep.pos.findInRange(FIND_STRUCTURES, 2, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_LINK);
-                        }
-                    });
-
-                    if (targets[0]) {
-                        var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
-                        if (transfer == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(targets[0]);
-                        }
-                        return;
-                    }
-                }
             }
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty != OK) {
-                if (creep.moveTo(creepSource) == ERR_INVALID_TARGET);
+                creep.moveTo(creepSource);
             }
 
             if (!creep.memory.rep)
