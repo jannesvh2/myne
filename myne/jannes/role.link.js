@@ -8,20 +8,21 @@ var roleLink = {
                 continue;
             if (linkFrom.energy < 200)
                 continue;
+
+
+            var linkTo = Game.getObjectById(Memory.spawns[spawn].links.receiver);
+            if (!linkTo)
+                continue;
+
             if (Memory.spawns[spawn].links.receiverc) {
                 var linkToC = Game.getObjectById(Memory.spawns[spawn].links.receiverc);
                 if (linkToC && linkToC.energy < 600 && Memory.spawns[spawn].links.producers[a].source) {
                     linkFrom.transferEnergy(linkToC);
                     continue;
                 }
-                if (linkToC && linkToC.energy < 200)
+                if (linkToC && linkToC.energy < 200 && linkTo > 199)
                     linkTo.transferEnergy(linkToC);
             }
-
-            var linkTo = Game.getObjectById(Memory.spawns[spawn].links.receiver);
-            if (!linkTo)
-                continue;
-
 
             linkFrom.transferEnergy(linkTo);
         }
