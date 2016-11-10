@@ -16,6 +16,7 @@ var roleUser = require('role.user');
 var roleTerminalMover = require('role.terminalmover');
 var roleLab = require('role.lab');
 var roleGrafana = require('role.grafana');
+var rolePrototypes = require('role.prototypes');
 
 module.exports.loop = function () {
     //Memory.global.isNew = true;
@@ -34,6 +35,7 @@ module.exports.loop = function () {
     var cpu = Game.cpu.getUsed();
     var notify = "start: " + cpu.toFixed(2);
 
+    rolePrototypes.run();
     roleCreateJSON.run();
     notify += " | JSON: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     try {
