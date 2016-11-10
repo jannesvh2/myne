@@ -27,8 +27,8 @@ module.exports.loop = function () {
                 return (structure.structureType != STRUCTURE_WALL)
             }
         });
-        for (var d in destroy)
-            destroy[d].destroy();
+        for (var d of destroy)
+            d.destroy();
     }
     PathFinder.use(true);
     var cpu = Game.cpu.getUsed();
