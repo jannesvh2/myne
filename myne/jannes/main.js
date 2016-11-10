@@ -36,6 +36,9 @@ module.exports.loop = function () {
     var notify = "start: " + cpu.toFixed(2);
 
     rolePrototypes.run();
+    notify += " | Prototypes: " + (Game.cpu.getUsed() - cpu).toFixed(2);
+    var cpu = Game.cpu.getUsed();
+
     roleCreateJSON.run();
     notify += " | JSON: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     try {
