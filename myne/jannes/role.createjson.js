@@ -343,7 +343,7 @@ var roleCreateJSON = {
             Memory.spawns[4].summon.h = 0;
             Memory.spawns[4].summon.b = 0;
             Memory.spawns[4].summon.u = 0;
-            Memory.spawns[4].summon.h2 = 5;
+            Memory.spawns[4].summon.h2 = 6;
             Memory.spawns[4].summon.b2 = 1;
             Memory.spawns[4].summon.u2 = 0;
             Memory.spawns[4].summon.users = 1;
@@ -358,17 +358,19 @@ var roleCreateJSON = {
             Memory.spawns[4].random.upgradeSpots.push({ x: 34, y: 21 });
             Memory.spawns[4].random.upgradeSpots.push({ x: 34, y: 22 });
             Memory.spawns[4].random.upgradeSpots.push({ x: 34, y: 23 });
-
+            
             ////RoomList
             Memory.spawns[4].random.rooms.push({ name: 'W8S56', spawn: 0 });
             if (!Memory.spawns[4].random.hostiles) {
-                Memory.spawns[4].random.rooms.push({ name: 'W8S57', spawn: 3 });
-                Memory.spawns[4].random.rooms.push({ name: 'W7S56', spawn: 2 });
+                Memory.spawns[4].random.rooms.push({ name: 'W8S57', spawn: 2 });
+                Memory.spawns[4].random.rooms.push({ name: 'W7S56', spawn: 1 });
+                Memory.spawns[4].random.rooms.push({ name: 'W9S57', spawn: 3 });
             }
             ////keeper
             if (!Memory.spawns[4].random.hostiles) {
                 Memory.spawns[4].spots.push({ sourceRoom: 'W8S57' });
                 Memory.spawns[4].spots.push({ sourceRoom: 'W7S56' });
+                Memory.spawns[4].spots.push({ sourceRoom: 'W9S57' });
             }
             //StoreId
             Memory.spawns[4].random.storeId = '5819ba83b0033eb058e0d032';
