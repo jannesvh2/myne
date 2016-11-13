@@ -20,21 +20,22 @@ var roleBuilder = {
                     }
                     if (creep.memory.flag == 2) {
 
-                        flag = Game.flags['Flag8'];
+                        flag = Game.flags['Flag9'];
                         creep.moveTo(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 3;
                         return;
                     }
-                }
-                    //    if (creep.memory.flag == 3) {
+                    if (creep.memory.flag == 3) {
 
-                    //        flag = Game.flags['Flag3'];
-                    //        creep.moveTo(flag);
-                    //        if (flag.room.name == creep.room.name)
-                    //            creep.memory.flag = 4;
-                    //        return;
-                    //    }
+                        flag = Game.flags['Flag8'];
+                        creep.moveTo(flag);
+                        if (flag.room.name == creep.room.name)
+                            creep.memory.flag = 4;
+                        return;
+                    }
+
+                }
                     //    if (creep.memory.flag == 4) {
 
                     //        flag = Game.flags['Flag4'];
