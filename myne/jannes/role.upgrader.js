@@ -7,22 +7,22 @@ var roleUpgrader = {
     run: function (creep, sources) {
         if (creep.memory.helper) {
             if (creep.room.name != "W6S53") {
-                //var flag = Game.flags['Flag1'];
-                //if (flag) {
-                //    if (!creep.memory.flag || creep.memory.flag == 1) {
-                //        creep.moveTo(flag);
-                //        if (flag.room.name == creep.room.name)
-                //            creep.memory.flag = 2;
-                //        return;
-                //    }
-                //    if (creep.memory.flag == 2) {
+                var flag = Game.flags['Flag7'];
+                if (flag) {
+                    if (!creep.memory.flag || creep.memory.flag == 1) {
+                        creep.moveTo(flag);
+                        if (flag.room.name == creep.room.name)
+                            creep.memory.flag = 2;
+                        return;
+                    }
+                    if (creep.memory.flag == 2) {
 
-                //        flag = Game.flags['Flag2'];
-                //        creep.moveTo(flag);
-                //        if (flag.room.name == creep.room.name)
-                //            creep.memory.flag = 3;
-                //        return;
-                //    }
+                        flag = Game.flags['Flag8'];
+                        creep.moveTo(flag);
+                        if (flag.room.name == creep.room.name)
+                            creep.memory.flag = 3;
+                        return;
+                    }
                 //    if (creep.memory.flag == 3) {
 
                 //        flag = Game.flags['Flag3'];
