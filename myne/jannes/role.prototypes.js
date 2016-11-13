@@ -2,7 +2,7 @@ var rolePrototypes = {
 
     /** @param {Creep} creep **/
     run: function () {
-        Room.prototype.destroy = function () {
+        Room.prototype.destroyWalls = function () {
             let destroy = this.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_WALL)
