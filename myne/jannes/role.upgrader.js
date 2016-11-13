@@ -65,8 +65,10 @@ var roleUpgrader = {
                     }
                 }
             }
-            else
-                creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
+            else {
+                if (creep.memory.full || creep.memory.role == 'upgrader2')
+                    creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
+            }
         }
         if (!creep.memory.full) {
             if (creep.memory.role == 'upgrader')
