@@ -23,29 +23,30 @@ var roleUpgrader = {
                             creep.memory.flag = 3;
                         return;
                     }
-                //    if (creep.memory.flag == 3) {
+                }
+                    //    if (creep.memory.flag == 3) {
 
-                //        flag = Game.flags['Flag3'];
-                //        creep.moveTo(flag);
-                //        if (flag.room.name == creep.room.name)
-                //            creep.memory.flag = 4;
-                //        return;
-                //    }
-                //    if (creep.memory.flag == 4) {
+                    //        flag = Game.flags['Flag3'];
+                    //        creep.moveTo(flag);
+                    //        if (flag.room.name == creep.room.name)
+                    //            creep.memory.flag = 4;
+                    //        return;
+                    //    }
+                    //    if (creep.memory.flag == 4) {
 
-                //        flag = Game.flags['Flag4'];
-                //        creep.moveTo(flag);
-                //        return;
-                //    }
+                    //        flag = Game.flags['Flag4'];
+                    //        creep.moveTo(flag);
+                    //        return;
+                    //    }
 
 
-                //}
-                //else {
-                var exitDir = Game.map.findExit(creep.room.name, "W6S53");
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
-                return;
-                // }
+                    //}
+                else {
+                    var exitDir = Game.map.findExit(creep.room.name, "W6S53");
+                    var Exit = creep.pos.findClosestByRange(exitDir);
+                    creep.moveTo(Exit);
+                    return;
+                }
             }
         }
 
@@ -54,19 +55,19 @@ var roleUpgrader = {
             creep.say('harvesting');
         }
 
-            if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller) == ERR_NOT_IN_RANGE) {
-                if (Memory.spawns[creep.memory.spawn].random.useUpgradeSpots) {
-                    for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.upgradeSpots.length; a < length; a++) {
-                        let lookAt = creep.room.lookAt(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
-                        if (lookAt.length && lookAt.length < 2) {
-                            creep.moveTo(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
-                            break;
-                        }
+        if (creep.upgradeController(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller) == ERR_NOT_IN_RANGE) {
+            if (Memory.spawns[creep.memory.spawn].random.useUpgradeSpots) {
+                for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.upgradeSpots.length; a < length; a++) {
+                    let lookAt = creep.room.lookAt(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
+                    if (lookAt.length && lookAt.length < 2) {
+                        creep.moveTo(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
+                        break;
                     }
                 }
-                else
-                    creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
             }
+            else
+                creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
+        }
         if (!creep.memory.full) {
             if (creep.memory.role == 'upgrader')
                 roleGetEnergy.run(creep, sources);
