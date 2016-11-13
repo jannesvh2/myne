@@ -225,7 +225,6 @@ var roleSpawn = {
 
                                     if (orders.length) {
                                         orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
-                                        Memory.orders = orders;
                                         Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
                                         //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                                         //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
@@ -273,7 +272,6 @@ var roleSpawn = {
 
                                     if (orders.length) {
                                         orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
-                                        Memory.orders = orders;
                                         Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
                                         //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                                         //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
