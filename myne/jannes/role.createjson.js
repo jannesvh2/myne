@@ -337,7 +337,7 @@ var roleCreateJSON = {
             Memory.spawns[3].links.receiver = '58231d2de6f585d875530692';
             Memory.spawns[3].links.receiverC = '58238524daeb248c73fa0dd0';
             Memory.spawns[3].links.producers.push({ id: '5818d98cd1c6336f788895a0', source: false });
-            //Memory.spawns[3].links.producers.push({ id: '581e2c2cff5ef5bb166df9cf', source: false });
+            Memory.spawns[3].links.producers.push({ id: '5829cd78c9665e9240d56c75', source: false });
             //Memory.spawns[3].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             Memory.spawns[3].random.extractor = '579fab88b1f02a3b0cff0319';
@@ -517,7 +517,7 @@ var roleCreateJSON = {
             //    Memory.spawns[7].spots.push({ sourceRoom: 'W7S56' });
             }
             //StoreId
-            Memory.spawns[7].random.storeId = '581f609f0009bd4d5468e86e';
+            Memory.spawns[7].random.storeId = '5829c796bf338a0c6f4afc54';
             //UseStore
             Memory.spawns[7].random.useStore = true;
             //Memory.spawns[7].random.useLinks = true;
