@@ -297,11 +297,11 @@ var roleCreateJSON = {
 
             //spawn 3
             //spawn numbers
-            Memory.spawns[3].summon.spawns = 1;
+            Memory.spawns[3].summon.spawns = 2;
             Memory.spawns[3].summon.h = 0;
             Memory.spawns[3].summon.b = 0;
             Memory.spawns[3].summon.u = 0;
-            Memory.spawns[3].summon.h2 = 5;
+            Memory.spawns[3].summon.h2 = 8;
             Memory.spawns[3].summon.b2 = 1;
             Memory.spawns[3].summon.u2 = 0;
             Memory.spawns[3].summon.users = 1;
@@ -321,11 +321,13 @@ var roleCreateJSON = {
             if (!Memory.spawns[3].random.hostiles) {
                 Memory.spawns[3].random.rooms.push({ name: 'W8S53', spawn: 2 });
                 Memory.spawns[3].random.rooms.push({ name: 'W7S54', spawn: 2 });
+                Memory.spawns[3].random.rooms.push({ name: 'W8S54', spawn: 3 });
             }
             //keeper
             if (!Memory.spawns[3].random.hostiles) {
                 Memory.spawns[3].spots.push({ sourceRoom: 'W8S53' });
                 Memory.spawns[3].spots.push({ sourceRoom: 'W7S54' });
+                Memory.spawns[3].spots.push({ sourceRoom: 'W8S54' });
             }
             //StoreId
             Memory.spawns[3].random.storeId = '58233795f18b946a6ce6b250';
@@ -335,7 +337,7 @@ var roleCreateJSON = {
             Memory.spawns[3].links.receiver = '58231d2de6f585d875530692';
             Memory.spawns[3].links.receiverC = '58238524daeb248c73fa0dd0';
             Memory.spawns[3].links.producers.push({ id: '5818d98cd1c6336f788895a0', source: false });
-            //Memory.spawns[3].links.producers.push({ id: '581e2c2cff5ef5bb166df9cf', source: true });
+            //Memory.spawns[3].links.producers.push({ id: '581e2c2cff5ef5bb166df9cf', source: false });
             //Memory.spawns[3].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
             Memory.spawns[3].random.extractor = '579fab88b1f02a3b0cff0319';
@@ -485,10 +487,10 @@ var roleCreateJSON = {
             //spawn numbers
             Memory.spawns[7].summon.spawns = 1;
             Memory.spawns[7].summon.h = 0;
-            Memory.spawns[7].summon.b = 4;
+            Memory.spawns[7].summon.b = 0;
             Memory.spawns[7].summon.u = 0;
-            Memory.spawns[7].summon.h2 = 0;
-            Memory.spawns[7].summon.b2 = 0;
+            Memory.spawns[7].summon.h2 = 5;
+            Memory.spawns[7].summon.b2 = 1;
             Memory.spawns[7].summon.u2 = 0;
             Memory.spawns[7].summon.users = 1;
             Memory.spawns[7].summon.atkM = 0;
@@ -505,19 +507,19 @@ var roleCreateJSON = {
 
             ////RoomList
             Memory.spawns[7].random.rooms.push({ name: 'W6S53', spawn: 2 });
-            //if (!Memory.spawns[7].random.hostiles) {
-            //Memory.spawns[7].random.rooms.push({ name: 'W5S52', spawn: 3 });
-            //    //    Memory.spawns[7].random.rooms.push({ name: 'W7S56', spawn: 3 });
-            //}
+            if (!Memory.spawns[7].random.hostiles) {
+                Memory.spawns[7].random.rooms.push({ name: 'W6S52', spawn: 3 });
+            //    Memory.spawns[7].random.rooms.push({ name: 'W7S56', spawn: 3 });
+            }
             ////keeper
-            //if (!Memory.spawns[7].random.hostiles) {
-            //Memory.spawns[7].spots.push({ sourceRoom: 'W5S52' });
-            //    //    Memory.spawns[7].spots.push({ sourceRoom: 'W7S56' });
-            //}
+            if (!Memory.spawns[7].random.hostiles) {
+                Memory.spawns[7].spots.push({ sourceRoom: 'W6S52' });
+            //    Memory.spawns[7].spots.push({ sourceRoom: 'W7S56' });
+            }
             //StoreId
-            //Memory.spawns[7].random.storeId = '581f609f0009bd4d5468e86e';
+            Memory.spawns[7].random.storeId = '581f609f0009bd4d5468e86e';
             //UseStore
-            Memory.spawns[7].random.useStore = false;
+            Memory.spawns[7].random.useStore = true;
             //Memory.spawns[7].random.useLinks = true;
             //Memory.spawns[7].links.receiver = '5822e42339f57c9e23f650aa';
             //Memory.spawns[7].links.producers.push({ id: '5822e7a89a187519480305d4', source: true });
