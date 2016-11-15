@@ -8,6 +8,7 @@ var roleGrafana = {
             Memory.stats.cpu = {};
             Memory.stats.gcl = {};
             Memory.stats.room = {};
+            Memory.stats.sales = {};
         }
         Memory.global.grafanaTicks++;
 
