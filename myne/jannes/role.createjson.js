@@ -480,8 +480,8 @@ var roleCreateJSON = {
             Memory.spawns[6].links.producers.push({ id: '5828ded83e309cbe02bd70fd', source: true });
             //Memory.spawns[6].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
-            //Memory.spawns[6].random.extractor = '579fab82b1f02a3b0cfefd9a';
-            //Memory.spawns[6].random.terminal = Game.rooms[Memory.spawns[6].random.mainRoom].terminal;
+            Memory.spawns[6].random.extractor = '579fab88b1f02a3b0cff0334';
+            Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
 
             //spawn 7
             //spawn numbers
