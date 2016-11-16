@@ -14,7 +14,7 @@ var roleTower = {
                         Memory.spawns[a].counters.towerHostiles = 0;
                         var username = hostiles[0].owner.username;
                         if (username != 'Invader') {
-                            Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom}`);
+                            Game.notify(`User ${username} spotted in room ${Memory.spawns[a].random.mainRoom} at ${Game.time}`);
                         }
                         //}
                         var target;
