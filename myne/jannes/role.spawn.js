@@ -225,19 +225,7 @@ var roleSpawn = {
 
                                     if (orders.length) {
                                         orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
-                                        let stats = {};
-                                        stats.amount = terminal.store[resource];
-                                        stats.type = resource;
-                                        stats.credits = Game.market.credits;
-                                        stats.energy = terminal.store[energy];
-
                                         Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
-
-                                        stats.amount = stats.amount - terminal.store[resource];
-                                        stats.credits = Game.market.credits - stats.credits;
-                                        stats.energy = stats.energy - terminal.store[energy];
-
-                                        Memory.stats.sales.push(stats);
                                         //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                                         //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
                                     }
@@ -284,19 +272,7 @@ var roleSpawn = {
 
                                     if (orders.length) {
                                         orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
-                                        let stats = {};
-                                        stats.amount = terminal.store[resource];
-                                        stats.type = resource;
-                                        stats.credits = Game.market.credits;
-                                        stats.energy = terminal.store[energy];
-
                                         Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
-
-                                        stats.amount = stats.amount - terminal.store[resource];
-                                        stats.credits = Game.market.credits - stats.credits;
-                                        stats.energy = stats.energy - terminal.store[energy];
-
-                                        Memory.stats.sales.push(stats);
                                         //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
                                         //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
                                     }
