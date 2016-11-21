@@ -9,21 +9,17 @@ var roleDefenders = {
         var targets = [];
 
         if (creep.memory.sourceRoom == Memory.spawns[creep.memory.spawn].random.mainRoom) {
-            //if (!creep.memory.boosted) {
-            //    var lab = targets.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-            //        filter: (structure) => {
-            //            return (structure.structureType == STRUCTURE_LAB && structure.mineralType == 'XGHO2' && structure.mineralAmount > 100)
-            //        }
-            //    });
-            //    if (getBoost) {
-            //        let boost = lab.boostCreep(creep);
-            //        if (boost == ERR_NOT_IN_RANGE)
-            //            creep.moveTo(lab);
-            //        if (boost == OK)
-            //            creep.memory.boosted = true;
-            //        return;
-            //    }
-            //}
+            if (creep.memory.mustBoost) {
+                var lab = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.defLab);
+                if (lab && lab.mineralType == 'XUH2O') {
+                    let boost = lab.boostCreep(creep);
+                    if (boost == ERR_NOT_IN_RANGE)
+                        creep.moveTo(lab);
+                    if (boost == OK)
+                        creep.memory.mustBoost = false;
+                    return;
+                }
+            }
             var targets = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
             if (targets) {
                 if (!creep.memory.rampartId) {
