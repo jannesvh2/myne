@@ -323,11 +323,12 @@ var roleSpawn = {
                     return;
                 }
             }
-
-            if (Memory.spawns[spawn].random.runReaction && !Memory.spawns[spawn].creeps.terminals) {
-                newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'terminal', spawn: spawn });
+            let lab = Game.getObjectById(Memory.spawns[spawn].random.defLab);
+            if (!Memory.spawns[spawn].creeps.terminals && (Memory.spawns[spawn].random.runReaction || (terminal && terminal.store['XUH2O'] && lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000))) {
+                newName = multiSpawn([MOVE, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'terminal', spawn: spawn });
                 return;
             }
+
             if (atkH > 0) {
                 if (attackersH.length < atkH) {
                     newName = multiSpawn([TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'attackerH', spawn: spawn, getBoost: true, getBoostM: true, getBoostH: true, getBoostT: true });

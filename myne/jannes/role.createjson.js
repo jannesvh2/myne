@@ -187,6 +187,8 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
             Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
+            Memory.spawns[0].random.defLab = '';
+
             //reactions
             //Memory.spawns[0].random.runReaction = false;
             //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
@@ -244,6 +246,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[1].random.extractor = '579fab87b1f02a3b0cff02fb';
             Memory.spawns[1].random.terminal = '581a76d942f613dc4a3544a6';
+            Memory.spawns[1].random.defLab = '';
 
             //spawn 2
             //spawn numbers
@@ -294,6 +297,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[2].random.extractor = '579fab87b1f02a3b0cff02f4';
             Memory.spawns[2].random.terminal = '581d19ac83ddc28b14a43a4e';
+            Memory.spawns[2].random.defLab = '';
 
             //spawn 3
             //spawn numbers
@@ -342,6 +346,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[3].random.extractor = '579fab88b1f02a3b0cff0319';
             Memory.spawns[3].random.terminal = '581f779e324e9a5e7a755e2f';
+            Memory.spawns[3].random.defLab = '';
 
             //spawn 4
             //spawn numbers
@@ -390,6 +395,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[4].random.extractor = '579fab87b1f02a3b0cff030a';
             Memory.spawns[4].random.terminal = '581e93ab1ba2e0cc73e157bf';
+            Memory.spawns[4].random.defLab = '';
 
             //spawn 5
             //spawn numbers
@@ -436,6 +442,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[5].random.extractor = '579fab88b1f02a3b0cff0326';
             Memory.spawns[5].random.terminal = '58221a217f0d8a854578f352';
+            Memory.spawns[5].random.defLab = '';
 
             //spawn 6
             //spawn numbers
@@ -482,6 +489,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[6].random.extractor = '579fab88b1f02a3b0cff0334';
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
+            Memory.spawns[6].random.defLab = '';
 
             //spawn 7
             //spawn numbers
@@ -528,6 +536,7 @@ var roleCreateJSON = {
             //extractor
             Memory.spawns[7].random.extractor = '579fab88b1f02a3b0cff0328';
             Memory.spawns[7].random.terminal = '5831d5d8202214f5461bdab4';
+            Memory.spawns[7].random.defLab = '';
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
