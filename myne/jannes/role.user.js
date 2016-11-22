@@ -26,28 +26,37 @@ var roleUser = {
                                     (structure.structureType == STRUCTURE_TOWER && structure.energy < structure.energyCapacity - 250)) && structure.energy < structure.energyCapacity && structure.id != creep.memory.targetId;
                         }
                     });
-                }
-                if (!targets) {
-                    for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
-                        if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name]) {
-                            var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name].find(FIND_MY_STRUCTURES, {
-                                filter: (structure) => {
-                                    return (structure.structureType == STRUCTURE_EXTENSION ||
-                                            structure.structureType == STRUCTURE_SPAWN ||
-                                            (structure.structureType == STRUCTURE_TOWER && structure.energy < structure.energyCapacity - 250)) && structure.energy < structure.energyCapacity && structure.id != creep.memory.targetId;
-                                }
-                            })[0];
-                            if (targets)
-                                break;
+
+                    //if (!targets) {
+                    //    for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
+                    //        if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name]) {
+                    //            var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name].find(FIND_MY_STRUCTURES, {
+                    //                filter: (structure) => {
+                    //                    return (structure.structureType == STRUCTURE_EXTENSION ||
+                    //                            structure.structureType == STRUCTURE_SPAWN ||
+                    //                            (structure.structureType == STRUCTURE_TOWER && structure.energy < structure.energyCapacity - 250)) && structure.energy < structure.energyCapacity && structure.id != creep.memory.targetId;
+                    //                }
+                    //            })[0];
+                    //            if (targets)
+                    //                break;
+                    //        }
+                    //    }
+                    //}
+
+                    if (!targets) {
+                        if (Memory.spawns[creep.memory.spawn].random.terminal && Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
+                            targets = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
                         }
                     }
+                    //nuke
+                    //if (!targets) {
+                    //    if (Memory.spawns[creep.memory.spawn].random.terminal && Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
+                    //        targets = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
+                    //    }
+                    //}
                 }
 
-                if (!targets) {
-                    if (Memory.spawns[creep.memory.spawn].random.terminal && Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
-                        targets = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
-                    }
-                }
+
                 if (!targets && creep.carry.energy != creep.carryCapacity) {
                     creep.memory.full = false;
                     delete creep.memory.targetId;
