@@ -298,7 +298,7 @@ var roleSpawn = {
                     return;
 
                 }
-                else if ((!upgraders2.length || upgraders2[0].ticksToLive < 60) && Memory.spawns[spawn].random.storeId && Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > (Memory.spawns[spawn].random.storageReserve * 0.50)) {
+                else if ((!upgraders2.length || (Game.creeps[upgraders2[0]] && Game.creeps[upgraders2[0]].ticksToLive < 60 && upgraders2.length < 2)) && Memory.spawns[spawn].random.storeId && Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > (Memory.spawns[spawn].random.storageReserve * 0.50)) {
                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: spawn });
                     return;
                 }
