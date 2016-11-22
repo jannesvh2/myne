@@ -16,8 +16,8 @@ var roleLink = {
 
             if (!linkFrom)
                 continue;
-            if (linkFrom.energy < 200)
-                continue;
+            //if (linkFrom.energy < 200)
+            //    continue;
 
             if (linkToC && Memory.spawns[spawn].links.producers[a].source && linkToC.energy < 600) {
                 linkFrom.transferEnergy(linkToC);
@@ -29,7 +29,7 @@ var roleLink = {
         }
 
 
-        if (linkToC && linkToC.energy < 300 && linkTo.energy > 199)
+        if (linkToC && linkToC.energy < 300 && linkTo.energy > 0)
             linkTo.transferEnergy(linkToC);
     }
 };
