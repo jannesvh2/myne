@@ -25,7 +25,8 @@ var roleLink = {
             }
 
             if (linkTo.energy < 300)
-                linkFrom.transferEnergy(linkTo);
+                if (linkFrom.transferEnergy(linkTo) == OK)
+                    break;
         }
 
 
