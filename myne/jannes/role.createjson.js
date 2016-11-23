@@ -271,7 +271,6 @@ var roleCreateJSON = {
             Memory.spawns[2].random.upgradeSpots.push({ x: 33, y: 29 });
             Memory.spawns[2].random.upgradeSpots.push({ x: 32, y: 29 });
             Memory.spawns[2].random.upgradeSpots.push({ x: 31, y: 29 });
-            Memory.spawns[2].random.upgradeSpots.push({ x: 30, y: 29 });
 
             //RoomList
             Memory.spawns[2].random.rooms.push({ name: 'W9S52', spawn: 0 });
