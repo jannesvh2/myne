@@ -6,6 +6,7 @@ var roleGetEnergy = {
             // if (creep.memory.role != 'builder' && creep.room.name != 'W59S29')
             //   Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
             if (!creep.memory.sourceId) {
+
                 var tmpsources = [];
                 for (var t = 0, length = sources.length; t < length; t++) {
                     let tmp = Game.getObjectById(sources[t]);
@@ -59,7 +60,7 @@ var roleGetEnergy = {
         if (sourceEmpty == ERR_NOT_IN_RANGE) {
             var move = creep.moveTo(creepSource);
             if (move == ERR_INVALID_TARGET || move == ERR_NO_PATH)
-                creep.memory.sourceId = tmpsources[Math.floor((Math.random() * tmpsources.length))];
+                delete creep.memory.sourceId;
         }
         else if (sourceEmpty == ERR_NOT_ENOUGH_ENERGY && creep.carry.energy != 0)
             creep.memory.full = true;
