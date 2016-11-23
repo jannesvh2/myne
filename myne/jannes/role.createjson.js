@@ -190,7 +190,7 @@ var roleCreateJSON = {
             Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
             Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
             Memory.spawns[0].random.defLab = '5834cc21443e2b9d39429d48';
-            Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
+            //Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
 
             //reactions
             //Memory.spawns[0].random.runReaction = false;
