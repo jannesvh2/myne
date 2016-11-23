@@ -52,7 +52,7 @@ var roleUser = {
                     //nuke
                     if (!targets) {
                         let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
-                        if (nuker && nuker.Energy < 300000) {
+                        if (nuker && nuker.energy < 300000) {
                             targets = nuker;
                         }
                     }
