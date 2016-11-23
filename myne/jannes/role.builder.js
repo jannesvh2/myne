@@ -9,7 +9,7 @@ var roleBuilder = {
         //new spawn
         //Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([WORK, WORK, WORK, WORK,WORK, WORK, WORK, WORK, WORK, WORK,WORK,WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'builder', spawn: spawn });
         if (creep.memory.helper) {
-            if (creep.room.name != "W6S53") {
+            if (creep.room.name != "W3S55") {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
@@ -33,7 +33,7 @@ var roleBuilder = {
                     //        if (flag.room.name == creep.room.name)
                     //            creep.memory.flag = 4;
                     //        return;
-                        //    }
+                    //    }
 
                 }
                     //    if (creep.memory.flag == 4) {
@@ -46,7 +46,7 @@ var roleBuilder = {
 
                     //}
                 else {
-                    var exitDir = Game.map.findExit(creep.room.name, "W6S53");
+                    var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                     return;

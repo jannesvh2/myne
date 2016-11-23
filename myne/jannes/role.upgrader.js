@@ -6,7 +6,7 @@ var roleUpgrader = {
     /** @param {Creep} creep **/
     run: function (creep, sources) {
         if (creep.memory.helper) {
-            if (creep.room.name != "W6S53") {
+            if (creep.room.name != "W3S55") {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
@@ -42,7 +42,7 @@ var roleUpgrader = {
 
                     //}
                 else {
-                    var exitDir = Game.map.findExit(creep.room.name, "W6S53");
+                    var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
                     creep.moveTo(Exit);
                     return;
