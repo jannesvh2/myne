@@ -22,6 +22,7 @@ var roleUser = {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_EXTENSION ||
                                     structure.structureType == STRUCTURE_SPAWN ||
+                                    structure.structureType == STRUCTURE_POWER_SPAWN ||
                                 structure.structureType == STRUCTURE_LAB ||
                                     (structure.structureType == STRUCTURE_TOWER && structure.energy < structure.energyCapacity - 250)) && structure.energy < structure.energyCapacity && structure.id != creep.memory.targetId;
                         }
@@ -49,11 +50,12 @@ var roleUser = {
                         }
                     }
                     //nuke
-                    //if (!targets) {
-                    //    if (Memory.spawns[creep.memory.spawn].random.terminal && Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
-                    //        targets = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
-                    //    }
-                    //}
+                    if (!targets) {
+                        let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
+                        if (nuker && nuker.Energy < 300000) {
+                            targets = nuker;
+                        }
+                    }
                 }
 
 
