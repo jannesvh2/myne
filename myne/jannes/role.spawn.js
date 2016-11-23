@@ -120,7 +120,7 @@ var roleSpawn = {
                 for (let s = 0, length = sources.length; s < length; s++) {
                     let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId == sources[s]);
                     if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
-                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s].id, spawn: spawn });
+                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
                         return;
                     }
 
