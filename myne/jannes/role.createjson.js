@@ -608,7 +608,7 @@ var roleCreateJSON = {
                     if (Game.rooms[Memory.spawns[a].random.rooms[myRooms].name]) {
                         roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_SOURCES);
                         for (let b = 0, length2 = roomSources.length; b < length2; b++) {
-                            Memory.spawns[a].sources.push(roomSources[b]);
+                            Memory.spawns[a].sources.push(roomSources[b].id);
                         }
                         Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_STRUCTURES, {
                             filter: (structure) => {
@@ -625,7 +625,7 @@ var roleCreateJSON = {
                     if (Game.rooms[Memory.spawns[a].random.rooms[myRooms].name]) {
                         roomSources = Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_SOURCES);
                         for (let b = 0, length2 = roomSources.length; b < length2; b++) {
-                            Memory.spawns[a].sources.push(roomSources[b]);
+                            Memory.spawns[a].sources.push(roomSources[b].id);
                         }
                         Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_STRUCTURES, {
                             filter: (structure) => {
@@ -657,11 +657,11 @@ var roleCreateJSON = {
                 if (!Memory.spawns[a].counters.history)
                     Memory.spawns[a].counters.history = {};
                 for (let s = 0, length = Memory.spawns[a].sources.length; s < length; s++) {
-                    if (!Memory.spawns[a].counters.history[Memory.spawns[a].sources[s].id])
-                        Memory.spawns[a].counters.history[Memory.spawns[a].sources[s].id] = 0;
+                    if (!Memory.spawns[a].counters.history[Memory.spawns[a].sources[s]])
+                        Memory.spawns[a].counters.history[Memory.spawns[a].sources[s]] = 0;
                     //Memory[sources[s].id] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-                    Memory.spawns[a].counters.atSources[Memory.spawns[a].sources[s].id] = 0;
-                    Memory.spawns[a].counters.avgAtSource[Memory.spawns[a].sources[s].id] = Memory.spawns[a].counters.history[Memory.spawns[a].sources[s].id];
+                    Memory.spawns[a].counters.atSources[Memory.spawns[a].sources[s]] = 0;
+                    Memory.spawns[a].counters.avgAtSource[Memory.spawns[a].sources[s]] = Memory.spawns[a].counters.history[Memory.spawns[a].sources[s]];
                 }
             }
             //repair

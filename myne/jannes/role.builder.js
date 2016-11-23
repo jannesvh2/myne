@@ -4,7 +4,7 @@ var roleRepairer = require('role.repairer');
 var roleBuilder = {
 
     /** @param {Creep} creep **/
-    run: function (creep, sources) {
+    run: function (creep) {
 
         //new spawn
         //Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([WORK, WORK, WORK, WORK,WORK, WORK, WORK, WORK, WORK, WORK,WORK,WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'builder', spawn: spawn });
@@ -159,7 +159,7 @@ var roleBuilder = {
         }
         else {
             if (creep.memory.role == 'builder') {
-                roleGetEnergy.run(creep, sources);
+                roleGetEnergy.run(creep, Memory.spawns[creep.memory.spawn].sources);
                 return;
             }
             else if (Memory.spawns[creep.memory.spawn].random.useStore) {

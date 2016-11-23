@@ -69,7 +69,7 @@ var roleTower = {
                     for (var t in Memory.spawns[a].repairHp) {
                         let rep = Game.getObjectById(t);
                         if (!rep)
-                            delete Memory.spawns[a].repairHp[t]
+                            delete Memory.spawns[a].repairHp[t];
                         else
                             repList.push(rep);
 

@@ -7,14 +7,27 @@ var roleGetEnergy = {
             //   Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
             if (!creep.memory.sourceId) {
                 var tmpsources = sources;
+
+                var tmpsources = [];
+                for (var t = 0, length = sources.length; t < length; t++) {
+                    let tmp = Game.getObjectById(sources[t]);
+                    if (!tmp)
+                        delete Memory.spawns[creep.memory.spawn].sources[t];
+                    else
+                        tmpsources.push(tmp);
+
+                }
+
                 var tmpsourcesLength = tmpsources.length;
                 while (tmpsourcesLength > 0) {
                     var s = 0;
-                    creep.memory.sourceId = creep.pos.findClosestByRange(tmpsources);
-                    if (creep.memory.sourceId == null || creep.memory.sourceId === undefined)
+                    creep.memory.sourceId = creep.pos.findClosestByRange(tmpsources, { filter: (structure) => {
+                        return (Game.getObjectById(structure) && Game.getObjectById(structure).energy > 250
+                            )}});
+                    if (creep.memory.sourceId == null || creep.memory.sourceId == undefined)
                         creep.memory.sourceId = tmpsources[Math.floor((Math.random() * tmpsources.length))];
                     creep.memory.sourceId = creep.memory.sourceId.id;
-                    if (Memory.spawns[creep.memory.spawn].counters.avgAtSource[creep.memory.sourceId] > 3 || Game.getObjectById(creep.memory.sourceId).energy < 300) {
+                    if (Memory.spawns[creep.memory.spawn].counters.avgAtSource[creep.memory.sourceId] > 3 || Game.getObjectById(creep.memory.sourceId).energy < 250) {
                         for (let trm = 0, length = tmpsources.length; trm < length; trm++)
                             if (tmpsources[trm].id == creep.memory.sourceId) {
                                 tmpsources.splice(trm, 1);

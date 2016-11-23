@@ -4,7 +4,7 @@ var roleGetStore = require('role.getstore');
 var roleHarvester = {
 
     /** @param {Creep} creep **/
-    run: function (creep, sources) {
+    run: function (creep) {
         if (creep.memory.helper) {
             if (creep.room.name != "W9S59") {
                 var exitDir = Game.map.findExit(creep.room.name, "W9S59");

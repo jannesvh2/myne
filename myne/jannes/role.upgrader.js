@@ -4,7 +4,7 @@ var roleGetStore = require('role.getstore');
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
-    run: function (creep, sources) {
+    run: function (creep) {
         if (creep.memory.helper) {
             if (creep.room.name != "W3S55") {
                 var flag = Game.flags['Flag7'];
@@ -72,7 +72,7 @@ var roleUpgrader = {
         }
         if (!creep.memory.full) {
             if (creep.memory.role == 'upgrader')
-                roleGetEnergy.run(creep, sources);
+                roleGetEnergy.run(creep, Memory.spawns[creep.memory.spawn].sources);
             else if (Memory.spawns[creep.memory.spawn].random.storeId) {
                 var storage;
                 if (Memory.spawns[creep.memory.spawn].links.receiverC)
