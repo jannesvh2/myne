@@ -619,6 +619,10 @@ var roleCreateJSON = {
                     }
                 }
             }
+            else {
+                for (let r = 0, lengthR = Memory.spawns[a].random.roomContainers.length; r < lengthR; r++)
+                    Memory.spawns[a].random.roomContainers[r] = Game.getObjectById(Memory.spawns[a].random.roomContainers.id);
+            }
             if (!Memory.spawns[a].sources.length)
                 for (let myRooms = 0, length = Memory.spawns[a].random.rooms.length; myRooms < length; myRooms++) {
                     if (Game.rooms[Memory.spawns[a].random.rooms[myRooms].name]) {
