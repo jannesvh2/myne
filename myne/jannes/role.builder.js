@@ -85,6 +85,7 @@ var roleBuilder = {
                         creep.moveTo(targets);
                     }
                     creep.memory.targetId = targets.id;
+                    creep.memory.targetPos = targets.pos;
                     creep.memory.type = 'build';
                 }
                 else {
@@ -102,6 +103,7 @@ var roleBuilder = {
                     }
                     if (targets.length) {
                         creep.memory.targetId = targets[0].id;
+                        creep.memory.targetPos = targets[0].pos;
                         creep.memory.type = 'build';
 
                         canBuild = true;
@@ -133,6 +135,15 @@ var roleBuilder = {
             else if (creep.memory.type == 'build') {
                 var targetId = Game.getObjectById(creep.memory.targetId);
                 if (!targetId) {
+                    let repBuild = creep.room.lookForAt(LOOK_STRUCTURES, creep.memory.targetPos.x, creep.memory.targetPos.y, {
+                        filter: (structure) => {
+                            return (structure.hits == 1 && structure.structureType == STRUCTURE_RAMPART)
+                        }
+                    });
+                    if (repBuild.length)
+                        Memory.spawns[creep.memory.spawn].repairHpHistory[repBuild[0].id] = 2000;
+
+                    delete creep.memory.targetPos;
                     delete creep.memory.type;
                     delete creep.memory.targetId;
                     return;
