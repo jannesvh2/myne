@@ -51,7 +51,7 @@ var roleGetStore = {
                         }
                     }
                 }
-                else {
+                else if (Memory.spawns[creep.memory.spawn].store.length) {
                     creep.memory.sourceId = Memory.spawns[creep.memory.spawn].store[0].id;
                     Memory.spawns[creep.memory.spawn].store.splice(0, 1);
                 }

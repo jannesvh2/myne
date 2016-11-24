@@ -519,12 +519,12 @@ var roleCreateJSON = {
             Memory.spawns[7].random.rooms.push({ name: 'W6S53', spawn: 0 });
             if (!Memory.spawns[7].random.hostiles) {
                 Memory.spawns[7].random.rooms.push({ name: 'W6S52', spawn: 2 });
-            //    Memory.spawns[7].random.rooms.push({ name: 'W7S56', spawn: 3 });
+                //    Memory.spawns[7].random.rooms.push({ name: 'W7S56', spawn: 3 });
             }
             ////keeper
             if (!Memory.spawns[7].random.hostiles) {
                 Memory.spawns[7].spots.push({ sourceRoom: 'W6S52' });
-            //    Memory.spawns[7].spots.push({ sourceRoom: 'W7S56' });
+                //    Memory.spawns[7].spots.push({ sourceRoom: 'W7S56' });
             }
             //StoreId
             Memory.spawns[7].random.storeId = '582e4d002044ca0c5085b586';
@@ -565,12 +565,12 @@ var roleCreateJSON = {
             ////RoomList
             Memory.spawns[8].random.rooms.push({ name: 'W3S55', spawn: 1 });
             if (!Memory.spawns[8].random.hostiles) {
-              //  Memory.spawns[8].random.rooms.push({ name: 'W6S52', spawn: 2 });
+                //  Memory.spawns[8].random.rooms.push({ name: 'W6S52', spawn: 2 });
                 //    Memory.spawns[8].random.rooms.push({ name: 'W7S56', spawn: 3 });
             }
             ////keeper
             if (!Memory.spawns[8].random.hostiles) {
-              //  Memory.spawns[8].spots.push({ sourceRoom: 'W6S52' });
+                //  Memory.spawns[8].spots.push({ sourceRoom: 'W6S52' });
                 //    Memory.spawns[8].spots.push({ sourceRoom: 'W7S56' });
             }
             //StoreId

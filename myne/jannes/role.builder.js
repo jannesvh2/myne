@@ -137,7 +137,7 @@ var roleBuilder = {
                 if (!targetId) {
                     let repBuild = creep.room.lookForAt(LOOK_STRUCTURES, creep.memory.targetPos.x, creep.memory.targetPos.y);
                     if (repBuild.length)
-                        for (let a = 0, length = repBuild.length; a < repBuild; a++)
+                        for (let a = 0, length = repBuild.length; a < length; a++)
                             if (repBuild[a].hits == 1) {
                                 Memory.spawns[creep.memory.spawn].repairHpHistory[repBuild[a].id] = 2000;
                                 break;
