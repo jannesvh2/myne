@@ -139,7 +139,7 @@ var roleBuilder = {
                     if (repBuild.length)
                         for (let a = 0, length = repBuild.length; a < repBuild; a++)
                             if (repBuild[a].hits == 1) {
-                                Memory.spawns[creep.memory.spawn].repairHpHistory[repBuild[0].id] = 2000;
+                                Memory.spawns[creep.memory.spawn].repairHpHistory[repBuild[a].id] = 2000;
                                 break;
                             }
 
