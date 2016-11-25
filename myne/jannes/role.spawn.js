@@ -46,6 +46,10 @@ var roleSpawn = {
                             Memory.spawns[creep.memory.spawn].creeps.users.push(creep.name);
                         else if (creep.memory.role == 'terminal')
                             Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
+                        else if (creep.memory.role == 'toTerminal')
+                            Memory.spawns[creep.memory.spawn].creeps.toTerminals.push(creep.name);
+                        else if (creep.memory.role == 'toStore')
+                            Memory.spawns[creep.memory.spawn].creeps.toStores.push(creep.name);
 
                         return spawnReturn;
                     }
@@ -296,6 +300,11 @@ var roleSpawn = {
                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: spawn });
                     return;
                 }
+
+                if (Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > Memory.spawns[spawn].random.storageReserve && !Memory.spawns[spawn].creeps.toTerminal.length) {
+                    newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toTerminal', spawn: spawn });
+                    return;
+                }
             }
             //console.log('Upgraders: ' + upgraders.length);
 
@@ -304,6 +313,13 @@ var roleSpawn = {
             //console.log('Builders: ' + builders.length);
 
             let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
+
+
+            if (terminal && terminal.store.energy > 55000 && !Memory.spawns[spawn].creeps.toStore.length) {
+                newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toStore', spawn: spawn });
+                return;
+            }
+
             let extractor = Game.getObjectById(Memory.spawns[spawn].random.extractor);
             if (extractor && terminal && extractor.mineralAmount > 0 && _.sum(terminal.store) < terminal.storeCapacity - 50000) {
 

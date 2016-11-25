@@ -159,6 +159,12 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'terminal') {
                 roleTerminalMover.run(creep);
             }
+            else if (creep.memory.role == 'toTerminal') {
+                roleTerminalMover.run(creep);
+            }
+            else if (creep.memory.role == 'toStore') {
+                roleTerminalMover.run(creep);
+            }
             //if (creep.memory.role == 'link') {
             //    roleLink.run(creep);
             //}

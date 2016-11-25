@@ -81,6 +81,8 @@ var roleCreateJSON = {
                 Memory.spawns[a].creeps.movers = [];
                 Memory.spawns[a].creeps.users = [];
                 Memory.spawns[a].creeps.terminals = [];
+                Memory.spawns[a].creeps.toTerminals = [];
+                Memory.spawns[a].creeps.toStores = [];
                 Memory.spawns[a].counters.creeps = 0;
                 Memory.spawns[a].store = [];
             }
@@ -125,6 +127,10 @@ var roleCreateJSON = {
                     Memory.spawns[creep.memory.spawn].creeps.users.push(creep.name);
                 else if (creep.memory.role == 'terminal')
                     Memory.spawns[creep.memory.spawn].creeps.terminals.push(creep.name);
+                else if (creep.memory.role == 'toTerminal')
+                    Memory.spawns[creep.memory.spawn].creeps.toTerminals.push(creep.name);
+                else if (creep.memory.role == 'toStore')
+                    Memory.spawns[creep.memory.spawn].creeps.toStores.push(creep.name);
             }
         }
 
@@ -190,6 +196,8 @@ var roleCreateJSON = {
             Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
             Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
             Memory.spawns[0].random.defLab = '5834cc21443e2b9d39429d48';
+
+            Memory.spawns[0].random.overflow = 'W5S53';
             //Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
 
             //reactions
@@ -616,6 +624,15 @@ var roleCreateJSON = {
                                     );
                             }
                         }))
+                    }
+                }
+
+                if (Memory.spawns[a].random.overflow) {
+                    let sendOverflow = Game.rooms[Memory.spawns[a].random.overflow].terminal;
+                    let sendOverflowFrom = Game.rooms[Memory.spawns[a].random.mainRoom].terminal;
+
+                    if (_.sum(sendOverflow.store) < 280000 && sendOverflowFrom.store.energy > 55000) {
+                        Game.rooms[Memory.spawns[a].random.mainRoom].terminal.send(RESOURCE_ENERGY, 30000, Memory.spawns[a].random.overflow, null);
                     }
                 }
             }
