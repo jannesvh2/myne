@@ -301,7 +301,7 @@ var roleSpawn = {
                     return;
                 }
 
-                if (Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > Memory.spawns[spawn].random.storageReserve && !Memory.spawns[spawn].creeps.toTerminal.length) {
+                if (Game.getObjectById(Memory.spawns[spawn].random.storeId).store.energy > Memory.spawns[spawn].random.storageReserve && !Memory.spawns[spawn].creeps.toTerminals.length) {
                     newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toTerminal', spawn: spawn });
                     return;
                 }
@@ -315,7 +315,7 @@ var roleSpawn = {
             let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
 
 
-            if (terminal && terminal.store.energy > 55000 && !Memory.spawns[spawn].creeps.toStore.length) {
+            if (terminal && terminal.store.energy > 55000 && !Memory.spawns[spawn].creeps.toStores.length) {
                 newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toStore', spawn: spawn });
                 return;
             }
