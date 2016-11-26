@@ -87,16 +87,19 @@ var roleTerminalMover = {
 
                     }
                 }
-                else if (creep.memory.role == 'toStore' && terminal.store.energy > 55000) {
+                else if (creep.memory.role == 'toStore') {
                     if (creep.memory.full) {
                         if (creep.transfer(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                             creep.moveTo(store);
                         }
                     }
                     else {
-                        if (creep.withdraw(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        if (creep.withdraw(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE ) {
                             creep.moveTo(terminal);
                         }
+
+                        if (terminal.store.energy < 55000)
+                            creep.memory.role = 'user';
 
                     }
 
