@@ -315,7 +315,7 @@ var roleSpawn = {
             let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
 
 
-            if (terminal && terminal.store.energy > 55000 && !Memory.spawns[spawn].creeps.toStores.length) {
+            if (terminal && terminal.store.energy > 55000 && !Memory.spawns[spawn].creeps.toStores.length && Game.rooms[Memory.spawns[spawn].random.mainRoom].controller.level != 8) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
                     newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'toStore', spawn: spawn });
                 else
