@@ -136,7 +136,7 @@ var roleHarvester = {
                     });
                     if (targets) {
                         var path = creep.room.findPath(creep.pos, targets.pos);
-                        console.log(path.length);
+                        console.log(path.length +" "+ creep.memory.spawn);
                         if (path.length < 7) {
                             creep.memory.targetId = targets.id;
                             creep.move(path[0].direction);
