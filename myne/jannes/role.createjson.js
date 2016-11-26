@@ -304,6 +304,7 @@ var roleCreateJSON = {
             Memory.spawns[2].links.producers.push({ id: '5818d44598bdae001bc6118d', source: true });
             Memory.spawns[2].links.producers.push({ id: '581c65d61b577cff47ce83ca', source: true });
             Memory.spawns[2].links.producers.push({ id: '58246ddc8b1b147e1b644ca8', source: true });
+            Memory.spawns[2].links.producers.push({ id: '5839b4d604d6c956765b4ec4', source: true });
             //extractor
             Memory.spawns[2].random.extractor = '579fab87b1f02a3b0cff02f4';
             Memory.spawns[2].random.terminal = '581d19ac83ddc28b14a43a4e';
