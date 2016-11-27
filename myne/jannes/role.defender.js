@@ -110,6 +110,7 @@ var roleDefenders = {
                                 creep.moveTo(targetHeal[0]);
                                 if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
                                     creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                return;
                             }
                             else
                                 creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
@@ -133,9 +134,11 @@ var roleDefenders = {
             }
 
             //If not in the correct room, move towards it
-            var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
-            var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit);
+            if (creep.room.name != creep.memory.sourceRoom) {
+                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit);
+            }
         }
         creep.heal(creep);
 
