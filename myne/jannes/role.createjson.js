@@ -462,7 +462,7 @@ var roleCreateJSON = {
             Memory.spawns[6].summon.h = 0;
             Memory.spawns[6].summon.b = 0;
             Memory.spawns[6].summon.u = 0;
-            Memory.spawns[6].summon.h2 = 5;
+            Memory.spawns[6].summon.h2 = 6;
             Memory.spawns[6].summon.b2 = 1;
             Memory.spawns[6].summon.u2 = 0;
             Memory.spawns[6].summon.users = 1;
@@ -482,7 +482,7 @@ var roleCreateJSON = {
             Memory.spawns[6].random.rooms.push({ name: 'W5S53', spawn: 0 });
             if (!Memory.spawns[6].random.hostiles) {
                 Memory.spawns[6].random.rooms.push({ name: 'W5S52', spawn: 2 });
-                Memory.spawns[6].random.rooms.push({ name: 'W5S54', spawn: 3, sk: true });
+                Memory.spawns[6].random.rooms.push({ name: 'W5S54', spawn: 4, sk: true });
             }
             ////keeper
             if (!Memory.spawns[6].random.hostiles) {
