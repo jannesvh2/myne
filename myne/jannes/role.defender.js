@@ -100,6 +100,16 @@ var roleDefenders = {
                 else {
                     if (creep.getActiveBodyparts(RANGED_ATTACK) && creep.room.name == creep.memory.sourceRoom) {
                         if (creep.memory.skSpwn) {
+                            var targetHeal = creep.pos.findInRange(FIND_MY_CREEPS, 3, {
+                                filter: function (object) {
+                                    return object.hits < object.hitsMax;
+                                }
+                            });
+                            if (targetHeal) {
+                                creep.heal(targetHeal[0]);
+                                creep.moveTo(targetHeal[0]);
+                                return;
+                            }
                             creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                         }
                         else {
