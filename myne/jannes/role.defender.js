@@ -108,7 +108,8 @@ var roleDefenders = {
                             if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
                                 creep.moveTo(targetHeal[0]);
-                                return;
+                                if (targetHeal[0].name != creep.name)
+                                    return;
                             }
                             creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                         }
