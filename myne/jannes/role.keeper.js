@@ -10,7 +10,7 @@ var roleKeeper = {
         let room = Game.rooms[creep.memory.sourceRoom];
         if (room && creep.memory.sk) {
             if (creep.pos.roomName == creep.memory.sourceRoom) {
-                if (creep.pos.x != creep.memory.x && creep.pos.y != creep.memory.y) {
+                if (creep.pos.x != creep.memory.x || creep.pos.y != creep.memory.y) {
                     creep.moveTo(creep.memory.x, creep.memory.y);
                 }
                 return;
