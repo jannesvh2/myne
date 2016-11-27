@@ -28,7 +28,7 @@ var roleGetStore = {
                 for (let b = 0, length = Memory.spawns[creep.memory.spawn].random.roomContainers.length; b < length; b++) {
                     Memory.spawns[creep.memory.spawn].store.push(Memory.spawns[creep.memory.spawn].random.roomContainers[b]);
                     for (let c = 0, length2 = creeps.length; c < length2; c++) {
-                        if (Game.creeps[creeps[c]].memory.sourceId && Game.creeps[creeps[c]].memory.sourceId == Memory.spawns[creep.memory.spawn].store[b - counter].id && Memory.spawns[creep.memory.spawn].store[b - counter].store.energy < 2000) {
+                        if (Game.creeps[creeps[c]].memory.sourceId && Game.creeps[creeps[c]].memory.sourceId == Memory.spawns[creep.memory.spawn].store[b - counter].id) {
                             Memory.spawns[creep.memory.spawn].store.splice(b - counter, 1);
                             counter++;
                             break;
