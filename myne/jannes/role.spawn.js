@@ -95,9 +95,10 @@ var roleSpawn = {
 
                         }
                         if ((!defs.length && !defType) || ((defs.length < 2 || defs.length < 3 && Game.creeps[defs[0]].ticksToLive < 170) && defType) && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def]) {
+                            Game.notify('sourceRoom: ' + Memory.spawns[spawn].random.defenders[def]);
 
                             if (defType)
-                                newName = multiSpawn([TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, RANGED_ATTACK, ATTACK, HEAL, HEAL, HEAL, HEAL, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
+                                newName = multiSpawn([TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, HEAL, HEAL, HEAL, HEAL, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
                             else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)
                                 newName = multiSpawn([TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
                             else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1800)
@@ -332,11 +333,6 @@ var roleSpawn = {
                     return;
                 }
             }
-            //console.log('Upgraders: ' + upgraders.length);
-
-            //Game.spawns['Spawn10'].createCreep([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'upgrader2', spawn: 2 });
-
-            //console.log('Builders: ' + builders.length);
 
             let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
 
