@@ -108,7 +108,7 @@ module.exports.loop = function () {
                 roleAttackers.run(creep);
                 continue;
             }
-            if (creep.hits < creep.hitsMax && !creep.memory.sk) {
+            if (creep.hits < creep.hitsMax) {
                 creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                 continue;
             }
