@@ -87,7 +87,6 @@ var roleSpawn = {
                     if (Memory.spawns[spawn].random.defenders[def] != Memory.spawns[spawn].random.mainRoom) {
                         let defs = _.filter(defenders, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
                         if (!defs.length && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def]) {
-                            console.log(Memory.spawns[spawn].spots[Memory.spawns[spawn].random.defenders[def]].sk);
                             var defType = false;
                             for (let s = 0, lengthS = Memory.spawns[spawn].spots.length; s < lengthS; s++) {
                                 if (Memory.spawns[spawn].spots[s].sourceRoom == Memory.spawns[spawn].random.defenders[def]) {
