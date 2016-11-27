@@ -108,10 +108,11 @@ var roleDefenders = {
                             if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
                                 creep.moveTo(targetHeal[0]);
-                                if (targetHeal.length > 1)
-                                    return;
+                                if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
+                                    creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                             }
-                            creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                            else
+                                creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                         }
                         else {
                             let skSpawn = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
