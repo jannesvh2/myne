@@ -134,7 +134,7 @@ var roleSpawn = {
             if (Memory.spawns[spawn].random.useStore && Memory.spawns[spawn].creeps.stores.length < sources.length) {
                 for (let s = 0, length = sources.length; s < length; s++) {
                     let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId == sources[s]);
-                    if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 160)) {
+                    if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 100)) {
                         let roomCheck = Game.getObjectById(sources[s]);
                         if (roomCheck) {
                             if (roomCheck.energyCapacity == 4000) {
