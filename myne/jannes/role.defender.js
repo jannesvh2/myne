@@ -86,6 +86,8 @@ var roleDefenders = {
                                 creep.moveTo(Exit);
                             }
                         }
+                        if (creep.getActiveBodyparts(RANGED_ATTACK))
+                            creep.rangedAttack(targets[0]);
                     }
                     creep.heal(creep);
                     return;
