@@ -642,7 +642,7 @@ var roleCreateJSON = {
                 for (let r = 0, lengthR = Memory.spawns[a].random.roomContainers.length; r < lengthR; r++) {
                     let roomCont = Game.getObjectById(Memory.spawns[a].random.roomContainers[r].id);
                     if (roomCont)
-                        Memory.spawns[a].random.roomContainers[r] = roomCont.id;
+                        Memory.spawns[a].random.roomContainers[r] = roomCont;
                 }
             }
             if (!Memory.spawns[a].sources.length)
@@ -658,7 +658,7 @@ var roleCreateJSON = {
                                     //&& structure.store.energy > 500
                                     );
                             }
-                        }))
+                        }));
                     }
                 }
 
