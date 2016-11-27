@@ -78,7 +78,8 @@ var roleDefenders = {
                 var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS, {
                     filter: (enemy) => {
                         return (enemy.owner.username != 'Source Keeper')
-                    });
+                    }
+                });
 
             if (targets.length) {
 
