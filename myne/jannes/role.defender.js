@@ -72,17 +72,9 @@ var roleDefenders = {
             if (Game.rooms[creep.memory.sourceRoom]) {
                 var targets = [];
                 if (creep.room.name != creep.memory.sourceRoom)
-                    targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS, {
-                        filter: (enemy) => {
-                            return (enemy.owner.username != 'Source Keeper')
-                        }
-                    });
+                    targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS);
                 else {
-                    let tmp = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
-                        filter: (enemy) => {
-                            return (enemy.owner.username != 'Source Keeper')
-                        }
-                    });
+                    let tmp = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
                     if (tmp)
                         targets.push(tmp);
                 }
@@ -99,10 +91,32 @@ var roleDefenders = {
                     }
                     creep.heal(creep);
                     if (creep.getActiveBodyparts(RANGED_ATTACK)) {
+                        delete creep.memory.skSpwn;
                         creep.rangedAttack(targets[0]);
                         creep.attack(targets[0]);
                     }
                     return;
+                }
+                else {
+                    if (creep.getActiveBodyparts(RANGED_ATTACK) && creep.room.name == creep.memory.sourceRoom) {
+                        if (creep.memory.skSpwn) {
+                            creep.memory.moveTo(Game.getObjectById(creep.memory.skSpwn));
+                        }
+                        else {
+                            let skSpawn = creep.pos.find(FIND_STRUCTURES, {
+                                filter: (structure) => {
+                                    return (structure.owner.userName == 'Source Keeper')
+                                }
+                            });
+                            var spawnIn = 1000
+                            for (let s = 0, lengthS = skSpawn.length; s < lengthS; s++) {
+                                if (spawnIn > skSpawn[s].ticksToSpawn) {
+                                    creep.memory.skSpwn = skSpawn[s].id
+                                    spawnIn = skSpawn[s].ticksToSpawn;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
