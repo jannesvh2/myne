@@ -100,7 +100,7 @@ var roleDefenders = {
                 else {
                     if (creep.getActiveBodyparts(RANGED_ATTACK) && creep.room.name == creep.memory.sourceRoom) {
                         if (creep.memory.skSpwn) {
-                            creep.moveTo(Game.getObjectById(creep.memory.skSpwn));
+                            creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                         }
                         else {
                             let skSpawn = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
