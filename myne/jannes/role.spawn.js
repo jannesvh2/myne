@@ -94,7 +94,7 @@ var roleSpawn = {
                             }
 
                         }
-                        if ((!defs.length && !defType) || ((defs.length < 2 || defs.length < 3 && Game.creeps[defs[0]].ticksToLive < 170) && defType) && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def]) {
+                        if ((!defs.length && !defType) || ((defs.length < 2 || defs.length < 3 && Game.creeps[defs[0]].ticksToLive < 170) && defType) && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def] && Memory.spawns[spawn].random.defenders[def] != undefined) {
                             Game.notify('sourceRoom: ' + Memory.spawns[spawn].random.defenders[def]);
 
                             if (defType)
