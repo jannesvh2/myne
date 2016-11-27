@@ -98,14 +98,15 @@ var roleDefenders = {
                     return;
                 }
                 else {
+                    console.log('h');
                     if (creep.getActiveBodyparts(RANGED_ATTACK) && creep.room.name == creep.memory.sourceRoom) {
                         if (creep.memory.skSpwn) {
                             creep.memory.moveTo(Game.getObjectById(creep.memory.skSpwn));
                         }
                         else {
-                            let skSpawn = creep.pos.find(FIND_STRUCTURES, {
+                            let skSpawn = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
                                 filter: (structure) => {
-                                    return (structure.owner.userName == 'Source Keeper')
+                                    return (structure.owner.username == 'Source Keeper')
                                 }
                             });
                             var spawnIn = 1000
