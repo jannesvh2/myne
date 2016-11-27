@@ -3,7 +3,11 @@ var roleKeeper = {
     /** @param {Creep} creep **/
     run: function (creep) {
 
-        var hostiles = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        var hostiles = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+            filter: (enemy) => {
+                return (enemy.owner.username != 'Source Keeper')
+            }
+        });
         if (hostiles && creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
             Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
 
