@@ -69,33 +69,35 @@ var roleDefenders = {
             }
         }
         else {
-            //If not in the correct room, move towards it
-            if (!Game.rooms[creep.memory.sourceRoom]) {
-                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
-            }
-            if (Game.rooms[creep.memory.sourceRoom])
+            if (Game.rooms[creep.memory.sourceRoom]) {
                 var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS, {
                     filter: (enemy) => {
                         return (enemy.owner.username != 'Source Keeper')
                     }
                 });
 
-            if (targets.length) {
+                if (targets.length) {
 
-                if (creep.moveTo(targets[0]) != OK) {
-                    if (creep.room.name != creep.memory.sourceRoom) {
+                    if (creep.moveTo(targets[0]) != OK) {
                         if (creep.room.name != creep.memory.sourceRoom) {
-                            var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
-                            var Exit = creep.pos.findClosestByRange(exitDir);
-                            creep.moveTo(Exit);
+                            if (creep.room.name != creep.memory.sourceRoom) {
+                                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
+                                var Exit = creep.pos.findClosestByRange(exitDir);
+                                creep.moveTo(Exit);
+                            }
                         }
                     }
+                    creep.heal(creep);
+                    return;
                 }
             }
+
+            //If not in the correct room, move towards it
+                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo(Exit);
         }
-            creep.heal(creep);
+        creep.heal(creep);
 
     }
 };
