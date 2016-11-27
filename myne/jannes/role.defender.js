@@ -94,15 +94,7 @@ var roleDefenders = {
                 }
             }
         }
-
-        var targetHeal = creep.pos.findInRange(FIND_MY_CREEPS, 0, {
-            filter: function (object) {
-                return object.hits < object.hitsMax;
-            }
-        });
-        if (targetHeal.length) {
-            creep.heal(targetHeal[0]);
-        }
+            creep.heal(creep);
 
     }
 };
