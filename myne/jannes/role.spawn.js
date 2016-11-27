@@ -87,7 +87,16 @@ var roleSpawn = {
                     if (Memory.spawns[spawn].random.defenders[def] != Memory.spawns[spawn].random.mainRoom) {
                         let defs = _.filter(defenders, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
                         if (!defs.length && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def]) {
-                            if (Memory.spawns[spawn].spots[Memory.spawns[spawn].random.defenders[def]].sk)
+                            console.log(Memory.spawns[spawn].spots[Memory.spawns[spawn].random.defenders[def]].sk);
+                            var defType = false;
+                            for (let s = 0, lengthS = Memory.spawns[spawn].spots.length; s < lengthS; s++) {
+                                if (Memory.spawns[spawn].spots[s].sourceRoom == Memory.spawns[spawn].random.defenders[def]) {
+                                    if (Memory.spawns[spawn].spots[s].sk)
+                                        defType = true;
+                                }
+
+                            }
+                            if (defType)
                                 newName = multiSpawn([TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
                             else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)
                                 newName = multiSpawn([TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
@@ -151,7 +160,7 @@ var roleSpawn = {
                     let ticks = _.filter(scouts, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
                     if (!ticks.length || (ticks.length == 1 && Game.creeps[ticks[0]].ticksToLive < 100)) {
                         if (Memory.spawns[spawn].spots[scout].sk) {
-                            newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn, sk: true, x: Memory.spawns[spawn].spots[scout].x, y: Memory.spawns[spawn].spots[scout].y});
+                            newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn, sk: true, x: Memory.spawns[spawn].spots[scout].x, y: Memory.spawns[spawn].spots[scout].y });
                             return;
                         }
                         if (Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom] && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation.ticksToEnd > 3500 || Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)
