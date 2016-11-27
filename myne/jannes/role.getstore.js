@@ -60,7 +60,7 @@ var roleGetStore = {
 
         if (creep.memory.sourceId) {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
-            if (!creepSource)
+            if (!creepSource || creepSource.store.energy < 250)
                 delete creep.memory.sourceId;
 
             if (creepSource) {
