@@ -70,12 +70,22 @@ var roleDefenders = {
         }
         else {
             if (Game.rooms[creep.memory.sourceRoom]) {
-                var targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS, {
-                    filter: (enemy) => {
-                        return (enemy.owner.username != 'Source Keeper')
-                    }
-                });
-
+                var targets = [];
+                if (creep.room.name != creep.memory.sourceRoom)
+                    targets = Game.rooms[creep.memory.sourceRoom].find(FIND_HOSTILE_CREEPS, {
+                        filter: (enemy) => {
+                            return (enemy.owner.username != 'Source Keeper')
+                        }
+                    });
+                else {
+                    let tmp = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+                        filter: (enemy) => {
+                            return (enemy.owner.username != 'Source Keeper')
+                        }
+                    });
+                    if (tmp)
+                        targets.push(tmp);
+                }
                 if (targets.length) {
 
                     if (creep.moveTo(targets[0]) != OK) {
@@ -88,14 +98,18 @@ var roleDefenders = {
                         }
                     }
                     creep.heal(creep);
+                    if (creep.getActiveBodyparts(RANGED_ATTACK)) {
+                        creep.rangedAttack(targets[0]);
+                        creep.attack(targets[0]);
+                    }
                     return;
                 }
             }
 
             //If not in the correct room, move towards it
-                var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
+            var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
+            var Exit = creep.pos.findClosestByRange(exitDir);
+            creep.moveTo(Exit);
         }
         creep.heal(creep);
 
