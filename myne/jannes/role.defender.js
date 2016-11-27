@@ -106,9 +106,9 @@ var roleDefenders = {
                                 }
                             });
                             if (targetHeal.length) {
-                                creep.heal(targetHeal[0]);
-                                creep.moveTo(targetHeal[0]);
-                                if (targetHeal[0].name != creep.name)
+                                creep.heal(targetHeal[targetHeal.length - 1]);
+                                creep.moveTo(targetHeal[targetHeal.length -1]);
+                                if (targetHeal[targetHeal.length - 1].name != creep.name)
                                     return;
                             }
                             creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
