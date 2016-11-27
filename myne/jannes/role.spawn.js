@@ -139,7 +139,7 @@ var roleSpawn = {
                         let roomCheck = Game.getObjectById(sources[s]);
                         if (roomCheck) {
                             if (roomCheck.energyCapacity == 4000) {
-                                newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn, sk: true });
+                                newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn, sk: true });
                                 return;
                             }
                             else {
