@@ -132,7 +132,7 @@ var roleSpawn = {
                                 return;
                             }
                             else {
-                                if (Game.creeps[filterLength[0]].ticksToLive < 80) {
+                                if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
                                     newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
                                     return;
                                 }
