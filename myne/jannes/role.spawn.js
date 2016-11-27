@@ -124,8 +124,17 @@ var roleSpawn = {
                 for (let s = 0, length = sources.length; s < length; s++) {
                     let filterLength = _.filter(stores, (creep) => Game.creeps[creep].memory.sourceId == sources[s]);
                     if (!filterLength.length || (filterLength.length == 1 && Game.creeps[filterLength[0]].ticksToLive < 80)) {
-                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
-                        return;
+                        let roomCheck = Game.getObjectById(sources[s]);
+                        if (roomCheck) {
+                            if (roomCheck.energyCapacity == 4000) {
+                                newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, MOVE, CARRY, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, HEAL, HEAL, HEAL], { role: 'store', sourceId: sources[s], spawn: spawn, sk: true });
+                                return;
+                            }
+                            else {
+                                newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE], { role: 'store', sourceId: sources[s], spawn: spawn });
+                                return;
+                            }
+                        }
                     }
 
                 }
@@ -137,6 +146,10 @@ var roleSpawn = {
                 for (let scout = 0, length = Memory.spawns[spawn].spots.length; scout < length; scout++) {
                     let ticks = _.filter(scouts, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
                     if (!ticks.length || (ticks.length == 1 && Game.creeps[ticks[0]].ticksToLive < 100)) {
+                        if (Memory.spawns[spawn].spots[scout].sk) {
+                            newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn, sk: true, x: Memory.spawns[spawn].spots[scout].x, y: Memory.spawns[spawn].spots[scout].y});
+                            return;
+                        }
                         if (Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom] && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation.ticksToEnd > 3500 || Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)
                             newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn });
                         else

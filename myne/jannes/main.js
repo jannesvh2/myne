@@ -109,6 +109,10 @@ module.exports.loop = function () {
                 continue;
             }
             if (creep.hits < creep.hitsMax) {
+                if (creep.memory.sk) {
+                    creep.moveTo(creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3)[0]);
+                    continue;
+                }
                 creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                 continue;
             }
