@@ -105,7 +105,7 @@ var roleDefenders = {
                                     return object.hits < object.hitsMax;
                                 }
                             });
-                            if (targetHeal) {
+                            if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
                                 creep.moveTo(targetHeal[0]);
                                 return;
