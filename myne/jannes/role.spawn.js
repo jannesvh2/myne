@@ -94,7 +94,7 @@ var roleSpawn = {
                             }
 
                         }
-                        if (((!defs.length && !defType) || ((defs.length < 2 || defs.length < 3 && Game.creeps[defs[0]].ticksToLive < 170) && defType)) && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def] && Memory.spawns[spawn].random.defenders[def] != undefined) {
+                        if (((!defs.length && !defType) || ((defs.length < 2 || defs.length < 3 && Game.creeps[defs[0]].ticksToLive < 200) && defType)) && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def] && Memory.spawns[spawn].random.defenders[def] != undefined) {
 
                             if (defType)
                                 newName = multiSpawn([TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, HEAL, HEAL, HEAL, HEAL, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
