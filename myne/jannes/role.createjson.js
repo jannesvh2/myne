@@ -309,7 +309,7 @@ var roleCreateJSON = {
             Memory.spawns[2].random.extractor = '579fab87b1f02a3b0cff02f4';
             Memory.spawns[2].random.terminal = '581d19ac83ddc28b14a43a4e';
             Memory.spawns[2].random.defLab = '58389bd48ff1bfa430ad5d91';
-            Memory.spawns[0].random.overflow = 'W6S53';
+            Memory.spawns[2].random.overflow = 'W6S53';
 
             //spawn 3
             //spawn numbers
