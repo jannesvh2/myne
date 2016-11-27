@@ -640,7 +640,7 @@ var roleCreateJSON = {
             }
             else {
                 for (let r = 0, lengthR = Memory.spawns[a].random.roomContainers.length; r < lengthR; r++) {
-                    let roomCont = Game.getObjectById(Memory.spawns[a].random.roomContainers[r]);
+                    let roomCont = Game.getObjectById(Memory.spawns[a].random.roomContainers[r].id);
                     if (roomCont)
                         Memory.spawns[a].random.roomContainers[r] = roomCont.id;
                 }
