@@ -65,6 +65,7 @@ var roleDefenders = {
             }
             else {
                 delete creep.memory.rampartId;
+                creep.moveTo(creep.room.controller);
             }
         }
         else {
