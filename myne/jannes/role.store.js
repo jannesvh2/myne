@@ -56,6 +56,12 @@ var roleStore = {
                 if (creep.memory.run) {
                     if (creep.pos.getRangeTo(creepSource) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
                         creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
+
+                    let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
+                    if (skCheck2 && skCheck2.ticksToSpawn > 5) {
+                        creep.memory.enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS).id;
+                    }
+
                     if (creep.memory.enemy) {
                         if (!Game.getObjectById(creep.memory.enemy)) {
                             delete creep.memory.run;
@@ -63,10 +69,6 @@ var roleStore = {
                             return;
                         }
 
-                    }
-                    let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
-                    if (skCheck2 && skCheck2.ticksToSpawn > 5) {
-                        creep.memory.enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS).id;
                     }
                     return;
                 }
