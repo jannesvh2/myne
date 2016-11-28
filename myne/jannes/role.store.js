@@ -11,6 +11,34 @@ var roleStore = {
             creep.say('storing');
         }
 
+        if (creep.memory.skSpawn) {
+            if (creep.memory.run) {
+                if (creep.pos.getRangeTo(creepSource) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
+                    creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
+
+                let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
+                if (skCheck2 && skCheck2.ticksToSpawn > 5) {
+                    let enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+                    if (enemy && enemy.id)
+                        creep.memory.enemy = enemy.id;
+                }
+
+                if (creep.memory.enemy) {
+                    if (!Game.getObjectById(creep.memory.enemy)) {
+                        delete creep.memory.run;
+                        delete creep.memory.enemy;
+                        return;
+                    }
+
+                }
+                return;
+            }
+            let skCheck = Game.getObjectById(creep.memory.skSpawn);
+
+            if (skCheck && skCheck.ticksToSpawn < 7) {
+                creep.memory.run = true;
+            }
+        }
         if (creep.memory.full) {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
             if (Memory.spawns[creep.memory.spawn].random.useLinks && creep.room.name == Memory.spawns[creep.memory.spawn].random.mainRoom) {
@@ -52,34 +80,6 @@ var roleStore = {
             if (!creep.memory.rep)
                 creep.memory.rep = 0;
             creep.memory.rep++;
-            if (creep.memory.skSpawn) {
-                if (creep.memory.run) {
-                    if (creep.pos.getRangeTo(creepSource) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
-                        creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
-
-                    let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
-                    if (skCheck2 && skCheck2.ticksToSpawn > 5) {
-                        let enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-                        if (enemy && enemy.id)
-                            creep.memory.enemy = enemy.id;
-                    }
-
-                    if (creep.memory.enemy) {
-                        if (!Game.getObjectById(creep.memory.enemy)) {
-                            delete creep.memory.run;
-                            delete creep.memory.enemy;
-                            return;
-                        }
-
-                    }
-                    return;
-                }
-                let skCheck = Game.getObjectById(creep.memory.skSpawn);
-
-                if (skCheck && skCheck.ticksToSpawn < 7) {
-                    creep.memory.run = true;
-                }
-            }
             if (creep.memory.rep > 7) {
                 creep.memory.rep = 0;
 
