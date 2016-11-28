@@ -52,53 +52,89 @@ var roleStore = {
             if (!creep.memory.rep)
                 creep.memory.rep = 0;
             creep.memory.rep++;
+            if (creep.memory.skSpawn) {
+                if (creep.memory.run) {
+                    if (creep.memory.enemy) {
+                        if (!Game.getObjectById(creep.memory.enemy)) {
+                            delete creep.memory.run;
+                            delete creep.memory.enemy;
+                            return;
+                        }
+
+                    }
+                    let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
+                    if (skCheck2 && skCheck2.ticksToSpawn > 5) {
+                        creep.memory.enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS).id;
+                    }
+                    if (creep.getRangeTo(Game.getObjectById(creepSource)) < 5 && creep.getRangeTo(Game.getObjectById(creep.memory.skSpawn) < 5))
+                        creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
+                    return;
+                }
+                let skCheck = Game.getObjectById(creep.memory.skSpawn);
+
+                if (skCheck && skCheck.ticksToSpawn < 5) {
+                    creep.memory.run = true;
+                }
+            }
             if (creep.memory.rep > 7) {
                 creep.memory.rep = 0;
 
                 if (!creep.memory.containerId) {
-                    creep.memory.containerId = creep.pos.findInRange(FIND_STRUCTURES, 2, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_CONTAINER)
-                        }
-                    })[0];
-                    if (creep.memory.containerId)
-                        creep.memory.containerId = creep.memory.containerId.id;
-                }
-                let container = Game.getObjectById(creep.memory.containerId)
-                if (!container) {
-                    delete creep.memory.containerId;
                     if (creep.pos.isNearTo(creepSource)) {
-                        var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 2);
-                        if (!sites.length)
-                            Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
-                    }
-                    if (sites && sites.length) {
-                        creep.build(sites[0]);
-                        creep.memory.rep = 7;
-                    }
-                    else {
-                        var sites = creep.pos.findInRange(creepSource, 3);
-                        if (!sites.length) {
-                            creep.moveTo(creepSource);
+                        if (creep.memory.sk) {
+                            if (creep.memory.skSpawn) {
+                                let skFind = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                                    filter: (structure) => {
+                                        return (structure.owner && structure.owner.username == 'Source Keeper')
+                                    }
+                                });
+                                if (skFind && skFind.id) {
+                                    creep.memory.skSpawn = skFind.id;
+                                }
+                            }
+                        }
+                        creep.memory.containerId = creep.pos.findInRange(FIND_STRUCTURES, 2, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_CONTAINER)
+                            }
+                        })[0];
+                        if (creep.memory.containerId)
+                            creep.memory.containerId = creep.memory.containerId.id;
+                        else {
+                            var sites = creep.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 2);
+                            if (!sites.length)
+                                Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_CONTAINER);
+
+                            if (sites && sites.length) {
+                                creep.build(sites[0]);
+                                creep.memory.rep = 7;
+                            }
+                            else {
+                                var sites = creep.pos.findInRange(creepSource, 3);
+                                if (!sites.length) {
+                                    creep.moveTo(creepSource);
+
+                                }
+                            }
                         }
                     }
                 }
-                else {
-                    creep.repair(container);
-                    if (creep.pos.getRangeTo(container) > 0) {
-                        creep.moveTo(container);
-                        creep.memory.rep = 7;
-                        delete creep.memory.containerId;
-                    }
+            }
+            else {
+                creep.repair(container);
+                if (creep.pos.getRangeTo(container) > 0) {
+                    creep.moveTo(container);
+                    creep.memory.rep = 7;
+                    delete creep.memory.containerId;
                 }
             }
         }
+
         else {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
             var sourceEmpty = creep.harvest(creepSource);
-            if (sourceEmpty != OK) {
-                if (creep.moveTo(creepSource) == ERR_INVALID_TARGET);
-            }
+            if (sourceEmpty != OK)
+                creep.moveTo(creepSource);
         }
     }
 };
