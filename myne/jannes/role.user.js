@@ -90,6 +90,9 @@ var roleUser = {
                 if (creep.moveTo(target) == ERR_NO_PATH)
                     delete creep.memory.targetId;
             }
+            else
+                delete creep.memory.targetId;
+            
 
             //need work part
             //creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
