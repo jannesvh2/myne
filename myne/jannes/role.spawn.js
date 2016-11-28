@@ -85,7 +85,7 @@ var roleSpawn = {
                 for (let def = 0, length = Memory.spawns[spawn].random.defenders.length; def < length; def++) {
                     //def = 0;
                     if (Memory.spawns[spawn].random.defenders[def] != Memory.spawns[spawn].random.mainRoom) {
-                        let defs = _.filter(defenders, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
+                        var defs = _.filter(defenders, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].random.defenders[def]);
                         var defType = false;
                         for (let s = 0, lengthS = Memory.spawns[spawn].spots.length; s < lengthS; s++) {
                             if (Memory.spawns[spawn].spots[s].sourceRoom == Memory.spawns[spawn].random.defenders[def]) {
@@ -96,7 +96,7 @@ var roleSpawn = {
                         }
                         if (((!defs.length && !defType) || ((defs.length < 2 || defs.length < 3 && Game.creeps[defs[0]].ticksToLive < 200) && defType)) && Memory.spawns[spawn].random.defenders && Memory.spawns[spawn].random.defenders[def] && Memory.spawns[spawn].random.defenders[def] != undefined) {
                             if (defType)
-                                Game.notify(((defs.length < 2 + '||' + defs.length < 3 + '&&' + Game.creeps[defs[0]].ticksToLive < 200) + '&&' + defType));
+                                Game.notify(defs.length + " | " + defs.length < 2 + '||' + defs.length < 3 + '&&' + Game.creeps[defs[0]].ticksToLive < 200 + '&&' + defType);
                             if (defType)
                                 newName = multiSpawn([TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, ATTACK, RANGED_ATTACK, HEAL, HEAL, HEAL, HEAL, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.defenders[def] });
                             else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)
