@@ -119,14 +119,14 @@ var roleStore = {
                         }
                     }
                 }
-            }
-            else {
-                let container = Game.getObjectById(creep.memory.containerId);
-                creep.repair(container);
-                if (creep.pos.getRangeTo(container) > 0) {
-                    creep.moveTo(container);
-                    creep.memory.rep = 7;
-                    delete creep.memory.containerId;
+                else {
+                    let container = Game.getObjectById(creep.memory.containerId);
+                    creep.repair(container);
+                    if (creep.pos.getRangeTo(container) > 0) {
+                        creep.moveTo(container);
+                        creep.memory.rep = 7;
+                        delete creep.memory.containerId;
+                    }
                 }
             }
         }
