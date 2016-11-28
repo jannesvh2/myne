@@ -86,15 +86,12 @@ var roleStore = {
                 if (!creep.memory.containerId) {
                     if (creep.pos.isNearTo(creepSource)) {
                         if (creep.memory.sk) {
-                            console.log('h');
                             if (!creep.memory.skSpawn) {
-                                console.log('h2');
                                 let skFind = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                                     filter: (structure) => {
                                         return (structure.owner && structure.owner.username == 'Source Keeper')
                                     }
                                 });
-                                console.log(JSON.stringify(skFind));
                                 if (skFind && skFind.id) {
                                     creep.memory.skSpawn = skFind.id;
                                 }
