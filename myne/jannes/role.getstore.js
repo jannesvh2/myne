@@ -86,7 +86,7 @@ var roleGetStore = {
 
         }
 
-        if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
+        if (creep.carry.energy > (creep.carryCapacity * 0.75)) {
             creep.memory.full = true;
             delete creep.memory.sourceId;
         }
