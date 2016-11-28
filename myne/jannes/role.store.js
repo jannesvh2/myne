@@ -54,6 +54,8 @@ var roleStore = {
             creep.memory.rep++;
             if (creep.memory.skSpawn) {
                 if (creep.memory.run) {
+                    if (creep.pos.getRangeTo(creepSource) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
+                        creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                     if (creep.memory.enemy) {
                         if (!Game.getObjectById(creep.memory.enemy)) {
                             delete creep.memory.run;
@@ -66,8 +68,6 @@ var roleStore = {
                     if (skCheck2 && skCheck2.ticksToSpawn > 5) {
                         creep.memory.enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS).id;
                     }
-                    if (creep.getRangeTo(Game.getObjectById(creepSource)) < 5 && creep.getRangeTo(Game.getObjectById(creep.memory.skSpawn) < 5))
-                        creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                     return;
                 }
                 let skCheck = Game.getObjectById(creep.memory.skSpawn);
@@ -82,12 +82,15 @@ var roleStore = {
                 if (!creep.memory.containerId) {
                     if (creep.pos.isNearTo(creepSource)) {
                         if (creep.memory.sk) {
+                            console.log('h');
                             if (!creep.memory.skSpawn) {
+                                console.log('h2');
                                 let skFind = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                                     filter: (structure) => {
                                         return (structure.owner && structure.owner.username == 'Source Keeper')
                                     }
                                 });
+                                console.log(JSON.stringify(skFind));
                                 if (skFind && skFind.id) {
                                     creep.memory.skSpawn = skFind.id;
                                 }
