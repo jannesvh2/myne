@@ -76,7 +76,7 @@ var roleStore = {
                 }
                 let skCheck = Game.getObjectById(creep.memory.skSpawn);
 
-                if (skCheck && skCheck.ticksToSpawn < 6) {
+                if (skCheck && skCheck.ticksToSpawn < 7) {
                     creep.memory.run = true;
                 }
             }
