@@ -17,7 +17,7 @@ var roleStore = {
                     creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
 
                 let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
-                if (skCheck2 && skCheck2.ticksToSpawn > 5) {
+                if (skCheck2 && skCheck2.ticksToSpawn > 9) {
                     let enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
                     if (enemy && enemy.id)
                         creep.memory.enemy = enemy.id;
@@ -35,7 +35,7 @@ var roleStore = {
             }
             let skCheck = Game.getObjectById(creep.memory.skSpawn);
 
-            if (skCheck && skCheck.ticksToSpawn < 7) {
+            if (skCheck && skCheck.ticksToSpawn < 9) {
                 creep.memory.run = true;
             }
         }
