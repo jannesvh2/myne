@@ -64,6 +64,20 @@ var roleGetStore = {
                 delete creep.memory.sourceId;
 
             if (creepSource) {
+                if (creep.memory.sk) {
+                    let energyG = creep.pos.findInRange(
+                    FIND_DROPPED_ENERGY,
+                    4, {
+                        filter: function (object) {
+                            return object.resourceType == "energy";
+                        }
+                    }
+                );
+                    if (energyG.length) {
+                        creep.moveTo(energyG[0]);
+                        return;
+                    }
+                }
                 if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(creepSource);
                 }
