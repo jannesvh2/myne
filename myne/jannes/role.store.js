@@ -13,7 +13,7 @@ var roleStore = {
 
         if (creep.memory.skSpawn) {
             if (creep.memory.run) {
-                if (creep.pos.getRangeTo(creepSource) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
+                if (creep.pos.getRangeTo(Game.getObjectById(creep.memory.sourceId)) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
                     creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
 
                 let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
