@@ -18,9 +18,9 @@ var roleStore = {
 
                 let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
                 if (skCheck2 && skCheck2.ticksToSpawn > 9) {
-                    let enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-                    if (enemy && enemy.id)
-                        creep.memory.enemy = enemy.id;
+                    let enemy = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 9);
+                    if (enemy.length && enemy[0].id)
+                        creep.memory.enemy = enemy[0].id;
                     else {
                         delete creep.memory.run;
                         delete creep.memory.enemy;
