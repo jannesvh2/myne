@@ -140,8 +140,8 @@ var roleDefenders = {
                 var Exit = creep.pos.findClosestByRange(exitDir);
                 creep.moveTo(Exit);
             }
+            creep.heal(creep);
         }
-        creep.heal(creep);
 
     }
 };
