@@ -21,6 +21,13 @@ var roleStore = {
                     let enemy = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
                     if (enemy && enemy.id)
                         creep.memory.enemy = enemy.id;
+                    else {
+                        delete creep.memory.run;
+                        delete creep.memory.enemy;
+                        return;
+
+                    }
+
                 }
 
                 if (creep.memory.enemy) {
