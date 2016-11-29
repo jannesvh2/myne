@@ -132,6 +132,8 @@ var roleStore = {
                 }
                 else {
                     let container = Game.getObjectById(creep.memory.containerId);
+                    if (!container)
+                        delete creep.memory.containerId;
                     creep.repair(container);
                     if (creep.pos.getRangeTo(container) > 0) {
                         creep.moveTo(container);
