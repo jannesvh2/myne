@@ -111,7 +111,7 @@ var roleTerminalMover = {
                                     }
                                     else {
                                         if (Memory.spawns[creep.memory.spawn].reactions[s][s2].r && _.sum(terminal.store) < 295000) {
-                                            Game.rooms[Memory.spawns[creep.memory.spawn].reactions[s][s2].r].terminal.send(Memory.spawns[creep.memory.spawn].reactions[s][s2].m, 3000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+                                            Game.rooms[Memory.spawns[creep.memory.spawn].reactions[s][s2].r].terminal.send(Memory.spawns[creep.memory.spawn].reactions[s][s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
 
                                         }
                                     }
