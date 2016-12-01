@@ -439,7 +439,7 @@ var roleSpawn = {
             }
         }
         catch (err) {
-            console.log(err);
+            console.log(err + 'SPAWN');
         }
     }
 };

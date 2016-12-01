@@ -85,7 +85,7 @@ var roleTower = {
                 }
             }
             catch (err) {
-                console.log(err);
+                console.log(err + 'TOWER');
             }
 
         }

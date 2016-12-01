@@ -196,7 +196,7 @@ module.exports.loop = function () {
     try {
         roleLab.run();
     } catch (err) {
-        console.log(err);
+        console.log(err + 'LAB');
     }
     notify += " | CREEPS: " + (Game.cpu.getUsed() - cpu).toFixed(2);
     var cpu = Game.cpu.getUsed();
