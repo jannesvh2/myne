@@ -519,9 +519,9 @@ var roleCreateJSON = {
             Memory.spawns[6].reactions[0].push({ m: 'L', l: '5829f9ced920fd6828a96f4b', r: 'W3S55' });
 
             Memory.spawns[6].reactions.push(new Array());
-            Memory.spawns[6].reactions[1].push({ m: 'G', l: '583ce2190188cbd60339013e' });
-            Memory.spawns[6].reactions[1].push({ m: 'UL', l: '58299cac6ff35bc4431fbe8a' });
-            Memory.spawns[6].reactions[1].push({ m: 'ZK', l: '5829f9ced920fd6828a96f4b', r: 'W7S53' });
+            Memory.spawns[6].reactions[1].push({ m: 'G', l: '583c22360d802d93244a3dc2' });
+            Memory.spawns[6].reactions[1].push({ m: 'ZK', l: '583c5ca97fcae761649afe05', r: 'W7S53' });
+            Memory.spawns[6].reactions[1].push({ m: 'UL', l: '583ce2190188cbd60339013e' });
 
             //spawn 7
             //spawn numbers

@@ -34,14 +34,21 @@ var roleTerminalMover = {
                 }
 
                 var total = _.sum(creep.carry);
-                if (total.length && (total.length > 1 || !total[0][creep.memory.moveType])) {
-                    for (var carry in total) {
-                        if (creep.transfer(terminal, carry) == ERR_NOT_IN_RANGE)
+                if (creep.memory.full) {
+                    if (creep.carry['energy'] > 0) {
+                        if (creep.transfer(terminal, 'energy') == ERR_NOT_IN_RANGE)
                             creep.moveTo(terminal);
                         return;
                     }
-                }
 
+                    if (Object.keys(creep.carry).length > 2 && !creep.carry[creep.memory.moveType]) {
+                        for (var carry in creep.carry) {
+                            if (creep.transfer(terminal, carry) == ERR_NOT_IN_RANGE)
+                                creep.moveTo(terminal);
+                            return;
+                        }
+                    }
+                }
                 if (creep.memory.full && total == 0) {
                     creep.memory.full = false;
                 }
@@ -57,7 +64,7 @@ var roleTerminalMover = {
                             if (creep.memory.full) {
                                 if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                     creep.moveTo(terminal);
-                                continue;
+                                break;
                             }
                             for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
                                 let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
@@ -68,7 +75,7 @@ var roleTerminalMover = {
                                     else {
                                         creep.memory.full = true;
                                     }
-                                    continue;
+                                    break;
                                 }
                             }
                         }
@@ -76,10 +83,15 @@ var roleTerminalMover = {
                             if (creep.memory.full) {
                                 let moveToR = Game.getObjectById(creep.memory.moveToR);
                                 if (!moveToR)
-                                    continue;
-                                if (creep.transfer(moveToR, creep.memory.moveType) == ERR_NOT_IN_RANGE)
+                                    break;
+                                let moveBack = creep.transfer(moveToR, creep.memory.moveType);
+                                if (moveBack == ERR_NOT_IN_RANGE)
                                     creep.moveTo(moveToR);
-                                continue;
+                                if (moveBack == -8)
+                                    if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
+                                        creep.moveTo(terminal);
+
+                                break;
                             }
 
                             let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
@@ -88,7 +100,7 @@ var roleTerminalMover = {
                                 creep.memory.moveToR = terminal.id;
                                 if (creep.withdraw(labFinal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                     creep.moveTo(labFinal);
-                                continue;
+                                break;
 
                             }
                             for (let s2 = 1, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
