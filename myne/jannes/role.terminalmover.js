@@ -60,7 +60,7 @@ var roleTerminalMover = {
                                 return;
                             }
                             for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
-                                let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2]);
+                                let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
                                 if (checkLab && checkLab.mineralType) {
                                     creep.memory.moveType = checkLab.mineralType;
                                     if (creep.withdraw(checkLab, creep.memory.moveType) == ERR_NOT_IN_RANGE)
@@ -80,7 +80,7 @@ var roleTerminalMover = {
                             }
 
                             let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
-                            if (labFinal && labFinal.mineralType > 1500) {
+                            if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 1500) {
                                 creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][0].m;
                                 creep.memory.moveToR = terminal.id;
                                 if (creep.withdraw(labFinal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
@@ -89,10 +89,10 @@ var roleTerminalMover = {
 
                             }
                             for (let s2 = 1, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
-                                let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2]);
+                                let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
 
                                 //empty lab if it has wrong mineral
-                                if (checkLab && checkLab.mineralType != Memory.spawns[creep.memory.spawn].reactions[s][s2].m) {
+                                if (checkLab && checkLab.mineralType && checkLab.mineralType != Memory.spawns[creep.memory.spawn].reactions[s][s2].m) {
                                     creep.memory.moveType = checkLab.mineralType;
                                     if (creep.withdraw(checkLab, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                         creep.moveTo(checkLab);
@@ -101,7 +101,7 @@ var roleTerminalMover = {
                                 }
 
                                 //add mineral if room
-                                if (checkLab && (!checkLab.mineralType || checkLab.mineralType < 2800)) {
+                                if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 2800)) {
                                     creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
                                     creep.memory.moveToR = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
                                     if (terminal.store[creep.memory.moveType]) {
