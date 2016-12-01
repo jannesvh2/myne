@@ -359,6 +359,12 @@ var roleCreateJSON = {
             Memory.spawns[3].random.extractor = '579fab88b1f02a3b0cff0319';
             Memory.spawns[3].random.terminal = '581f779e324e9a5e7a755e2f';
             Memory.spawns[3].random.defLab = '';
+            Memory.spawns[3].random.runReaction = true;
+            Memory.spawns[3].random.runReactionL = {ZK: 5000};
+            Memory.spawns[3].reactions.push(new Array());
+            Memory.spawns[3].reactions[0][0].push({ m: 'ZK', l: '583c0a4d3eafca7e174ff6c5' });
+            Memory.spawns[3].reactions[0][1].push({ m: 'Z', l: '581eab551fc92be318115693'});
+            Memory.spawns[3].reactions[0][2].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
 
             //spawn 4
             //spawn numbers
