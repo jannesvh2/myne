@@ -53,7 +53,7 @@ var roleTerminalMover = {
                 //reaction code
                 if (!creep.memory.work) {
                     for (let s = 0, lengthS = Memory.spawns[creep.memory.spawn].reactions.length; s < lengthS; s++) {
-                        if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] > Memory.spawns[3].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
+                        if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[3].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
                             if (creep.memory.full) {
                                 if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                     creep.moveTo(terminal);
@@ -65,6 +65,9 @@ var roleTerminalMover = {
                                     creep.memory.moveType = checkLab.mineralType;
                                     if (creep.withdraw(checkLab, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                         creep.moveTo(checkLab);
+                                    else {
+                                        creep.memory.full = true;
+                                    }
                                     return;
                                 }
                             }
