@@ -356,7 +356,7 @@ var roleSpawn = {
                 }
             }
             let lab = Game.getObjectById(Memory.spawns[spawn].random.defLab);
-            if (!Memory.spawns[spawn].creeps.terminals && (Memory.spawns[spawn].random.runReaction || (terminal && terminal.store['XUH2O'] && lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000))) {
+            if (!Memory.spawns[spawn].creeps.terminals.length && (Memory.spawns[spawn].random.runReaction || (terminal && terminal.store['XUH2O'] && lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000))) {
                 newName = multiSpawn([MOVE, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'terminal', spawn: spawn });
                 return;
             }
