@@ -41,7 +41,7 @@ var roleTerminalMover = {
                         return;
                     }
 
-                    if (Object.keys(creep.carry).length > 2 && !creep.carry[creep.memory.moveType]) {
+                    if (Object.keys(creep.carry).length > 1 && !creep.carry[creep.memory.moveType]) {
                         for (var carry in creep.carry) {
                             if (creep.transfer(terminal, carry) == ERR_NOT_IN_RANGE)
                                 creep.moveTo(terminal);
@@ -64,7 +64,7 @@ var roleTerminalMover = {
                             if (creep.memory.full) {
                                 if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                     creep.moveTo(terminal);
-                                break;
+                                return;
                             }
                             for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
                                 let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
@@ -75,7 +75,7 @@ var roleTerminalMover = {
                                     else {
                                         creep.memory.full = true;
                                     }
-                                    break;
+                                    return;
                                 }
                             }
                         }
@@ -83,7 +83,7 @@ var roleTerminalMover = {
                             if (creep.memory.full) {
                                 let moveToR = Game.getObjectById(creep.memory.moveToR);
                                 if (!moveToR)
-                                    break;
+                                    return;
                                 let moveBack = creep.transfer(moveToR, creep.memory.moveType);
                                 if (moveBack == ERR_NOT_IN_RANGE)
                                     creep.moveTo(moveToR);
@@ -91,7 +91,7 @@ var roleTerminalMover = {
                                     if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                         creep.moveTo(terminal);
 
-                                break;
+                                return;
                             }
 
                             let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
@@ -100,7 +100,7 @@ var roleTerminalMover = {
                                 creep.memory.moveToR = terminal.id;
                                 if (creep.withdraw(labFinal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                     creep.moveTo(labFinal);
-                                break;
+                                return;
 
                             }
                             for (let s2 = 1, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
@@ -111,7 +111,7 @@ var roleTerminalMover = {
                                     creep.memory.moveType = checkLab.mineralType;
                                     if (creep.withdraw(checkLab, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                         creep.moveTo(checkLab);
-                                    break;
+                                    return;
 
                                 }
 
@@ -122,7 +122,7 @@ var roleTerminalMover = {
                                     if (terminal.store[creep.memory.moveType]) {
                                         if (creep.withdraw(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                             creep.moveTo(terminal);
-                                        break;
+                                        return;
                                     }
                                     else {
                                         if (Memory.spawns[creep.memory.spawn].reactions[s][s2].r && _.sum(terminal.store) < 295000) {
