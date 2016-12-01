@@ -510,6 +510,18 @@ var roleCreateJSON = {
             Memory.spawns[6].random.extractor = '579fab88b1f02a3b0cff0334';
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '';
+            Memory.spawns[6].random.runReaction = true;
+            Memory.spawns[6].random.runReactionL = { UL: 1000, G: 1000};
+            Memory.spawns[6].reactions = [];
+            Memory.spawns[6].reactions.push(new Array());
+            Memory.spawns[6].reactions[0].push({ m: 'UL', l: '583ce2190188cbd60339013e' });
+            Memory.spawns[6].reactions[0].push({ m: 'U', l: '58299cac6ff35bc4431fbe8a' });
+            Memory.spawns[6].reactions[0].push({ m: 'L', l: '5829f9ced920fd6828a96f4b', r: 'W3S55' });
+
+            Memory.spawns[6].reactions.push(new Array());
+            Memory.spawns[6].reactions[1].push({ m: 'G', l: '583ce2190188cbd60339013e' });
+            Memory.spawns[6].reactions[1].push({ m: 'UL', l: '58299cac6ff35bc4431fbe8a' });
+            Memory.spawns[6].reactions[1].push({ m: 'ZK', l: '5829f9ced920fd6828a96f4b', r: 'W7S53' });
 
             //spawn 7
             //spawn numbers
