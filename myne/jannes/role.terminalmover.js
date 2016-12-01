@@ -80,7 +80,7 @@ var roleTerminalMover = {
                             }
 
                             let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
-                            if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 1500) {
+                            if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 100) {
                                 creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][0].m;
                                 creep.memory.moveToR = terminal.id;
                                 if (creep.withdraw(labFinal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
@@ -101,7 +101,7 @@ var roleTerminalMover = {
                                 }
 
                                 //add mineral if room
-                                if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 2800)) {
+                                if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 100)) {
                                     creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
                                     creep.memory.moveToR = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
                                     if (terminal.store[creep.memory.moveType]) {
