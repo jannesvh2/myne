@@ -79,8 +79,14 @@ var roleDefenders = {
                         targets.push(tmp);
                 }
                 if (targets.length) {
+                    let moveTo;
+                    if (creep.room.name == creep.memory.sourceRoom)
+                        moveTo = creep.moveTo(targets[0], { maxRooms: 1 });
+                    else
+                        moveTo = creep.moveTo(targets[0]);
 
-                    if (creep.moveTo(targets[0], { maxRooms: 1 }) != OK) {
+
+                    if (moveTo != OK) {
                         if (creep.room.name != creep.memory.sourceRoom) {
                             if (creep.room.name != creep.memory.sourceRoom) {
                                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
