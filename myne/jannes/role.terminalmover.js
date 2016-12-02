@@ -8,6 +8,7 @@ var roleTerminalMover = {
         if (!terminal)
             return;
         if (creep.memory.role == 'terminal') {
+            //add boost compounds to lab
             if (creep.memory.work) {
                 let moveTo = Game.getObjectById(creep.memory.work.moveTo);
                 if (creep.memory.work.isLab) {
@@ -20,6 +21,8 @@ var roleTerminalMover = {
 
                 }
             }
+
+            //check to add boost compounds to lab
             if (!creep.memory.work) {
                 if (terminal.store['XUH2O']) {
                     let lab = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.defLab);
@@ -157,6 +160,7 @@ var roleTerminalMover = {
                         }
                     }
 
+                    //fill nukes
                     let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
                     if (nuker) {
                         if (nuker.ghodium < nuker.ghodiumCapacity) {
@@ -197,6 +201,7 @@ var roleTerminalMover = {
             }
         }
         else {
+            //boost low rooms with extra energy
             let store = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (!store)
                 return;
@@ -206,7 +211,7 @@ var roleTerminalMover = {
             else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
                 creep.memory.full = true;
             }
-
+            // boosing rooms
             if (creep.memory.role == 'toTerminal') {
                 if (creep.memory.full) {
                     if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
@@ -219,7 +224,7 @@ var roleTerminalMover = {
                     }
 
                 }
-            }
+            }//boosted room
             else if (creep.memory.role == 'toStore') {
                 if (creep.memory.full) {
                     if (creep.transfer(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
