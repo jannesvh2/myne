@@ -64,6 +64,7 @@ var roleGetStore = {
                 delete creep.memory.sourceId;
 
             if (creepSource) {
+                //dropped energy in sk rooms (within 4)
                 if (creep.memory.sk) {
                     let energyG = creep.pos.findInRange(
                     FIND_DROPPED_ENERGY,
