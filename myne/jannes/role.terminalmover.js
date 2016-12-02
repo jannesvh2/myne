@@ -79,6 +79,7 @@ var roleTerminalMover = {
                         }
                         return;
                     }
+                    if (Memory.spawns[creep.memory.spawn].reactions)
                     for (let s = 0, lengthS = Memory.spawns[creep.memory.spawn].reactions.length; s < lengthS; s++) {
                         if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[3].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
                             //empty labs
@@ -160,7 +161,6 @@ var roleTerminalMover = {
                         if (nuker.ghodium < nuker.ghodiumCapacity) {
                             creep.memory.moveType = 'G';
                             creep.memory.moveToR = nuker.id;
-                            let nuker = Game.getObjectById(creep.memory.moveToR);
                             if (creep.memory.full) {
                                 if (creep.transfer(nuker, 'G') == ERR_NOT_IN_RANGE)
                                     creep.moveTo(nuker);
