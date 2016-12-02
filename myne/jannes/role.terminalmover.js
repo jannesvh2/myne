@@ -115,7 +115,7 @@ var roleTerminalMover = {
 
                                 }
 
-                                //add mineral if room
+                                //add mineral if space
                                 if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 100)) {
                                     creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
                                     creep.memory.moveToR = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
@@ -133,6 +133,29 @@ var roleTerminalMover = {
                                 }
 
 
+                            }
+                        }
+                    }
+                    let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
+                    if (nuker) {
+                        if (nuker.ghodium < nuker.ghodiumCapacity) {
+                            creep.memory.moveType = 'G';
+                            creep.memory.moveToR = nuker.id;
+                            let nuker = Game.getObjectById(creep.memory.moveToR);
+                            if (creep.memory.full) {
+                                if (creep.transfer(nuker, 'G') == ERR_NOT_IN_RANGE)
+                                    creep.moveTo(nuker);
+
+                            }
+                            else {
+                                if (terminal.store['G'])
+                                    if (creep.withdraw(terminal, 'G') == ERR_NOT_IN_RANGE)
+                                        creep.moveTo(terminal);
+                                    else {
+                                        if (_.sum(terminal.store) < 295000) {
+                                            Game.rooms['W5S53'].terminal.send('G', 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+
+                                        }
                             }
                         }
                     }
