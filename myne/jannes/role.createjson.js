@@ -505,7 +505,7 @@ var roleCreateJSON = {
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '';
             Memory.spawns[6].random.runReaction = true;
-            Memory.spawns[6].random.runReactionL = { UL: 10, G: 1000};
+            Memory.spawns[6].random.runReactionL = { UL: 100, G: 1000};
             Memory.spawns[6].reactions = [];
 
             Memory.spawns[6].reactions.push(new Array());
