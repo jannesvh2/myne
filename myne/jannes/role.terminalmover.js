@@ -33,37 +33,36 @@ var roleTerminalMover = {
                     }
                 }
 
-                var total = _.sum(creep.carry);
-                if (creep.memory.full) {
-                    if (creep.carry['energy'] > 0) {
-                        if (creep.transfer(terminal, 'energy') == ERR_NOT_IN_RANGE)
-                            creep.moveTo(terminal);
-                        return;
-                    }
-
-                    if (Object.keys(creep.carry).length > 1 && !creep.carry[creep.memory.moveType]) {
-                        for (var carry in creep.carry) {
-                            if (creep.transfer(terminal, carry) == ERR_NOT_IN_RANGE)
-                                creep.moveTo(terminal);
-                            return;
-                        }
-                    }
-                }
-                if (creep.memory.full && total == 0) {
-                    creep.memory.full = false;
-                    delete creep.memory.moveToR;
-                }
-                else if (!creep.memory.full && total == creep.carryCapacity) {
-                    creep.memory.full = true;
-                }
-
 
                 //reaction code
                 if (!creep.memory.work) {
 
+                    var total = _.sum(creep.carry);
+                    if (creep.memory.full) {
+                        if (creep.carry['energy'] > 0) {
+                            if (creep.transfer(terminal, 'energy') == ERR_NOT_IN_RANGE)
+                                creep.moveTo(terminal);
+                            return;
+                        }
+
+                        if (Object.keys(creep.carry).length > 1 && !creep.carry[creep.memory.moveType]) {
+                            for (var carry in creep.carry) {
+                                if (creep.transfer(terminal, carry) == ERR_NOT_IN_RANGE)
+                                    creep.moveTo(terminal);
+                                return;
+                            }
+                        }
+                    }
+                    if (creep.memory.full && total == 0) {
+                        creep.memory.full = false;
+                        delete creep.memory.moveToR;
+                    }
+                    else if (!creep.memory.full && total == creep.carryCapacity) {
+                        creep.memory.full = true;
+                    }
                     //empty creep if full
                     if (creep.memory.full) {
-                        if(creep.memory.moveToR){
+                        if (creep.memory.moveToR) {
                             let moveToR = Game.getObjectById(creep.memory.moveToR);
                             if (!moveToR)
                                 return;
@@ -74,7 +73,7 @@ var roleTerminalMover = {
                                 if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                     creep.moveTo(terminal);
                         }
-                        else{
+                        else {
                             if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
                                 creep.moveTo(terminal);
                         }
@@ -90,7 +89,7 @@ var roleTerminalMover = {
                                     let emptyLab = creep.withdraw(checkLab, creep.memory.moveType);
                                     if (emptyLab == ERR_NOT_IN_RANGE)
                                         creep.moveTo(checkLab);
-                                    if(emptyLab == OK){
+                                    if (emptyLab == OK) {
                                         creep.memory.full = true;
                                     }
                                     return;
@@ -106,7 +105,7 @@ var roleTerminalMover = {
                                 let labFinalW = creep.withdraw(labFinal, creep.memory.moveType);
                                 if (labFinalW == ERR_NOT_IN_RANGE)
                                     creep.moveTo(labFinal);
-                                if(labFinalW == OK){
+                                if (labFinalW == OK) {
                                     creep.memory.full = true;
                                 }
                                 return;
@@ -122,7 +121,7 @@ var roleTerminalMover = {
                                     let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
                                     if (checkLabW == ERR_NOT_IN_RANGE)
                                         creep.moveTo(checkLab);
-                                    if(checkLabW == OK){
+                                    if (checkLabW == OK) {
                                         creep.memory.full = true;
                                     }
                                     return;
@@ -138,7 +137,7 @@ var roleTerminalMover = {
                                         let terminalW = creep.withdraw(terminal, creep.memory.moveType);
                                         if (terminalW == ERR_NOT_IN_RANGE)
                                             creep.moveTo(terminal);
-                                        if(terminalW == OK){
+                                        if (terminalW == OK) {
                                             creep.memory.full = true;
                                         }
 
@@ -179,64 +178,65 @@ var roleTerminalMover = {
                                     }
                             }
                         }
-                        return;
                     }
-                }
 
-                if (creep.memory.full) {
-
-                    if (creep.transfer(moveTo, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                        creep.moveTo(moveTo);
+                    return;
                 }
-                else {
+            }
+            if (creep.memory.full) {
 
-                    if (creep.withdraw(moveFrom, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                        creep.moveTo(moveFrom);
-                }
+                if (creep.transfer(moveTo, creep.memory.moveType) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(moveTo);
             }
             else {
-                let store = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
-                if (!store)
-                    return;
-                if (creep.memory.full && creep.carry.energy == 0) {
-                    creep.memory.full = false;
-                }
-                else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
-                    creep.memory.full = true;
-                }
+                console.log(JSON.stringify(creep.memory.work));
+                if (creep.withdraw(creep.memory.work.moveFrom, creep.memory.moveType) == ERR_NOT_IN_RANGE)
+                    creep.moveTo(creep.memory.work.moveFrom);
+            }
+        }
+        else {
+            let store = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
+            if (!store)
+                return;
+            if (creep.memory.full && creep.carry.energy == 0) {
+                creep.memory.full = false;
+            }
+            else if (!creep.memory.full && creep.carry.energy == creep.carryCapacity) {
+                creep.memory.full = true;
+            }
 
-                if (creep.memory.role == 'toTerminal') {
-                    if (creep.memory.full) {
-                        if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(terminal);
-                        }
+            if (creep.memory.role == 'toTerminal') {
+                if (creep.memory.full) {
+                    if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(terminal);
                     }
-                    else {
-                        if (creep.withdraw(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(store);
-                        }
-
-                    }
                 }
-                else if (creep.memory.role == 'toStore') {
-                    if (creep.memory.full) {
-                        if (creep.transfer(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(store);
-                        }
-                    }
-                    else {
-                        if (creep.withdraw(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(terminal);
-                        }
-
-                        if (terminal.store.energy < 55000)
-                            creep.memory.role = 'user';
-
+                else {
+                    if (creep.withdraw(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(store);
                     }
 
                 }
             }
+            else if (creep.memory.role == 'toStore') {
+                if (creep.memory.full) {
+                    if (creep.transfer(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(store);
+                    }
+                }
+                else {
+                    if (creep.withdraw(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(terminal);
+                    }
+
+                    if (terminal.store.energy < 55000)
+                        creep.memory.role = 'user';
+
+                }
+
+            }
         }
-    };
+    }
+};
 
 module.exports = roleTerminalMover;
