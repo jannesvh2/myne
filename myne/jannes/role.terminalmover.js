@@ -156,6 +156,7 @@ var roleTerminalMover = {
                             }
                         }
                     }
+
                     let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
                     if (nuker) {
                         if (nuker.ghodium < nuker.ghodiumCapacity) {
@@ -167,15 +168,16 @@ var roleTerminalMover = {
 
                             }
                             else {
-                                if (terminal.store['G'])
+                                if (terminal.store['G']) {
                                     if (creep.withdraw(terminal, 'G') == ERR_NOT_IN_RANGE)
                                         creep.moveTo(terminal);
-                                    else {
-                                        if (_.sum(terminal.store) < 295000) {
-                                            Game.rooms['W5S53'].terminal.send('G', 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+                                }
+                                else {
+                                    if (_.sum(terminal.store) < 295000) {
+                                        Game.rooms['W5S53'].terminal.send('G', 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
 
-                                        }
                                     }
+                                }
                             }
                         }
                     }

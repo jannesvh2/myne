@@ -200,19 +200,6 @@ var roleCreateJSON = {
             Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
             Memory.spawns[0].random.runReaction = true;
 
-            //reactions
-            //Memory.spawns[0].random.runReaction = false;
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-            //Memory.spawns[0].random.reactions.push({ id: '', mineral: '' });
-
             //spawn 1
             //spawn numbers
             Memory.spawns[1].summon.spawns = 3;
