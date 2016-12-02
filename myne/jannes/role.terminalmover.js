@@ -80,8 +80,8 @@ var roleTerminalMover = {
                         return;
                     }
                     if (Memory.spawns[creep.memory.spawn].reactions)
-                    for (let s = 0, lengthS = Memory.spawns[creep.memory.spawn].reactions.length; s < lengthS; s++) {
-                        if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[3].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
+                        for (let s = 0, lengthS = Memory.spawns[creep.memory.spawn].reactions.length; s < lengthS; s++) {
+                        if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[creep.memory.spawn].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
                             //empty labs
                             for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
                                 let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
