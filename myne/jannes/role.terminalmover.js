@@ -185,7 +185,7 @@ var roleTerminalMover = {
                             }
                         }
                     }
-
+                    creep.moveTo(terminal);
                     return;
                 }
             }
