@@ -61,6 +61,14 @@ var roleSpawn = {
 
 
             }
+
+
+            //Game.spawns['Spawn00'].createCreep([CARRY, CARRY, MOVE], null, { role: 'terminal', spawn: 0 });
+            if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length || Memory.spawns[spawn].creeps.movers.length < 2 && Memory.spawns[spawn].creeps.movers[0] && Game.creeps[Memory.spawns[spawn].creeps.movers[0]].ticksToLive < 50) {
+                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'mover', spawn: spawn });
+                return;
+            }
+
             //Game.rooms.W59S29.energyCapacityAvailable
             //spawn harvesters
             if (Memory.spawns[spawn].random.useStore && !Memory.spawns[spawn].creeps.users.length && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 1300) {
@@ -109,11 +117,6 @@ var roleSpawn = {
                         Memory.spawns[spawn].random.defenders.splice(def, 1);
                     }
                 }
-            }
-            //Game.spawns['Spawn00'].createCreep([CARRY, CARRY, MOVE], null, { role: 'terminal', spawn: 0 });
-            if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length || Memory.spawns[spawn].creeps.movers.length < 2 && Memory.spawns[spawn].creeps.movers[0] && Game.creeps[Memory.spawns[spawn].creeps.movers[0]].ticksToLive < 50) {
-                newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'mover', spawn: spawn });
-                return;
             }
 
 
