@@ -162,7 +162,7 @@ var roleSpawn = {
                     let ticks = _.filter(scouts, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].spots[scout].sourceRoom);
                     if (!ticks.length || (ticks.length == 1 && Game.creeps[ticks[0]].ticksToLive < 100)) {
                         if (Memory.spawns[spawn].spots[scout].sk) {
-                            newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn, sk: true, x: Memory.spawns[spawn].spots[scout].x, y: Memory.spawns[spawn].spots[scout].y });
+                            newName = multiSpawn([MOVE], { role: 'scout', sourceRoom: Memory.spawns[spawn].spots[scout].sourceRoom, spawn: spawn, sk: true, x: Memory.spawns[spawn].spots[scout].x, y: Memory.spawns[spawn].spots[scout].y, flag: Memory.spawns[spawn].spots[scout].flag });
                             return;
                         }
                         if (Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom] && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation && Game.rooms[Memory.spawns[spawn].spots[scout].sourceRoom].controller.reservation.ticksToEnd > 3500 || Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1300)

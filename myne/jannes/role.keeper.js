@@ -7,6 +7,10 @@ var roleKeeper = {
         if (hostiles && creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
             Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
 
+        if (creep.memory.flag) {
+            creep.moveTo(Game.flags[creep.memory.flag]);
+            return;
+        }
         let room = Game.rooms[creep.memory.sourceRoom];
         if (room && creep.memory.sk) {
             if (creep.pos.roomName == creep.memory.sourceRoom) {
