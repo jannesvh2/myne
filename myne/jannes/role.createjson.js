@@ -196,7 +196,7 @@ var roleCreateJSON = {
             Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
             Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
             Memory.spawns[0].random.defLab = '5834cc21443e2b9d39429d48';
-            Memory.spawns[0].random.overflow = 'W3S55';
+            Memory.spawns[0].random.overflow = 'W6S51';
             Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
             Memory.spawns[0].random.runReaction = false;
 
@@ -245,7 +245,7 @@ var roleCreateJSON = {
             Memory.spawns[1].random.extractor = '579fab87b1f02a3b0cff02fb';
             Memory.spawns[1].random.terminal = '581a76d942f613dc4a3544a6';
             Memory.spawns[1].random.defLab = '';
-            Memory.spawns[1].random.overflow = 'W3S55';
+            Memory.spawns[1].random.overflow = 'W6S51';
             Memory.spawns[1].random.nuker = '583ebb7ad1cb37fc52ac9987';
             Memory.spawns[1].random.runReaction = true;
 
@@ -299,7 +299,7 @@ var roleCreateJSON = {
             Memory.spawns[2].random.extractor = '579fab87b1f02a3b0cff02f4';
             Memory.spawns[2].random.terminal = '581d19ac83ddc28b14a43a4e';
             Memory.spawns[2].random.defLab = '58389bd48ff1bfa430ad5d91';
-            Memory.spawns[2].random.overflow = 'W3S55';
+            Memory.spawns[2].random.overflow = 'W6S51';
             Memory.spawns[2].random.nuker = '583812703c39d0fc0b2fdae7';
             Memory.spawns[2].random.runReaction = false;
 
