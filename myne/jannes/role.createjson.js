@@ -15,7 +15,7 @@ var roleCreateJSON = {
         }
 
         //init
-        Memory.global.roomCount = 9;
+        Memory.global.roomCount = 10;
         if (!Memory.spawns)
             Memory.spawns = [];
 
@@ -622,6 +622,53 @@ var roleCreateJSON = {
             Memory.spawns[8].random.extractor = '579fab88b1f02a3b0cff0351';
             Memory.spawns[8].random.terminal = '583ed79fa9e44d646c084972';
             //Memory.spawns[8].random.defLab = '';
+
+            //spawn 9
+            //spawn numbers
+            Memory.spawns[9].summon.spawns = 1;
+            Memory.spawns[9].summon.h = 0;
+            Memory.spawns[9].summon.b = 0;
+            Memory.spawns[9].summon.u = 0;
+            Memory.spawns[9].summon.h2 = 0;
+            Memory.spawns[9].summon.b2 = 0;
+            Memory.spawns[9].summon.u2 = 0;
+            Memory.spawns[9].summon.users = 1;
+            Memory.spawns[9].summon.atkM = 0;
+            Memory.spawns[9].summon.atkR = 0;
+            Memory.spawns[9].summon.atkH = 0;
+            Memory.spawns[9].summon.atkD = 0;
+            Memory.spawns[9].random.mainRoom = 'W4S57';
+
+            //Memory.spawns[9].random.useUpgradeSpots = true;
+            //Memory.spawns[9].random.upgradeSpots.push({ x: 14, y: 25 });
+            //Memory.spawns[9].random.upgradeSpots.push({ x: 13, y: 25 });
+            //Memory.spawns[9].random.upgradeSpots.push({ x: 12, y: 25 });
+            //Memory.spawns[9].random.upgradeSpots.push({ x: 11, y: 25 });
+
+            ////RoomList
+            Memory.spawns[9].random.rooms.push({ name: 'W4S57', spawn: 0 });
+            if (!Memory.spawns[9].random.hostiles) {
+              //  Memory.spawns[9].random.rooms.push({ name: 'W3S56', spawn: 1 });
+                //Memory.spawns[9].random.rooms.push({ name: 'W2S55', spawn: 1 });
+            }
+            ////keeper
+            if (!Memory.spawns[9].random.hostiles) {
+              //  Memory.spawns[9].spots.push({ sourceRoom: 'W3S56' });
+                //Memory.spawns[9].spots.push({ sourceRoom: 'W2S55' });
+            }
+            //StoreId
+           // Memory.spawns[9].random.storeId = '5836e0ae2831ba423c0923b2';
+            //UseStore
+            Memory.spawns[9].random.useStore = false;
+            //Memory.spawns[9].random.useLinks = true;
+            //Memory.spawns[9].links.receiver = '583e00a077619101784c23c6';
+            //Memory.spawns[9].links.producers.push({ id: '583e06a27e96aefb346adb5c', source: true });
+            //Memory.spawns[9].links.producers.push({ id: '583e0725444e850535f866e6', source: true });
+            //////Memory.spawns[9].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
+            //////extractor
+            //Memory.spawns[9].random.extractor = '579fab88b1f02a3b0cff0351';
+            //Memory.spawns[9].random.terminal = '583ed79fa9e44d646c084972';
+            //Memory.spawns[9].random.defLab = '';
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

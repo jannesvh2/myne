@@ -6,13 +6,50 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function (creep) {
         if (creep.memory.helper) {
-            if (creep.room.name != "W9S59") {
-                var exitDir = Game.map.findExit(creep.room.name, "W9S59");
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
-                return;
+            if (creep.room.name != "W4S57") {
+                var flag = Game.flags['Flag7'];
+                if (flag) {
+                    if (!creep.memory.flag || creep.memory.flag == 1) {
+                        creep.moveTo(flag);
+                        if (flag.room.name == creep.room.name)
+                            creep.memory.flag = 2;
+                        return;
+                    }
+                    if (creep.memory.flag == 2) {
+
+                        flag = Game.flags['Flag8'];
+                        creep.moveTo(flag);
+                        if (flag.room.name == creep.room.name)
+                            creep.memory.flag = 3;
+                        return;
+                    }
+                }
+                    //    if (creep.memory.flag == 3) {
+
+                    //        flag = Game.flags['Flag3'];
+                    //        creep.moveTo(flag);
+                    //        if (flag.room.name == creep.room.name)
+                    //            creep.memory.flag = 4;
+                    //        return;
+                    //    }
+                    //    if (creep.memory.flag == 4) {
+
+                    //        flag = Game.flags['Flag4'];
+                    //        creep.moveTo(flag);
+                    //        return;
+                    //    }
+
+
+                    //}
+                else {
+                    var exitDir = Game.map.findExit(creep.room.name, "W3S55");
+                    var Exit = creep.pos.findClosestByRange(exitDir);
+                    creep.moveTo(Exit);
+                    return;
+                }
             }
         }
+
         if (creep.memory.full && creep.carry.energy == 0) {
             creep.memory.full = false;
             creep.say('harvesting');

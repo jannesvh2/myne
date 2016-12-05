@@ -9,7 +9,7 @@ var roleBuilder = {
         //new spawn
         //Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([WORK, WORK, WORK, WORK,WORK, WORK, WORK, WORK, WORK, WORK,WORK,WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'builder', spawn: spawn });
         if (creep.memory.helper) {
-            if (creep.room.name != "W3S55") {
+            if (creep.room.name != "W4S57") {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
@@ -26,6 +26,7 @@ var roleBuilder = {
                             creep.memory.flag = 3;
                         return;
                     }
+                }
                     //    if (creep.memory.flag == 3) {
 
                     //        flag = Game.flags['Flag3'];
@@ -34,8 +35,6 @@ var roleBuilder = {
                     //            creep.memory.flag = 4;
                     //        return;
                     //    }
-
-                }
                     //    if (creep.memory.flag == 4) {
 
                     //        flag = Game.flags['Flag4'];

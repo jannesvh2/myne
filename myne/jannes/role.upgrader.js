@@ -6,7 +6,7 @@ var roleUpgrader = {
     /** @param {Creep} creep **/
     run: function (creep) {
         if (creep.memory.helper) {
-            if (creep.room.name != "W3S55") {
+            if (creep.room.name != "W4S57") {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
