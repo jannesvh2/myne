@@ -3,10 +3,13 @@ var roleKeeper = {
     /** @param {Creep} creep **/
     run: function (creep) {
 
-        var hostiles = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if (hostiles && creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
-            Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
-
+        if (creep.memory.sk)
+            Memory.spawns[creep.memory.spawn].random.defenders.push(creep.memory.sourceRoom);
+        else {
+            var hostiles = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+            if (hostiles && creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
+                Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
+        }
         if (creep.memory.flag) {
             creep.moveTo(Game.flags[creep.memory.flag]);
             return;
