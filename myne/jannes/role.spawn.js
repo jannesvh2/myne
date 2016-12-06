@@ -271,6 +271,24 @@ var roleSpawn = {
                 }
             }
 
+            let extractor = Game.getObjectById(Memory.spawns[spawn].random.extractor);
+            if (extractor && terminal && extractor.mineralAmount > 0 && _.sum(terminal.store) < terminal.storeCapacity - 50000) {
+
+                if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 1 && !Memory.spawns[spawn].random.hostiles) {
+                    if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
+                        newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
+                    else
+                        newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
+
+                    return;
+                }
+            }
+            let lab = Game.getObjectById(Memory.spawns[spawn].random.defLab);
+            if (!Memory.spawns[spawn].creeps.terminals.length && (Memory.spawns[spawn].random.runReaction || (terminal && terminal.store['XUH2O'] && lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000))) {
+                newName = multiSpawn([MOVE, CARRY, CARRY], { role: 'terminal', spawn: spawn });
+                return;
+            }
+
             if (harvesters.length < h) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550 || harvesters.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 550)
                     newName = multiSpawn([WORK, CARRY, MOVE], { role: 'harvester', spawn: spawn });
@@ -352,25 +370,6 @@ var roleSpawn = {
                     newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'toStore', spawn: spawn });
                 else
                     newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toStore', spawn: spawn });
-                return;
-            }
-
-
-            let extractor = Game.getObjectById(Memory.spawns[spawn].random.extractor);
-            if (extractor && terminal && extractor.mineralAmount > 0 && _.sum(terminal.store) < terminal.storeCapacity - 50000) {
-
-                if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 1 && !Memory.spawns[spawn].random.hostiles) {
-                    if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
-                        newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
-                    else
-                        newName = multiSpawn([CARRY, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'extractor', spawn: spawn });
-
-                    return;
-                }
-            }
-            let lab = Game.getObjectById(Memory.spawns[spawn].random.defLab);
-            if (!Memory.spawns[spawn].creeps.terminals.length && (Memory.spawns[spawn].random.runReaction || (terminal && terminal.store['XUH2O'] && lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000))) {
-                newName = multiSpawn([MOVE, CARRY, CARRY], { role: 'terminal', spawn: spawn });
                 return;
             }
 
