@@ -270,8 +270,9 @@ var roleSpawn = {
                     return;
                 }
             }
-
             let extractor = Game.getObjectById(Memory.spawns[spawn].random.extractor);
+            let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
+
             if (extractor && terminal && extractor.mineralAmount > 0 && _.sum(terminal.store) < terminal.storeCapacity - 50000) {
 
                 if (_.filter(Game.creeps, (creep) => creep.memory.role == 'extractor' && creep.memory.spawn == spawn).length < 1 && !Memory.spawns[spawn].random.hostiles) {
@@ -288,7 +289,6 @@ var roleSpawn = {
                 newName = multiSpawn([MOVE, CARRY, CARRY], { role: 'terminal', spawn: spawn });
                 return;
             }
-
             if (harvesters.length < h) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 550 || harvesters.length == 0 && Game.rooms[Memory.spawns[spawn].random.mainRoom].energyAvailable < 550)
                     newName = multiSpawn([WORK, CARRY, MOVE], { role: 'harvester', spawn: spawn });
@@ -354,8 +354,6 @@ var roleSpawn = {
                     newName = multiSpawn([WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader', spawn: spawn });
                 return;
             }
-
-            let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
 
 
             if (terminal && terminal.store.energy > 55000 && !Memory.spawns[spawn].creeps.toStores.length && Game.rooms[Memory.spawns[spawn].random.mainRoom].controller.level != 8) {
