@@ -772,8 +772,8 @@ var roleCreateJSON = {
             }
             Memory.spawns[a].repairHpHistory = {};
 
-            if (Memory.spawns[a].counters.creeps < 6)
-                Game.notify("spawn " + a + " has " + Memory.spawns[a].counters.creeps + " creeps");
+            //if (Memory.spawns[a].counters.creeps < 3)
+            //    Game.notify("spawn " + a + " has " + Memory.spawns[a].counters.creeps + " creeps");
 
             if (Memory.spawns[a].random.useLinks) {
                 roleLink.run(a);
