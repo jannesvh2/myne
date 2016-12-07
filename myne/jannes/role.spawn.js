@@ -192,7 +192,7 @@ var roleSpawn = {
                         if (total > 100000) {
                             var maxTransferEnergyCost = terminal.store.energy;
                             for (var resource in terminal.store) {
-                                if (resource != 'energy' && terminal.store[resource] > 100000) {
+                                if ((resource != 'energy' && terminal.store[resource] > 100000) || (resource == 'XGH2O' && terminal.store[resource] > 15000)) {
                                     var amountToSell = 10000;
 
                                     var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
@@ -241,7 +241,7 @@ var roleSpawn = {
                         if (total > 100000) {
                             var maxTransferEnergyCost = terminal.store.energy;
                             for (var resource in terminal.store) {
-                                if (resource != 'energy' && terminal.store[resource] > 100000) {
+                                if ((resource != 'energy' && terminal.store[resource] > 100000) || (resource == 'XGH2O' && terminal.store[resource] > 15000)) {
                                     var amountToSell = 10000;
 
                                     var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
