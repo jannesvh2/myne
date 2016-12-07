@@ -204,9 +204,9 @@ var roleCreateJSON = {
             Memory.spawns[0].reactions = [];
 
             Memory.spawns[0].reactions.push(new Array());
-            Memory.spawns[0].reactions[2].push({ m: 'GH', l: '5816c43eca67a9782d7b5e60' });
-            Memory.spawns[0].reactions[2].push({ m: 'G', l: '58354e1c1123cc6e786f0d23', r: 'W5S53' });
-            Memory.spawns[0].reactions[2].push({ m: 'H', l: '583524cdcbde542872c82c87', r: 'W6S53' });
+            Memory.spawns[0].reactions[0].push({ m: 'XGH2O', l: '5834cc21443e2b9d39429d48' });
+            Memory.spawns[0].reactions[0].push({ m: 'GH2O', l: '582116148047a58e4fd7da1c' });
+            Memory.spawns[0].reactions[0].push({ m: 'X', l: '583514f822476adc13ebc425' });
 
             Memory.spawns[0].reactions.push(new Array());
             Memory.spawns[0].reactions[1].push({ m: 'GH2O', l: '582116148047a58e4fd7da1c' });
@@ -214,9 +214,9 @@ var roleCreateJSON = {
             Memory.spawns[0].reactions[1].push({ m: 'OH', l: '582176845c23a55857c694e8', r: 'W6S53' });
 
             Memory.spawns[0].reactions.push(new Array());
-            Memory.spawns[0].reactions[0].push({ m: 'XGH2O', l: '5834cc21443e2b9d39429d48' });
-            Memory.spawns[0].reactions[0].push({ m: 'GH2O', l: '582116148047a58e4fd7da1c' });
-            Memory.spawns[0].reactions[0].push({ m: 'X', l: '583514f822476adc13ebc425' });
+            Memory.spawns[0].reactions[2].push({ m: 'GH', l: '5816c43eca67a9782d7b5e60' });
+            Memory.spawns[0].reactions[2].push({ m: 'G', l: '58354e1c1123cc6e786f0d23', r: 'W5S53' });
+            Memory.spawns[0].reactions[2].push({ m: 'H', l: '583524cdcbde542872c82c87', r: 'W6S53' });
 
 
             //spawn 1
