@@ -542,6 +542,9 @@ var roleCreateJSON = {
             Memory.spawns[7].summon.atkH = 0;
             Memory.spawns[7].summon.atkD = 0;
             Memory.spawns[7].random.mainRoom = 'W6S53';
+            Memory.spawns[3].reactions[0].push({ m: 'ZK', l: '583c0a4d3eafca7e174ff6c5' });
+            Memory.spawns[3].reactions[0].push({ m: 'Z', l: '581eab551fc92be318115693' });
+            Memory.spawns[3].reactions[0].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
 
             //Memory.spawns[7].random.useUpgradeSpots = true;
             //Memory.spawns[7].random.upgradeSpots.push({ x: 32, y: 32 });
@@ -575,6 +578,26 @@ var roleCreateJSON = {
             Memory.spawns[7].random.extractor = '579fab88b1f02a3b0cff0328';
             Memory.spawns[7].random.terminal = '5831d5d8202214f5461bdab4';
             Memory.spawns[7].random.defLab = '';
+            Memory.spawns[7].random.runReaction = true;
+            Memory.spawns[7].random.runReactionL = { OH: 10000};
+            Memory.spawns[7].reactions = [];
+
+            Memory.spawns[7].reactions.push(new Array());
+            Memory.spawns[7].reactions[0].push({ m: 'OH', l: '583d1bc885d06b81324572fb' });
+            Memory.spawns[7].reactions[0].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
+            Memory.spawns[7].reactions[0].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions.push(new Array());
+            Memory.spawns[7].reactions[0].push({ m: 'OH', l: '58314d28752fa9b77e2c9a7d' });
+            Memory.spawns[7].reactions[0].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
+            Memory.spawns[7].reactions[0].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions.push(new Array());
+            Memory.spawns[7].reactions[0].push({ m: 'OH', l: '5831c551ede9ddf14bf90093' });
+            Memory.spawns[7].reactions[0].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
+            Memory.spawns[7].reactions[0].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions.push(new Array());
+            Memory.spawns[7].reactions[0].push({ m: 'OH', l: '58310c3f66dd01de78c79e5b' });
+            Memory.spawns[7].reactions[0].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
+            Memory.spawns[7].reactions[0].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
 
             //spawn 8
             //spawn numbers
