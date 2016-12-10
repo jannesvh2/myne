@@ -674,7 +674,7 @@ var roleCreateJSON = {
             Memory.spawns[9].summon.b = 0;
             Memory.spawns[9].summon.u = 0;
             Memory.spawns[9].summon.h2 = 0;
-            Memory.spawns[9].summon.b2 = 0;
+            Memory.spawns[9].summon.b2 = 1;
             Memory.spawns[9].summon.u2 = 0;
             Memory.spawns[9].summon.users = 1;
             Memory.spawns[9].summon.atkM = 0;
@@ -683,7 +683,7 @@ var roleCreateJSON = {
             Memory.spawns[9].summon.atkD = 0;
             Memory.spawns[9].random.mainRoom = 'W4S57';
 
-            Memory.spawns[9].random.useUpgradeSpots = false;
+            Memory.spawns[9].random.useUpgradeSpots = true;
             Memory.spawns[9].random.upgradeSpots.push({ x: 19, y: 6 });
             Memory.spawns[9].random.upgradeSpots.push({ x: 19, y: 7 });
             Memory.spawns[9].random.upgradeSpots.push({ x: 19, y: 8 });
