@@ -754,6 +754,27 @@ var roleCreateJSON = {
                         Game.rooms[Memory.spawns[a].random.mainRoom].terminal.send(RESOURCE_ENERGY, 30000, Memory.spawns[a].random.overflow, null);
                     }
                 }
+
+                let terminal = Game.getObjectById(Memory.spawns[a].random.terminal);
+                var total = _.sum(terminal.store);
+                if (total > 100000) {
+                    var maxTransferEnergyCost = terminal.store.energy;
+                    for (var resource in terminal.store) {
+                        if (resource != 'energy' && terminal.store[resource] > 100000) {
+                            var amountToSell = 4000;
+
+                            var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
+                                order.type == ORDER_BUY && order.price > 0.19);
+
+                            if (orders.length) {
+                                orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[a].random.mainRoom, order.roomName) * 0.05 / 100);
+                                Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[a].random.mainRoom);
+                                //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
+                                //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
+                            }
+                        }
+                    }
+                }
             }
             else {
                 for (let r = 0, lengthR = Memory.spawns[a].random.roomContainers.length; r < lengthR; r++) {

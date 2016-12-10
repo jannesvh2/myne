@@ -185,29 +185,7 @@ var roleSpawn = {
                         //newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
                         newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
 
-                    if (typeof newName == 'string' && Memory.spawns[spawn].random.terminal) {
-                        //check order
-                        let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
-                        var total = _.sum(terminal.store);
-                        if (total > 100000) {
-                            var maxTransferEnergyCost = terminal.store.energy;
-                            for (var resource in terminal.store) {
-                                if ((resource != 'energy' && terminal.store[resource] > 100000) || (resource == 'XGH2O' && terminal.store[resource] > 15000)) {
-                                    var amountToSell = 4000;
-
-                                    var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
-                                        order.type == ORDER_BUY && order.price > 0.19);
-
-                                    if (orders.length) {
-                                        orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
-                                        Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
-                                        //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
-                                        //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                   
                     return;
 
                 }
@@ -233,30 +211,7 @@ var roleSpawn = {
                         newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], { role: 'builder2', spawn: spawn });
                     if (typeof newName == 'string')
                         Memory.spawns[spawn].counters.upgradeTicks = 0;
-
-                    if (typeof newName == 'string' && Memory.spawns[spawn].random.terminal) {
-                        //check order
-                        let terminal = Game.getObjectById(Memory.spawns[spawn].random.terminal);
-                        var total = _.sum(terminal.store);
-                        if (total > 100000) {
-                            var maxTransferEnergyCost = terminal.store.energy;
-                            for (var resource in terminal.store) {
-                                if ((resource != 'energy' && terminal.store[resource] > 100000) || (resource == 'XGH2O' && terminal.store[resource] > 15000)) {
-                                    var amountToSell = 4000;
-
-                                    var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
-                                        order.type == ORDER_BUY && order.price > 0.19);
-
-                                    if (orders.length) {
-                                        orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[spawn].random.mainRoom, order.roomName) * 0.05 / 100);
-                                        Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[spawn].random.mainRoom);
-                                        //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
-                                        //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                   
                     return;
 
                 }
