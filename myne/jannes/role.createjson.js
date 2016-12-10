@@ -375,7 +375,7 @@ var roleCreateJSON = {
             Memory.spawns[3].reactions = [];
             Memory.spawns[3].reactions.push(new Array());
             Memory.spawns[3].reactions[0].push({ m: 'ZK', l: '583c0a4d3eafca7e174ff6c5' });
-            Memory.spawns[3].reactions[0].push({ m: 'Z', l: '581eab551fc92be318115693'});
+            Memory.spawns[3].reactions[0].push({ m: 'Z', l: '581eab551fc92be318115693' });
             Memory.spawns[3].reactions[0].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
             Memory.spawns[3].random.overflow = 'W3S55';
             Memory.spawns[3].random.nuker = '58436672be44c9882007fcb7';
@@ -528,7 +528,7 @@ var roleCreateJSON = {
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '';
             Memory.spawns[6].random.runReaction = true;
-            Memory.spawns[6].random.runReactionL = { UL: 200, G: 1000};
+            Memory.spawns[6].random.runReactionL = { UL: 200, G: 1000 };
             Memory.spawns[6].reactions = [];
 
             Memory.spawns[6].reactions.push(new Array());
@@ -595,7 +595,7 @@ var roleCreateJSON = {
             Memory.spawns[7].random.terminal = '5831d5d8202214f5461bdab4';
             Memory.spawns[7].random.defLab = '';
             Memory.spawns[7].random.runReaction = true;
-            Memory.spawns[7].random.runReactionL = { OH: 10000};
+            Memory.spawns[7].random.runReactionL = { OH: 10000 };
             Memory.spawns[7].reactions = [];
 
             Memory.spawns[7].reactions.push(new Array());
@@ -692,16 +692,16 @@ var roleCreateJSON = {
             ////RoomList
             Memory.spawns[9].random.rooms.push({ name: 'W4S57', spawn: 0 });
             if (!Memory.spawns[9].random.hostiles) {
-              //  Memory.spawns[9].random.rooms.push({ name: 'W3S56', spawn: 1 });
+                //  Memory.spawns[9].random.rooms.push({ name: 'W3S56', spawn: 1 });
                 //Memory.spawns[9].random.rooms.push({ name: 'W2S55', spawn: 1 });
             }
             ////keeper
             if (!Memory.spawns[9].random.hostiles) {
-              //  Memory.spawns[9].spots.push({ sourceRoom: 'W3S56' });
+                //  Memory.spawns[9].spots.push({ sourceRoom: 'W3S56' });
                 //Memory.spawns[9].spots.push({ sourceRoom: 'W2S55' });
             }
             //StoreId
-           // Memory.spawns[9].random.storeId = '5836e0ae2831ba423c0923b2';
+            // Memory.spawns[9].random.storeId = '5836e0ae2831ba423c0923b2';
             //UseStore
             Memory.spawns[9].random.useStore = false;
             //Memory.spawns[9].random.useLinks = true;
@@ -756,21 +756,23 @@ var roleCreateJSON = {
                 }
 
                 let terminal = Game.getObjectById(Memory.spawns[a].random.terminal);
-                var total = _.sum(terminal.store);
-                if (total > 100000) {
-                    var maxTransferEnergyCost = terminal.store.energy;
-                    for (var resource in terminal.store) {
-                        if (resource != 'energy' && terminal.store[resource] > 100000) {
-                            var amountToSell = 4000;
+                if (terminal) {
+                    var total = _.sum(terminal.store);
+                    if (total > 100000) {
+                        var maxTransferEnergyCost = terminal.store.energy;
+                        for (var resource in terminal.store) {
+                            if (resource != 'energy' && terminal.store[resource] > 100000) {
+                                var amountToSell = 4000;
 
-                            var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
-                                order.type == ORDER_BUY && order.price > 0.19);
+                                var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
+                                    order.type == ORDER_BUY && order.price > 0.19);
 
-                            if (orders.length) {
-                                orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[a].random.mainRoom, order.roomName) * 0.05 / 100);
-                                Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[a].random.mainRoom);
-                                //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
-                                //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
+                                if (orders.length) {
+                                    orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[a].random.mainRoom, order.roomName) * 0.05 / 100);
+                                    Game.market.deal(orders[orders.length - 1].id, amountToSell, Memory.spawns[a].random.mainRoom);
+                                    //Game.notify(Game.market.deal(orders[0].id, amountToSell, Memory.spawns[spawn].random.mainRoom));
+                                    //Game.notify(amountToSell + " " + resource + " " + orders[0].id + " " + Memory.spawns[spawn].random.mainRoom + " " + Memory.spawns[spawn].random.terminal.store.energy);
+                                }
                             }
                         }
                     }
