@@ -70,11 +70,11 @@ var roleGetStore = {
                     FIND_DROPPED_ENERGY,
                     4, {
                         filter: function (object) {
-                            return object.resourceType == "energy";
+                            return object.resourceType == "energy" && object.energy > 200;
                         }
                     }
                 );
-                    if (energyG.length && energyG[0].energy > 100) {
+                    if (energyG.length) {
                         creep.moveTo(energyG[0]);
                         return;
                     }
