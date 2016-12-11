@@ -708,10 +708,10 @@ var roleCreateJSON = {
             Memory.spawns[9].links.receiver = '584d42738b42d50a6fcb7447';
             Memory.spawns[9].links.producers.push({ id: '584c08efbaf67c7774cd9234', source: true });
             Memory.spawns[9].links.producers.push({ id: '584c0b25f9108d3a1dd6f81b', source: true });
-            //////Memory.spawns[9].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
-            //////extractor
-            //Memory.spawns[9].random.extractor = '579fab88b1f02a3b0cff0351';
-            //Memory.spawns[9].random.terminal = '583ed79fa9e44d646c084972';
+            //Memory.spawns[9].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
+            //extractor
+            Memory.spawns[9].random.extractor = '579fab88b1f02a3b0cff0341';
+            Memory.spawns[9].random.terminal = '584cb297dc6a243227cfcc3d';
             //Memory.spawns[9].random.defLab = '';
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
