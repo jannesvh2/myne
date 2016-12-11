@@ -375,8 +375,8 @@ var roleSpawn = {
                     }
                 }
             }
-            if (spawn == 0) {
-                if (Memory.spawns[9].creeps.helpers.length < 4) {
+            if (spawn == 40) {
+                if (Memory.spawns[9].creeps.helpers.length < 0) {
                     if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
                         newName = multiSpawn([WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, MOVE, WORK, WORK, MOVE, MOVE], { role: 'builder', spawn: 6, helper: true });
                     else
