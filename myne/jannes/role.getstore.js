@@ -57,7 +57,7 @@ var roleGetStore = {
                 }
             }
         }
-        var moved = false;
+
         if (creep.memory.sourceId) {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
             if (!creepSource || creepSource.store.energy < 250)
@@ -74,14 +74,13 @@ var roleGetStore = {
                         }
                     }
                 );
-                    if (energyG.length) {
+                    if (energyG.length && energyG[0].energy > 100) {
                         creep.moveTo(energyG[0]);
-                        moved = true;
+                        return;
                     }
                 }
                 if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    if (!moved)
-                        creep.moveTo(creepSource);
+                    creep.moveTo(creepSource);
                 }
 
             }
