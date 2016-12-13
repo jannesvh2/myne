@@ -173,8 +173,11 @@ var roleTerminalMover = {
                             }
                             else {
                                 if (terminal.store['G']) {
-                                    if (creep.withdraw(terminal, 'G') == ERR_NOT_IN_RANGE)
+                                    let fillNukeG = creep.withdraw(terminal, 'G');
+                                    if (fillNukeG == ERR_NOT_IN_RANGE)
                                         creep.moveTo(terminal);
+                                    else if (fillNukeG == OK)
+                                        creep.memory.full = true;
                                 }
                                 else {
                                     if (_.sum(terminal.store) < 295000) {
