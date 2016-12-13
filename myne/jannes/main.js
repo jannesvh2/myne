@@ -50,6 +50,8 @@ module.exports.loop = function () {
         // let cpu2 = Game.cpu.getUsed();
         try {
             var creep = Game.creeps[name];
+            if (creep.spawning)
+                continue;
             var energy = creep.pos.findInRange(
                 FIND_DROPPED_ENERGY,
                 1, {
