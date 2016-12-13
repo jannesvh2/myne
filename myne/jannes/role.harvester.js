@@ -10,7 +10,7 @@ var roleHarvester = {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
-                        creep.moveTo50(flag);
+                        creep.moveTo(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 2;
                         return;
@@ -18,7 +18,7 @@ var roleHarvester = {
                     if (creep.memory.flag == 2) {
 
                         flag = Game.flags['Flag8'];
-                        creep.moveTo50(flag);
+                        creep.moveTo(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 3;
                         return;
@@ -27,7 +27,7 @@ var roleHarvester = {
                     //    if (creep.memory.flag == 3) {
 
                     //        flag = Game.flags['Flag3'];
-                    //        creep.moveTo50(flag);
+                    //        creep.moveTo(flag);
                     //        if (flag.room.name == creep.room.name)
                     //            creep.memory.flag = 4;
                     //        return;
@@ -35,7 +35,7 @@ var roleHarvester = {
                     //    if (creep.memory.flag == 4) {
 
                     //        flag = Game.flags['Flag4'];
-                    //        creep.moveTo50(flag);
+                    //        creep.moveTo(flag);
                     //        return;
                     //    }
 
@@ -44,7 +44,7 @@ var roleHarvester = {
                 else {
                     var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo50(Exit);
+                    creep.moveTo(Exit);
                     return;
                 }
             }
@@ -94,13 +94,13 @@ var roleHarvester = {
                 }
                 if (targets) {
                     if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo50(targets);
+                        creep.moveTo(targets);
                     }
                 }
                 else if (Memory.spawns[creep.memory.spawn].random.terminal && Gamge.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
                     var terminal = Gamge.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
                     if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                        creep.moveTo50(terminal);
+                        creep.moveTo(terminal);
                     //}
                 }
                 else if (Memory.spawns[creep.memory.spawn].random.storeId) {
@@ -115,14 +115,14 @@ var roleHarvester = {
                     //}
                     //if (targets.length > 0) {
                     //    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    //        creep.moveTo50(targets[0]);
+                    //        creep.moveTo(targets[0]);
                     //    }
                     //}
                     //else {
 
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                        creep.moveTo50(storage);
+                        creep.moveTo(storage);
                     //}
                 }
 
@@ -161,7 +161,7 @@ var roleHarvester = {
                             return (structure.hits < structure.hitsMax - 800 && structure.structureType == STRUCTURE_ROAD)
                         }
                     })[0]);
-                    creep.moveTo50(targets);
+                    creep.moveTo(targets);
                     creep.memory.currentRoom = creep.room.name;
                 }
                 else if (transfer == ERR_FULL && Game.time % 5 == 0) {

@@ -75,12 +75,12 @@ var roleGetStore = {
                     }
                 );
                     if (energyG.length) {
-                        creep.moveTo50(energyG[0]);
+                        creep.moveTo(energyG[0]);
                         return;
                     }
                 }
                 if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo50(creepSource);
+                    creep.moveTo(creepSource);
                 }
 
             }
