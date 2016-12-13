@@ -486,7 +486,7 @@ var roleCreateJSON = {
             Memory.spawns[6].summon.h = 0;
             Memory.spawns[6].summon.b = 0;
             Memory.spawns[6].summon.u = 0;
-            Memory.spawns[6].summon.h2 = 14;
+            Memory.spawns[6].summon.h2 = 12;
             Memory.spawns[6].summon.b2 = 1;
             Memory.spawns[6].summon.u2 = 0;
             Memory.spawns[6].summon.users = 1;
@@ -505,9 +505,9 @@ var roleCreateJSON = {
             ////RoomList
             Memory.spawns[6].random.rooms.push({ name: 'W5S53', spawn: 0 });
             if (!Memory.spawns[6].random.hostiles) {
-                Memory.spawns[6].random.rooms.push({ name: 'W5S52', spawn: 2 });
+                Memory.spawns[6].random.rooms.push({ name: 'W5S52', spawn: 1 });
                 Memory.spawns[6].random.rooms.push({ name: 'W5S54', spawn: 4, sk: true });
-                Memory.spawns[6].random.rooms.push({ name: 'W4S54', spawn: 8, sk: true });
+                Memory.spawns[6].random.rooms.push({ name: 'W4S54', spawn: 7, sk: true });
             }
             ////keeper
             if (!Memory.spawns[6].random.hostiles) {
@@ -524,10 +524,13 @@ var roleCreateJSON = {
             Memory.spawns[6].links.producers.push({ id: '5822e7a89a187519480305d4', source: true });
             Memory.spawns[6].links.producers.push({ id: '5828ded83e309cbe02bd70fd', source: true });
             Memory.spawns[6].links.producers.push({ id: '583adbe811dc8f74034f13d9', source: true });
+            Memory.spawns[6].links.producers.push({ id: '5850205397ffb6e1777f6d24', source: true });
+            Memory.spawns[6].links.producers.push({ id: '585024d9a8119c7a1feb3565', source: true });
             //extractor
             Memory.spawns[6].random.extractor = '579fab88b1f02a3b0cff0334';
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '';
+            Memory.spawns[6].random.nuker = '584f03089fc4e985206ea7a7';
             Memory.spawns[6].random.overflow = 'W4S57';
             Memory.spawns[6].random.runReaction = true;
             Memory.spawns[6].random.runReactionL = { UL: 200, G: 1000 };
