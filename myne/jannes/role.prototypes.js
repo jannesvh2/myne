@@ -12,15 +12,15 @@ var rolePrototypes = {
                 d.destroy();
         };
 
-        creep.prototype.moveTo50 = function (target) {
+        Creep.prototype.moveTo50 = function (target) {
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
-            var path = this.room.deserializePath(this._move.path);
+            var path = Room.deserializePath(this.memory._move.path);
 
-            let nextPos = this.room.lookForAt(LOOK_CREEPS, this.path);
+            let nextPos = this.room.lookForAt(LOOK_CREEPS, path);
             if(nextPos){
                 let otherCreep = nextPos.moveTo(this);
                 if(otherCreep == ERR_NOT_OWNER){
-                    delete this._move;
+                    delete this.memory._move;
                     this.moveTo(target);
                     return;
                 }
@@ -28,7 +28,7 @@ var rolePrototypes = {
                 this.moveTo(nextPos);
             }
             if (moveReturn != OK)
-                delete this._move;
+                delete this.memory._move;
         };
     }
 };
