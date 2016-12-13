@@ -373,10 +373,16 @@ var roleCreateJSON = {
             Memory.spawns[3].random.runReaction = true;
             Memory.spawns[3].random.runReactionL = { ZK: 1000 };
             Memory.spawns[3].reactions = [];
+
             Memory.spawns[3].reactions.push(new Array());
-            Memory.spawns[3].reactions[0].push({ m: 'ZK', l: '583c0a4d3eafca7e174ff6c5' });
+            Memory.spawns[3].reactions[0].push({ m: 'ZK', l: '581fd1768000c0a607fe45f0' });
             Memory.spawns[3].reactions[0].push({ m: 'Z', l: '581eab551fc92be318115693' });
             Memory.spawns[3].reactions[0].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
+
+            Memory.spawns[3].reactions.push(new Array());
+            Memory.spawns[3].reactions[1].push({ m: 'ZK', l: '583c0a4d3eafca7e174ff6c5' });
+            Memory.spawns[3].reactions[1].push({ m: 'Z', l: '581eab551fc92be318115693' });
+            Memory.spawns[3].reactions[1].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
             Memory.spawns[3].random.overflow = 'W3S55';
             Memory.spawns[3].random.nuker = '58436672be44c9882007fcb7';
 
@@ -537,19 +543,24 @@ var roleCreateJSON = {
             Memory.spawns[6].reactions = [];
 
             Memory.spawns[6].reactions.push(new Array());
-            Memory.spawns[6].reactions[0].push({ m: 'G', l: '5829482e90cd896460ed38da' });
+            Memory.spawns[6].reactions[0].push({ m: 'G', l: '584fdb1edc177f446bc25c6c' });
             Memory.spawns[6].reactions[0].push({ m: 'ZK', l: '583c5ca97fcae761649afe05', r: 'W7S53' });
             Memory.spawns[6].reactions[0].push({ m: 'UL', l: '583ce2190188cbd60339013e' });
 
             Memory.spawns[6].reactions.push(new Array());
-            Memory.spawns[6].reactions[1].push({ m: 'G', l: '583c22360d802d93244a3dc2' });
+            Memory.spawns[6].reactions[1].push({ m: 'G', l: '584fc5f3bc81d5f907a67023' });
             Memory.spawns[6].reactions[1].push({ m: 'ZK', l: '583c5ca97fcae761649afe05', r: 'W7S53' });
-            Memory.spawns[6].reactions[1].push({ m: 'UL', l: '583ce2190188cbd60339013e' });
+            Memory.spawns[6].reactions[1].push({ m: 'UL', l: '583c22360d802d93244a3dc2' });
 
             Memory.spawns[6].reactions.push(new Array());
             Memory.spawns[6].reactions[2].push({ m: 'UL', l: '583ce2190188cbd60339013e' });
-            Memory.spawns[6].reactions[2].push({ m: 'U', l: '58299cac6ff35bc4431fbe8a' });
-            Memory.spawns[6].reactions[2].push({ m: 'L', l: '5829f9ced920fd6828a96f4b', r: 'W3S55' });
+            Memory.spawns[6].reactions[2].push({ m: 'U', l: '5829482e90cd896460ed38da' });
+            Memory.spawns[6].reactions[2].push({ m: 'L', l: '58299cac6ff35bc4431fbe8a', r: 'W3S55' });
+
+            Memory.spawns[6].reactions.push(new Array());
+            Memory.spawns[6].reactions[3].push({ m: 'UL', l: '583c22360d802d93244a3dc2' });
+            Memory.spawns[6].reactions[3].push({ m: 'U', l: '5829482e90cd896460ed38da' });
+            Memory.spawns[6].reactions[3].push({ m: 'L', l: '58299cac6ff35bc4431fbe8a', r: 'W3S55' });
 
             //spawn 7
             //spawn numbers
