@@ -14,6 +14,7 @@ var roleMover = require('role.mover');
 var roleUser = require('role.user');
 var roleTerminalMover = require('role.terminalmover');
 var roleLab = require('role.lab');
+var rolePrototypes = require('role.prototypes');
 
 module.exports.loop = function () {
     //Memory.global.isNew = true;
