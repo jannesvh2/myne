@@ -11,14 +11,11 @@ var roleAttackers = {
         var flag = true;
         var moveByFlag = false;
         var moveByFlagFlag = Game.flags['Flag1'];
-        //var targetLocation = Game.getObjectById('579fa86e0700be0674d2d987');
         var targetLocation;
         targetLocation = { x: 25, y: 25 };
         var priorityTarget = Game.getObjectById('581f6874b4dd75f611a8520f');
         var priorityTargetD = Game.getObjectById('581f6874b4dd75f611a8520f');
 
-        //var sourceRoom = targetLocation.room.name;
-        //var sourceRoom = 'W58S26';
         var sourceRoom = 'W4S57';
         var sourceRoomH = 'W4S57';
         var saveRoom = '';

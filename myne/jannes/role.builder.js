@@ -27,23 +27,6 @@ var roleBuilder = {
                         return;
                     }
                 }
-                    //    if (creep.memory.flag == 3) {
-
-                    //        flag = Game.flags['Flag3'];
-                    //        creep.moveTo(flag);
-                    //        if (flag.room.name == creep.room.name)
-                    //            creep.memory.flag = 4;
-                    //        return;
-                    //    }
-                    //    if (creep.memory.flag == 4) {
-
-                    //        flag = Game.flags['Flag4'];
-                    //        creep.moveTo(flag);
-                    //        return;
-                    //    }
-
-
-                    //}
                 else {
                     var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
@@ -119,15 +102,6 @@ var roleBuilder = {
                             }
                             creep.moveTo(targets[0]);
                         }
-                        //if (buildReturn == ERR_INVALID_TARGET) {
-                        //    var sourceRoom = targets[0].room.name;
-                        //    if (creep.room.name != sourceRoom && sourceRoom != '') {
-                        //        var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
-                        //        var Exit = creep.pos.findClosestByRange(exitDir);
-                        //        Game.rooms[creep.room.name].createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
-                        //        creep.moveTo(Exit);
-                        //    }
-                        //}
                     }
                 }
             }

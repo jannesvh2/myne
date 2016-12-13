@@ -62,7 +62,6 @@ module.exports.loop = function () {
             );
             let mustDel = false;
             if (energy.length) {
-                //console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
                 creep.pickup(energy[0]);
                 if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
                     creep.memory.full = true;
@@ -164,18 +163,6 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'toStore') {
                 roleTerminalMover.run(creep);
             }
-            //if (creep.memory.role == 'link') {
-            //    roleLink.run(creep);
-            //}
-            //if (creep.pos.x == 0)
-            //    creep.move(RIGHT);
-            //else if (creep.pos.y == 0)
-            //    creep.move(BOTTOM);
-            //else if (creep.pos.x == 49)
-            //    creep.move(LEFT);
-            //else if (creep.pos.y == 49)
-            //    creep.move(TOP);
-
             // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu).toFixed(2);
             //  var cpu = Game.cpu.getUsed();
         }

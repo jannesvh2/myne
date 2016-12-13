@@ -29,34 +29,12 @@ var roleUser = {
                         }
                     });
 
-                    //if (!targets) {
-                    //    for (let myRooms = 0, length = Memory.spawns[creep.memory.spawn].random.rooms.length; myRooms < length; myRooms++) {
-                    //        if (Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name]) {
-                    //            var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.rooms[myRooms].name].find(FIND_MY_STRUCTURES, {
-                    //                filter: (structure) => {
-                    //                    return (structure.structureType == STRUCTURE_EXTENSION ||
-                    //                            structure.structureType == STRUCTURE_SPAWN ||
-                    //                            (structure.structureType == STRUCTURE_TOWER && structure.energy < structure.energyCapacity - 250)) && structure.energy < structure.energyCapacity && structure.id != creep.memory.targetId;
-                    //                }
-                    //            })[0];
-                    //            if (targets)
-                    //                break;
-                    //        }
-                    //    }
-                    //}
 
                     if (!targets) {
                         if (Memory.spawns[creep.memory.spawn].random.terminal && Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal).store.energy < 50000) {
                             targets = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
                         }
                     }
-                    ////nuke
-                    //if (!targets) {
-                    //    let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
-                    //    if (nuker && nuker.energy < 300000) {
-                    //        targets = nuker;
-                    //    }
-                    //}
                 }
 
 
@@ -92,14 +70,6 @@ var roleUser = {
             }
             else
                 delete creep.memory.targetId;
-            
-
-            //need work part
-            //creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
-            //    filter: (structure) => {
-            //        return (structure.hits < structure.hitsMax - 850 && structure.structureType == STRUCTURE_ROAD)
-            //    }
-            //}));
 
         }
         if (!creep.memory.full) {

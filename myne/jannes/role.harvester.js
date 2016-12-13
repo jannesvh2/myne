@@ -24,23 +24,6 @@ var roleHarvester = {
                         return;
                     }
                 }
-                    //    if (creep.memory.flag == 3) {
-
-                    //        flag = Game.flags['Flag3'];
-                    //        creep.moveTo(flag);
-                    //        if (flag.room.name == creep.room.name)
-                    //            creep.memory.flag = 4;
-                    //        return;
-                    //    }
-                    //    if (creep.memory.flag == 4) {
-
-                    //        flag = Game.flags['Flag4'];
-                    //        creep.moveTo(flag);
-                    //        return;
-                    //    }
-
-
-                    //}
                 else {
                     var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
