@@ -4,7 +4,6 @@ var roleBuilder = require('role.builder');
 var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
-var roleAttackers = require('role.attackers');
 var rolePath = require('role.path2');
 var roleKeeper = require('role.keeper');
 var roleStore = require('role.store');
@@ -15,8 +14,6 @@ var roleMover = require('role.mover');
 var roleUser = require('role.user');
 var roleTerminalMover = require('role.terminalmover');
 var roleLab = require('role.lab');
-var roleGrafana = require('role.grafana');
-var rolePrototypes = require('role.prototypes');
 
 module.exports.loop = function () {
     //Memory.global.isNew = true;
@@ -42,7 +39,7 @@ module.exports.loop = function () {
     try {
         roleLogging.run();
     } catch (err) {
-        console.log(err +' LOGGING')
+        console.log(err + ' LOGGING')
     }
     var cpu = Game.cpu.getUsed();
 
@@ -57,18 +54,19 @@ module.exports.loop = function () {
     var cpu = Game.cpu.getUsed();
 
     //var creepCpu = [];
+    var roleAttackers;
     for (let name in Game.creeps) {
         // let cpu2 = Game.cpu.getUsed();
         try {
             var creep = Game.creeps[name];
-                var energy = creep.pos.findInRange(
-                    FIND_DROPPED_ENERGY,
-                    1, {
-                        filter: function (object) {
-                            return object.resourceType == "energy";
-                        }
+            var energy = creep.pos.findInRange(
+                FIND_DROPPED_ENERGY,
+                1, {
+                    filter: function (object) {
+                        return object.resourceType == "energy";
                     }
-                );
+                }
+            );
             let mustDel = false;
             if (energy.length) {
                 //console.log('found ' + energy[0].energy + ' energy at ', energy[0].pos);
@@ -85,16 +83,22 @@ module.exports.loop = function () {
                 continue;
             }
             else if (creep.memory.role == 'attackerD') {
+                if (!roleAttackers)
+                    roleAttackers = require('role.attackers');
                 roleAttackers.run(creep);
                 warType = true;
                 continue;
             }
             else if (creep.memory.role == 'attackerM') {
+                if (!roleAttackers)
+                    roleAttackers = require('role.attackers');
                 roleAttackers.run(creep);
                 warType = true;
                 continue;
             }
             else if (creep.memory.role == 'attackerR') {
+                if (!roleAttackers)
+                    roleAttackers = require('role.attackers');
                 roleAttackers.run(creep);
                 warType = true;
                 continue;
@@ -105,6 +109,8 @@ module.exports.loop = function () {
                 continue;
             }
             else if (creep.memory.role == 'attackerH') {
+                if (!roleAttackers)
+                    roleAttackers = require('role.attackers');
                 roleAttackers.run(creep);
                 continue;
             }
@@ -206,5 +212,24 @@ module.exports.loop = function () {
         }
     console.log(notify + " | TOTAL: " + Game.cpu.getUsed().toFixed(2));
 
-    roleGrafana.run();
-}
+
+    if (!Memory.global.grafanaTicks) {
+        Memory.global.grafanaTicks = 0;
+        Memory.stats = {};
+        Memory.stats.cpu = {};
+        Memory.stats.gcl = {};
+        Memory.stats.room = {};
+        Memory.stats.sales = [];
+    }
+    else {
+        Memory.global.grafanaTicks++;
+
+        if (Memory.global.grafanaTicks > 15) {
+
+            Memory.global.grafanaTicks = 1;
+            var roleGrafana = require('role.grafana');
+            roleGrafana.run();
+
+        }
+    }
+};
