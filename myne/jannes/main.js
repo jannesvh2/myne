@@ -19,16 +19,6 @@ var rolePrototypes = require('role.prototypes');
 module.exports.loop = function () {
     //Memory.global.isNew = true;
     //Game.market.deal('57dc7f507a5cbc6f245035ea', 6298, "W59S29")
-
-    var destroy = function (room) {
-        let destroy = Game.rooms[room].find(FIND_STRUCTURES, {
-            filter: (structure) => {
-                return (structure.structureType != STRUCTURE_WALL)
-            }
-        });
-        for (var d of destroy)
-            d.destroy();
-    }
     PathFinder.use(true);
     var cpu = Game.cpu.getUsed();
     var notify = "start: " + cpu.toFixed(2);

@@ -352,6 +352,7 @@ var roleSetup = {
             Memory.spawns[5].random.terminal = '58221a217f0d8a854578f352';
             Memory.spawns[5].random.defLab = '';
             Memory.spawns[5].random.overflow = 'W4S57';
+            Memory.spawns[5].random.nuker = '585064c62ee4214b3f41c50b';
 
             //spawn 6
             //spawn numbers
