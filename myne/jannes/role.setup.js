@@ -187,8 +187,25 @@ var roleSetup = {
             Memory.spawns[2].random.defLab = '58389bd48ff1bfa430ad5d91';
             Memory.spawns[2].random.overflow = 'W4S57';
             Memory.spawns[2].random.nuker = '583812703c39d0fc0b2fdae7';
-            Memory.spawns[2].random.runReaction = false;
 
+            Memory.spawns[2].random.runReaction = true;
+            Memory.spawns[2].random.runReactionL = { GH: 200, GH2O: 200, XGH2O: 20000 };
+            Memory.spawns[2].reactions = [];
+
+            Memory.spawns[2].reactions.push(new Array());
+            Memory.spawns[2].reactions[0].push({ m: 'XGH2O', l: '5838ca4d54a15c951c32ff34' });
+            Memory.spawns[2].reactions[0].push({ m: 'GH2O', l: '582531c2fe32029f0cc69337' });
+            Memory.spawns[2].reactions[0].push({ m: 'X', l: '5838f917468e0c433ae4a1db', r: 'W6S51' });
+
+            Memory.spawns[2].reactions.push(new Array());
+            Memory.spawns[2].reactions[1].push({ m: 'GH2O', l: '582531c2fe32029f0cc69337' });
+            Memory.spawns[2].reactions[1].push({ m: 'GH', l: '582595f19db792a23fd894cf' });
+            Memory.spawns[2].reactions[1].push({ m: 'OH', l: '5824cfe51f2cd6a35c0fc40e', r: 'W6S53' });
+
+            Memory.spawns[2].reactions.push(new Array());
+            Memory.spawns[2].reactions[2].push({ m: 'GH', l: '582595f19db792a23fd894cf' });
+            Memory.spawns[2].reactions[2].push({ m: 'G', l: '581e058c3169df7714b5824f', r: 'W5S53' });
+            Memory.spawns[2].reactions[2].push({ m: 'H', l: '581dbaa2fc44c2f349e4da7f' });
             //spawn 3
             //spawn numbers
             Memory.spawns[3].summon.spawns = 3;
