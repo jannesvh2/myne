@@ -23,7 +23,7 @@ var rolePrototypes = {
             this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
 
-            if (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49) {
+            if ((!this.memory.moveReq || this.memory.moveReq < Game.time - 3) && (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49)) {
                 if (this.memory._move) {
                     let path = Room.deserializePath(this.memory._move.path);
                     if (path.length) {
@@ -33,13 +33,12 @@ var rolePrototypes = {
                             return this.moveTo(target);
 
                         }
-                        if (nextPos.length && nextPos[0].memory.moved < Game.time) {
-                            nextPos[0].memory.moved = Game.time;
-                            //this.moveTo(nextPos[0]);
+                        if (this.name == 'BraydenMichael')
+                            console.log(!nextPos[0].memory.moveReq);
+
+                        if (nextPos.length) {
                             nextPos[0].moveTo(this);
-                            this.memory.moveReq = Game.time;
-                            nextPos[0].memory.currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
-                            this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
+                            nextPos[0].memory.moveReq = Game.time;
                             return moveReturn;
                         }
                         else
