@@ -15,7 +15,7 @@ var rolePrototypes = {
         Creep.prototype.moveTo50 = function (target, canOn) {
             canOn = canOn || false;
 
-            if (canOn && creep.pos.getRangeTo(target) == 0) {
+            if (canOn && this.pos.getRangeTo(target) == 0) {
                 this.memory.notStatic = false;
                 return OK;
             }
