@@ -448,10 +448,10 @@ var roleSetup = {
             Memory.spawns[7].random.mainRoom = 'W6S53';
 
             Memory.spawns[7].random.useUpgradeSpots = true;
-            Memory.spawns[7].random.upgradeSpots.push({ x: 32, y: 32 });
-            Memory.spawns[7].random.upgradeSpots.push({ x: 32, y: 33 });
-            Memory.spawns[7].random.upgradeSpots.push({ x: 32, y: 34 });
-            Memory.spawns[7].random.upgradeSpots.push({ x: 32, y: 35 });
+            Memory.spawns[7].random.upgradeSpots.push({ x: 25, y: 16 });
+            Memory.spawns[7].random.upgradeSpots.push({ x: 24, y: 16 });
+            Memory.spawns[7].random.upgradeSpots.push({ x: 23, y: 16 });
+            Memory.spawns[7].random.upgradeSpots.push({ x: 26, y: 16 });
 
             //RoomList
             Memory.spawns[7].random.rooms.push({ name: 'W6S53', spawn: 0 });
