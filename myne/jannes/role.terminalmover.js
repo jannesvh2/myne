@@ -119,6 +119,8 @@ var roleTerminalMover = {
                                 else {
                                     if (Memory.spawns[creep.memory.spawn].requests[s2].r && _.sum(terminal.store) < 295000) {
                                         Game.rooms[Memory.spawns[creep.memory.spawn].requests[s2].r].terminal.send(Memory.spawns[creep.memory.spawn].requests[s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+                                        if (Memory.spawns[creep.memory.spawn].requests[s2].r2)
+                                            Game.rooms[Memory.spawns[creep.memory.spawn].requests[s2].r2].terminal.send(Memory.spawns[creep.memory.spawn].requests[s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
 
                                     }
                                 }
@@ -130,81 +132,81 @@ var roleTerminalMover = {
                     if (Memory.spawns[creep.memory.spawn].reactions)
                         for (let s = 0, lengthS = Memory.spawns[creep.memory.spawn].reactions.length; s < lengthS; s++) {
                             //check if final is at mark
-                        if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[creep.memory.spawn].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
-                            //empty labs
-                            for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
-                                let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
-                                if (checkLab && checkLab.mineralType) {
-                                    creep.memory.moveType = checkLab.mineralType;
-                                    let emptyLab = creep.withdraw(checkLab, creep.memory.moveType);
-                                    if (emptyLab == ERR_NOT_IN_RANGE)
-                                        creep.moveTo50(checkLab);
-                                    if (emptyLab == OK) {
-                                        creep.memory.full = true;
-                                    }
-                                    return;
-                                }
-                            }
-                        }
-                        else {
-                            let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
-                            if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 100) {
-                                creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][0].m;
-                                creep.memory.moveTo50R = terminal.id;
-
-                                let labFinalW = creep.withdraw(labFinal, creep.memory.moveType);
-                                if (labFinalW == ERR_NOT_IN_RANGE)
-                                    creep.moveTo50(labFinal);
-                                if (labFinalW == OK) {
-                                    creep.memory.full = true;
-                                }
-                                return;
-
-                            }
-                            for (let s2 = 1, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
-                                let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
-
-                                //empty lab if it has wrong mineral
-                                if (checkLab && checkLab.mineralType && checkLab.mineralType != Memory.spawns[creep.memory.spawn].reactions[s][s2].m) {
-                                    creep.memory.moveType = checkLab.mineralType;
-
-                                    let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
-                                    if (checkLabW == ERR_NOT_IN_RANGE)
-                                        creep.moveTo50(checkLab);
-                                    if (checkLabW == OK) {
-                                        creep.memory.full = true;
-                                    }
-                                    return;
-
-                                }
-
-                                //add mineral if space
-                                if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 100)) {
-                                    creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
-                                    creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
-                                    if (terminal.store[creep.memory.moveType]) {
-
-                                        let terminalW = creep.withdraw(terminal, creep.memory.moveType);
-                                        if (terminalW == ERR_NOT_IN_RANGE)
-                                            creep.moveTo50(terminal);
-                                        if (terminalW == OK) {
+                            if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[creep.memory.spawn].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
+                                //empty labs
+                                for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
+                                    let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
+                                    if (checkLab && checkLab.mineralType) {
+                                        creep.memory.moveType = checkLab.mineralType;
+                                        let emptyLab = creep.withdraw(checkLab, creep.memory.moveType);
+                                        if (emptyLab == ERR_NOT_IN_RANGE)
+                                            creep.moveTo50(checkLab);
+                                        if (emptyLab == OK) {
                                             creep.memory.full = true;
                                         }
-
                                         return;
                                     }
-                                    else {
-                                        if (Memory.spawns[creep.memory.spawn].reactions[s][s2].r && _.sum(terminal.store) < 295000) {
-                                            Game.rooms[Memory.spawns[creep.memory.spawn].reactions[s][s2].r].terminal.send(Memory.spawns[creep.memory.spawn].reactions[s][s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+                                }
+                            }
+                            else {
+                                let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
+                                if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 100) {
+                                    creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][0].m;
+                                    creep.memory.moveTo50R = terminal.id;
 
+                                    let labFinalW = creep.withdraw(labFinal, creep.memory.moveType);
+                                    if (labFinalW == ERR_NOT_IN_RANGE)
+                                        creep.moveTo50(labFinal);
+                                    if (labFinalW == OK) {
+                                        creep.memory.full = true;
+                                    }
+                                    return;
+
+                                }
+                                for (let s2 = 1, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
+                                    let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
+
+                                    //empty lab if it has wrong mineral
+                                    if (checkLab && checkLab.mineralType && checkLab.mineralType != Memory.spawns[creep.memory.spawn].reactions[s][s2].m) {
+                                        creep.memory.moveType = checkLab.mineralType;
+
+                                        let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
+                                        if (checkLabW == ERR_NOT_IN_RANGE)
+                                            creep.moveTo50(checkLab);
+                                        if (checkLabW == OK) {
+                                            creep.memory.full = true;
+                                        }
+                                        return;
+
+                                    }
+
+                                    //add mineral if space
+                                    if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 100)) {
+                                        creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
+                                        creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
+                                        if (terminal.store[creep.memory.moveType]) {
+
+                                            let terminalW = creep.withdraw(terminal, creep.memory.moveType);
+                                            if (terminalW == ERR_NOT_IN_RANGE)
+                                                creep.moveTo50(terminal);
+                                            if (terminalW == OK) {
+                                                creep.memory.full = true;
+                                            }
+
+                                            return;
+                                        }
+                                        else {
+                                            if (Memory.spawns[creep.memory.spawn].reactions[s][s2].r && _.sum(terminal.store) < 295000) {
+                                                Game.rooms[Memory.spawns[creep.memory.spawn].reactions[s][s2].r].terminal.send(Memory.spawns[creep.memory.spawn].reactions[s][s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+
+                                            }
                                         }
                                     }
+
+
                                 }
-
-
                             }
                         }
-                    }
 
                     //fill nukes
                     let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);

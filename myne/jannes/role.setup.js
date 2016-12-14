@@ -620,7 +620,7 @@ var roleSetup = {
             Memory.spawns[9].random.runReaction = true;
             Memory.spawns[9].requests = [];
 
-            Memory.spawns[9].requests.push({ m: 'XGH2O', l: '584ccf25eeca75d04c9b6cf5', r: 'W4S59' });
+            Memory.spawns[9].requests.push({ m: 'XGH2O', l: '584ccf25eeca75d04c9b6cf5', r: 'W4S59', r2: 'W9S52' });
         }
 
         Memory.spawns[a].counters.roomCounter = 0;
