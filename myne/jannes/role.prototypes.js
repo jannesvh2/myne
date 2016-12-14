@@ -34,9 +34,11 @@ var rolePrototypes = {
 
                         }
 
-                        if (nextPos.length) {
+                        if (nextPos.length && nextPos[0].memory.moved != Game.time) {
                             nextPos[0].moveTo(this);
-                            nextPos[0].memory.moveReq = Game.time;
+                            nextPos[0].memory.moved = Game.time;
+                            if (nextPos[0].memory.moveReq < Game.time - 4)
+                                nextPos[0].memory.moveReq = Game.time + 1;
                             return moveReturn;
                         }
                         else
