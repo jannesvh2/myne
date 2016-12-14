@@ -12,27 +12,33 @@ var rolePrototypes = {
                 d.destroy();
         };
 
-        //Creep.prototype.moveTo50 = function (target) {
-        //    let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
-        //    if (this.memory._move) {
-        //        let path = Room.deserializePath(this.memory._move.path);
-        //        if (path.length) {
-        //            let nextPos = this.room.lookForAt(LOOK_CREEPS, path[0].x, path[0].y);
-        //            if (nextPos.length) {
-        //                let otherCreep = nextPos[0].moveTo(this);
-        //                if (otherCreep == ERR_NOT_OWNER) {
-        //                    delete this.memory._move;
-        //                    this.moveTo(target);
-        //                    return;
-        //                }
+        Creep.prototype.moveTo50 = function (target) {
+            let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
+            if (creep.memory.currentPos == creep.pos) {
+                creep.memory.currentPos = creep.pos;
+                if (this.memory._move) {
+                    let path = Room.deserializePath(this.memory._move.path);
+                    if (path.length) {
+                        let nextPos = this.room.lookForAt(LOOK_CREEPS, path[0].x, path[0].y);
+                        if (nextPos.length) {
+                            let otherCreep = nextPos[0].moveTo(this);
+                            if (otherCreep == ERR_NOT_OWNER) {
+                                delete this.memory._move;
+                                this.moveTo(target);
+                                return;
+                            }
 
-        //                this.moveTo(nextPos[0]);
-        //            }
-        //        }
-        //        if (moveReturn != OK)
-        //            delete this.memory._move;
-        //    }
-        //};
+                            this.moveTo(nextPos[0]);
+                        }
+                    }
+                    if (moveReturn != OK)
+                        delete this.memory._move;
+                }
+                return;
+            }
+
+            creep.memory.currentPos = creep.pos;
+        };
     }
 };
 
