@@ -44,6 +44,7 @@ var rolePrototypes = {
             }
 
             this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
+            return moveReturn;
         };
     }
 };
