@@ -23,7 +23,7 @@ var rolePrototypes = {
             this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
 
-            if (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49) {
+            if (this.memory.moveReq < Game.time - 5 && (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49)) {
                 if (this.memory._move) {
                     let path = Room.deserializePath(this.memory._move.path);
                     if (path.length) {
@@ -35,8 +35,9 @@ var rolePrototypes = {
                         }
                         if (nextPos.length && nextPos[0].memory.moved < Game.time - 2) {
 
-                            this.moveTo(nextPos[0]);
-                            let otherCreep = nextPos[0].moveTo(this);
+                            //this.moveTo(nextPos[0]);
+                            nextPos[0].moveTo(this);
+                            this.memory.moveReq = Game.time;
                             nextPos[0].memory.moved = Game.time;
                             nextPos[0].currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
                             return moveReturn;
