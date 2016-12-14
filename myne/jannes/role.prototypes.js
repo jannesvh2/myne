@@ -14,7 +14,7 @@ var rolePrototypes = {
 
         Creep.prototype.moveTo50 = function (target, canOn) {
             canOn = canOn || false;
-            if (this.memory.moved == Game.time || this.pos.isNearTo(target))
+            if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !canOn))
                 return OK;
             this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
