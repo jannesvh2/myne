@@ -11,14 +11,14 @@ var roleKeeper = {
                 Memory.spawns[creep.memory.spawn].random.defenders.push(creep.room.name);
         }
         if (creep.memory.flag) {
-            creep.moveTo(Game.flags[creep.memory.flag]);
+            creep.moveTo50(Game.flags[creep.memory.flag]);
             return;
         }
         let room = Game.rooms[creep.memory.sourceRoom];
         if (room && creep.memory.sk) {
             if (creep.pos.roomName == creep.memory.sourceRoom) {
                 if (creep.pos.x != creep.memory.x || creep.pos.y != creep.memory.y) {
-                    creep.moveTo(creep.memory.x, creep.memory.y);
+                    creep.moveTo50(creep.memory.x, creep.memory.y);
                 }
                 return;
             }
@@ -27,12 +27,12 @@ var roleKeeper = {
         if (room) {
 
             if (creep.reserveController(Game.rooms[creep.memory.sourceRoom].controller) == ERR_NOT_IN_RANGE)
-                creep.moveTo(Game.rooms[creep.memory.sourceRoom].controller);
+                creep.moveTo50(Game.rooms[creep.memory.sourceRoom].controller);
         }
         else {
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit);
+            creep.moveTo50(Exit);
         }
 
 

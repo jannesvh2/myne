@@ -14,7 +14,7 @@ var roleStore = {
         if (creep.memory.skSpawn) {
             if (creep.memory.run) {
                 if (creep.pos.getRangeTo(Game.getObjectById(creep.memory.sourceId)) < 5 || creep.pos.getRangeTo(Game.getObjectById(creep.memory.skSpawn)) < 5)
-                    creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
+                    creep.moveTo50(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
 
                 let skCheck2 = Game.getObjectById(creep.memory.skSpawn);
                 if (skCheck2 && skCheck2.ticksToSpawn > 9) {
@@ -73,7 +73,7 @@ var roleStore = {
 
                         var transfer = creep.transfer(targets[0], RESOURCE_ENERGY);
                         if (transfer == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(targets[0]);
+                            creep.moveTo50(targets[0]);
                         }
                         return;
                     }
@@ -81,7 +81,7 @@ var roleStore = {
             }
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty != OK) {
-                creep.moveTo(creepSource);
+                creep.moveTo50(creepSource);
             }
 
             if (!creep.memory.rep)
@@ -123,7 +123,7 @@ var roleStore = {
                             else {
                                 var sites = creep.pos.findInRange(creepSource, 3);
                                 if (!sites.length) {
-                                    creep.moveTo(creepSource);
+                                    creep.moveTo50(creepSource);
 
                                 }
                             }
@@ -136,7 +136,7 @@ var roleStore = {
                         delete creep.memory.containerId;
                     creep.repair(container);
                     if (creep.pos.getRangeTo(container) > 0) {
-                        creep.moveTo(container);
+                        creep.moveTo50(container);
                         creep.memory.rep = 7;
                         delete creep.memory.containerId;
                     }
@@ -148,7 +148,7 @@ var roleStore = {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
             var sourceEmpty = creep.harvest(creepSource);
             if (sourceEmpty != OK)
-                creep.moveTo(creepSource);
+                creep.moveTo50(creepSource);
         }
     }
 };
