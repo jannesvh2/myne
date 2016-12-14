@@ -14,8 +14,8 @@ var rolePrototypes = {
 
         Creep.prototype.moveTo50 = function (target) {
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
-            if (creep.memory.currentPos == creep.pos) {
-                creep.memory.currentPos = creep.pos;
+            if (this.memory.currentPos == this.pos) {
+                this.memory.currentPos = this.pos;
                 if (this.memory._move) {
                     let path = Room.deserializePath(this.memory._move.path);
                     if (path.length) {
@@ -37,7 +37,7 @@ var rolePrototypes = {
                 return;
             }
 
-            creep.memory.currentPos = creep.pos;
+            this.memory.currentPos = this.pos;
         };
     }
 };
