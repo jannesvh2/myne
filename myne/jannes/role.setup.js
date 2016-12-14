@@ -615,6 +615,12 @@ var roleSetup = {
             Memory.spawns[9].random.extractor = '579fab88b1f02a3b0cff0341';
             Memory.spawns[9].random.terminal = '584cb297dc6a243227cfcc3d';
             //Memory.spawns[9].random.defLab = '';
+            
+            Memory.spawns[9].random.upgradeBoost = '584ccf25eeca75d04c9b6cf5';
+            Memory.spawns[9].random.runReaction = true;
+            Memory.spawns[9].requests = [];
+
+            Memory.spawns[9].requests.push({ m: 'XGH2O', l: '584ccf25eeca75d04c9b6cf5', r: 'W4S59' });
         }
 
         Memory.spawns[a].counters.roomCounter = 0;

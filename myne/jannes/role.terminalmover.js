@@ -82,8 +82,54 @@ var roleTerminalMover = {
                         }
                         return;
                     }
+                    //requests
+                    if (Memory.spawns[creep.memory.spawn].requests) {
+                        for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].requests.length; s2 < lengthS2; s2++) {
+
+                            let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].requests[s2].l);
+                            //empty lab if it has wrong mineral
+                            if (checkLab && checkLab.mineralType && checkLab.mineralType != Memory.spawns[creep.memory.spawn].requests[s2].m) {
+                                creep.memory.moveType = checkLab.mineralType;
+
+                                let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
+                                if (checkLabW == ERR_NOT_IN_RANGE)
+                                    creep.moveTo50(checkLab);
+                                if (checkLabW == OK) {
+                                    creep.memory.full = true;
+                                }
+                                return;
+
+                            }
+
+                            //add mineral if space
+                            if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 2500)) {
+                                creep.memory.moveType = Memory.spawns[creep.memory.spawn].requests[s2].m;
+                                creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].requests[s2].l;
+                                if (terminal.store[creep.memory.moveType]) {
+
+                                    let terminalW = creep.withdraw(terminal, creep.memory.moveType);
+                                    if (terminalW == ERR_NOT_IN_RANGE)
+                                        creep.moveTo50(terminal);
+                                    if (terminalW == OK) {
+                                        creep.memory.full = true;
+                                    }
+
+                                    return;
+                                }
+                                else {
+                                    if (Memory.spawns[creep.memory.spawn].requests[s2].r && _.sum(terminal.store) < 295000) {
+                                        Game.rooms[Memory.spawns[creep.memory.spawn].requests[s2].r].terminal.send(Memory.spawns[creep.memory.spawn].requests[s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    //reactions
                     if (Memory.spawns[creep.memory.spawn].reactions)
                         for (let s = 0, lengthS = Memory.spawns[creep.memory.spawn].reactions.length; s < lengthS; s++) {
+                            //check if final is at mark
                         if (terminal.store[Memory.spawns[creep.memory.spawn].reactions[s][0].m] >= Memory.spawns[creep.memory.spawn].random.runReactionL[Memory.spawns[creep.memory.spawn].reactions[s][0].m]) {
                             //empty labs
                             for (let s2 = 0, lengthS2 = Memory.spawns[creep.memory.spawn].reactions[s].length; s2 < lengthS2; s2++) {
