@@ -33,8 +33,6 @@ var rolePrototypes = {
                             return this.moveTo(target);
 
                         }
-                        if (this.name == 'BraydenMichael')
-                            console.log(!nextPos[0].memory.moveReq);
 
                         if (nextPos.length) {
                             nextPos[0].moveTo(this);
