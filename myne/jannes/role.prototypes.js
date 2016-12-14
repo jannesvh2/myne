@@ -33,15 +33,17 @@ var rolePrototypes = {
                             return this.moveTo(target);
 
                         }
-                        if (nextPos.length) {
-
+                        if (nextPos.length && nextPos[0].memory.moved < Game.time) {
+                            nextPos[0].memory.moved = Game.time;
                             //this.moveTo(nextPos[0]);
                             nextPos[0].moveTo(this);
                             this.memory.moveReq = Game.time;
-                            nextPos[0].currentPos = `x:${this.pos.x}y:${this.pos.y}`;
-                            this.memory.currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
+                            nextPos[0].memory.currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
+                            this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
                             return moveReturn;
                         }
+                        else
+                            this.memory.moved--;
                     }
                     if (moveReturn != OK)
                         delete this.memory._move;
