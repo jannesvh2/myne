@@ -91,7 +91,7 @@ var roleDefenders = {
                             if (creep.room.name != creep.memory.sourceRoom) {
                                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                                 var Exit = creep.pos.findClosestByRange(exitDir);
-                                creep.moveTo(Exit);
+                                creep.moveTo50(Exit, true);
                             }
                         }
                     }
@@ -144,7 +144,7 @@ var roleDefenders = {
             if (creep.room.name != creep.memory.sourceRoom) {
                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo(Exit);
+                creep.moveTo50(Exit, true);
             }
             creep.heal(creep);
         }

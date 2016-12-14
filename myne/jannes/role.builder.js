@@ -30,7 +30,7 @@ var roleBuilder = {
                 else {
                     var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo(Exit);
+                    creep.moveTo50(Exit, true);
                     return;
                 }
             }

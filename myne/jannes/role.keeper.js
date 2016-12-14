@@ -32,7 +32,7 @@ var roleKeeper = {
         else {
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit);
+            creep.moveTo50(Exit, true);
         }
 
 

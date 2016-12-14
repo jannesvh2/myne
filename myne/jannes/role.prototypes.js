@@ -12,7 +12,8 @@ var rolePrototypes = {
                 d.destroy();
         };
 
-        Creep.prototype.moveTo50 = function (target) {
+        Creep.prototype.moveTo50 = function (target, canOn) {
+            canOn = canOn || false;
             if (this.memory.moved == Game.time || this.pos.isNearTo(target))
                 return OK;
             this.memory.moved = Game.time;
