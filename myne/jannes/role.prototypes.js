@@ -38,7 +38,8 @@ var rolePrototypes = {
                             //this.moveTo(nextPos[0]);
                             nextPos[0].moveTo(this);
                             this.memory.moveReq = Game.time;
-                            nextPos[0].currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
+                            nextPos[0].currentPos = `x:${this.pos.x}y:${this.pos.y}`;
+                            this.memory.currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
                             return moveReturn;
                         }
                     }
