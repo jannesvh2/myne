@@ -13,22 +13,28 @@ var rolePrototypes = {
         };
 
         Creep.prototype.moveTo50 = function (target) {
+            if (this.memory.moved == Game.time || this.pos.isNearTo(target))
+                return;
+            this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
-            if (this.memory.currentPos == this.pos) {
-                this.memory.currentPos = this.pos;
+
+            if (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}`) {
                 if (this.memory._move) {
                     let path = Room.deserializePath(this.memory._move.path);
                     if (path.length) {
                         let nextPos = this.room.lookForAt(LOOK_CREEPS, path[0].x, path[0].y);
-                        if (nextPos.length) {
-                            let otherCreep = nextPos[0].moveTo(this);
-                            if (otherCreep == ERR_NOT_OWNER) {
-                                delete this.memory._move;
-                                this.moveTo(target);
-                                return;
-                            }
+                        if (nextPos.length && !nextPos[0].memory) {
+                            delete this.memory._move;
+                            this.moveTo(target);
+                            return;
+
+                        }
+                        if (nextPos.length && nextPos[0].memory.moved != Game.time) {
 
                             this.moveTo(nextPos[0]);
+                            let otherCreep = nextPos[0].moveTo(this);
+                            nextPos[0].memory.moved = Game.time;
+                            return;
                         }
                     }
                     if (moveReturn != OK)
@@ -37,7 +43,7 @@ var rolePrototypes = {
                 return;
             }
 
-            this.memory.currentPos = this.pos;
+            this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
         };
     }
 };
