@@ -225,7 +225,7 @@ var roleAttackers = {
             else if (creep.room.name != sourceRoom && sourceRoom != '') {
                 var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit);
+                creep.moveTo(Exit);
             }
             else if (targetLocation) {
                 creep.moveTo50(targetLocation)
@@ -238,7 +238,7 @@ var roleAttackers = {
                 else if (creep.room.name != sourceRoom && sourceRoom != '') {
                     var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo50(Exit);
+                    creep.moveTo(Exit);
                 }
                 else if (targetLocation && creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
                     creep.moveTo50(targetLocation)
@@ -265,7 +265,7 @@ var roleAttackers = {
         //if ((creep.room.name == sourceRoom || creep.room.name == saveRoom) && creep.hits < (creep.hitsMax * 2 / 3)) {
         //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
         //    var Exit = creep.pos.findClosestByRange(exitDir);
-        //    creep.moveTo50(Exit);
+        //    creep.moveTo(Exit);
         //}
     }
 };

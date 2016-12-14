@@ -39,7 +39,7 @@ var rolePath = {
             }
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo50(Exit);
+            creep.moveTo(Exit);
         }
         else if (creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE) {
             creep.moveTo50(creep.room.controller);
