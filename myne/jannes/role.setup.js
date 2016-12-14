@@ -456,9 +456,9 @@ var roleSetup = {
             //RoomList
             Memory.spawns[7].random.rooms.push({ name: 'W6S53', spawn: 0 });
             if (!Memory.spawns[7].random.hostiles) {
-                Memory.spawns[7].random.rooms.push({ name: 'W6S52', spawn: 2 });
+                Memory.spawns[7].random.rooms.push({ name: 'W6S52', spawn: 1 });
                 Memory.spawns[7].random.rooms.push({ name: 'W6S54', spawn: 4, sk: true });
-                Memory.spawns[7].random.rooms.push({ name: 'W5S55', spawn: 6, sk: true });
+                Memory.spawns[7].random.rooms.push({ name: 'W5S55', spawn: 7, sk: true });
             }
             //keeper
             if (!Memory.spawns[7].random.hostiles) {
