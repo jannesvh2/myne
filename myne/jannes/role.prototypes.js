@@ -16,15 +16,11 @@ var rolePrototypes = {
             canOn = canOn || false;
 
             if (canOn && this.pos.getRangeTo(target) == 0) {
-                this.memory.notStatic = false;
                 return OK;
             }
-            if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !canOn)) {
-                this.memory.notStatic = false;
+            if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !canOn))
                 return OK;
-            }
             this.memory.moved = Game.time;
-            this.memory.notStatic = true;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
 
             if (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}`) {
@@ -37,7 +33,7 @@ var rolePrototypes = {
                             return this.moveTo(target);
 
                         }
-                        if (nextPos.length && nextPos[0].memory.moved != Game.time && !nextPos[0].memory.notStatic) {
+                        if (nextPos.length && nextPos[0].memory.moved < Game.time - 2) {
 
                             this.moveTo(nextPos[0]);
                             let otherCreep = nextPos[0].moveTo(this);
@@ -51,7 +47,8 @@ var rolePrototypes = {
                 }
                 return moveReturn;
             }
-                this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
+
+            this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
             return moveReturn;
         };
     }
