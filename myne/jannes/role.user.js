@@ -60,12 +60,12 @@ var roleUser = {
                 }
                 else {
                     myFunction();
-                    if (creep.moveTo(Game.getObjectById(creep.memory.targetId)) == ERR_NO_PATH)
+                    if (creep.moveTo50(Game.getObjectById(creep.memory.targetId)) == ERR_NO_PATH)
                         delete creep.memory.targetId;
                 }
             }
             else if (target) {
-                if (creep.moveTo(target) == ERR_NO_PATH)
+                if (creep.moveTo50(target) == ERR_NO_PATH)
                     delete creep.memory.targetId;
             }
             else
@@ -75,7 +75,7 @@ var roleUser = {
         if (!creep.memory.full) {
             var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(storage);
+                creep.moveTo50(storage);
             }
         }
     }

@@ -10,13 +10,13 @@ var roleTerminalMover = {
         if (creep.memory.role == 'terminal') {
             //add boost compounds to lab
             if (creep.memory.work) {
-                let moveTo = Game.getObjectById(creep.memory.work.moveTo);
+                let moveTo50 = Game.getObjectById(creep.memory.work.moveTo50);
                 if (creep.memory.work.isLab) {
-                    if (moveTo.mineralAmount >= creep.memory.work.fillTo)
+                    if (moveTo50.mineralAmount >= creep.memory.work.fillTo)
                         delete creep.memory.work;
                 }
                 else {
-                    if (moveTo.terminal.store[creep.memory.work.moveType] >= creep.memory.work.fillTo)
+                    if (moveTo50.terminal.store[creep.memory.work.moveType] >= creep.memory.work.fillTo)
                         delete creep.memory.work;
 
                 }
@@ -29,7 +29,7 @@ var roleTerminalMover = {
                     if (lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000) {
                         creep.memory.work = {};
                         creep.memory.work.moveType == 'XUH2O';
-                        creep.memory.work.moveTo = lab;
+                        creep.memory.work.moveTo50 = lab;
                         creep.memory.work.moveFrom = terminal;
                         creep.memory.work.fillTo = 3000;
                         creep.memor.worky.isLab = true;
@@ -44,41 +44,41 @@ var roleTerminalMover = {
                     if (creep.memory.full) {
                         if (creep.carry['energy'] > 0) {
                             if (creep.transfer(terminal, 'energy') == ERR_NOT_IN_RANGE)
-                                creep.moveTo(terminal);
+                                creep.moveTo50(terminal);
                             return;
                         }
 
                         if (Object.keys(creep.carry).length > 1 && !creep.carry[creep.memory.moveType]) {
                             for (var carry in creep.carry) {
                                 if (creep.transfer(terminal, carry) == ERR_NOT_IN_RANGE)
-                                    creep.moveTo(terminal);
+                                    creep.moveTo50(terminal);
                                 return;
                             }
                         }
                     }
                     if (creep.memory.full && total == 0) {
                         creep.memory.full = false;
-                        delete creep.memory.moveToR;
+                        delete creep.memory.moveTo50R;
                     }
                     else if (!creep.memory.full && total == creep.carryCapacity) {
                         creep.memory.full = true;
                     }
                     //empty creep if full
                     if (creep.memory.full) {
-                        if (creep.memory.moveToR) {
-                            let moveToR = Game.getObjectById(creep.memory.moveToR);
-                            if (!moveToR)
+                        if (creep.memory.moveTo50R) {
+                            let moveTo50R = Game.getObjectById(creep.memory.moveTo50R);
+                            if (!moveTo50R)
                                 return;
-                            let moveBack = creep.transfer(moveToR, creep.memory.moveType);
+                            let moveBack = creep.transfer(moveTo50R, creep.memory.moveType);
                             if (moveBack == ERR_NOT_IN_RANGE)
-                                creep.moveTo(moveToR);
+                                creep.moveTo50(moveTo50R);
                             if (moveBack == -8)
                                 if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                                    creep.moveTo(terminal);
+                                    creep.moveTo50(terminal);
                         }
                         else {
                             if (creep.transfer(terminal, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                                creep.moveTo(terminal);
+                                creep.moveTo50(terminal);
                         }
                         return;
                     }
@@ -92,7 +92,7 @@ var roleTerminalMover = {
                                     creep.memory.moveType = checkLab.mineralType;
                                     let emptyLab = creep.withdraw(checkLab, creep.memory.moveType);
                                     if (emptyLab == ERR_NOT_IN_RANGE)
-                                        creep.moveTo(checkLab);
+                                        creep.moveTo50(checkLab);
                                     if (emptyLab == OK) {
                                         creep.memory.full = true;
                                     }
@@ -104,11 +104,11 @@ var roleTerminalMover = {
                             let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
                             if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 100) {
                                 creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][0].m;
-                                creep.memory.moveToR = terminal.id;
+                                creep.memory.moveTo50R = terminal.id;
 
                                 let labFinalW = creep.withdraw(labFinal, creep.memory.moveType);
                                 if (labFinalW == ERR_NOT_IN_RANGE)
-                                    creep.moveTo(labFinal);
+                                    creep.moveTo50(labFinal);
                                 if (labFinalW == OK) {
                                     creep.memory.full = true;
                                 }
@@ -124,7 +124,7 @@ var roleTerminalMover = {
 
                                     let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
                                     if (checkLabW == ERR_NOT_IN_RANGE)
-                                        creep.moveTo(checkLab);
+                                        creep.moveTo50(checkLab);
                                     if (checkLabW == OK) {
                                         creep.memory.full = true;
                                     }
@@ -135,12 +135,12 @@ var roleTerminalMover = {
                                 //add mineral if space
                                 if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 100)) {
                                     creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
-                                    creep.memory.moveToR = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
+                                    creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
                                     if (terminal.store[creep.memory.moveType]) {
 
                                         let terminalW = creep.withdraw(terminal, creep.memory.moveType);
                                         if (terminalW == ERR_NOT_IN_RANGE)
-                                            creep.moveTo(terminal);
+                                            creep.moveTo50(terminal);
                                         if (terminalW == OK) {
                                             creep.memory.full = true;
                                         }
@@ -165,17 +165,17 @@ var roleTerminalMover = {
                     if (nuker) {
                         if (nuker.ghodium < nuker.ghodiumCapacity) {
                             creep.memory.moveType = 'G';
-                            creep.memory.moveToR = nuker.id;
+                            creep.memory.moveTo50R = nuker.id;
                             if (creep.memory.full) {
                                 if (creep.transfer(nuker, 'G') == ERR_NOT_IN_RANGE)
-                                    creep.moveTo(nuker);
+                                    creep.moveTo50(nuker);
 
                             }
                             else {
                                 if (terminal.store['G']) {
                                     let fillNukeG = creep.withdraw(terminal, 'G');
                                     if (fillNukeG == ERR_NOT_IN_RANGE)
-                                        creep.moveTo(terminal);
+                                        creep.moveTo50(terminal);
                                     else if (fillNukeG == OK)
                                         creep.memory.full = true;
                                 }
@@ -188,19 +188,19 @@ var roleTerminalMover = {
                             }
                         }
                     }
-                    creep.moveTo(terminal);
+                    creep.moveTo50(terminal);
                     return;
                 }
             }
             if (creep.memory.full) {
 
-                if (creep.transfer(moveTo, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(moveTo);
+                if (creep.transfer(moveTo50, creep.memory.moveType) == ERR_NOT_IN_RANGE)
+                    creep.moveTo50(moveTo50);
             }
             else {
                 console.log(JSON.stringify(creep.memory.work));
                 if (creep.withdraw(creep.memory.work.moveFrom, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(creep.memory.work.moveFrom);
+                    creep.moveTo50(creep.memory.work.moveFrom);
             }
         }
         else {
@@ -218,12 +218,12 @@ var roleTerminalMover = {
             if (creep.memory.role == 'toTerminal') {
                 if (creep.memory.full) {
                     if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(terminal);
+                        creep.moveTo50(terminal);
                     }
                 }
                 else {
                     if (creep.withdraw(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(store);
+                        creep.moveTo50(store);
                     }
 
                 }
@@ -231,12 +231,12 @@ var roleTerminalMover = {
             else if (creep.memory.role == 'toStore') {
                 if (creep.memory.full) {
                     if (creep.transfer(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(store);
+                        creep.moveTo50(store);
                     }
                 }
                 else {
                     if (creep.withdraw(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(terminal);
+                        creep.moveTo50(terminal);
                     }
 
                     if (terminal.store.energy < 55000)

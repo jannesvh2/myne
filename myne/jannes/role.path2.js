@@ -7,7 +7,7 @@ var rolePath = {
             var flag = Game.flags['Flag7'];
             if (flag) {
                 if (!creep.memory.flag || creep.memory.flag == 1) {
-                    creep.moveTo(flag);
+                    creep.moveTo50(flag);
                     if (flag.room.name == creep.room.name)
                         creep.memory.flag = 2;
                     return;
@@ -15,7 +15,7 @@ var rolePath = {
                 if (creep.memory.flag == 2) {
 
                     flag = Game.flags['Flag3'];
-                    creep.moveTo(flag);
+                    creep.moveTo50(flag);
                     if (flag.room.name == creep.room.name)
                         creep.memory.flag = 3;
                     return;
@@ -23,7 +23,7 @@ var rolePath = {
                 if (creep.memory.flag == 3) {
 
                     flag = Game.flags['Flag4'];
-                    creep.moveTo(flag);
+                    creep.moveTo50(flag);
                     if (flag.room.name == creep.room.name)
                         creep.memory.flag = 4;
                     return;
@@ -31,7 +31,7 @@ var rolePath = {
                 if (creep.memory.flag == 4) {
 
                     flag = Game.flags['Flag4'];
-                    creep.moveTo(flag);
+                    creep.moveTo50(flag);
                     return;
                 }
 
@@ -39,10 +39,10 @@ var rolePath = {
             }
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo(Exit);
+            creep.moveTo50(Exit);
         }
         else if (creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(creep.room.controller);
+            creep.moveTo50(creep.room.controller);
 
         }
     }

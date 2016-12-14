@@ -10,7 +10,7 @@ var roleUpgrader = {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
-                        creep.moveTo(flag);
+                        creep.moveTo50(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 2;
                         return;
@@ -18,7 +18,7 @@ var roleUpgrader = {
                     if (creep.memory.flag == 2) {
 
                         flag = Game.flags['Flag8'];
-                        creep.moveTo(flag);
+                        creep.moveTo50(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 3;
                         return;
@@ -27,7 +27,7 @@ var roleUpgrader = {
                 else {
                     var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo(Exit);
+                    creep.moveTo50(Exit);
                     return;
                 }
             }
@@ -43,14 +43,14 @@ var roleUpgrader = {
                 for (var a = 0, length = Memory.spawns[creep.memory.spawn].random.upgradeSpots.length; a < length; a++) {
                     let lookAt = creep.room.lookAt(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
                     if (lookAt.length && lookAt.length < 2) {
-                        creep.moveTo(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
+                        creep.moveTo50(Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].x, Memory.spawns[creep.memory.spawn].random.upgradeSpots[a].y);
                         break;
                     }
                 }
             }
             else {
                 if (creep.memory.full || creep.memory.role == 'upgrader2')
-                    creep.moveTo(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
+                    creep.moveTo50(Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller);
             }
         }
         if (!creep.memory.full) {
@@ -64,7 +64,7 @@ var roleUpgrader = {
                     storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                 let withdraw = creep.withdraw(storage, RESOURCE_ENERGY);
                 if (withdraw == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(storage);
+                    creep.moveTo50(storage);
                 }
                 else if (withdraw == OK)
                     creep.memory.full = true;

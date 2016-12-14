@@ -19,7 +19,7 @@ var roleMover = {
             if (!storage)
                 storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                creep.moveTo(storage);
+                creep.moveTo50(storage);
         }
         else {
             if (creep.memory.atStore) {
@@ -30,12 +30,12 @@ var roleMover = {
                 });
 
                 if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(target);
+                    creep.moveTo50(target);
             }
             else {
                 storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                 creep.memory.atStore = creep.pos.inRangeTo(storage, 2);
-                creep.moveTo(storage);
+                creep.moveTo50(storage);
             }
         }
     }
