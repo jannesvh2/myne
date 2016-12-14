@@ -293,7 +293,7 @@ var roleSetup = {
             //UseStore
             Memory.spawns[4].random.useStore = true;
             Memory.spawns[4].random.useLinks = true;
-            Memory.spawns[4].links.receiver = '581b9a4cdc867c402c841458';
+            Memory.spawns[4].links.receiver = '5851407969c95b2d5835f213';
             Memory.spawns[4].links.producers.push({ id: '5819a70eed4bc0052bfbc2fe', source: true });
             Memory.spawns[4].links.producers.push({ id: '581d798c3cde9d443e4ec27a', source: true });
             Memory.spawns[4].links.producers.push({ id: '583e00887e023b0b658afe87', source: true });
