@@ -34,6 +34,7 @@ var rolePrototypes = {
                             this.moveTo(nextPos[0]);
                             let otherCreep = nextPos[0].moveTo(this);
                             nextPos[0].memory.moved = Game.time;
+                            nextPos[0].currentPos = `x:${nextPos[0].pos.x}y:${nextPos[0].pos.y}`;
                             return moveReturn;
                         }
                     }
