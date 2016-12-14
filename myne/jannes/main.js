@@ -107,7 +107,7 @@ module.exports.loop = function () {
                 continue;
             }
             if (creep.hits < creep.hitsMax) {
-                creep.moveTo50(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
+                creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                 continue;
             }
 

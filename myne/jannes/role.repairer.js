@@ -31,7 +31,7 @@ var roleRepairer = {
                 return;
             }
             if (creep.repair(targetId) == ERR_NOT_IN_RANGE)
-                creep.moveTo50(targetId);
+                creep.moveTo(targetId);
             else {
                 if (creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom)
                     Memory.spawns[creep.memory.spawn].repairHpHistory[targetId.id] = targetId.hits;

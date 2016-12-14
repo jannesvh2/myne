@@ -13,7 +13,7 @@ var roleBuilder = {
                 var flag = Game.flags['Flag7'];
                 if (flag) {
                     if (!creep.memory.flag || creep.memory.flag == 1) {
-                        creep.moveTo50(flag);
+                        creep.moveTo(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 2;
                         return;
@@ -21,7 +21,7 @@ var roleBuilder = {
                     if (creep.memory.flag == 2) {
 
                         flag = Game.flags['Flag8'];
-                        creep.moveTo50(flag);
+                        creep.moveTo(flag);
                         if (flag.room.name == creep.room.name)
                             creep.memory.flag = 3;
                         return;
@@ -30,7 +30,7 @@ var roleBuilder = {
                 else {
                     var exitDir = Game.map.findExit(creep.room.name, "W3S55");
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo50(Exit);
+                    creep.moveTo(Exit);
                     return;
                 }
             }
@@ -64,7 +64,7 @@ var roleBuilder = {
                         if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
                             Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                         }
-                        creep.moveTo50(targets);
+                        creep.moveTo(targets);
                     }
                     creep.memory.targetId = targets.id;
                     creep.memory.targetPos = targets.pos;
@@ -100,7 +100,7 @@ var roleBuilder = {
                             if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
                                 Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                             }
-                            creep.moveTo50(targets[0]);
+                            creep.moveTo(targets[0]);
                         }
                     }
                 }
@@ -133,7 +133,7 @@ var roleBuilder = {
                     if (closestDamagedStructure.length && creep.repair(closestDamagedStructure[0] == OK) && creep.pos.roomName == Memory.spawns[creep.memory.spawn].random.mainRoom) {
                         Memory.spawns[creep.memory.spawn].repairHpHistory[closestDamagedStructure[0].id] = closestDamagedStructure[0].hits;
                     }
-                    creep.moveTo50(targetId);
+                    creep.moveTo(targetId);
 
                 }
             }
@@ -150,7 +150,7 @@ var roleBuilder = {
                 if (creep.room.name == Memory.spawns[creep.memory.spawn].random.mainRoom) {
                     var storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     if (creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo50(storage);
+                        creep.moveTo(storage);
                     }
                 }
                 else {

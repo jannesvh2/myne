@@ -20,7 +20,7 @@ var roleExtractor = {
                 for (var resource in creep.carry) {
                     if (creep.carry[resource] > 0) {
                         if (creep.transfer(terminal, resource) == ERR_NOT_IN_RANGE)
-                            creep.moveTo50(terminal);
+                            creep.moveTo(terminal);
                         break;
                     }
                 }
@@ -37,7 +37,7 @@ var roleExtractor = {
             }
             var extractor = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.extractor);
             if (creep.harvest(extractor) == ERR_NOT_IN_RANGE)
-                creep.moveTo50(extractor);
+                creep.moveTo(extractor);
         }
     }
 };

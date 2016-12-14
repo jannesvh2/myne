@@ -14,7 +14,7 @@ var roleDefenders = {
                 if (lab && lab.mineralType == 'XUH2O') {
                     let boost = lab.boostCreep(creep);
                     if (boost == ERR_NOT_IN_RANGE)
-                        creep.moveTo50(lab);
+                        creep.moveTo(lab);
                     if (boost == OK)
                         creep.memory.mustBoost = false;
                     return;
@@ -46,7 +46,7 @@ var roleDefenders = {
                             return;
                         }
 
-                        creep.moveTo50(rampObj);
+                        creep.moveTo(rampObj);
                         return;
                     }
                 }
@@ -57,7 +57,7 @@ var roleDefenders = {
                     if (creep.memory.noTarget < 10)
                         creep.memory.noTarget++;
                     else {
-                        creep.moveTo50(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
+                        creep.moveTo(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                         creep.memory.atSpot = false;
                         delete creep.memory.rampartId;
                     }
@@ -65,7 +65,7 @@ var roleDefenders = {
             }
             else {
                 delete creep.memory.rampartId;
-                creep.moveTo50(creep.room.controller);
+                creep.moveTo(creep.room.controller);
             }
         }
         else {
@@ -79,19 +79,19 @@ var roleDefenders = {
                         targets.push(tmp);
                 }
                 if (targets.length) {
-                    let moveTo50;
+                    let moveTo;
                     if (creep.room.name == creep.memory.sourceRoom)
-                        moveTo50 = creep.moveTo50(targets[0], { maxRooms: 1 });
+                        moveTo = creep.moveTo(targets[0], { maxRooms: 1 });
                     else
-                        moveTo50 = creep.moveTo50(targets[0]);
+                        moveTo = creep.moveTo(targets[0]);
 
 
-                    if (moveTo50 != OK) {
+                    if (moveTo != OK) {
                         if (creep.room.name != creep.memory.sourceRoom) {
                             if (creep.room.name != creep.memory.sourceRoom) {
                                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                                 var Exit = creep.pos.findClosestByRange(exitDir);
-                                creep.moveTo50(Exit);
+                                creep.moveTo(Exit);
                             }
                         }
                     }
@@ -113,14 +113,14 @@ var roleDefenders = {
                             });
                             if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
-                                creep.moveTo50(targetHeal[0]);
+                                creep.moveTo(targetHeal[0]);
                                 if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
-                                    creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                    creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                                 else
                                     return;
                             }
                             else
-                                creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                         }
                         else {
                             let skSpawn = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
@@ -144,7 +144,7 @@ var roleDefenders = {
             if (creep.room.name != creep.memory.sourceRoom) {
                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit);
+                creep.moveTo(Exit);
             }
             creep.heal(creep);
         }

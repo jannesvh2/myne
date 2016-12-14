@@ -28,7 +28,7 @@ var roleAttackers = {
                 let lab = Game.getObjectById('58171d9d104bf0400291ef6b');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(lab);
+                    creep.moveTo(lab);
                 if (boost == OK)
                     creep.memory.getBoostM = false;
                 return;
@@ -37,7 +37,7 @@ var roleAttackers = {
                 let lab = Game.getObjectById('5820e8f4467b718b553fbdf5');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(lab);
+                    creep.moveTo(lab);
                 if (boost == OK)
                     creep.memory.getBoostH = false;
                 return;
@@ -46,7 +46,7 @@ var roleAttackers = {
                 let lab = Game.getObjectById('5816ece205177e013c41ddce');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(lab);
+                    creep.moveTo(lab);
                 if (boost == OK)
                     creep.memory.getBoostT = false;
                 return;
@@ -58,7 +58,7 @@ var roleAttackers = {
                 let lab = Game.getObjectById('5822c32a4186e8930ac80648');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(lab);
+                    creep.moveTo(lab);
                 if (boost == OK)
                     creep.memory.getBoostM = false;
                 return;
@@ -67,7 +67,7 @@ var roleAttackers = {
                 let lab = Game.getObjectById('58231e97f60d44b54edcbaea');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(lab);
+                    creep.moveTo(lab);
                 if (boost == OK)
                     creep.memory.getBoostT = false;
                 return;
@@ -76,7 +76,7 @@ var roleAttackers = {
                 let lab = Game.getObjectById('5819e455c80e052076e314c0');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(lab);
+                    creep.moveTo(lab);
                 if (boost == OK)
                     creep.memory.getBoostA = false;
                 return;
@@ -86,7 +86,7 @@ var roleAttackers = {
             let lab = Game.getObjectById('');
             let boost = lab.boostCreep(creep);
             if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo50(lab);
+                creep.moveTo(lab);
             if (boost == OK)
                 creep.memory.getBoost = false;
             return;
@@ -106,7 +106,7 @@ var roleAttackers = {
                     creep.rangedHeal(targetHeal);
                 }
                 if (creep.memory.role == 'attackerH')
-                    creep.moveTo50(targetHeal);
+                    creep.moveTo(targetHeal);
             }
         }
 
@@ -170,7 +170,7 @@ var roleAttackers = {
                 if (creep.getActiveBodyparts(ATTACK)) {
                     attacked = creep.attack(targets[0]);
                     if (attacked == ERR_NOT_IN_RANGE)
-                        creep.moveTo50(targets[0]);
+                        creep.moveTo(targets[0]);
                 }
             }
 
@@ -184,13 +184,13 @@ var roleAttackers = {
                 if (!dism)
                     dism = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
                 if (creep.attack(dism) != OK)
-                    creep.moveTo50(dism);
+                    creep.moveTo(dism);
             }
         }
         else if (creep.memory.role == 'attackerD' && creep.room.name == sourceRoom) {
             if (enableID && priorityTargetD) {
                 if (creep.dismantle(priorityTargetD) != OK)
-                    creep.moveTo50(priorityTargetD);
+                    creep.moveTo(priorityTargetD);
 
             }
             else {
@@ -212,7 +212,7 @@ var roleAttackers = {
                     dism = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
 
                 if (creep.dismantle(dism) != OK)
-                    creep.moveTo50(dism);
+                    creep.moveTo(dism);
                 {
 
                 }
@@ -221,27 +221,27 @@ var roleAttackers = {
 
         if (creep.memory.role == 'attackerH' && enableIH) {
             if (flag)
-                creep.moveTo50(Game.flags['Flag2']);
+                creep.moveTo(Game.flags['Flag2']);
             else if (creep.room.name != sourceRoom && sourceRoom != '') {
                 var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit);
+                creep.moveTo(Exit);
             }
             else if (targetLocation) {
-                creep.moveTo50(targetLocation)
+                creep.moveTo(targetLocation)
             }
         }
         else {
-            if (!moveByFlag || !moveByFlagFlag || creep.moveTo50(moveByFlagFlag) != OK) {
+            if (!moveByFlag || !moveByFlagFlag || creep.moveTo(moveByFlagFlag) != OK) {
                 if (flag)
-                    creep.moveTo50(Game.flags['Flag1']);
+                    creep.moveTo(Game.flags['Flag1']);
                 else if (creep.room.name != sourceRoom && sourceRoom != '') {
                     var exitDir = Game.map.findExit(creep.room.name, sourceRoom);
                     var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo50(Exit);
+                    creep.moveTo(Exit);
                 }
                 else if (targetLocation && creep.pos != targetLocation.pos && (enableI || enableIH || enableID)) {
-                    creep.moveTo50(targetLocation)
+                    creep.moveTo(targetLocation)
                 }
             }
         }
@@ -260,12 +260,12 @@ var roleAttackers = {
                 creep.rangedHeal(targetHeal);
             }
             if (creep.memory.role == 'attackerH')
-                creep.moveTo50(targetHeal);
+                creep.moveTo(targetHeal);
         }
         //if ((creep.room.name == sourceRoom || creep.room.name == saveRoom) && creep.hits < (creep.hitsMax * 2 / 3)) {
         //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
         //    var Exit = creep.pos.findClosestByRange(exitDir);
-        //    creep.moveTo50(Exit);
+        //    creep.moveTo(Exit);
         //}
     }
 };
