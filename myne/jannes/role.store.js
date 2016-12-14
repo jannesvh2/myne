@@ -136,9 +136,9 @@ var roleStore = {
                         delete creep.memory.containerId;
                     creep.repair(container);
                     if (creep.pos.getRangeTo(container) > 0) {
+                        creep.memory.moved = Game.time - 1;
                         creep.moveTo50(container, true);
                         creep.memory.rep = 7;
-                        delete creep.memory.containerId;
                     }
                 }
             }
