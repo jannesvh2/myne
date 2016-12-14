@@ -81,7 +81,7 @@ var roleDefenders = {
                 if (targets.length) {
                     let moveTo50;
                     if (creep.room.name == creep.memory.sourceRoom)
-                        moveTo50 = creep.moveTo50(targets[0], { maxRooms: 1 });
+                        moveTo50 = creep.moveTo(targets[0], { maxRooms: 1 });
                     else
                         moveTo50 = creep.moveTo50(targets[0]);
 
@@ -115,12 +115,12 @@ var roleDefenders = {
                                 creep.heal(targetHeal[0]);
                                 creep.moveTo50(targetHeal[0]);
                                 if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
-                                    creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                    creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                                 else
                                     return;
                             }
                             else
-                                creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
                         }
                         else {
                             let skSpawn = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {

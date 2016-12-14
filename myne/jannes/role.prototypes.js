@@ -14,7 +14,7 @@ var rolePrototypes = {
 
         Creep.prototype.moveTo50 = function (target) {
             if (this.memory.moved == Game.time || this.pos.isNearTo(target))
-                return;
+                return OK;
             this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
 
@@ -25,8 +25,7 @@ var rolePrototypes = {
                         let nextPos = this.room.lookForAt(LOOK_CREEPS, path[0].x, path[0].y);
                         if (nextPos.length && !nextPos[0].memory) {
                             delete this.memory._move;
-                            this.moveTo(target);
-                            return;
+                            return this.moveTo(target);
 
                         }
                         if (nextPos.length && nextPos[0].memory.moved != Game.time) {
@@ -34,13 +33,13 @@ var rolePrototypes = {
                             this.moveTo(nextPos[0]);
                             let otherCreep = nextPos[0].moveTo(this);
                             nextPos[0].memory.moved = Game.time;
-                            return;
+                            return moveReturn;
                         }
                     }
                     if (moveReturn != OK)
                         delete this.memory._move;
                 }
-                return;
+                return moveReturn;
             }
 
             this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
