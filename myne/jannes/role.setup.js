@@ -491,7 +491,7 @@ var roleSetup = {
             Memory.spawns[7].links.receiver = '5830af604927d18b092518d1';
             Memory.spawns[7].links.producers.push({ id: '5830b474aa12e28d5f2be97c', source: true });
             Memory.spawns[7].links.producers.push({ id: '5830b1ae929d91b732cf4ef4', source: true });
-            Memory.spawns[7].links.producers.push({ id: '583e041ce67a349127b572bc', source: true });
+            Memory.spawns[7].links.producers.push({ id: '58525b08f3f26639356b0618', source: true });
             //extractor
             Memory.spawns[7].random.extractor = '579fab88b1f02a3b0cff0328';
             Memory.spawns[7].random.terminal = '5831d5d8202214f5461bdab4';
