@@ -526,7 +526,7 @@ var roleSetup = {
             Memory.spawns[8].summon.h = 0;
             Memory.spawns[8].summon.b = 0;
             Memory.spawns[8].summon.u = 0;
-            Memory.spawns[8].summon.h2 = 6;
+            Memory.spawns[8].summon.h2 = 4;
             Memory.spawns[8].summon.b2 = 1;
             Memory.spawns[8].summon.u2 = 0;
             Memory.spawns[8].summon.users = 1;
@@ -545,14 +545,14 @@ var roleSetup = {
             ////RoomList
             Memory.spawns[8].random.rooms.push({ name: 'W3S55', spawn: 0 });
             if (!Memory.spawns[8].random.hostiles) {
-                Memory.spawns[8].random.rooms.push({ name: 'W3S56', spawn: 1 });
-                Memory.spawns[8].random.rooms.push({ name: 'W2S55', spawn: 1 });
+                //Memory.spawns[8].random.rooms.push({ name: 'W3S56', spawn: 1 });
+                //Memory.spawns[8].random.rooms.push({ name: 'W2S55', spawn: 1 });
                 Memory.spawns[8].random.rooms.push({ name: 'W4S55', spawn: 4, sk: true });
             }
             ////keeper
             if (!Memory.spawns[8].random.hostiles) {
-                Memory.spawns[8].spots.push({ sourceRoom: 'W3S56' });
-                Memory.spawns[8].spots.push({ sourceRoom: 'W2S55' });
+                //Memory.spawns[8].spots.push({ sourceRoom: 'W3S56' });
+                //Memory.spawns[8].spots.push({ sourceRoom: 'W2S55' });
                 Memory.spawns[8].spots.push({ sourceRoom: 'W4S55', sk: true, x: 43, y: 44 });
             }
             //StoreId
