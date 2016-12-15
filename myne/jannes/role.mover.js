@@ -20,6 +20,11 @@ var roleMover = {
                 storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
             if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                 creep.moveTo50(storage);
+            else {
+                if (!Memory.stats.room[creep.memory.spawn].energyToStore)
+                    Memory.stats.room[creep.memory.spawn].energyToStore = 0;
+                Memory.stats.room[creep.memory.spawn].energyToStore += 400;
+            }
         }
         else {
             if (creep.memory.atStore) {
