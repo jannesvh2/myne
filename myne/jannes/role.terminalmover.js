@@ -5,7 +5,7 @@ var roleTerminalMover = {
         //Game.spawns['Spawn00'].createCreep([CARRY, CARRY, MOVE], null, { role: 'terminal', spawn: 0 });
 
         let terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
-        if (!terminal)
+        if (!terminal && !creep.memory.boost)
             return;
         if (creep.memory.role == 'terminal') {
             //add boost compounds to lab
