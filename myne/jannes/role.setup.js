@@ -63,7 +63,7 @@ var roleSetup = {
             Memory.spawns[0].random.extractor = '579fab88b1f02a3b0cff0343';
             Memory.spawns[0].random.terminal = '581790d7ef165c5f66b0de2b';
             Memory.spawns[0].random.defLab = '5834cc21443e2b9d39429d48';
-            Memory.spawns[0].random.overflow = 'W4S57';
+            Memory.spawns[0].random.overflow = 'W7S53';
             Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
 
             Memory.spawns[0].random.runReaction = true;
@@ -136,7 +136,7 @@ var roleSetup = {
             Memory.spawns[1].random.extractor = '579fab87b1f02a3b0cff02fb';
             Memory.spawns[1].random.terminal = '581a76d942f613dc4a3544a6';
             Memory.spawns[1].random.defLab = '';
-            Memory.spawns[1].random.overflow = 'W4S57';
+            Memory.spawns[1].random.overflow = 'W7S53';
             Memory.spawns[1].random.nuker = '583ebb7ad1cb37fc52ac9987';
             Memory.spawns[1].random.runReaction = true;
 
@@ -190,7 +190,7 @@ var roleSetup = {
             Memory.spawns[2].random.extractor = '579fab87b1f02a3b0cff02f4';
             Memory.spawns[2].random.terminal = '581d19ac83ddc28b14a43a4e';
             Memory.spawns[2].random.defLab = '58389bd48ff1bfa430ad5d91';
-            Memory.spawns[2].random.overflow = 'W4S57';
+            Memory.spawns[2].random.overflow = 'W7S53';
             Memory.spawns[2].random.nuker = '583812703c39d0fc0b2fdae7';
 
             Memory.spawns[2].random.runReaction = true;
@@ -248,7 +248,7 @@ var roleSetup = {
             //keeper
             if (!Memory.spawns[3].random.hostiles) {
                 Memory.spawns[3].spots.push({ sourceRoom: 'W8S53' });
-                Memory.spawns[3].spots.push({ sourceRoom: 'W7S54' });
+                //Memory.spawns[3].spots.push({ sourceRoom: 'W7S54' });
                 Memory.spawns[3].spots.push({ sourceRoom: 'W8S54' });
             }
             //StoreId
@@ -268,6 +268,9 @@ var roleSetup = {
             Memory.spawns[3].random.runReaction = true;
             Memory.spawns[3].random.runReactionL = { ZK: 1000 };
             Memory.spawns[3].reactions = [];
+            Memory.spawns[3].requests = [];
+
+            Memory.spawns[3].requests.push({ m: 'XGH2O', l: '5843da58ad3ff4230eac6547', r: 'W4S59' });
 
             Memory.spawns[3].reactions.push(new Array());
             Memory.spawns[3].reactions[0].push({ m: 'ZK', l: '581fd1768000c0a607fe45f0' });
@@ -290,8 +293,13 @@ var roleSetup = {
             Memory.spawns[3].reactions[3].push({ m: 'ZK', l: '58440af83e975ead349fa3e9' });
             Memory.spawns[3].reactions[3].push({ m: 'Z', l: '581eab551fc92be318115693' });
             Memory.spawns[3].reactions[3].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
-            Memory.spawns[3].random.overflow = 'W3S55';
+            delete Memory.spawns[3].random.overflow;
             Memory.spawns[3].random.nuker = '58436672be44c9882007fcb7';
+
+            Memory.spawns[3].random.boostRoom = true;
+            //Memory.spawns[3].random.boostUp = '';
+            //Memory.spawns[3].random.boostRoom = 'W7S54';
+            Memory.spawns[3].random.boostNumber = 10;
 
             //spawn 4
             //spawn numbers
@@ -341,7 +349,7 @@ var roleSetup = {
             Memory.spawns[4].random.extractor = '579fab87b1f02a3b0cff030a';
             Memory.spawns[4].random.terminal = '581e93ab1ba2e0cc73e157bf';
             Memory.spawns[4].random.defLab = '';
-            Memory.spawns[4].random.overflow = 'W4S57';
+            Memory.spawns[4].random.overflow = 'W7S53';
             Memory.spawns[4].random.nuker = '583dd865f22b983d781d6b75';
             Memory.spawns[4].random.runReaction = true;
 
@@ -391,7 +399,7 @@ var roleSetup = {
             Memory.spawns[5].random.extractor = '579fab88b1f02a3b0cff0326';
             Memory.spawns[5].random.terminal = '58221a217f0d8a854578f352';
             Memory.spawns[5].random.defLab = '';
-            Memory.spawns[5].random.overflow = 'W4S57';
+            Memory.spawns[5].random.overflow = 'W7S53';
             Memory.spawns[5].random.nuker = '585064c62ee4214b3f41c50b';
             Memory.spawns[5].random.runReaction = true;
 
@@ -446,7 +454,7 @@ var roleSetup = {
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '';
             Memory.spawns[6].random.nuker = '584f03089fc4e985206ea7a7';
-            Memory.spawns[6].random.overflow = 'W4S57';
+            Memory.spawns[6].random.overflow = 'W7S53';
             Memory.spawns[6].random.runReaction = true;
             Memory.spawns[6].random.runReactionL = { UL: 1000};
             Memory.spawns[6].reactions = [];
@@ -694,6 +702,59 @@ var roleSetup = {
             Memory.spawns[9].reactions[3].push({ m: 'GH', l: '58540709e37ea6341ca24090' });
             Memory.spawns[9].reactions[3].push({ m: 'G', l: '584d90f7cd035d7e761c690c', r: 'W3S55' });
             Memory.spawns[9].reactions[3].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c' });
+
+            //spawn 10
+            //spawn numbers
+            Memory.spawns[10].summon.spawns = 0;
+            Memory.spawns[10].summon.h = 0;
+            Memory.spawns[10].summon.b = 0;
+            Memory.spawns[10].summon.u = 0;
+            Memory.spawns[10].summon.h2 = 0;
+            Memory.spawns[10].summon.b2 = 0;
+            Memory.spawns[10].summon.u2 = 0;
+            Memory.spawns[10].summon.users = 0;
+            Memory.spawns[10].summon.atkM = 0;
+            Memory.spawns[10].summon.atkR = 0;
+            Memory.spawns[10].summon.atkH = 0;
+            Memory.spawns[10].summon.atkD = 0;
+            Memory.spawns[10].random.mainRoom = 'W7S54';
+
+            Memory.spawns[10].random.useUpgradeSpots = true;
+            Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 16 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 17 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 15 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 16 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 17 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 15 });
+
+            ////RoomList
+            //Memory.spawns[10].random.rooms.push({ name: 'W7S54', spawn: 0 });
+            //if (!Memory.spawns[10].random.hostiles) {
+            //    //Memory.spawns[10].random.rooms.push({ name: 'W4S56', spawn: 4, sk: true });
+            //    //  Memory.spawns[10].random.rooms.push({ name: 'W3S56', spawn: 1 });
+            //    //Memory.spawns[10].random.rooms.push({ name: 'W2S55', spawn: 1 });
+            //}
+            //////keeper
+            //if (!Memory.spawns[10].random.hostiles) {
+            //    Memory.spawns[10].spots.push({ sourceRoom: 'W4S56', sk: true, x: 30, y: 48 });
+            //    //  Memory.spawns[10].spots.push({ sourceRoom: 'W3S56' });
+            //    //Memory.spawns[10].spots.push({ sourceRoom: 'W2S55' });
+            //}
+            //StoreId
+            Memory.spawns[10].random.storeId = '585457dbde9c802a70f54656';
+            //UseStore
+            Memory.spawns[10].random.useStore = true;
+            //Memory.spawns[10].random.useLinks = true;
+            //Memory.spawns[10].links.receiver = '584d42738b42d50a6fcb7447';
+            //Memory.spawns[10].links.producers.push({ id: '584c08efbaf67c7774cd9234', source: true });
+            //Memory.spawns[10].links.producers.push({ id: '584c0b25f9108d3a1dd6f81b', source: true });
+            //Memory.spawns[10].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
+            //extractor
+            //Memory.spawns[10].random.extractor = '579fab88b1f02a3b0cff0341';
+            //Memory.spawns[10].random.terminal = '584cb297dc6a243227cfcc3d';
+            //Memory.spawns[10].random.defLab = '';
+            Memory.spawns[10].random.upgradeBoost = '5843da58ad3ff4230eac6547';
+
         }
 
         Memory.spawns[a].counters.roomCounter = 0;
