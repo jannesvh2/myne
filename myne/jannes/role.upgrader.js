@@ -33,6 +33,7 @@ var roleUpgrader = {
             }
         }
 
+
         if (creep.memory.getBoost) {
             let lab = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.upgradeBoost);
             if (!lab || !lab.mineralType || lab.mineralType != 'XGH2O' || lab.mineralAmount < 500) {
@@ -47,6 +48,14 @@ var roleUpgrader = {
             return;
         }
 
+        if (creep.memory.boost) {
+            if (creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom) {
+                var exitDir = Game.map.findExit(creep.room.name, Memory.spawns[creep.memory.spawn].random.mainRoom);
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo50(Exit, true);
+                return;
+            }
+        }
         if (creep.memory.full && creep.carry.energy < 32) {
             creep.memory.full = false;
             creep.say('harvesting');

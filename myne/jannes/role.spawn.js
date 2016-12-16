@@ -369,11 +369,11 @@ var roleSpawn = {
                 let store = Game.getObjectById(Memory.spawns[boosting].random.storeId);
                 if (store) {
                     storeVal = (store.energy - 400000) / 100000 + 1 | 0;
-                    if (Memory.spawns[boosting].creeps.upgraders2.length < storeVal < 1 ? 1 : storeVal) {
+                    if (Memory.spawns[boosting].creeps.upgraders2.length < (storeVal < 1 ? 1 : storeVal)) {
                         let getBoost = false;
                         if (Memory.spawns[boosting].random.upgradeBoost)
                             getBoost = true;
-                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: boosting, getBoost: getBoost });
+                        newName = multiSpawn([WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], { role: 'upgrader2', spawn: boosting, getBoost: getBoost, boost: true });
 
                         return;
                     }
