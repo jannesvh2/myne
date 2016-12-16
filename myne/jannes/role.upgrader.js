@@ -35,7 +35,7 @@ var roleUpgrader = {
 
         if (creep.memory.getBoost) {
             let lab = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.upgradeBoost);
-            if (!lab || !lab.mineralType || lab.mineralType != 'XGH2O') {
+            if (!lab || !lab.mineralType || lab.mineralType != 'XGH2O' || lab.mineralAmount < 500) {
                 creep.memory.getBoost = false;
                 return;
             }
