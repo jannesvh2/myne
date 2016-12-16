@@ -229,7 +229,7 @@ var roleTerminalMover = {
                                 }
                                 else {
                                     if (_.sum(terminal.store) < 295000) {
-                                        Game.rooms['W5S53'].terminal.send('G', 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
+                                        Game.rooms['W3S55'].terminal.send('G', 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
 
                                     }
                                 }
