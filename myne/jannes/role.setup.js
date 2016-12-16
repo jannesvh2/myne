@@ -595,6 +595,7 @@ var roleSetup = {
             Memory.spawns[8].random.runReaction = true;
             Memory.spawns[8].random.runReactionL = { G: 3000 };
             Memory.spawns[8].reactions = [];
+
             Memory.spawns[8].reactions.push(new Array());
             Memory.spawns[8].reactions[0].push({ m: 'G', l: '5844f05505392ca030fb8065' });
             Memory.spawns[8].reactions[0].push({ m: 'ZK', l: '5844c2509a1b04b7595d72fe', r: 'W7S53' });
