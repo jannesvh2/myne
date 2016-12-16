@@ -150,8 +150,8 @@ var roleTerminalMover = {
                             }
                             else {
                                 let labFinal = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][0].l)
-                                if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 100) {
-                                    creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][0].m;
+                                if (labFinal && labFinal.mineralType && labFinal.mineralAmount > 100 || labFinal.mineralType != Memory.spawns[creep.memory.spawn].reactions[s][0].m) {
+                                    creep.memory.moveType = labFinal.mineralType;
                                     creep.memory.moveTo50R = terminal.id;
 
                                     let labFinalW = creep.withdraw(labFinal, creep.memory.moveType);
