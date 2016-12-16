@@ -264,6 +264,21 @@ var roleTerminalMover = {
             }
             // boosing rooms
             if (creep.memory.role == 'toTerminal') {
+                if (creep.memory.boost) {
+
+                    if (creep.memory.full) {
+                        if (creep.transfer(Game.getObjectById(creep.memory.to), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                            creep.moveTo50(Game.getObjectById(creep.memory.to));
+                        }
+                    }
+                    else {
+                        if (creep.withdraw(Game.getObjectById(creep.memory.from), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                            creep.moveTo50(Game.getObjectById(creep.memory.from));
+                        }
+
+                    }
+                    return;
+                }
                 if (creep.memory.full) {
                     if (creep.transfer(terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo50(terminal);
