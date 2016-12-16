@@ -381,7 +381,7 @@ var roleSpawn = {
                         var toId = store.id;
                         if(Memory.spawns[boosting].random.terminal)
                             toId = Memory.spawns[boosting].random.terminal;
-                        if (Game.getObjectById(Memory.spawns[spawn].random.terminal).energy > 55000 && (!Memory.spawns[spawn].creeps.toTerminals.length || Memory.spawns[boosting].counters.upgradeTicks > 300)) {
+                        if (Game.getObjectById(Memory.spawns[spawn].random.terminal).store.energy > 55000 && (!Memory.spawns[boosting].creeps.toTerminals.length || Memory.spawns[boosting].counters.upgradeTicks > 300)) {
                             newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toTerminal', spawn: boosting, boost: true, from: Memory.spawns[spawn].random.terminal, to: toId });
                             if (typeof newName == 'string')
                                 Memory.spawns[boosting].counters.upgradeTicks = 0;
