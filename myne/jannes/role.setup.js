@@ -293,7 +293,6 @@ var roleSetup = {
             Memory.spawns[3].reactions[3].push({ m: 'ZK', l: '58440af83e975ead349fa3e9' });
             Memory.spawns[3].reactions[3].push({ m: 'Z', l: '581eab551fc92be318115693' });
             Memory.spawns[3].reactions[3].push({ m: 'K', l: '583bd2d5e8644f1d514c6fd8', r: 'W8S56' });
-            delete Memory.spawns[3].random.overflow;
             Memory.spawns[3].random.nuker = '58436672be44c9882007fcb7';
 
             Memory.spawns[3].random.boostRoom = true;
