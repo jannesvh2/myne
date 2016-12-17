@@ -113,7 +113,8 @@ var roleDefenders = {
                             });
                             if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
-                                creep.moveTo50(targetHeal[0], { canOn: true });
+                                if (targetHeal[0].name != creep.name)
+                                    creep.moveTo50(targetHeal[0], { canOn: true });
                                 if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
                                     creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1, canOn: true });
                                 else
