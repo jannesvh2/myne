@@ -120,17 +120,15 @@ var roleHarvester = {
             else {
                 var targets;
                 if (!creep.memory.targetId || creep.room.name != creep.memory.currentRoom) {
-                    targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
-                        }
-                    });
+
+                    if (creep.room.name != Memory.spawns[creep.memory.spawn].random.mainRoom)
+                        targets = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                     if (!targets)
-                        var targets = Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].find(FIND_MY_STRUCTURES, {
+                        targets = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
                             filter: (structure) => {
-                                return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE);
+                                return (structure.structureType == STRUCTURE_LINK || structure.structureType == STRUCTURE_STORAGE)
                             }
-                        })[0];
+                        });
                     if (targets && targets.id)
                         creep.memory.targetId = targets.id;
                 }
