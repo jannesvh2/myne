@@ -719,17 +719,13 @@ var roleSetup = {
             Memory.spawns[10].random.mainRoom = 'W7S54';
 
             Memory.spawns[10].random.useUpgradeSpots = true;
-            //Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 16 });
-            //Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 17 });
-            //Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 15 });
-            //Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 16 });
-            //Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 17 });
-            //Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 15 });
-
+            Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 16 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 17 });
             Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 15 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 6, y: 16 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 6, y: 15 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 17 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 16 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 17 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 15 });
+
 
             ////RoomList
             //Memory.spawns[10].random.rooms.push({ name: 'W7S54', spawn: 0 });
@@ -745,7 +741,7 @@ var roleSetup = {
             //    //Memory.spawns[10].spots.push({ sourceRoom: 'W2S55' });
             //}
             //StoreId
-            Memory.spawns[10].random.storeId = '585483034cc4c68332929de2';
+            Memory.spawns[10].random.storeId = '5854d3ae769a2fbb7b91883f';
             //UseStore
             Memory.spawns[10].random.useStore = true;
             //Memory.spawns[10].random.useLinks = true;
