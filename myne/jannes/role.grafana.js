@@ -1,6 +1,4 @@
 var roleGrafana = {
-
-    /** @param {Creep} creep **/
     run: function () {
 
         Memory.stats.cpu = Game.cpu;
@@ -28,5 +26,6 @@ var roleGrafana = {
 
     }
 };
+
 
 module.exports = roleGrafana;

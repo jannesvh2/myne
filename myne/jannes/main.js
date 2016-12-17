@@ -193,7 +193,7 @@ module.exports.loop = function () {
     console.log(notify + " | TOTAL: " + Game.cpu.getUsed().toFixed(2));
 
 
-    if (!Memory.global.grafanaTicks) {
+    if (Memory.global.grafanaTicks == undefined) {
         Memory.global.grafanaTicks = 0;
         Memory.stats = {};
         Memory.stats.cpu = {};
