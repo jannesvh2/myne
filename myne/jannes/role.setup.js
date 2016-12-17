@@ -777,7 +777,7 @@ var roleSetup = {
                 }
                 Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER && structure.id != '585457dbde9c802a70f54656'
+                        return (structure.structureType == STRUCTURE_CONTAINER && structure.id != '585483034cc4c68332929de2'
                             //&& structure.store.energy > 500
                             );
                     }
