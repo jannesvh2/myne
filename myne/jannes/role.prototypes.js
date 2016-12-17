@@ -13,11 +13,12 @@ var rolePrototypes = {
         };
 
         Creep.prototype.moveTo50 = function (target, obj) {
+            obj = obj || {};
 
             if (obj.canOn && this.pos.getRangeTo(target) == 0) {
                 return OK;
             }
-            if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !canOn))
+            if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !obj.canOn))
                 return OK;
             this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms });
