@@ -23,7 +23,7 @@ var rolePrototypes = {
             this.memory.moved = Game.time;
             let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms });
 
-            if ((!this.memory.moveReq || this.memory.moveReq < Game.time - 3) && (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49)) {
+            if (obj.pri || (!this.memory.moveReq || this.memory.moveReq < Game.time - 3) && (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49)) {
                 if (this.memory._move) {
                     let path = Room.deserializePath(this.memory._move.path);
                     if (path.length) {
@@ -34,7 +34,7 @@ var rolePrototypes = {
 
                         }
 
-                        if (nextPos.length && nextPos[0].memory.moved != Game.time) {
+                        if (nextPos.length && (nextPos[0].memory.moved != Game.time || obj.pri)) {
                             nextPos[0].moveTo(this);
                             nextPos[0].memory.moved = Game.time;
                             if (!nextPos[0].memory.moveReq || nextPos[0].memory.moveReq < Game.time - 4)
