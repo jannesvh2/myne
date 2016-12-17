@@ -81,7 +81,7 @@ var roleDefenders = {
                 if (targets.length) {
                     let moveTo50;
                     if (creep.room.name == creep.memory.sourceRoom)
-                        moveTo50 = creep.moveTo(targets[0], { maxRooms: 1 });
+                        moveTo50 = creep.moveTo(targets[0], { maxRooms: 1, canOn: true });
                     else
                         moveTo50 = creep.moveTo50(targets[0]);
 
@@ -91,7 +91,7 @@ var roleDefenders = {
                             if (creep.room.name != creep.memory.sourceRoom) {
                                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                                 var Exit = creep.pos.findClosestByRange(exitDir);
-                                creep.moveTo50(Exit, true);
+                                creep.moveTo50(Exit, { canOn: true });
                             }
                         }
                     }
@@ -113,14 +113,14 @@ var roleDefenders = {
                             });
                             if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
-                                creep.moveTo50(targetHeal[0], true);
+                                creep.moveTo50(targetHeal[0], { canOn: true });
                                 if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
-                                    creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                    creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1, canOn: true });
                                 else
                                     return;
                             }
                             else
-                                creep.moveTo(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1 });
+                                creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1, canOn: true });
                         }
                         else {
                             let skSpawn = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
@@ -144,7 +144,7 @@ var roleDefenders = {
             if (creep.room.name != creep.memory.sourceRoom) {
                 var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit, true);
+                creep.moveTo50(Exit, { canOn: true });
             }
             creep.heal(creep);
         }

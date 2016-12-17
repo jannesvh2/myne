@@ -137,7 +137,7 @@ var roleStore = {
                     creep.repair(container);
                     if (creep.pos.getRangeTo(container) > 0) {
                         creep.memory.moved = Game.time - 1;
-                        creep.moveTo50(container, true);
+                        creep.moveTo50(container, { canOn: true });
                         creep.memory.rep = 7;
                     }
                 }

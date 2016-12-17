@@ -12,16 +12,15 @@ var rolePrototypes = {
                 d.destroy();
         };
 
-        Creep.prototype.moveTo50 = function (target, canOn) {
-            canOn = canOn || false;
+        Creep.prototype.moveTo50 = function (target, obj) {
 
-            if (canOn && this.pos.getRangeTo(target) == 0) {
+            if (obj.canOn && this.pos.getRangeTo(target) == 0) {
                 return OK;
             }
             if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !canOn))
                 return OK;
             this.memory.moved = Game.time;
-            let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true });
+            let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms });
 
             if ((!this.memory.moveReq || this.memory.moveReq < Game.time - 3) && (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49)) {
                 if (this.memory._move) {
