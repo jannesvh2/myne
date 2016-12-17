@@ -56,7 +56,7 @@ var roleUpgrader = {
                 return;
             }
         }
-        if (creep.memory.full && creep.carry.energy < 30) {
+        if (creep.memory.full && creep.carry.energy < 31) {
             creep.memory.full = false;
             creep.say('harvesting');
         }
