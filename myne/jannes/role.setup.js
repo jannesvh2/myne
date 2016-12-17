@@ -453,7 +453,7 @@ var roleSetup = {
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '';
             Memory.spawns[6].random.nuker = '584f03089fc4e985206ea7a7';
-            Memory.spawns[6].random.overflow = 'W4S57';
+            Memory.spawns[6].random.overflow = 'W7S53';
             Memory.spawns[6].random.runReaction = true;
             Memory.spawns[6].random.runReactionL = { UL: 1000};
             Memory.spawns[6].reactions = [];
@@ -480,7 +480,7 @@ var roleSetup = {
 
             //spawn 7
             //spawn numbers
-            Memory.spawns[7].summon.spawns = 2;
+            Memory.spawns[7].summon.spawns = 3;
             Memory.spawns[7].summon.h = 0;
             Memory.spawns[7].summon.b = 0;
             Memory.spawns[7].summon.u = 0;
@@ -526,9 +526,11 @@ var roleSetup = {
             Memory.spawns[7].random.extractor = '579fab88b1f02a3b0cff0328';
             Memory.spawns[7].random.terminal = '5831d5d8202214f5461bdab4';
             Memory.spawns[7].random.defLab = '';
+            //Memory.spawns[7].random.nuker = '584f03089fc4e985206ea7a7';
             Memory.spawns[7].random.runReaction = true;
             Memory.spawns[7].random.runReactionL = { OH: 10000 };
             Memory.spawns[7].reactions = [];
+            Memory.spawns[7].random.overflow = 'W7S53';
 
             Memory.spawns[7].reactions.push(new Array());
             Memory.spawns[7].reactions[0].push({ m: 'OH', l: '583d1bc885d06b81324572fb' });
@@ -773,7 +775,7 @@ var roleSetup = {
                 }
                 Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER && structure.id != '585483034cc4c68332929de2'
+                        return (structure.structureType == STRUCTURE_CONTAINER
                             //&& structure.store.energy > 500
                             );
                     }
