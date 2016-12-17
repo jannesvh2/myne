@@ -719,12 +719,17 @@ var roleSetup = {
             Memory.spawns[10].random.mainRoom = 'W7S54';
 
             Memory.spawns[10].random.useUpgradeSpots = true;
-            Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 16 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 17 });
+            //Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 16 });
+            //Memory.spawns[10].random.upgradeSpots.push({ x: 9, y: 17 });
+            //Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 15 });
+            //Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 16 });
+            //Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 17 });
+            //Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 15 });
+
             Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 15 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 16 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 7, y: 17 });
-            Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 15 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 6, y: 16 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 6, y: 15 });
+            Memory.spawns[10].random.upgradeSpots.push({ x: 8, y: 17 });
 
             ////RoomList
             //Memory.spawns[10].random.rooms.push({ name: 'W7S54', spawn: 0 });
@@ -740,7 +745,7 @@ var roleSetup = {
             //    //Memory.spawns[10].spots.push({ sourceRoom: 'W2S55' });
             //}
             //StoreId
-            Memory.spawns[10].random.storeId = '585457dbde9c802a70f54656';
+            Memory.spawns[10].random.storeId = '585483034cc4c68332929de2';
             //UseStore
             Memory.spawns[10].random.useStore = true;
             //Memory.spawns[10].random.useLinks = true;
@@ -753,6 +758,7 @@ var roleSetup = {
             //Memory.spawns[10].random.terminal = '584cb297dc6a243227cfcc3d';
             //Memory.spawns[10].random.defLab = '';
             Memory.spawns[10].random.upgradeBoost = '5843da58ad3ff4230eac6547';
+            Memory.spawns[10].random.twr = '585483458fe084364e73b478';
 
         }
 
@@ -771,7 +777,7 @@ var roleSetup = {
                 }
                 Memory.spawns[a].random.roomContainers = Memory.spawns[a].random.roomContainers.concat(Game.rooms[Memory.spawns[a].random.rooms[myRooms].name].find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER
+                        return (structure.structureType == STRUCTURE_CONTAINER && structure.id != '585457dbde9c802a70f54656'
                             //&& structure.store.energy > 500
                             );
                     }

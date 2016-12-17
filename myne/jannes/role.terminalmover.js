@@ -90,6 +90,7 @@ var roleTerminalMover = {
                             //empty lab if it has wrong mineral
                             if (checkLab && checkLab.mineralType && checkLab.mineralType != Memory.spawns[creep.memory.spawn].requests[s2].m) {
                                 creep.memory.moveType = checkLab.mineralType;
+                                creep.memory.moveTo50R = terminal.id;
 
                                 let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
                                 if (checkLabW == ERR_NOT_IN_RANGE)
@@ -138,6 +139,8 @@ var roleTerminalMover = {
                                     let checkLab = Game.getObjectById(Memory.spawns[creep.memory.spawn].reactions[s][s2].l);
                                     if (checkLab && checkLab.mineralType) {
                                         creep.memory.moveType = checkLab.mineralType;
+                                        creep.memory.moveTo50R = terminal.id;
+
                                         let emptyLab = creep.withdraw(checkLab, creep.memory.moveType);
                                         if (emptyLab == ERR_NOT_IN_RANGE)
                                             creep.moveTo50(checkLab);
@@ -169,6 +172,7 @@ var roleTerminalMover = {
                                     //empty lab if it has wrong mineral
                                     if (checkLab && checkLab.mineralType && checkLab.mineralType != Memory.spawns[creep.memory.spawn].reactions[s][s2].m) {
                                         creep.memory.moveType = checkLab.mineralType;
+                                        creep.memory.moveTo50R = terminal.id;
 
                                         let checkLabW = creep.withdraw(checkLab, creep.memory.moveType);
                                         if (checkLabW == ERR_NOT_IN_RANGE)
@@ -264,16 +268,34 @@ var roleTerminalMover = {
             }
             // boosing rooms
             if (creep.memory.role == 'toTerminal') {
+
+                //boosting room helpers
                 if (creep.memory.boost) {
 
                     if (creep.memory.full) {
-                        if (creep.transfer(Game.getObjectById(creep.memory.to), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo50(Game.getObjectById(creep.memory.to));
+                        let to = Game.getObjectById(creep.memory.to);
+                        let twr = Game.getObjectById(creep.memory.twr);
+                        if (twr && twr.energy < 800) {
+                            if (creep.transfer(twr, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                                creep.moveTo50(twr);
+
+                            }
                         }
+                        else if (creep.transfer(to, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                            creep.moveTo50(to);
+
+                        }
+
+                        creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
+                            filter: (structure) => {
+                                return (structure.hits < structure.hitsMax - 800 && structure.hits < 250000)
+                            }
+                        })[0]);
                     }
                     else {
-                        if (creep.withdraw(Game.getObjectById(creep.memory.from), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo50(Game.getObjectById(creep.memory.from));
+                        let from = Game.getObjectById(creep.memory.from);
+                        if (creep.withdraw(from, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                            creep.moveTo50(from);
                         }
 
                     }

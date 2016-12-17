@@ -377,12 +377,12 @@ var roleSpawn = {
 
                         return;
                     }
-                    if (Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.level < 6) {
+                    if (Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.level < 6 && Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.level > 3) {
                         var toId = store.id;
-                        if(Memory.spawns[boosting].random.terminal)
-                            toId = Memory.spawns[boosting].random.terminal;
+                        //if(Memory.spawns[boosting].random.terminal)
+                        //    toId = Memory.spawns[boosting].random.terminal;
                         if (Game.getObjectById(Memory.spawns[spawn].random.terminal).store.energy > 55000 && (!Memory.spawns[boosting].creeps.toTerminals.length || Memory.spawns[boosting].counters.upgradeTicks > 300)) {
-                            newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toTerminal', spawn: boosting, boost: true, from: Memory.spawns[spawn].random.terminal, to: toId });
+                            newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'toTerminal', spawn: boosting, boost: true, from: Memory.spawns[spawn].random.terminal, to: toId, twr: Memory.spawns[boosting].random.twr });
                             if (typeof newName == 'string')
                                 Memory.spawns[boosting].counters.upgradeTicks = 0;
                             return;
