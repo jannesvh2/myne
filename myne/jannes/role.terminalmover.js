@@ -185,7 +185,7 @@ var roleTerminalMover = {
                                     }
 
                                     //add mineral if space
-                                    if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 100)) {
+                                    if (checkLab && (!checkLab.mineralType || checkLab.mineralAmount < 200)) {
                                         creep.memory.moveType = Memory.spawns[creep.memory.spawn].reactions[s][s2].m;
                                         creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].reactions[s][s2].l;
                                         if (terminal.store[creep.memory.moveType]) {
