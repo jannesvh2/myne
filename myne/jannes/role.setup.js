@@ -754,7 +754,7 @@ var roleSetup = {
             Memory.spawns[10].random.upgradeBoost = '5843da58ad3ff4230eac6547';
             Memory.spawns[10].random.twr = '585483458fe084364e73b478';
 
-            if (Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.level < 6) {
+            if (Game.rooms['W7S54'].controller.level < 6) {
                 Memory.spawns[0].random.overflow = 'W7S53';
                 Memory.spawns[2].random.overflow = 'W7S53';
                 Memory.spawns[3].random.overflow = 'W7S53';
