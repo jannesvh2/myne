@@ -50,7 +50,8 @@ var rolePrototypes = {
                 return moveReturn;
             }
 
-            this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
+            if (this.fatigue == 0)
+                this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
             return moveReturn;
         };
     }
