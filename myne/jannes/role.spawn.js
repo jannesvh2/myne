@@ -369,7 +369,7 @@ var roleSpawn = {
                 let store = Game.getObjectById(Memory.spawns[boosting].random.storeId);
                 if (store) {
                     storeVal = (store.store.energy - 400000) / 100000 + 1 | 0;
-                    if (Memory.spawns[boosting].creeps.upgraders2.length < (storeVal < 2 ? 2 : storeVal)) {
+                    if (Memory.spawns[boosting].creeps.upgraders2.length < (storeVal < 1 ? 1 : storeVal)) {
                         let getBoost = false;
                         if (Memory.spawns[boosting].random.upgradeBoost)
                             getBoost = true;
