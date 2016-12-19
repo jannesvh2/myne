@@ -398,7 +398,7 @@ var roleSpawn = {
                     }
                     var toId = store.id;
                     if (Game.rooms[Memory.spawns[boosting].random.mainRoom].terminal.store.energy && !Memory.spawns[boosting].creeps.toTerminals.length) {
-                        newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE], { role: 'toTerminal', spawn: boosting, boost: true, from: Game.rooms[Memory.spawns[boosting].random.mainRoom].terminal.id, to: toId, twr: Memory.spawns[boosting].random.twr });
+                        newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, MOVE, CARRY, CARRY, CARRY, CARRY, MOVE, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'toTerminal', spawn: boosting, boost: true, from: Game.rooms[Memory.spawns[boosting].random.mainRoom].terminal.id, to: toId, twr: Memory.spawns[boosting].random.twr });
                         return;
 
                     }
