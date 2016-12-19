@@ -33,8 +33,10 @@ var roleMover = {
                         return (structure.structureType == STRUCTURE_LINK);
                     }
                 });
-
-                if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                let link = creep.withdraw(target, RESOURCE_ENERGY);
+                if (link == OK)
+                    creep.memory.full = true;
+                else if (link == ERR_NOT_IN_RANGE)
                     creep.moveTo50(target);
             }
             else {
