@@ -531,22 +531,22 @@ var roleSetup = {
             Memory.spawns[7].reactions.push(new Array());
             Memory.spawns[7].reactions[0].push({ m: 'OH', l: '583d1bc885d06b81324572fb' });
             Memory.spawns[7].reactions[0].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
-            Memory.spawns[7].reactions[0].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions[0].push({ m: 'H', l: '583cfd1a8494015279f7c0fc', r: 'W9S52' });
 
             Memory.spawns[7].reactions.push(new Array());
             Memory.spawns[7].reactions[1].push({ m: 'OH', l: '58314d28752fa9b77e2c9a7d' });
             Memory.spawns[7].reactions[1].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
-            Memory.spawns[7].reactions[1].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions[1].push({ m: 'H', l: '583cfd1a8494015279f7c0fc', r: 'W9S52' });
 
             Memory.spawns[7].reactions.push(new Array());
             Memory.spawns[7].reactions[2].push({ m: 'OH', l: '5831c551ede9ddf14bf90093' });
             Memory.spawns[7].reactions[2].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
-            Memory.spawns[7].reactions[2].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions[2].push({ m: 'H', l: '583cfd1a8494015279f7c0fc', r: 'W9S52' });
 
             Memory.spawns[7].reactions.push(new Array());
             Memory.spawns[7].reactions[3].push({ m: 'OH', l: '58310c3f66dd01de78c79e5b' });
             Memory.spawns[7].reactions[3].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
-            Memory.spawns[7].reactions[3].push({ m: 'H', l: '583cfd1a8494015279f7c0fc' });
+            Memory.spawns[7].reactions[3].push({ m: 'H', l: '583cfd1a8494015279f7c0fc', r: 'W9S52' });
 
             //spawn 8
             //spawn numbers
@@ -683,22 +683,22 @@ var roleSetup = {
             Memory.spawns[9].reactions.push(new Array());
             Memory.spawns[9].reactions[0].push({ m: 'GH', l: '584ccf25eeca75d04c9b6cf5' });
             Memory.spawns[9].reactions[0].push({ m: 'G', l: '584d90f7cd035d7e761c690c', r: 'W3S55' });
-            Memory.spawns[9].reactions[0].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c' });
+            Memory.spawns[9].reactions[0].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c', r: 'W9S52' });
 
             Memory.spawns[9].reactions.push(new Array());
             Memory.spawns[9].reactions[1].push({ m: 'GH', l: '5854285e2d1317ff3dcdba89' });
             Memory.spawns[9].reactions[1].push({ m: 'G', l: '584d90f7cd035d7e761c690c', r: 'W3S55' });
-            Memory.spawns[9].reactions[1].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c' });
+            Memory.spawns[9].reactions[1].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c', r: 'W9S52' });
 
             Memory.spawns[9].reactions.push(new Array());
             Memory.spawns[9].reactions[2].push({ m: 'GH', l: '585284c2888d20da115da811' });
             Memory.spawns[9].reactions[2].push({ m: 'G', l: '584d90f7cd035d7e761c690c', r: 'W3S55' });
-            Memory.spawns[9].reactions[2].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c' });
+            Memory.spawns[9].reactions[2].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c', r: 'W9S52' });
 
             Memory.spawns[9].reactions.push(new Array());
             Memory.spawns[9].reactions[3].push({ m: 'GH', l: '58540709e37ea6341ca24090' });
             Memory.spawns[9].reactions[3].push({ m: 'G', l: '584d90f7cd035d7e761c690c', r: 'W3S55' });
-            Memory.spawns[9].reactions[3].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c' });
+            Memory.spawns[9].reactions[3].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c', r: 'W9S52' });
 
             //spawn 10
             //spawn numbers
