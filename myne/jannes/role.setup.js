@@ -623,7 +623,7 @@ var roleSetup = {
 
             //spawn 9
             //spawn numbers
-            Memory.spawns[9].summon.spawns = 2;
+            Memory.spawns[9].summon.spawns = 3;
             Memory.spawns[9].summon.h = 0;
             Memory.spawns[9].summon.b = 0;
             Memory.spawns[9].summon.u = 0;
@@ -770,6 +770,7 @@ var roleSetup = {
                 Memory.spawns[4].random.overflow = 'W7S54';
                 Memory.spawns[5].random.overflow = 'W7S54';
                 Memory.spawns[7].random.overflow = 'W7S54';
+                Memory.spawns[9].random.overflow = 'W7S54';
 
             }
 
