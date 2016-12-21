@@ -757,25 +757,28 @@ var roleSetup = {
 
             if (Game.rooms['W7S54'].controller.level < 6) {
                 Memory.spawns[0].random.overflow = 'W7S53';
+                Memory.spawns[1].random.overflow = 'W7S53';
                 Memory.spawns[2].random.overflow = 'W7S53';
                 Memory.spawns[3].random.overflow = 'W7S53';
                 Memory.spawns[4].random.overflow = 'W7S53';
                 Memory.spawns[5].random.overflow = 'W7S53';
+                Memory.spawns[6].random.overflow = 'W7S53';
                 Memory.spawns[7].random.overflow = 'W7S53';
+                Memory.spawns[9].random.overflow = 'W7S53';
             }
             else {
                 Memory.spawns[0].random.overflow = 'W7S54';
+                Memory.spawns[1].random.overflow = 'W7S54';
                 Memory.spawns[2].random.overflow = 'W7S54';
                 Memory.spawns[3].random.overflow = 'W7S54';
                 Memory.spawns[4].random.overflow = 'W7S54';
                 Memory.spawns[5].random.overflow = 'W7S54';
+                Memory.spawns[6].random.overflow = 'W7S54';
                 Memory.spawns[7].random.overflow = 'W7S54';
                 Memory.spawns[9].random.overflow = 'W7S54';
 
             }
 
-            Memory.spawns[1].random.overflow = 'W4S57';
-            Memory.spawns[6].random.overflow = 'W4S57';
         }
 
         Memory.spawns[a].counters.roomCounter = 0;
