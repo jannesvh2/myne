@@ -87,7 +87,7 @@ var roleUpgrader = {
                     storage = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.storeId);
                 let withdraw = creep.withdraw(storage, RESOURCE_ENERGY);
                 if (withdraw == ERR_NOT_IN_RANGE) {
-                    creep.moveTo50(storage);
+                    creep.moveTo(storage);
                 }
                 else if (withdraw == OK)
                     creep.memory.full = true;
