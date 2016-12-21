@@ -627,7 +627,7 @@ var roleSetup = {
             Memory.spawns[9].summon.h = 0;
             Memory.spawns[9].summon.b = 0;
             Memory.spawns[9].summon.u = 0;
-            Memory.spawns[9].summon.h2 = 4;
+            Memory.spawns[9].summon.h2 = 11;
             Memory.spawns[9].summon.b2 = 1;
             Memory.spawns[9].summon.u2 = 0;
             Memory.spawns[9].summon.users = 1;
@@ -647,13 +647,13 @@ var roleSetup = {
             Memory.spawns[9].random.rooms.push({ name: 'W4S57', spawn: 0 });
             if (!Memory.spawns[9].random.hostiles) {
                 Memory.spawns[9].random.rooms.push({ name: 'W4S56', spawn: 4, sk: true });
-                //  Memory.spawns[9].random.rooms.push({ name: 'W3S56', spawn: 1 });
+                Memory.spawns[9].random.rooms.push({ name: 'W5S56', spawn: 7, sk: true });
                 //Memory.spawns[9].random.rooms.push({ name: 'W2S55', spawn: 1 });
             }
             ////keeper
             if (!Memory.spawns[9].random.hostiles) {
                 Memory.spawns[9].spots.push({ sourceRoom: 'W4S56', sk: true, x: 30, y: 48 });
-                //  Memory.spawns[9].spots.push({ sourceRoom: 'W3S56' });
+                Memory.spawns[9].spots.push({ sourceRoom: 'W5S56', sk: true, x: 45, y: 48 });
                 //Memory.spawns[9].spots.push({ sourceRoom: 'W2S55' });
             }
             //StoreId
