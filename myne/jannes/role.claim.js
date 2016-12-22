@@ -58,6 +58,9 @@ var roleClaim = {
                 }
 
             }
+            else {
+                creep.suicide();
+            }
         }
     }
 };
