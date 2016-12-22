@@ -41,9 +41,23 @@ var roleClaim = {
             var Exit = creep.pos.findClosestByRange(exitDir);
             creep.moveTo50(Exit, { canOn: true });
         }
-        else if (creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-            creep.moveTo50(creep.room.controller);
+        else {
+            if (!creep.memory.claimed) {
+                let claim = creep.claimController(creep.room.controller)
+                if (claim != OK) {
+                    creep.moveTo50(creep.room.controller);
+                    if (creep.memory.boost)
+                        if (creep.pos.isNearTo(creep.room.controller)) {
+                            Game.rooms[Memory.spawns[creep.memory.spawn].random.mainRoom].controller.unclaim();
+                        }
 
+
+                }
+                else {
+                    creep.memory.claimed = true;
+                }
+
+            }
         }
     }
 };
