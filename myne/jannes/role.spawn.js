@@ -406,7 +406,7 @@ var roleSpawn = {
                     }
                 }
                 if (!Memory.spawns[boosting].creeps.claims.length && (!Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.level == 8 || Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.progress > 10000000)) {
-                    newName = multiSpawn([MOVE, CLAIM], undefined, { role: 'claim', spawn: boosting, sourceRoom: Memory.spawns[boosting].random.mainRoom, boost: true });
+                    newName = multiSpawn([MOVE, CLAIM], { role: 'claim', spawn: boosting, sourceRoom: Memory.spawns[boosting].random.mainRoom, boost: true });
                 }
             }
 
