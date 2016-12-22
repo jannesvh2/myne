@@ -274,7 +274,7 @@ var roleSpawn = {
                         else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
                             newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE], { role: 'harvester2', spawn: spawn, room: Memory.spawns[spawn].random.rooms[a].name });
                         else
-                            newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, WORK, MOVE, WORK, MOVE], { role: 'harvester2', spawn: spawn, room: Memory.spawns[spawn].random.rooms[a].name, sk: Memory.spawns[spawn].random.rooms[a].sk });
+                            newName = multiSpawn([CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, CARRY, CARRY, MOVE, WORK, WORK, MOVE], { role: 'harvester2', spawn: spawn, room: Memory.spawns[spawn].random.rooms[a].name, sk: Memory.spawns[spawn].random.rooms[a].sk });
 
                         return;
                     }
