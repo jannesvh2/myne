@@ -83,6 +83,7 @@ var roleCreateJSON = {
                 Memory.spawns[a].creeps.terminals = [];
                 Memory.spawns[a].creeps.toTerminals = [];
                 Memory.spawns[a].creeps.toStores = [];
+                Memory.spawns[a].creeps.claims = [];
                 Memory.spawns[a].counters.creeps = 0;
                 Memory.spawns[a].store = [];
             }
@@ -131,6 +132,8 @@ var roleCreateJSON = {
                     Memory.spawns[creep.memory.spawn].creeps.toTerminals.push(creep.name);
                 else if (creep.memory.role == 'toStore')
                     Memory.spawns[creep.memory.spawn].creeps.toStores.push(creep.name);
+                else if (creep.memory.role == 'claim')
+                    Memory.spawns[creep.memory.spawn].creeps.claims.push(creep.name);
             }
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

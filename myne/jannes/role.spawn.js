@@ -50,6 +50,8 @@ var roleSpawn = {
                             Memory.spawns[creep.memory.spawn].creeps.toTerminals.push(creep.name);
                         else if (creep.memory.role == 'toStore')
                             Memory.spawns[creep.memory.spawn].creeps.toStores.push(creep.name);
+                        else if (creep.memory.role == 'claim')
+                            Memory.spawns[creep.memory.spawn].creeps.claims.push(creep.name);
 
                         return spawnReturn;
                     }
@@ -402,6 +404,9 @@ var roleSpawn = {
                         return;
 
                     }
+                }
+                if (!Memory.spawns[boosting].creeps.claims.length && (!Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.level == 8 || Game.rooms[Memory.spawns[boosting].random.mainRoom].controller.progress > 10000000)) {
+                    newName = multiSpawn([MOVE, CLAIM], undefined, { role: 'claim', spawn: boosting, sourceRoom: Memory.spawns[boosting].random.mainRoom, boost: true });
                 }
             }
 

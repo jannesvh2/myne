@@ -1,8 +1,8 @@
-var rolePath = {
+var roleClaim = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        //Game.spawns['Spawn20'].createCreep([MOVE, CLAIM], undefined, { role: 'path2', spawn: 2, sourceRoom: 'W52S28'});
+        //Game.spawns['Spawn20'].createCreep([MOVE, CLAIM], undefined, { role: 'claim', spawn: 2, sourceRoom: 'W52S28'});
         if (creep.room.name != creep.memory.sourceRoom) {
             var flag = Game.flags['Flag7'];
             if (flag) {
@@ -48,4 +48,4 @@ var rolePath = {
     }
 };
 
-module.exports = rolePath;
+module.exports = roleClaim;

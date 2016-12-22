@@ -4,7 +4,7 @@ var roleBuilder = require('role.builder');
 var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
-var rolePath = require('role.path2');
+var roleClaim = require('role.claim');
 var roleKeeper = require('role.keeper');
 var roleStore = require('role.store');
 var roleCreateJSON = require('role.createjson');
@@ -95,8 +95,8 @@ module.exports.loop = function () {
                 warType = true;
                 continue;
             }
-            else if (creep.memory.role == 'path2') {
-                rolePath.run(creep);
+            else if (creep.memory.role == 'claim') {
+                roleClaim.run(creep);
                 warType = true;
                 continue;
             }
