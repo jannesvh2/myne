@@ -755,6 +755,57 @@ var roleSetup = {
             Memory.spawns[10].random.upgradeBoost = '5843da58ad3ff4230eac6547';
             Memory.spawns[10].random.twr = '585483458fe084364e73b478';
 
+            //spawn 11
+            //spawn numbers
+            Memory.spawns[11].summon.spawns = 1;
+            Memory.spawns[11].summon.h = 0;
+            Memory.spawns[11].summon.b = 0;
+            Memory.spawns[11].summon.u = 0;
+            Memory.spawns[11].summon.h2 = 0;
+            Memory.spawns[11].summon.b2 = 0;
+            Memory.spawns[11].summon.u2 = 0;
+            Memory.spawns[11].summon.users = 1;
+            Memory.spawns[11].summon.atkM = 0;
+            Memory.spawns[11].summon.atkR = 0;
+            Memory.spawns[11].summon.atkH = 0;
+            Memory.spawns[11].summon.atkD = 0;
+            Memory.spawns[11].random.mainRoom = 'W6S57';
+
+            //Memory.spawns[11].random.useUpgradeSpots = true;
+            //Memory.spawns[11].random.upgradeSpots.push({ x: 19, y: 6 });
+            //Memory.spawns[11].random.upgradeSpots.push({ x: 19, y: 7 });
+            //Memory.spawns[11].random.upgradeSpots.push({ x: 19, y: 8 });
+            //Memory.spawns[11].random.upgradeSpots.push({ x: 19, y: 9 });
+
+            ////RoomList
+            Memory.spawns[11].random.rooms.push({ name: 'W6S57', spawn: 0 });
+            //if (!Memory.spawns[11].random.hostiles) {
+            //    Memory.spawns[11].random.rooms.push({ name: 'W4S56', spawn: 4, sk: true });
+            //    Memory.spawns[11].random.rooms.push({ name: 'W5S56', spawn: 6, sk: true });
+            //    //Memory.spawns[11].random.rooms.push({ name: 'W2S55', spawn: 1 });
+            //}
+            //////keeper
+            //if (!Memory.spawns[11].random.hostiles) {
+            //    Memory.spawns[11].spots.push({ sourceRoom: 'W4S56', sk: true, x: 30, y: 48 });
+            //    Memory.spawns[11].spots.push({ sourceRoom: 'W5S56', sk: true, x: 45, y: 48 });
+            //    //Memory.spawns[11].spots.push({ sourceRoom: 'W2S55' });
+            //}
+            //StoreId
+            //Memory.spawns[11].random.storeId = '584d13c4552196b578b0f8f4';
+            //UseStore
+            Memory.spawns[11].random.useStore = false;
+            //Memory.spawns[11].random.useLinks = true;
+            //Memory.spawns[11].links.receiver = '584d42738b42d50a6fcb7447';
+            //Memory.spawns[11].links.producers.push({ id: '584c08efbaf67c7774cd9234', source: true });
+            //Memory.spawns[11].links.producers.push({ id: '584c0b25f9108d3a1dd6f81b', source: true });
+            //Memory.spawns[11].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
+            //extractor
+            //Memory.spawns[11].random.extractor = '579fab88b1f02a3b0cff0341';
+            //Memory.spawns[11].random.terminal = '584cb297dc6a243227cfcc3d';
+            //Memory.spawns[11].random.defLab = '';
+
+
+
             if (Game.rooms['W7S54'].controller.level < 6) {
                 Memory.spawns[0].random.overflow = 'W7S53';
                 Memory.spawns[1].random.overflow = 'W7S53';

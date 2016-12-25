@@ -5,31 +5,32 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        if (creep.memory.helper) {
-            if (creep.room.name != "W4S57") {
-                var flag = Game.flags['Flag7'];
-                if (flag) {
-                    if (!creep.memory.flag || creep.memory.flag == 1) {
-                        creep.moveTo50(flag);
-                        if (flag.room.name == creep.room.name)
-                            creep.memory.flag = 2;
-                        return;
-                    }
-                    if (creep.memory.flag == 2) {
 
-                        flag = Game.flags['Flag8'];
-                        creep.moveTo50(flag);
-                        if (flag.room.name == creep.room.name)
-                            creep.memory.flag = 3;
-                        return;
-                    }
-                }
-                else {
-                    var exitDir = Game.map.findExit(creep.room.name, "W3S55");
-                    var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo50(Exit, { canOn: true });
-                    return;
-                }
+        if (creep.memory.helper) {
+            if (creep.room.name != "W6S57") {
+                //var flag = Game.flags['Flag7'];
+                //if (flag) {
+                //    if (!creep.memory.flag || creep.memory.flag == 1) {
+                //        creep.moveTo50(flag);
+                //        if (flag.room.name == creep.room.name)
+                //            creep.memory.flag = 2;
+                //        return;
+                //    }
+                //    if (creep.memory.flag == 2) {
+
+                //        flag = Game.flags['Flag8'];
+                //        creep.moveTo50(flag);
+                //        if (flag.room.name == creep.room.name)
+                //            creep.memory.flag = 3;
+                //        return;
+                //    }
+                //}
+                //else {
+                var exitDir = Game.map.findExit(creep.room.name, "W6S57");
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo50(Exit, { canOn: true });
+                return;
+                //}
             }
         }
 
