@@ -28,7 +28,7 @@ var roleHarvester = {
                 //else {
                 var exitDir = Game.map.findExit(creep.room.name, "W6S57");
                 var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit, { canOn: true });
+                creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
                 return;
                 //}
             }

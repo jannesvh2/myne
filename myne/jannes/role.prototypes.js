@@ -21,7 +21,7 @@ var rolePrototypes = {
             if (this.memory.moved == Game.time || (this.pos.isNearTo(target) && !obj.canOn))
                 return OK;
             this.memory.moved = Game.time;
-            let moveReturn = this.moveTo(target, { reusePath: 50, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms });
+            let moveReturn = this.moveTo(target, { reusePath: 101, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms });
 
             if (obj.pri || (!this.memory.moveReq || this.memory.moveReq < Game.time - 3) && (this.memory.currentPos == `x:${this.pos.x}y:${this.pos.y}` || this.pos.x == 0 || this.pos.x == 49 || this.pos.y == 0 || this.pos.y == 49)) {
                 if (this.memory._move) {

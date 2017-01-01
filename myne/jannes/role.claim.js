@@ -39,7 +39,7 @@ var roleClaim = {
             //}
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.sourceRoom);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo50(Exit, { canOn: true });
+            creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
         }
         else {
             if (!creep.memory.claimed) {
