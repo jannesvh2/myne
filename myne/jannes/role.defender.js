@@ -81,7 +81,10 @@ var roleDefenders = {
                 if (targets.length) {
                     let moveTo50;
                     if (creep.room.name == creep.memory.sourceRoom)
-                        moveTo50 = creep.moveTo50(targets[0], { maxRooms: 1, canOn: true });
+                        if (creep.pos.getRangeTo(targets[0]) == 2)
+                            moveTo50 = creep.moveTo(targets[0], { maxRooms: 1});
+                        else
+                            moveTo50 = creep.moveTo50(targets[0], { maxRooms: 1, canOn: true });
                     else
                         moveTo50 = creep.moveTo50(targets[0]);
 
