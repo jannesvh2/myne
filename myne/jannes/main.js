@@ -193,23 +193,23 @@ module.exports.loop = function () {
     console.log(notify + " | TOTAL: " + Game.cpu.getUsed().toFixed(2));
 
 
-    if (Memory.global.grafanaTicks == undefined) {
-        Memory.global.grafanaTicks = 0;
-        Memory.stats = {};
-        Memory.stats.cpu = {};
-        Memory.stats.gcl = {};
-        Memory.stats.room = {};
-        Memory.stats.sales = [];
-    }
-    else {
-        Memory.global.grafanaTicks++;
+    // if (Memory.global.grafanaTicks == undefined) {
+    //     Memory.global.grafanaTicks = 0;
+    //     Memory.stats = {};
+    //     Memory.stats.cpu = {};
+    //     Memory.stats.gcl = {};
+    //     Memory.stats.room = {};
+    //     Memory.stats.sales = [];
+    // }
+    // else {
+    //     Memory.global.grafanaTicks++;
 
-        if (Memory.global.grafanaTicks > 15) {
+    //     if (Memory.global.grafanaTicks > 15) {
 
-            Memory.global.grafanaTicks = 1;
-            var roleGrafana = require('role.grafana');
-            roleGrafana.run();
+    //         Memory.global.grafanaTicks = 1;
+    //         var roleGrafana = require('role.grafana');
+    //         roleGrafana.run();
 
-        }
-    }
+    //     }
+    // }
 };
