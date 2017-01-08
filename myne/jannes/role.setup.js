@@ -89,6 +89,12 @@ var roleSetup = {
             Memory.spawns[0].reactions[3].push({ m: 'GH2O', l: '582116148047a58e4fd7da1c', r: 'W9S52' });
             Memory.spawns[0].reactions[3].push({ m: 'X', l: '5816c43eca67a9782d7b5e60' });
 
+            Memory.spawns[0].requests = [];
+
+            Memory.spawns[0].requests.push({ m: 'XLHO2', l: '5820e8f4467b718b553fbdf5' });
+            Memory.spawns[0].requests.push({ m: 'XZHO2', l: '58171d9d104bf0400291ef6b' });
+            Memory.spawns[0].requests.push({ m: 'XGHO2', l: '5816ece205177e013c41ddce' });
+
 
             //spawn 1
             //spawn numbers
@@ -137,6 +143,12 @@ var roleSetup = {
             Memory.spawns[1].random.defLab = '';
             Memory.spawns[1].random.nuker = '583ebb7ad1cb37fc52ac9987';
             Memory.spawns[1].random.runReaction = true;
+
+            Memory.spawns[1].requests = [];
+
+            Memory.spawns[1].requests.push({ m: 'XUH2O', l: '58199bddbd8f9b8d5705e23c' });
+            Memory.spawns[1].requests.push({ m: 'XZHO2', l: '5822c32a4186e8930ac80648' });
+            Memory.spawns[1].requests.push({ m: 'XGHO2', l: '58231e97f60d44b54edcbaea' });
 
             //spawn 2
             //spawn numbers
@@ -450,7 +462,7 @@ var roleSetup = {
             Memory.spawns[6].random.defLab = '';
             Memory.spawns[6].random.nuker = '584f03089fc4e985206ea7a7';
             Memory.spawns[6].random.runReaction = true;
-            Memory.spawns[6].random.runReactionL = { UL: 1000};
+            Memory.spawns[6].random.runReactionL = { UL: 1000 };
             Memory.spawns[6].reactions = [];
 
             Memory.spawns[6].reactions.push(new Array());
@@ -669,7 +681,7 @@ var roleSetup = {
             Memory.spawns[9].random.extractor = '579fab88b1f02a3b0cff0341';
             Memory.spawns[9].random.terminal = '584cb297dc6a243227cfcc3d';
             //Memory.spawns[9].random.defLab = '';
-            
+
             Memory.spawns[9].random.upgradeBoost = '';
             Memory.spawns[9].random.runReaction = true;
             Memory.spawns[9].requests = [];

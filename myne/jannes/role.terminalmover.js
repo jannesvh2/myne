@@ -124,6 +124,18 @@ var roleTerminalMover = {
                                             Game.rooms[Memory.spawns[creep.memory.spawn].requests[s2].r2].terminal.send(Memory.spawns[creep.memory.spawn].requests[s2].m, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom, null);
 
                                     }
+                                    if (!Memory.spawns[creep.memory.spawn].requests[s2].r && _.sum(terminal.store) < 295000) {
+                                        var orders = Game.market.getAllOrders(order => order.resourceType == Memory.spawns[creep.memory.spawn].requests[s2].m &&
+                                            order.type == ORDER_SELL);
+
+                                        if (orders.length) {
+                                            orders = _.sortBy(orders, order => order.price + Game.market.calcTransactionCost(100, Memory.spawns[a].random.mainRoom, order.roomName) * 0.05 / 100);
+                                            console.log(orders[orders0].id);
+                                            //Game.market.deal(orders[orders0].id, 1000, Memory.spawns[a].random.mainRoom);
+                                        }
+                                    }
+
+
                                 }
                             }
                         }
