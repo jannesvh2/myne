@@ -4,7 +4,12 @@ var roleAttackers = {
     /** @param {Creep} creep **/
     run: function (creep) {
         //Game.spawns['Spawn00'].createCreep([WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], null, { role: 'attackerD', spawn: 0 });
-
+        if (!creep.memory.atCheck) {
+            creep.moveTo(Game.flags['Flag3']);
+            if (creep.pos.isNearTo(Game.flags['Flag3'])) {
+                creep.memory.atCheck = true;
+            }
+        }
         var enableI = true;
         var enableIH = true;
         var enableID = true;
@@ -16,11 +21,11 @@ var roleAttackers = {
         var moveByFlagFlag = Game.flags['Flag1'];
         var targetLocation;
         targetLocation = { x: 25, y: 25 };
-        var priorityTarget = Game.getObjectById('581f6874b4dd75f611a8520f');
-        var priorityTargetD = Game.getObjectById('581f6874b4dd75f611a8520f');
+        var priorityTarget = Game.getObjectById('5858b6d79491687515082930');
+        var priorityTargetD = Game.getObjectById('5858b6d79491687515082930');
 
-        var sourceRoom = 'W4S57';
-        var sourceRoomH = 'W4S57';
+        var sourceRoom = 'W3S65';
+        var sourceRoomH = 'W3S65';
         var saveRoom = '';
 
         var attacked;
@@ -250,20 +255,39 @@ var roleAttackers = {
         }
         if (creep.memory.role != 'attackerH')
             return;
-        var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+        var inRange = creep.pos.findInRange(FIND_MY_CREEPS, 3, {
             filter: function (object) {
                 return object.hits < object.hitsMax;
             }
         });
-        if (targetHeal) {
-            if (creep.pos.isNearTo(targetHeal)) {
-                creep.heal(targetHeal);
+        if (inRange.length) {
+            inRange = _.sortBy(inRange, inR => inR.hits);
+
+            if (creep.pos.isNearTo(inRange[0])) {
+                creep.heal(inRange[0]);
             }
             else {
-                creep.rangedHeal(targetHeal);
+                creep.rangedHeal(inRange[0]);
             }
             if (creep.memory.role == 'attackerH')
-                creep.moveTo(targetHeal);
+                creep.moveTo(inRange[0]);
+        }
+        else {
+            var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+                filter: function (object) {
+                    return object.hits < object.hitsMax;
+                }
+            });
+            if (targetHeal) {
+                if (creep.pos.isNearTo(targetHeal)) {
+                    creep.heal(targetHeal);
+                }
+                else {
+                    creep.rangedHeal(targetHeal);
+                }
+                if (creep.memory.role == 'attackerH')
+                    creep.moveTo(targetHeal);
+            }
         }
         //if ((creep.room.name == sourceRoom || creep.room.name == saveRoom) && creep.hits < (creep.hitsMax * 2 / 3)) {
         //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
