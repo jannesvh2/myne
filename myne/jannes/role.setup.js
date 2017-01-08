@@ -146,7 +146,7 @@ var roleSetup = {
 
             Memory.spawns[1].requests = [];
 
-            Memory.spawns[1].requests.push({ m: 'XUH2O', l: '58199bddbd8f9b8d5705e23c' });
+            Memory.spawns[1].requests.push({ m: 'XUH2O', l: '5819e455c80e052076e314c0' });
             Memory.spawns[1].requests.push({ m: 'XZHO2', l: '5822c32a4186e8930ac80648' });
             Memory.spawns[1].requests.push({ m: 'XGHO2', l: '58231e97f60d44b54edcbaea' });
 
