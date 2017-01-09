@@ -9,6 +9,7 @@ var roleAttackers = {
             if (creep.pos.isNearTo(Game.flags['Flag3'])) {
                 creep.memory.atCheck = true;
             }
+            return;
         }
         var enableI = true;
         var enableIH = true;
@@ -91,13 +92,33 @@ var roleAttackers = {
             }
         }
         if (creep.memory.role == 'attackerD' && creep.memory.getBoost) {
-            let lab = Game.getObjectById('');
-            let boost = lab.boostCreep(creep);
-            if (boost == ERR_NOT_IN_RANGE)
-                creep.moveTo(lab);
-            if (boost == OK)
-                creep.memory.getBoost = false;
-            return;
+            if (creep.memory.getBoostM) {
+                let lab = Game.getObjectById('5822c32a4186e8930ac80648');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostM = false;
+                return;
+            }
+            if (creep.memory.getBoostT) {
+                let lab = Game.getObjectById('58231e97f60d44b54edcbaea');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostT = false;
+                return;
+            }
+            if (creep.memory.getBoostA) {
+                let lab = Game.getObjectById('58239f7eef4e6daf161fd0d5');
+                let boost = lab.boostCreep(creep);
+                if (boost == ERR_NOT_IN_RANGE)
+                    creep.moveTo(lab);
+                if (boost == OK)
+                    creep.memory.getBoostA = false;
+                return;
+            }
         }
 
         if (creep.memory.role == 'attackerM' || creep.memory.role == 'attackerR') {
