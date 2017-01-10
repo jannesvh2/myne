@@ -215,6 +215,15 @@ var roleCreateJSON = {
                 roleLink.run(a);
             }
         }
+
+        if (Game.time % 9999 == 0) {
+            _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_TERMINAL), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
+            _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_SPAWN), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
+            _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_STORAGE), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
+            _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_TOWER), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
+            _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_NUKER), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
+        }
+
     }
 };
 
