@@ -4,13 +4,6 @@ var roleAttackers = {
     /** @param {Creep} creep **/
     run: function (creep) {
         //Game.spawns['Spawn00'].createCreep([WORK, WORK, MOVE, WORK, WORK, MOVE, WORK, WORK, MOVE], null, { role: 'attackerD', spawn: 0 });
-        if (!creep.memory.atCheck) {
-            creep.moveTo(Game.flags['Flag3']);
-            if (creep.pos.isNearTo(Game.flags['Flag3'])) {
-                creep.memory.atCheck = true;
-            }
-            return;
-        }
         var enableI = true;
         var enableIH = true;
         var enableID = true;
@@ -120,7 +113,13 @@ var roleAttackers = {
                 return;
             }
         }
-
+        if (!creep.memory.atCheck) {
+            creep.moveTo(Game.flags['Flag3']);
+            if (creep.pos.isNearTo(Game.flags['Flag3'])) {
+                creep.memory.atCheck = true;
+            }
+            return;
+        }
         if (creep.memory.role == 'attackerM' || creep.memory.role == 'attackerR') {
             var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
                 filter: function (object) {
