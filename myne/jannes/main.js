@@ -192,9 +192,7 @@ module.exports.loop = function () {
         }
     console.log(notify + " | TOTAL: " + Game.cpu.getUsed().toFixed(2));
 
-
-     if (Memory.global.grafanaTicks == undefined) {
-         Memory.global.grafanaTicks = 0;
+    if (!Memory.stats) {
          Memory.stats = {};
          Memory.stats.cpu = {};
          Memory.stats.gcl = {};
@@ -202,11 +200,8 @@ module.exports.loop = function () {
          Memory.stats.sales = [];
      }
      else {
-         Memory.global.grafanaTicks++;
 
-         if (Memory.global.grafanaTicks > 30) {
-
-             Memory.global.grafanaTicks = 1;
+         if (Game.time % 30 == 0) {
              var roleGrafana = require('role.grafana');
              roleGrafana.run();
 
