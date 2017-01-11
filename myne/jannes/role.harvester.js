@@ -7,7 +7,8 @@ var roleHarvester = {
     run: function (creep) {
 
         if (creep.memory.helper) {
-            creep.heal(creep);
+            if (creep.hits < creep.hitsMax)
+                creep.heal(creep);
             if (creep.room.name != "W3S65") {
                 //var flag = Game.flags['Flag7'];
                 //if (flag) {
