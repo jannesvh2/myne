@@ -774,8 +774,8 @@ var roleSetup = {
             Memory.spawns[11].summon.h = 0;
             Memory.spawns[11].summon.b = 0;
             Memory.spawns[11].summon.u = 0;
-            Memory.spawns[11].summon.h2 = 0;
-            Memory.spawns[11].summon.b2 = 0;
+            Memory.spawns[11].summon.h2 = 2;
+            Memory.spawns[11].summon.b2 = 1;
             Memory.spawns[11].summon.u2 = 0;
             Memory.spawns[11].summon.users = 1;
             Memory.spawns[11].summon.atkM = 0;
@@ -804,17 +804,17 @@ var roleSetup = {
             //    //Memory.spawns[11].spots.push({ sourceRoom: 'W2S55' });
             //}
             //StoreId
-            //Memory.spawns[11].random.storeId = '584d13c4552196b578b0f8f4';
+            Memory.spawns[11].random.storeId = '58681ea3791fa5ec6067d912';
             //UseStore
-            Memory.spawns[11].random.useStore = false;
-            //Memory.spawns[11].random.useLinks = true;
-            //Memory.spawns[11].links.receiver = '584d42738b42d50a6fcb7447';
-            //Memory.spawns[11].links.producers.push({ id: '584c08efbaf67c7774cd9234', source: true });
-            //Memory.spawns[11].links.producers.push({ id: '584c0b25f9108d3a1dd6f81b', source: true });
+            Memory.spawns[11].random.useStore = true;
+            Memory.spawns[11].random.useLinks = true;
+            Memory.spawns[11].links.receiver = '5867d3660c8472706bc0d813';
+            Memory.spawns[11].links.producers.push({ id: '586785fc3d7db5165dffce9f', source: true });
+            Memory.spawns[11].links.producers.push({ id: '5867b69b4325d1927005fa2a', source: true });
             //Memory.spawns[11].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
-            //Memory.spawns[11].random.extractor = '579fab88b1f02a3b0cff0341';
-            //Memory.spawns[11].random.terminal = '584cb297dc6a243227cfcc3d';
+            Memory.spawns[11].random.extractor = '579fab88b1f02a3b0cff0329';
+            Memory.spawns[11].random.terminal = '5868f97fa3f3e25a3a98e49a';
             //Memory.spawns[11].random.defLab = '';
 
 
