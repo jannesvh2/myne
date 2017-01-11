@@ -792,17 +792,17 @@ var roleSetup = {
 
             ////RoomList
             Memory.spawns[11].random.rooms.push({ name: 'W6S57', spawn: 0 });
-            //if (!Memory.spawns[11].random.hostiles) {
-            //    Memory.spawns[11].random.rooms.push({ name: 'W4S56', spawn: 4, sk: true });
+            if (!Memory.spawns[11].random.hostiles) {
+                Memory.spawns[11].random.rooms.push({ name: 'W6S56', spawn: 5, sk: true });
             //    Memory.spawns[11].random.rooms.push({ name: 'W5S56', spawn: 6, sk: true });
             //    //Memory.spawns[11].random.rooms.push({ name: 'W2S55', spawn: 1 });
-            //}
-            //////keeper
-            //if (!Memory.spawns[11].random.hostiles) {
-            //    Memory.spawns[11].spots.push({ sourceRoom: 'W4S56', sk: true, x: 30, y: 48 });
+            }
+            //keeper
+            if (!Memory.spawns[11].random.hostiles) {
+                Memory.spawns[11].spots.push({ sourceRoom: 'W6S56', sk: true, x: 36, y: 44 });
             //    Memory.spawns[11].spots.push({ sourceRoom: 'W5S56', sk: true, x: 45, y: 48 });
             //    //Memory.spawns[11].spots.push({ sourceRoom: 'W2S55' });
-            //}
+            }
             //StoreId
             Memory.spawns[11].random.storeId = '58681ea3791fa5ec6067d912';
             //UseStore
