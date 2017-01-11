@@ -770,7 +770,7 @@ var roleSetup = {
 
             //spawn 11
             //spawn numbers
-            Memory.spawns[11].summon.spawns = 1;
+            Memory.spawns[11].summon.spawns = 2;
             Memory.spawns[11].summon.h = 0;
             Memory.spawns[11].summon.b = 0;
             Memory.spawns[11].summon.u = 0;
