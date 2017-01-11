@@ -19,6 +19,7 @@ var roleGrafana = {
                 energyAvailable: Game.rooms[Memory.spawns[a].random.mainRoom].energyAvailable,
                 energyCapacityAvailable: Game.rooms[Memory.spawns[a].random.mainRoom].energyCapacityAvailable,
                 storedEnergy: Memory.spawns[a].random.storeId ? Game.getObjectById(Memory.spawns[a].random.storeId).store.energy : 0,
+                repair: Memory.spawns[a].counters.repairLimit
 
             }
         }
