@@ -61,11 +61,11 @@ var roleGetStore = {
                 delete creep.memory.sourceId;
 
             if (creepSource) {
-                //dropped energy in sk rooms (within 4)
-                if (creep.memory.sk) {
+                //dropped energy in sk rooms (within 6)
+                if (creep.memory.sk && Game.time % 2) {
                     let energyG = creep.pos.findInRange(
                     FIND_DROPPED_ENERGY,
-                    4, {
+                    6, {
                         filter: function (object) {
                             return object.resourceType == "energy" && object.energy > 200;
                         }
