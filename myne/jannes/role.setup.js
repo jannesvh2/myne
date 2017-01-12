@@ -848,7 +848,6 @@ var roleSetup = {
             }
             //keeper
             if (!Memory.spawns[12].random.hostiles) {
-                Memory.spawns[12].spots.push({ sourceRoom: 'W3S65'});
                 Memory.spawns[12].spots.push({ sourceRoom: 'W3S64'});
             //    //Memory.spawns[12].spots.push({ sourceRoom: 'W2S55' });
             }
