@@ -62,7 +62,7 @@ var roleGetStore = {
 
             if (creepSource) {
                 //dropped energy in sk rooms (within 6)
-                if (creep.memory.sk && Game.time % 2) {
+                if (creep.memory.sk && (creep.pos.isNearTo(creepSource) || creep.memory.getDropped)) {
                     let energyG = creep.pos.findInRange(
                     FIND_DROPPED_ENERGY,
                     6, {
@@ -72,8 +72,12 @@ var roleGetStore = {
                     }
                 );
                     if (energyG.length) {
+                        creep.memory.getDropped = true;
                         creep.moveTo50(energyG[0]);
                         return;
+                    }
+                    else {
+                        delete creep.memory.getDropped;
                     }
                 }
                 if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
