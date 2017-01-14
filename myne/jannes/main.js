@@ -75,21 +75,7 @@ module.exports.loop = function () {
                 warType = true;
                 continue;
             }
-            else if (creep.memory.role == 'attackerD') {
-                if (!roleAttackers)
-                    roleAttackers = require('role.attackers');
-                roleAttackers.run(creep);
-                warType = true;
-                continue;
-            }
-            else if (creep.memory.role == 'attackerM') {
-                if (!roleAttackers)
-                    roleAttackers = require('role.attackers');
-                roleAttackers.run(creep);
-                warType = true;
-                continue;
-            }
-            else if (creep.memory.role == 'attackerR') {
+            else if (creep.memory.role == 'attackerD' || creep.memory.role == 'attackerM' || creep.memory.role == 'attackerR' || creep.memory.role == 'attackerH') {
                 if (!roleAttackers)
                     roleAttackers = require('role.attackers');
                 roleAttackers.run(creep);
@@ -101,41 +87,22 @@ module.exports.loop = function () {
                 warType = true;
                 continue;
             }
-            else if (creep.memory.role == 'attackerH') {
-                if (!roleAttackers)
-                    roleAttackers = require('role.attackers');
-                roleAttackers.run(creep);
-                continue;
-            }
             if (creep.hits < creep.hitsMax && !creep.memory.helper) {
                 creep.moveTo50(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                 continue;
             }
 
-            if (creep.memory.role == 'harvester') {
+            if (creep.memory.role == 'harvester' || creep.memory.role == 'harvester2') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleHarvester.run(creep);
             }
-            else if (creep.memory.role == 'harvester2') {
-                if (mustDel)
-                    delete creep.memory.sourceId;
-                roleHarvester.run(creep);
-            }
-            else if (creep.memory.role == 'upgrader') {
+            else if (creep.memory.role == 'upgrader' || creep.memory.role == 'upgrader2') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleUpgrader.run(creep);
             }
-            else if (creep.memory.role == 'upgrader2') {
-                roleUpgrader.run(creep);
-            }
-            else if (creep.memory.role == 'builder') {
-                if (mustDel)
-                    delete creep.memory.sourceId;
-                roleBuilder.run(creep);
-            }
-            else if (creep.memory.role == 'builder2') {
+            else if (creep.memory.role == 'builder' || creep.memory.role == 'builder2') {
                 if (mustDel)
                     delete creep.memory.sourceId;
                 roleBuilder.run(creep);
@@ -155,13 +122,7 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'user') {
                 roleUser.run(creep);
             }
-            else if (creep.memory.role == 'terminal') {
-                roleTerminalMover.run(creep);
-            }
-            else if (creep.memory.role == 'toTerminal') {
-                roleTerminalMover.run(creep);
-            }
-            else if (creep.memory.role == 'toStore') {
+            else if (creep.memory.role == 'terminal' || creep.memory.role == 'toTerminal' || creep.memory.role == 'toStore') {
                 roleTerminalMover.run(creep);
             }
             else if (creep.memory.role == 'powerL' || creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
