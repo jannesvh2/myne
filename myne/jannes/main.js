@@ -90,6 +90,7 @@ module.exports.loop = function () {
 
             else if (creep.memory.role == 'powerL' || creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
                 rolePower.run(creep);
+                continue;
             }
             if (creep.hits < creep.hitsMax && !creep.memory.helper) {
                 creep.moveTo50(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
