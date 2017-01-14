@@ -6,49 +6,57 @@ var rolePower = {
             if (!creep.memory.moveNum) {
                 creep.memory.moveNum = 0;
                 creep.memory.moveTo = 'W0S59';
+                Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W0S59'));
             }
 
             if (creep.room.name != creep.memory.moveTo) {
-                var exitDir = Game.map.findExit(creep.room.name, creep.memory.moveTo);
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
+                creep.moveTo50(Game.flags.FlagPower1, { canOn: true, maxRooms: 1 });
             }
             else {
                 if (creep.memory.moveNum == 0) {
                     creep.memory.moveNum = 1;
                     creep.memory.moveTo = 'W0S60';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W0S60'));
                 }
                 else if (creep.memory.moveNum == 1) {
                     creep.memory.moveNum = 2;
                     creep.memory.moveTo = 'W10S60';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W10S60'));
                 }
                 else if (creep.memory.moveNum == 2) {
                     creep.memory.moveNum = 3;
                     creep.memory.moveTo = 'W10S50';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W10S50'));
                 }
                 else if (creep.memory.moveNum == 3) {
                     creep.memory.moveNum = 4;
                     creep.memory.moveTo = 'W3S50';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W3S50'));
                 }
                 else if (creep.memory.moveNum == 4) {
                     creep.memory.moveNum = 5;
                     creep.memory.moveTo = 'W10S50';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W10S50'));
                 }
                 else if (creep.memory.moveNum == 5) {
                     creep.memory.moveNum = 6;
                     creep.memory.moveTo = 'W10S60';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W10S60'));
                 }
                 else if (creep.memory.moveNum == 6) {
                     creep.memory.moveNum = 7;
                     creep.memory.moveTo = 'W0S59';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W0S59'));
                 }
                 else if (creep.memory.moveNum == 7) {
                     creep.memory.moveNum = 8;
                     creep.memory.moveTo = 'W0S60';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W0S60'));
                 }
                 else if (creep.memory.moveNum == 8) {
                     creep.memory.moveNum = 0;
                     creep.memory.moveTo = 'W0S59';
+                    Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W0S59'));
                 }
             }
             if (creep.pos.x == 0 || creep.pos.x == 49 || creep.pos.y == 0 || creep.pos.y == 49) {
