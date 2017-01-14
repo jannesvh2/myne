@@ -56,7 +56,7 @@ var roleCreateJSON = {
             if (gMod > 30)
                 break;
             if (gMod == 0) {
-                Gamne.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
+                Game.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
             }
             else if (gMod == 1 && !Memory.spawns[Memory.global.power[p].spawn].power.hasPower) {
                 var powerFound = Game.rooms[Memory.global.power[p].room].find(FIND_STRUCTURES, {
