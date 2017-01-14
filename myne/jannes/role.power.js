@@ -9,7 +9,7 @@ var rolePower = {
                 Game.flags.FlagPower1.setPosition(new RoomPosition(25, 25, 'W0S59'));
             }
 
-            if (creep.room.name != creep.memory.moveTo) {
+            if (!creep.isNearTo(Game.flags.FlagPower1)) {
                 creep.moveTo50(Game.flags.FlagPower1, { canOn: true, maxRooms: 1 });
             }
             else {
@@ -129,7 +129,7 @@ var rolePower = {
                     if (creep.heal(heal) != OK)
                         if (creep.pos.getRangeTo(heal) == 2)
                             creep.moveTo(heal, { maxRooms: 1 });
-                        creep.moveTo50(heal, { canOn: true, swapOn: true });
+                    creep.moveTo50(heal, { canOn: true, swapOn: true });
                 }
             }
 
