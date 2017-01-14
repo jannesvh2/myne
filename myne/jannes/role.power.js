@@ -69,7 +69,7 @@ var rolePower = {
         else {
             if (creep.memory.full) {
                 var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
-                let trans = creep.transfer(terminal, RESOURCE_POWER) 
+                let trans = creep.transfer(terminal, RESOURCE_POWER)
                 if (trans == ERR_NOT_IN_RANGE)
                     creep.moveTo50(terminal);
                 if (trans == ERR_NOT_ENOUGH_RESOURCES)
@@ -144,8 +144,8 @@ var rolePower = {
                 }
             }
 
-
         }
-    };
+    }
+};
 
 module.exports = rolePower;
