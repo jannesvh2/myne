@@ -87,6 +87,10 @@ module.exports.loop = function () {
                 warType = true;
                 continue;
             }
+
+            else if (creep.memory.role == 'powerL' || creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
+                rolePower.run(creep);
+            }
             if (creep.hits < creep.hitsMax && !creep.memory.helper) {
                 creep.moveTo50(Game.spawns['Spawn' + parseInt(creep.memory.spawn) + "" + 0]);
                 continue;
@@ -124,9 +128,6 @@ module.exports.loop = function () {
             }
             else if (creep.memory.role == 'terminal' || creep.memory.role == 'toTerminal' || creep.memory.role == 'toStore') {
                 roleTerminalMover.run(creep);
-            }
-            else if (creep.memory.role == 'powerL' || creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
-                rolePower.run(creep);
             }
             // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu).toFixed(2);
             //  var cpu = Game.cpu.getUsed();
