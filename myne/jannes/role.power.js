@@ -52,7 +52,7 @@ var rolePower = {
                 }
             }
             if (creep.pos.x == 0 || creep.pos.x == 49 || creep.pos.y == 0 || creep.pos.y == 49) {
-                var powerFound = creep.pos.find(FIND_STRUCTURES, {
+                var powerFound = Game[creep.room.name].find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_POWER_BANK)
                     }
@@ -83,11 +83,11 @@ var rolePower = {
                 creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
                 return;
             }
-            if (creep.memory.start || creep.pos.find(FIND_MY_CREEPS).length > 2) {
+            if (creep.memory.start || Game[creep.room.name].find(FIND_MY_CREEPS).length > 2) {
                 creep.memory.start = true;
                 if (creep.memory.role == 'powerA') {
                     if (!creep.memory.target) {
-                        creep.memory.target = creep.pos.find(FIND_STRUCTURES, {
+                        creep.memory.target = Game[creep.room.name].find(FIND_STRUCTURES, {
                             filter: (structure) => {
                                 return (structure.structureType == STRUCTURE_POWER_BANK)
                             }
@@ -123,7 +123,7 @@ var rolePower = {
 
                 if (creep.memory.role == 'powerC') {
 
-                    var dropped = creep.pos.find(
+                    var dropped = Game[creep.room.name].find(
                 FIND_DROPPED_ENERGY,
                  {
                      filter: function (object) {
