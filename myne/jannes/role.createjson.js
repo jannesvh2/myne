@@ -20,36 +20,37 @@ var roleCreateJSON = {
             Memory.spawns = [];
 
 
-        Memory.global.power = [];
-        Memory.global.power.push({ room: 'W0S59', spawn: 0 });
-        Memory.global.power.push({ room: 'W0S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W1S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W2S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W3S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W4S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W5S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W6S60', spawn: 0 });
-        Memory.global.power.push({ room: 'W7S60', spawn: 1 });
-        Memory.global.power.push({ room: 'W8S60', spawn: 1 });
-        Memory.global.power.push({ room: 'W9S60', spawn: 1 });
-        Memory.global.power.push({ room: 'W10S60', spawn: 1 });
-        Memory.global.power.push({ room: 'W10S59', spawn: 1 });
-        Memory.global.power.push({ room: 'W10S58', spawn: 1 });
-        Memory.global.power.push({ room: 'W10S57', spawn: 1 });
-        Memory.global.power.push({ room: 'W10S56', spawn: 1 });
-        Memory.global.power.push({ room: 'W10S55', spawn: 2 });
-        Memory.global.power.push({ room: 'W10S54', spawn: 2 });
-        Memory.global.power.push({ room: 'W10S53', spawn: 2 });
-        Memory.global.power.push({ room: 'W10S52', spawn: 2 });
-        Memory.global.power.push({ room: 'W10S51', spawn: 2 });
-        Memory.global.power.push({ room: 'W10S50', spawn: 2 });
-        Memory.global.power.push({ room: 'W9S50', spawn: 2 });
-        Memory.global.power.push({ room: 'W8S50', spawn: 2 });
-        Memory.global.power.push({ room: 'W7S50', spawn: 2 });
-        Memory.global.power.push({ room: 'W6S50', spawn: 5 });
-        Memory.global.power.push({ room: 'W5S50', spawn: 5 });
-        Memory.global.power.push({ room: 'W4S50', spawn: 5 });
-        Memory.global.power.push({ room: 'W3S50', spawn: 5 });
+        //Memory.global.power = [];
+        //Memory.global.power.push({ room: 'W0S59', spawn: 0 });
+        //Memory.global.power.push({ room: 'W0S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W1S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W2S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W3S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W4S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W5S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W6S60', spawn: 0 });
+        //Memory.global.power.push({ room: 'W7S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W8S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W9S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S59', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S58', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S57', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S56', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S55', spawn: 2 });
+        //Memory.global.power.push({ room: 'W10S54', spawn: 2 });
+        //Memory.global.power.push({ room: 'W10S53', spawn: 2 });
+        //Memory.global.power.push({ room: 'W10S52', spawn: 2 });
+        //Memory.global.power.push({ room: 'W10S51', spawn: 2 });
+        //Memory.global.power.push({ room: 'W10S50', spawn: 2 });
+        //Memory.global.power.push({ room: 'W9S50', spawn: 2 });
+        //Memory.global.power.push({ room: 'W8S50', spawn: 2 });
+        //Memory.global.power.push({ room: 'W7S50', spawn: 2 });
+        //Memory.global.power.push({ room: 'W6S50', spawn: 5 });
+        //Memory.global.power.push({ room: 'W5S50', spawn: 5 });
+        //Memory.global.power.push({ room: 'W4S50', spawn: 5 });
+        //Memory.global.power.push({ room: 'W3S50', spawn: 5 });
+
         for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
             let gMod = Game.time % (200 + p);
             if (gMod > 30)
