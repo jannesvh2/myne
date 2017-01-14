@@ -20,36 +20,60 @@ var roleCreateJSON = {
             Memory.spawns = [];
 
 
-        //Memory.global.power = {};
-        //Memory.global.power.W0S59 = 0;
-        //Memory.global.power.W0S60 = 0;
-        //Memory.global.power.W1S60 = 0;
-        //Memory.global.power.W2S60 = 0;
-        //Memory.global.power.W3S60 = 0;
-        //Memory.global.power.W4S60 = 0;
-        //Memory.global.power.W5S60 = 0;
-        //Memory.global.power.W6S60 = 0;
-        //Memory.global.power.W7S60 = 1;
-        //Memory.global.power.W8S60 = 1;
-        //Memory.global.power.W9S60 = 1;
-        //Memory.global.power.W10S60 = 1;
-        //Memory.global.power.W10S59 = 1;
-        //Memory.global.power.W10S58 = 1;
-        //Memory.global.power.W10S57 = 1;
-        //Memory.global.power.W10S56 = 1;
-        //Memory.global.power.W10S55 = 2;
-        //Memory.global.power.W10S54 = 2;
-        //Memory.global.power.W10S53 = 2;
-        //Memory.global.power.W10S52 = 2;
-        //Memory.global.power.W10S51 = 2;
-        //Memory.global.power.W10S50 = 2;
-        //Memory.global.power.W9S50 = 2;
-        //Memory.global.power.W8S50 = 2;
-        //Memory.global.power.W7S50 = 2;
-        //Memory.global.power.W6S50 = 5;
-        //Memory.global.power.W5S50 = 5;
-        //Memory.global.power.W4S50 = 5;
-        //Memory.global.power.W3S50 = 5;
+        Memory.global.power = [];
+        Memory.global.power.push({ room: W0S59, spawn: 0 });
+        Memory.global.power.push({ room: W0S60, spawn: 0 });
+        Memory.global.power.push({ room: W1S60, spawn: 0 });
+        Memory.global.power.push({ room: W2S60, spawn: 0 });
+        Memory.global.power.push({ room: W3S60, spawn: 0 });
+        Memory.global.power.push({ room: W4S60, spawn: 0 });
+        Memory.global.power.push({ room: W5S60, spawn: 0 });
+        Memory.global.power.push({ room: W6S60, spawn: 0 });
+        Memory.global.power.push({ room: W7S60, spawn: 1 });
+        Memory.global.power.push({ room: W8S60, spawn: 1 });
+        Memory.global.power.push({ room: W9S60, spawn: 1 });
+        Memory.global.power.push({ room: W10S60, spawn: 1 });
+        Memory.global.power.push({ room: W10S59, spawn: 1 });
+        Memory.global.power.push({ room: W10S58, spawn: 1 });
+        Memory.global.power.push({ room: W10S57, spawn: 1 });
+        Memory.global.power.push({ room: W10S56, spawn: 1 });
+        Memory.global.power.push({ room: W10S55, spawn: 2 });
+        Memory.global.power.push({ room: W10S54, spawn: 2 });
+        Memory.global.power.push({ room: W10S53, spawn: 2 });
+        Memory.global.power.push({ room: W10S52, spawn: 2 });
+        Memory.global.power.push({ room: W10S51, spawn: 2 });
+        Memory.global.power.push({ room: W10S50, spawn: 2 });
+        Memory.global.power.push({ room: W9S50, spawn: 2 });
+        Memory.global.power.push({ room: W8S50, spawn: 2 });
+        Memory.global.power.push({ room: W7S50, spawn: 2 });
+        Memory.global.power.push({ room: W6S50, spawn: 5 });
+        Memory.global.power.push({ room: W5S50, spawn: 5 });
+        Memory.global.power.push({ room: W4S50, spawn: 5 });
+        Memory.global.power.push({ room: W3S50, spawn: 5 });
+        for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
+            let gMod = Game.time % 200 + p;
+            if (gMod > 30)
+                break;
+            if (gMod == 0) {
+                Gamne.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
+            }
+            else if (gMod == 1 && !Memory.spawns[Memory.global.power[p].spawn].power.hasPower) {
+                var powerFound = Game.rooms[Memory.global.power[p].room].find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_POWER_BANK)
+                    }
+                });
+                if (powerFound.length) {
+                    if (!Memory.spawns[Memory.global.power[creep.room.name]].power.hasPower) {
+                        Memory.spawns[Memory.global.power[creep.room.name]].power.hasPower = true;
+                        Memory.spawns[Memory.global.power[creep.room.name]].power.room = creep.room.name;
+                        Memory.spawns[creep.memory.spawn].power.spawn = 0;
+                        Memory.spawns[creep.memory.spawn].power.spawned = 0;
+                    }
+                }
+                break;
+            }
+        }
 
         for (let a = 0; a < Memory.global.roomCount; a++) {
             if (!Memory.spawns[a]) {
@@ -257,6 +281,7 @@ var roleCreateJSON = {
             _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_TOWER), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
             _.map(_.filter(Game.structures, s=>s.structureType == STRUCTURE_NUKER), t=>t.room.createConstructionSite(t.pos, STRUCTURE_RAMPART))
         }
+
 
     }
 };

@@ -88,7 +88,7 @@ module.exports.loop = function () {
                 continue;
             }
 
-            else if (creep.memory.role == 'powerL' || creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
+            else if (creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
                 rolePower.run(creep);
                 continue;
             }
