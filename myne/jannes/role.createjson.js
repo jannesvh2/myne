@@ -52,28 +52,28 @@ var roleCreateJSON = {
         //Memory.global.power.push({ room: 'W3S50', spawn: 5 });
 
         var gMod = Game.time % 300;
-        for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
-
-            if (gMod == p) {
-                Game.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
-            }
-            else if (gMod == (p + 1) && !Memory.spawns[Memory.global.power[p].spawn].power.hasPower && Game.rooms[Memory.global.power[p].room]) {
-                var powerFound = Game.rooms[Memory.global.power[p].room].find(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_POWER_BANK)
-                    }
-                });
-                if (powerFound.length) {
-                    if (!Memory.spawns[Memory.global.power[p].spawn].power.hasPower) {
-                        Memory.spawns[Memory.global.power[p].spawn].power.hasPower = true;
-                        Memory.spawns[Memory.global.power[p].spawn].power.spawnedLast = false;
-                        Memory.spawns[Memory.global.power[p].spawn].power.room = Memory.global.power[p].room;
-                        Memory.spawns[Memory.global.power[p].spawn].power.spawn = 0;
-                        Memory.spawns[Memory.global.power[p].spawn].power.spawned = 0;
+        if (gMod < 30)
+            for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
+                if (gMod == p) {
+                    Game.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
+                }
+                else if (gMod == (p + 1) && !Memory.spawns[Memory.global.power[p].spawn].power.hasPower && Game.rooms[Memory.global.power[p].room]) {
+                    var powerFound = Game.rooms[Memory.global.power[p].room].find(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_POWER_BANK)
+                        }
+                    });
+                    if (powerFound.length) {
+                        if (!Memory.spawns[Memory.global.power[p].spawn].power.hasPower) {
+                            Memory.spawns[Memory.global.power[p].spawn].power.hasPower = true;
+                            Memory.spawns[Memory.global.power[p].spawn].power.spawnedLast = false;
+                            Memory.spawns[Memory.global.power[p].spawn].power.room = Memory.global.power[p].room;
+                            Memory.spawns[Memory.global.power[p].spawn].power.spawn = 0;
+                            Memory.spawns[Memory.global.power[p].spawn].power.spawned = 0;
+                        }
                     }
                 }
             }
-        }
 
         for (let a = 0; a < Memory.global.roomCount; a++) {
             if (!Memory.spawns[a]) {
