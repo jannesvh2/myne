@@ -21,35 +21,35 @@ var roleCreateJSON = {
 
 
         Memory.global.power = {};
-        Memory.global.power.push({ W0S59: 0 });
-        Memory.global.power.push({ W0S60: 0 });
-        Memory.global.power.push({ W1S60: 0 });
-        Memory.global.power.push({ W2S60: 0 });
-        Memory.global.power.push({ W3S60: 0 });
-        Memory.global.power.push({ W4S60: 0 });
-        Memory.global.power.push({ W5S60: 0 });
-        Memory.global.power.push({ W6S60: 0 });
-        Memory.global.power.push({ W7S60: 1 });
-        Memory.global.power.push({ W8S60: 1 });
-        Memory.global.power.push({ W9S60: 1 });
-        Memory.global.power.push({ W10S60: 1 });
-        Memory.global.power.push({ W10S59: 1 });
-        Memory.global.power.push({ W10S58: 1 });
-        Memory.global.power.push({ W10S57: 1 });
-        Memory.global.power.push({ W10S56: 1 });
-        Memory.global.power.push({ W10S55: 2 });
-        Memory.global.power.push({ W10S54: 2 });
-        Memory.global.power.push({ W10S53: 2 });
-        Memory.global.power.push({ W10S52: 2 });
-        Memory.global.power.push({ W10S51: 2 });
-        Memory.global.power.push({ W10S50: 2 });
-        Memory.global.power.push({ W9S50: 2 });
-        Memory.global.power.push({ W8S50: 2 });
-        Memory.global.power.push({ W7S50: 2 });
-        Memory.global.power.push({ W6S50: 5 });
-        Memory.global.power.push({ W5S50: 5 });
-        Memory.global.power.push({ W4S50: 5 });
-        Memory.global.power.push({ W3S50: 5 });
+        Memory.global.power.W0S59 =  0;
+        Memory.global.power.W0S60= 0;
+        Memory.global.power.W1S60= 0;
+        Memory.global.power.W2S60= 0;
+        Memory.global.power.W3S60= 0;
+        Memory.global.power.W4S60= 0;
+        Memory.global.power.W5S60= 0;
+        Memory.global.power.W6S60= 0;
+        Memory.global.power.W7S60= 1;
+        Memory.global.power.W8S60= 1;
+        Memory.global.power.W9S60= 1;
+        Memory.global.power.W10S60 = 1;
+        Memory.global.power.W10S59 = 1;
+        Memory.global.power.W10S58 = 1;
+        Memory.global.power.W10S57 = 1;
+        Memory.global.power.W10S56 = 1;
+        Memory.global.power.W10S55 = 2;
+        Memory.global.power.W10S54 = 2;
+        Memory.global.power.W10S53 = 2;
+        Memory.global.power.W10S52 = 2;
+        Memory.global.power.W10S51 = 2;
+        Memory.global.power.W10S50 = 2;
+        Memory.global.power.W9S50 = 2;
+        Memory.global.power.W8S50 = 2;
+        Memory.global.power.W7S50 = 2;
+        Memory.global.power.W6S50 = 5;
+        Memory.global.power.W5S50 = 5;
+        Memory.global.power.W4S50 = 5;
+        Memory.global.power.W3S50 = 5;
 
         for (let a = 0; a < Memory.global.roomCount; a++) {
             if (!Memory.spawns[a]) {
