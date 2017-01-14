@@ -20,7 +20,7 @@ var roleCreateJSON = {
             Memory.spawns = [];
 
 
-        Memory.global.power.power = {};
+        Memory.global.power = {};
         Memory.global.power.push({ W0S59: 0 });
         Memory.global.power.push({ W0S60: 0 });
         Memory.global.power.push({ W1S60: 0 });
