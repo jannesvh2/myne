@@ -18,35 +18,35 @@ var rolePower = {
                     creep.memory.moveNum = 1;
                     creep.memory.moveTo = 'W0S60';
                 }
-                if (creep.memory.moveNum == 1) {
+                else if (creep.memory.moveNum == 1) {
                     creep.memory.moveNum = 2;
                     creep.memory.moveTo = 'W10S60';
                 }
-                if (creep.memory.moveNum == 2) {
+                else if (creep.memory.moveNum == 2) {
                     creep.memory.moveNum = 3;
                     creep.memory.moveTo = 'W10S50';
                 }
-                if (creep.memory.moveNum == 3) {
+                else if (creep.memory.moveNum == 3) {
                     creep.memory.moveNum = 4;
                     creep.memory.moveTo = 'W3S50';
                 }
-                if (creep.memory.moveNum == 4) {
+                else if (creep.memory.moveNum == 4) {
                     creep.memory.moveNum = 5;
                     creep.memory.moveTo = 'W10S50';
                 }
-                if (creep.memory.moveNum == 5) {
+                else if (creep.memory.moveNum == 5) {
                     creep.memory.moveNum = 6;
                     creep.memory.moveTo = 'W10S60';
                 }
-                if (creep.memory.moveNum == 6) {
+                else if (creep.memory.moveNum == 6) {
                     creep.memory.moveNum = 7;
                     creep.memory.moveTo = 'W0S59';
                 }
-                if (creep.memory.moveNum == 7) {
+                else if (creep.memory.moveNum == 7) {
                     creep.memory.moveNum = 8;
                     creep.memory.moveTo = 'W0S60';
                 }
-                if (creep.memory.moveNum == 8) {
+                else if (creep.memory.moveNum == 8) {
                     creep.memory.moveNum = 0;
                     creep.memory.moveTo = 'W0S59';
                 }
