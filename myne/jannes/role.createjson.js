@@ -51,7 +51,7 @@ var roleCreateJSON = {
         //Memory.global.power.push({ room: 'W4S50', spawn: 5 });
         //Memory.global.power.push({ room: 'W3S50', spawn: 5 });
 
-        var gMod = Game.time % 30;
+        var gMod = Game.time % 300;
         for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
 
             if (gMod == p) {
