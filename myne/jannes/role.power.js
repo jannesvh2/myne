@@ -119,6 +119,8 @@ var rolePower = {
                     creep.suicide();
                 else {
                     if (creep.heal(heal) != OK)
+                        if (creep.pos.getRangeTo(heal) == 2)
+                            creep.moveTo(heal, { maxRooms: 1 });
                         creep.moveTo50(heal, { canOn: true, swapOn: true });
                 }
             }
