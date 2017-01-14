@@ -105,7 +105,11 @@ var rolePower = {
                     if (pb.hits < 300000)
                         Memory.spawns[creep.memory.spawn].power.spawn = parseInt(pb.power / 1600) + 1;
                     if (creep.attack(pb) != OK) {
-                        creep.moveTo50(pb);
+
+                        if (creep.pos.getRangeTo(pb) == 2)
+                            creep.moveTo(pb, { maxRooms: 1 });
+                        else
+                            creep.moveTo50(pb);
                     }
                 }
             }
@@ -115,7 +119,7 @@ var rolePower = {
                     creep.suicide();
                 else {
                     if (creep.heal(heal) != OK)
-                        creep.moveTo50(heal, { canOn: true, swapOn: true});
+                        creep.moveTo50(heal, { canOn: true, swapOn: true });
                 }
             }
 
