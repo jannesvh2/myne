@@ -5,6 +5,7 @@ var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
 var roleLogging = require('role.logging');
 var roleClaim = require('role.claim');
+var rolePower = require('role.power');
 var roleKeeper = require('role.keeper');
 var roleStore = require('role.store');
 var roleCreateJSON = require('role.createjson');
@@ -162,6 +163,9 @@ module.exports.loop = function () {
             }
             else if (creep.memory.role == 'toStore') {
                 roleTerminalMover.run(creep);
+            }
+            else if (creep.memory.role == 'powerL') {
+                rolePower.run(creep);
             }
             // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu).toFixed(2);
             //  var cpu = Game.cpu.getUsed();

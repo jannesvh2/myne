@@ -95,7 +95,6 @@ var roleSetup = {
             Memory.spawns[0].requests.push({ m: 'XZHO2', l: '58171d9d104bf0400291ef6b' });
             Memory.spawns[0].requests.push({ m: 'XGHO2', l: '5816ece205177e013c41ddce' });
 
-
             //spawn 1
             //spawn numbers
             Memory.spawns[1].summon.spawns = 3;
