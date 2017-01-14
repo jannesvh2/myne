@@ -115,7 +115,7 @@ var rolePower = {
                     creep.suicide();
                 else {
                     if (creep.heal(heal) != OK)
-                        creep.moveTo50(heal);
+                        creep.moveTo50(heal, { canOn: true, swapOn: true});
                 }
             }
 
