@@ -51,29 +51,27 @@ var roleCreateJSON = {
         //Memory.global.power.push({ room: 'W4S50', spawn: 5 });
         //Memory.global.power.push({ room: 'W3S50', spawn: 5 });
 
+        var gMod = Game.time % 30;
         for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
-            let gMod = Game.time % (200 + p);
-            if (gMod > 30)
-                break;
-            if (gMod == 0) {
+
+            if (gMod == p) {
                 Game.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
             }
-            else if (gMod == 1 && !Memory.spawns[Memory.global.power[p].spawn].power.hasPower) {
+            else if (gMod == (p + 1) && !Memory.spawns[Memory.global.power[p].spawn].power.hasPower && Game.rooms[Memory.global.power[p].room]) {
                 var powerFound = Game.rooms[Memory.global.power[p].room].find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_POWER_BANK)
                     }
                 });
                 if (powerFound.length) {
-                    if (!Memory.spawns[Memory.global.power[creep.room.name]].power.hasPower) {
-                        Memory.spawns[Memory.global.power[creep.room.name]].power.hasPower = true;
-                        Memory.spawns[Memory.global.power[creep.room.name]].power.spawnedLast = false;
-                        Memory.spawns[Memory.global.power[creep.room.name]].power.room = creep.room.name;
-                        Memory.spawns[creep.memory.spawn].power.spawn = 0;
-                        Memory.spawns[creep.memory.spawn].power.spawned = 0;
+                    if (!Memory.spawns[Memory.global.power[p].spawn].power.hasPower) {
+                        Memory.spawns[Memory.global.power[p].spawn].power.hasPower = true;
+                        Memory.spawns[Memory.global.power[p].spawn].power.spawnedLast = false;
+                        Memory.spawns[Memory.global.power[p].spawn].power.room = Memory.global.power[p].room;
+                        Memory.spawns[Memory.global.power[p].spawn].power.spawn = 0;
+                        Memory.spawns[Memory.global.power[p].spawn].power.spawned = 0;
                     }
                 }
-                break;
             }
         }
 
