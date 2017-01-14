@@ -83,65 +83,62 @@ var rolePower = {
                 creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
                 return;
             }
-            if (creep.memory.start || Game.rooms[creep.room.name].find(FIND_MY_CREEPS).length > 2) {
-                creep.memory.start = true;
-                if (creep.memory.role == 'powerA') {
-                    if (!creep.memory.target) {
-                        creep.memory.target = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
-                            filter: (structure) => {
-                                return (structure.structureType == STRUCTURE_POWER_BANK)
-                            }
-                        });
-                        if (creep.memory.target.length) {
-                            creep.memory.target = creep.memory.target[0].id;
+            if (creep.memory.role == 'powerA') {
+                if (!creep.memory.target) {
+                    creep.memory.target = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return (structure.structureType == STRUCTURE_POWER_BANK)
                         }
-                    }
-                    var pb = Game.getObjectById(creep.memory.target);
-                    if (!pb) {
-                        Memory.spawns[creep.memory.spawn].power.hasPower = false;
-                        Memory.spawns[creep.memory.spawn].power.spawn = 0;
-                        Memory.spawns[creep.memory.spawn].power.spawned = 0;
-                        creep.suicide();
-                    }
-                    else {
-                        if (pb.hits < 300000)
-                            Memory.spawns[creep.memory.spawn].power.spawn = parseInt(pb.power / 1600) + 1;
-                        if (creep.attack(pb) != OK) {
-                            creep.moveTo50(pb);
-                        }
+                    });
+                    if (creep.memory.target.length) {
+                        creep.memory.target = creep.memory.target[0].id;
                     }
                 }
-                if (creep.memory.role == 'powerH') {
-                    var heal = Game.creeps[creep.memory.target];
-                    if (!heal)
-                        creep.suicide();
-                    else {
-                        if (creep.heal(heal) != OK)
-                            creep.moveTo50(heal);
+                var pb = Game.getObjectById(creep.memory.target);
+                if (!pb) {
+                    Memory.spawns[creep.memory.spawn].power.hasPower = false;
+                    Memory.spawns[creep.memory.spawn].power.spawn = 0;
+                    Memory.spawns[creep.memory.spawn].power.spawned = 0;
+                    creep.suicide();
+                }
+                else {
+                    if (pb.hits < 300000)
+                        Memory.spawns[creep.memory.spawn].power.spawn = parseInt(pb.power / 1600) + 1;
+                    if (creep.attack(pb) != OK) {
+                        creep.moveTo50(pb);
                     }
                 }
+            }
+            if (creep.memory.role == 'powerH') {
+                var heal = Game.creeps[creep.memory.target];
+                if (!heal)
+                    creep.suicide();
+                else {
+                    if (creep.heal(heal) != OK)
+                        creep.moveTo50(heal);
+                }
+            }
 
-                if (creep.memory.role == 'powerC') {
+            if (creep.memory.role == 'powerC') {
 
-                    var dropped = Game.rooms[creep.room.name].find(
-                FIND_DROPPED_ENERGY,
-                 {
-                     filter: function (object) {
-                         return object.resourceType == "power";
-                     }
+                var dropped = Game.rooms[creep.room.name].find(
+            FIND_DROPPED_ENERGY,
+             {
+                 filter: function (object) {
+                     return object.resourceType == "power";
                  }
-            );
-                    if (!dropped.length)
-                        creep.moveTo(Game.creeps['healPower' + [creep.memory.spawn] + '-' + 1 + '|' + 1]);
+             }
+        );
+                if (!dropped.length)
+                    creep.moveTo(Game.creeps['healPower' + [creep.memory.spawn] + '-' + 1 + '|' + 1]);
+                else {
+                    let pick = creep.pickup(dropped[0]);
+                    if (pick != OK)
+                        creep.moveTo50(dropped[0]);
                     else {
-                        let pick = creep.pickup(dropped[0]);
-                        if (pick != OK)
-                            creep.moveTo50(dropped[0]);
-                        else {
-                            creep.memory.full == true;
-                            var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
-                            creep.moveTo50(terminal);
-                        }
+                        creep.memory.full == true;
+                        var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
+                        creep.moveTo50(terminal);
                     }
                 }
             }
