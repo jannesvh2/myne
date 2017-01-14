@@ -443,6 +443,8 @@ var roleSpawn = {
                 if (!Game.creeps['healPower' + [spawn] + '-' + 0 + '|' + 0] && !Game.creeps['healPower' + [spawn] + '-' + 0 + '|' + 1]) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 0 + '|' + 0, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 0 });
+                        if (typeof spawnReturn == 'string')
+                            break;
                     }
 
                 }
@@ -450,6 +452,8 @@ var roleSpawn = {
                 if (!Game.creeps['healPower' + [spawn] + '-' + 1 + '|' + 0] && !Game.creeps['healPower' + [spawn] + '-' + 1 + '|' + 1]) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 1 + '|' + 0, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 0 });
+                        if (typeof spawnReturn == 'string')
+                            break;
                     }
 
                 }
@@ -457,6 +461,8 @@ var roleSpawn = {
                 if (!Game.creeps['atkPower' + [spawn] + '-' + 0] && !Game.creeps['atkPower' + [spawn] + '-' + 1]) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE], 'atkPower' + [spawn] + '-' + 0, { role: 'powerA', spawn: spawn, room: Memory.spawns[spawn].power.room });
+                        if (typeof spawnReturn == 'string')
+                            break;
                     }
 
                 }
@@ -464,12 +470,16 @@ var roleSpawn = {
                 if (!Game.creeps['healPower' + [spawn] + '-' + 0 + '|' + 1] && Game.creeps['healPower' + [spawn] + '-' + 0 + '|' + 0] && Game.creeps['healPower' + [spawn] + '-' + 0 + '|' + 0].ticksToLive < 500) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 0 + '|' + 1, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 1 });
+                        if (typeof spawnReturn == 'string')
+                            break;
                     }
 
                 }
                 if (!Game.creeps['healPower' + [spawn] + '-' + 1 + '|' + 1] && Game.creeps['healPower' + [spawn] + '-' + 1 + '|' + 0] && Game.creeps['healPower' + [spawn] + '-' + 1 + '|' + 0].ticksToLive < 500) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 1 + '|' + 1, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 1 });
+                        if (typeof spawnReturn == 'string')
+                            break;
                     }
 
                 }
@@ -477,15 +487,23 @@ var roleSpawn = {
                 if (!Game.creeps['atkPower' + [spawn] + '-' + 1] && Game.creeps['atkPower' + [spawn] + '-' + 0] && Game.creeps['atkPower' + [spawn] + '-' + 0].ticksToLive < 500) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE], 'atkPower' + [spawn] + '-' + 1, { role: 'powerA', spawn: spawn, room: Memory.spawns[spawn].power.room });
+                        if (typeof spawnReturn == 'string') {
+                            Memory.spawns[spawn].power.spawnedLast = true;
+                            break;
+                        }
                     }
 
                 }
                 if (Memory.spawns[spawn].power.spawned < Memory.spawns[spawn].power.spawn) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'powerC', spawn: spawn, room: Memory.spawns[spawn].power.room });
+                        if (typeof spawnReturn == 'string')
+                            break;
                     }
 
                 }
+                if (Memory.spawns[spawn].power.spawnedLast && !Game.creeps['atkPower' + [spawn] + '-' + 1])
+                    Memory.spawns[spawn].power.hasPower = false;
             }
 
         }
