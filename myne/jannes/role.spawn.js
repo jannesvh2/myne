@@ -485,7 +485,7 @@ var roleSpawn = {
                     }
 
                 }
-                if (Memory.spawns[spawn].power.spawned < Memory.spawns[creep.memory.spawn].power.spawn) {
+                if (Memory.spawns[spawn].power.spawned < Memory.spawns[spawn].power.spawn) {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'powerC', spawn: spawn, room: Memory.spawns[spawn].power.room});
                     }
