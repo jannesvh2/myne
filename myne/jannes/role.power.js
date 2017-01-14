@@ -62,6 +62,8 @@ var rolePower = {
                     if (!Memory.spawns[Memory.global.power[creep.room.name]].power.hasPower) {
                         Memory.spawns[Memory.global.power[creep.room.name]].power.hasPower = true;
                         Memory.spawns[Memory.global.power[creep.room.name]].power.room = creep.room.name;
+                        Memory.spawns[creep.memory.spawn].power.spawn = 0;
+                        Memory.spawns[creep.memory.spawn].power.spawned = 0;
                     }
                 }
             }
