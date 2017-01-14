@@ -132,7 +132,7 @@ var rolePower = {
                  }
             );
                     if (!dropped.length)
-                        creep.moveTo(Game.creeps['healPower' + [creep.memory.spawn] + '-' + 11]);
+                        creep.moveTo(Game.creeps['healPower' + [creep.memory.spawn] + '-' + 1 + '|' + 1]);
                     else {
                         let pick = creep.pickup(dropped[0]);
                         if (pick != OK)

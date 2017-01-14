@@ -164,7 +164,7 @@ module.exports.loop = function () {
             else if (creep.memory.role == 'toStore') {
                 roleTerminalMover.run(creep);
             }
-            else if (creep.memory.role == 'powerL') {
+            else if (creep.memory.role == 'powerL' || creep.memory.role == 'powerA' || creep.memory.role == 'powerH' || creep.memory.role == 'powerC') {
                 rolePower.run(creep);
             }
             // notify += " | " + creep.memory.role + ": " + (Game.cpu.getUsed() - cpu).toFixed(2);
