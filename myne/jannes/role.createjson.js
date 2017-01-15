@@ -153,7 +153,7 @@ var roleCreateJSON = {
                 if (!creep.memory.spawn) {
                     Game.notify(JSON.stringify(creep));
                     //creep.suicide();
-                    continue;
+                    //continue;
                 }
 
                 Memory.spawns[creep.memory.spawn].counters.creeps++;
