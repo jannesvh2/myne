@@ -53,22 +53,25 @@ module.exports.loop = function () {
             var creep = Game.creeps[name];
             if (creep.spawning)
                 continue;
-            var energy = creep.pos.findInRange(
-                FIND_DROPPED_ENERGY,
-                1, {
-                    filter: function (object) {
-                        return object.resourceType == "energy";
-                    }
-                }
-            );
-            let mustDel = false;
-            if (energy.length) {
-                creep.pickup(energy[0]);
-                if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
-                    creep.memory.full = true;
-                    mustDel = true;
-                }
 
+            let mustDel = false;
+            if (!creep.memory.dontLoot) {
+                var energy = creep.pos.findInRange(
+                    FIND_DROPPED_ENERGY,
+                    1, {
+                        filter: function (object) {
+                            return object.resourceType == "energy";
+                        }
+                    }
+                );
+                if (energy.length) {
+                    creep.pickup(energy[0]);
+                    if (creep.carry.energy > (creep.carryCapacity * 0.70)) {
+                        creep.memory.full = true;
+                        mustDel = true;
+                    }
+
+                }
             }
             if (creep.memory.role == 'defender') {
                 roleDefender.run(creep);
