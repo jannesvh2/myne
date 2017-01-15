@@ -77,14 +77,12 @@ var rolePower = {
                 if (pick != OK)
                     creep.moveTo50(dropped[0]);
                 else {
-                    creep.memory.full == true;
+                    creep.memory.full = true;
                     var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
                     creep.moveTo50(terminal);
                 }
                 return;
             }
-            if (_.sum(creep.carry) != 0)
-                creep.memory.full == true;
 
         }
 
