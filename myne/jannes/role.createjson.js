@@ -151,7 +151,7 @@ var roleCreateJSON = {
             for (let name in Game.creeps) {
                 let creep = Game.creeps[name];
                 if (!creep.memory.spawn) {
-                    Game.notify(creep);
+                    Game.notify(JSON.stringify(creep));
                     //creep.suicide();
                     continue;
                 }
