@@ -19,6 +19,10 @@ var rolePower = {
             return;
         }
         if (creep.memory.role == 'powerA') {
+            if (creep.hits < 100) {
+                creep.suicide();
+                return;
+            }
             if (!creep.memory.target) {
                 creep.memory.target = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
                     filter: (structure) => {
