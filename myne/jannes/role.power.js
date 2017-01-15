@@ -43,6 +43,9 @@ var rolePower = {
             else {
                 if (pb.hits < 200000)
                     Memory.spawns[creep.memory.spawn].power.spawn = parseInt(pb.power / 1600) + 1;
+                //allow healers to heal;
+                if (creep.hits < 4000 && Game.time % 2 == 0)
+                    return;
                 if (creep.attack(pb) != OK) {
 
                     if (creep.pos.getRangeTo(pb) == 2)
