@@ -444,7 +444,7 @@ var roleSpawn = {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, MOVE], 'atkPower' + [spawn] + '-' + 0, { role: 'powerA', spawn: spawn, room: Memory.spawns[spawn].power.room, dontLoot : true });
                         if (typeof spawnReturn == 'string')
-                            break;
+                            return;
                     }
 
                 }
@@ -453,7 +453,7 @@ var roleSpawn = {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 0 + '|' + 0, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 0, dontLoot: true });
                         if (typeof spawnReturn == 'string')
-                            break;
+                            return;
                     }
 
                 }
@@ -462,7 +462,7 @@ var roleSpawn = {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 1 + '|' + 0, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 0, dontLoot: true });
                         if (typeof spawnReturn == 'string')
-                            break;
+                            return;
                     }
 
                 }
@@ -472,7 +472,7 @@ var roleSpawn = {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, MOVE], 'atkPower' + [spawn] + '-' + 1, { role: 'powerA', spawn: spawn, room: Memory.spawns[spawn].power.room, dontLoot: true });
                         if (typeof spawnReturn == 'string') {
                             Memory.spawns[spawn].power.spawnedLast = true;
-                            break;
+                            return;
                         }
                     }
 
@@ -482,7 +482,7 @@ var roleSpawn = {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 0 + '|' + 1, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 1, dontLoot: true });
                         if (typeof spawnReturn == 'string')
-                            break;
+                            return;
                     }
 
                 }
@@ -490,7 +490,7 @@ var roleSpawn = {
                     for (let a = 0; a < Memory.spawns[spawn].summon.spawns; a++) {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE], 'healPower' + [spawn] + '-' + 1 + '|' + 1, { role: 'powerH', spawn: spawn, room: Memory.spawns[spawn].power.room, target: 'atkPower' + [spawn] + '-' + 1, dontLoot: true });
                         if (typeof spawnReturn == 'string')
-                            break;
+                            return;
                     }
 
                 }
@@ -499,7 +499,7 @@ var roleSpawn = {
                         spawnReturn = Game.spawns['Spawn' + parseInt(spawn) + "" + a].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], null, { role: 'powerC', spawn: spawn, room: Memory.spawns[spawn].power.room, dontLoot: true });
                         if (typeof spawnReturn == 'string') {
                             Memory.spawns[spawn].power.spawned++;
-                            break;
+                            return;
                         }
                     }
 
