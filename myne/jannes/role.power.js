@@ -15,7 +15,7 @@ var rolePower = {
         if (creep.room.name != creep.memory.room) {
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.room);
             var Exit = creep.pos.findClosestByRange(exitDir);
-            creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
+            creep.moveTo(Exit, { maxRooms: 1 });
             return;
         }
         if (creep.memory.role == 'powerA') {
