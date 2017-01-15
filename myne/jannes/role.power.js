@@ -41,7 +41,7 @@ var rolePower = {
                 creep.suicide();
             }
             else {
-                if (pb.hits < 300000)
+                if (pb.hits < 200000)
                     Memory.spawns[creep.memory.spawn].power.spawn = parseInt(pb.power / 1600) + 1;
                 if (creep.attack(pb) != OK) {
 
