@@ -10,6 +10,7 @@ var rolePower = {
                 creep.moveTo50(terminal);
             if (trans == ERR_NOT_ENOUGH_RESOURCES)
                 creep.suicide();
+            return;
         }
         if (creep.room.name != creep.memory.room) {
             var exitDir = Game.map.findExit(creep.room.name, creep.memory.room);
@@ -80,7 +81,11 @@ var rolePower = {
                     var terminal = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.terminal);
                     creep.moveTo50(terminal);
                 }
+                return;
             }
+            if (_.sum(creep.carry) != 0)
+                creep.memory.full == true;
+
         }
 
     }
