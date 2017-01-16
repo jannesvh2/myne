@@ -946,7 +946,7 @@ var roleSetup = {
                         var amountToSell = 4000;
 
                         var orders = Game.market.getAllOrders(order => order.resourceType == resource &&
-                            order.type == ORDER_BUY && order.price > 0.19);
+                            order.type == ORDER_BUY && order.price > 0.09);
 
                         if (orders.length) {
                             orders = _.sortBy(orders, order => order.price - Game.market.calcTransactionCost(100, Memory.spawns[a].random.mainRoom, order.roomName) * 0.05 / 100);
