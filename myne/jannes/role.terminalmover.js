@@ -231,8 +231,10 @@ var roleTerminalMover = {
                             creep.memory.moveType = 'G';
                             creep.memory.moveTo50R = nuker.id;
                             if (creep.memory.full) {
-                                if (creep.transfer(nuker, 'G') == ERR_NOT_IN_RANGE)
+                                if (creep.transfer(nuker, 'G') == ERR_NOT_IN_RANGE) {
                                     creep.moveTo50(nuker);
+                                    return;
+                                }
 
                             }
                             else {
@@ -251,6 +253,13 @@ var roleTerminalMover = {
                                 }
                             }
                         }
+                    }
+                    let power = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.powerSpawn);
+                    if (power && terminal.store['power'] && power.power == 0) {
+                        creep.memory.moveType = 'power';
+                        creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].random.powerSpawn;
+                        return;
+
                     }
                     creep.moveTo50(terminal);
                     return;

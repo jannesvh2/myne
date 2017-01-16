@@ -272,6 +272,13 @@ var roleCreateJSON = {
             if (Memory.spawns[a].random.useLinks) {
                 roleLink.run(a);
             }
+
+            //process power
+            if (Game.time % 5 == 0) {
+                let power = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
+                if (power && power.power > 0)
+                    power.processPower();
+            }
         }
 
         //moria code for placing ramparts

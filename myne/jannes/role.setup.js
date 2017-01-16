@@ -65,6 +65,7 @@ var roleSetup = {
             Memory.spawns[0].random.defLab = '5834cc21443e2b9d39429d48';
             Memory.spawns[0].random.nuker = '5834f6c016bc32e01a5f3996';
             Memory.spawns[0].random.observer = '587a8c7f2b2558ba47e227bc';
+            Memory.spawns[0].random.powerSpawn = '5834a78c5c5373f236e488c6';
 
             Memory.spawns[0].random.runReaction = true;
             Memory.spawns[0].random.runReactionL = { XGH2O: 20000 };
@@ -143,6 +144,7 @@ var roleSetup = {
             Memory.spawns[1].random.defLab = '';
             Memory.spawns[1].random.nuker = '583ebb7ad1cb37fc52ac9987';
             Memory.spawns[1].random.observer = '587a8a4c9fe1f1342bfc6f6c';
+            Memory.spawns[1].random.powerSpawn = '583efc859574aaf7218c72af';
             Memory.spawns[1].random.runReaction = true;
 
             Memory.spawns[1].requests = [];
@@ -204,6 +206,7 @@ var roleSetup = {
             Memory.spawns[2].random.defLab = '58389bd48ff1bfa430ad5d91';
             Memory.spawns[2].random.nuker = '583812703c39d0fc0b2fdae7';
             Memory.spawns[2].random.observer = '587a8926bcde4b0c8397851c';
+            Memory.spawns[2].random.powerSpawn = '58383ba9a98e1a1b4a0ec01c';
 
             Memory.spawns[2].random.runReaction = true;
             Memory.spawns[2].random.runReactionL = { GH2O: 1000 };
@@ -278,6 +281,7 @@ var roleSetup = {
             Memory.spawns[3].random.extractor = '579fab88b1f02a3b0cff0319';
             Memory.spawns[3].random.terminal = '581f779e324e9a5e7a755e2f';
             Memory.spawns[3].random.observer = '587a890fff5b97f5478f2556';
+            Memory.spawns[3].random.powerSpawn = '58435b50dde533fb586a724d';
             Memory.spawns[3].random.defLab = '';
             Memory.spawns[3].random.runReaction = true;
             Memory.spawns[3].random.runReactionL = { ZK: 1000 };
@@ -365,6 +369,7 @@ var roleSetup = {
             Memory.spawns[4].random.nuker = '583dd865f22b983d781d6b75';
             Memory.spawns[4].random.runReaction = true;
             Memory.spawns[4].random.observer = '587a8a741ed5b0cb024c7ca8';
+            Memory.spawns[4].random.powerSpawn = '583d9f36851682d20354a237';
 
             //spawn 5
             //spawn numbers
@@ -414,6 +419,7 @@ var roleSetup = {
             Memory.spawns[5].random.defLab = '';
             Memory.spawns[5].random.nuker = '585064c62ee4214b3f41c50b';
             Memory.spawns[5].random.observer = '587a89ad7999c0272f579529';
+            Memory.spawns[5].random.powerSpawn = '5850d3eae0bf56d870e0113c';
             Memory.spawns[5].random.runReaction = true;
 
             //spawn 6
