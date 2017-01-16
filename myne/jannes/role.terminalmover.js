@@ -258,6 +258,14 @@ var roleTerminalMover = {
                     if (power && terminal.store['power'] && power.power == 0) {
                         creep.memory.moveType = 'power';
                         creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].random.powerSpawn;
+
+                        let terminalW = creep.withdraw(terminal, creep.memory.moveType);
+                        if (terminalW == ERR_NOT_IN_RANGE)
+                            creep.moveTo50(terminal);
+                        if (terminalW == OK) {
+                            creep.memory.full = true;
+                        }
+                        
                         return;
 
                     }
