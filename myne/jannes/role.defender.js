@@ -23,11 +23,22 @@ var roleDefenders = {
             var targets = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
             if (targets) {
                 if (!creep.memory.rampartId) {
-                    var rampart = targets.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_RAMPART && !creep.room.lookForAt(LOOK_CREEPS, structure).length)
-                        }
-                    });
+                    if (creep.memory.rampart) {
+                        var rampart = Game.getObjectById(creep.memory.rampart).pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_RAMPART && !creep.room.lookForAt(LOOK_CREEPS, structure, {
+                                    filter: (creep) => {
+                                        return (!creep.memory.rampart)}
+                                }).length)
+                            }
+                        });
+                    }
+                    else
+                        var rampart = targets.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_RAMPART && !creep.room.lookForAt(LOOK_CREEPS, structure).length)
+                            }
+                        });
                     creep.memory.rampartId = rampart.id;
                 }
                 if (!creep.memory.atSpot) {
@@ -46,7 +57,7 @@ var roleDefenders = {
                             return;
                         }
 
-                        creep.moveTo50(rampObj);
+                        creep.moveTo50(rampObj, { pri: true });
                         return;
                     }
                 }
@@ -82,7 +93,7 @@ var roleDefenders = {
                     let moveTo50;
                     if (creep.room.name == creep.memory.sourceRoom)
                         if (creep.pos.getRangeTo(targets[0]) == 2)
-                            moveTo50 = creep.moveTo(targets[0], { maxRooms: 1});
+                            moveTo50 = creep.moveTo(targets[0], { maxRooms: 1 });
                         else
                             moveTo50 = creep.moveTo50(targets[0], { maxRooms: 1, canOn: true });
                     else
@@ -117,7 +128,7 @@ var roleDefenders = {
                             if (targetHeal.length) {
                                 creep.heal(targetHeal[0]);
                                 if (targetHeal[0].name != creep.name)
-                                    creep.moveTo50(targetHeal[0], { canOn: true, swapOn: true});
+                                    creep.moveTo50(targetHeal[0], { canOn: true, swapOn: true });
                                 if (targetHeal.length < 2 && targetHeal[0].name == creep.name)
                                     creep.moveTo50(Game.getObjectById(creep.memory.skSpwn), { maxRooms: 1, canOn: true });
                                 else

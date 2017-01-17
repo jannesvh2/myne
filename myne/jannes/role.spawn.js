@@ -122,7 +122,17 @@ var roleSpawn = {
             }
 
 
-            if (Memory.spawns[spawn].random.hostiles && (!Memory.spawns[spawn].creeps.defenders.length || Memory.spawns[spawn].creeps.defenders.length < 5)) {
+            if (Memory.spawns[spawn].spawnDefenders && Memory.spawns[a].spawnDefenders.length) {
+                for (let b = 0, lengthB = Memory.spawns[spawn].spawnDefenders.length; b < lengthB; b++) {
+                    let dCreeps = _.filter(defenders, (creep) => Game.creeps[creep].memory.sourceRoom == Memory.spawns[spawn].random.defenders[def] && Memory.spawns[spawn].spawnDefenders[b] == Game.creeps[creep].memory.rampart);
+                    if (dCreeps.length < 2) {
+                        newName = multiSpawn([ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, HEAL], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.mainRoom, mustBoost: true, rampart: Memory.spawns[spawn].spawnDefenders[b] });
+                        return;
+                    }
+
+                }
+            }
+            if (Memory.spawns[spawn].random.hostiles && (!Memory.spawns[spawn].creeps.defenders.length || Memory.spawns[spawn].creeps.defenders.length < 2)) {
                 if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 1640)
                     newName = multiSpawn([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK], { role: 'defender', spawn: spawn, sourceRoom: Memory.spawns[spawn].random.mainRoom });
                 else if (Game.rooms[Memory.spawns[spawn].random.mainRoom].energyCapacityAvailable < 5000)
