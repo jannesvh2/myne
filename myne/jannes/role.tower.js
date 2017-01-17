@@ -80,6 +80,17 @@ var roleTower = {
                             return ((structure.hits < Memory.spawns[a].repairHp[structure.id] && structure.hits > Memory.spawns[a].repairHp[structure.id] - 7000) || structure.hits < 2000)
                         }
                     });
+                    if (Memory.spawns[a].random.defLab && Game.time % 15 == 0) {
+                        var badDamaged = Game.rooms[Memory.spawns[a].random.mainRoom].find(repList, {
+                            filter: (structure) => {
+                                return (structure.hits < Memory.spawns[a].repairHp[structure.id] - 250000)
+                            }
+                        });
+                            Memory.spawns[a].spawnDefenders = [];
+                        for (let b = 0, lengthB = badDamaged.length; b < lengthB; b++){
+                            Memory.spawns[a].spawnDefenders.push(badDamaged[b].id);
+                        }
+                    }
                     if (closestDamagedStructure)
                         towers.forEach(tower => tower.repair(closestDamagedStructure));
                 }
