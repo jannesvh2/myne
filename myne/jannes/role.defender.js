@@ -57,7 +57,7 @@ var roleDefenders = {
                             return;
                         }
 
-                        creep.moveTo50(rampObj, { pri: true });
+                        creep.moveTo50(rampObj, { pri: true, canOn: true, maxRooms: 1 });
                         return;
                     }
                 }
@@ -76,7 +76,7 @@ var roleDefenders = {
             }
             else {
                 delete creep.memory.rampartId;
-                creep.moveTo50(creep.room.controller);
+                creep.moveTo50(creep.room.controller, { maxRooms: 1 });
             }
         }
         else {

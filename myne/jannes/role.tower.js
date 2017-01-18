@@ -81,7 +81,7 @@ var roleTower = {
                         }
                     });
                     if (Memory.spawns[a].random.defLab && Game.time % 15 == 0) {
-                        var badDamaged = Game.rooms[Memory.spawns[a].random.mainRoom].find(repList, {
+                        var badDamaged = towers[0].pos.findInRange(repList, 49, {
                             filter: (structure) => {
                                 return (structure.hits < Memory.spawns[a].repairHp[structure.id] - 250000)
                             }

@@ -8,37 +8,7 @@ var roleTerminalMover = {
         if (!terminal && !creep.memory.boost)
             return;
         if (creep.memory.role == 'terminal') {
-            //add boost compounds to lab
-            if (creep.memory.work) {
-                let moveTo50 = Game.getObjectById(creep.memory.work.moveTo50);
-                if (creep.memory.work.isLab) {
-                    if (moveTo50.mineralAmount >= creep.memory.work.fillTo)
-                        delete creep.memory.work;
-                }
-                else {
-                    if (moveTo50.terminal.store[creep.memory.work.moveType] >= creep.memory.work.fillTo)
-                        delete creep.memory.work;
-
-                }
-            }
-
-            //check to add boost compounds to lab
-            if (!creep.memory.work) {
-                if (terminal.store['XUH2O']) {
-                    let lab = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.defLab);
-                    if (lab && lab.mineralType == 'XUH2O' && lab.mineralAmount < 1000) {
-                        creep.memory.work = {};
-                        creep.memory.work.moveType == 'XUH2O';
-                        creep.memory.work.moveTo50 = lab;
-                        creep.memory.work.moveFrom = terminal;
-                        creep.memory.work.fillTo = 3000;
-                        creep.memor.worky.isLab = true;
-                    }
-                }
-
-
                 //reaction code
-                if (!creep.memory.work) {
 
                     var total = _.sum(creep.carry);
                     if (creep.memory.full) {
@@ -223,7 +193,49 @@ var roleTerminalMover = {
                                 }
                             }
                         }
+                    //check to add boost compounds to lab
+                    if (terminal.store['XUH2O']) {
+                        let lab = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.defLab);
+                        if (lab && lab.mineralType && lab.mineralType != 'XUH2O') {
+                            creep.memory.moveType = lab.mineralType;;
+                            creep.memory.moveTo50R = terminal.id;
 
+                            let checkLabW = creep.withdraw(lab, creep.memory.moveType);
+                            if (checkLabW == ERR_NOT_IN_RANGE)
+                                creep.moveTo50(lab);
+                            if (checkLabW == OK) {
+                                creep.memory.full = true;
+                            }
+                            return;
+
+                        }
+                        if (lab && (!lab.mineralAmount || lab.mineralAmount < 2500)) {
+
+                            creep.memory.moveType = 'XUH2O';
+                            creep.memory.moveTo50R = lab.id;
+
+                            let terminalW = creep.withdraw(terminal, creep.memory.moveType);
+                            if (terminalW == ERR_NOT_IN_RANGE)
+                                creep.moveTo50(terminal);
+                            if (terminalW == OK) {
+                                creep.memory.full = true;
+                            }
+
+                            return;
+                        }
+                    }
+                    else
+                        if (_.sum(terminal.store) < 295000) {
+                            var orders = Game.market.getAllOrders(order => order.resourceType == 'XUH2O' &&
+                                order.type == ORDER_SELL);
+
+                            if (orders.length) {
+                                orders = _.sortBy(orders, order => order.price + Game.market.calcTransactionCost(100, Memory.spawns[creep.memory.spawn].random.mainRoom, order.roomName) * 0.05 / 100);
+                                //console.log(orders[0].id + " " + Memory.spawns[creep.memory.spawn].random.mainRoom + " " + Memory.spawns[creep.memory.spawn].requests[s2].m);
+                                Game.market.deal(orders[0].id, 1000, Memory.spawns[creep.memory.spawn].random.mainRoom);
+                                Game.notify(`buying XUH2O at ${Memory.spawns[creep.memory.spawn].random.mainRoom}`);
+                            }
+                        }
                     //fill nukes
                     let nuker = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.nuker);
                     if (nuker) {
@@ -271,18 +283,7 @@ var roleTerminalMover = {
                     }
                     creep.moveTo50(terminal);
                     return;
-                }
-            }
-            if (creep.memory.full) {
-
-                if (creep.transfer(moveTo50, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(moveTo50);
-            }
-            else {
-                console.log(JSON.stringify(creep.memory.work));
-                if (creep.withdraw(creep.memory.work.moveFrom, creep.memory.moveType) == ERR_NOT_IN_RANGE)
-                    creep.moveTo50(creep.memory.work.moveFrom);
-            }
+                
         }
         else {
             //boost low rooms with extra energy
