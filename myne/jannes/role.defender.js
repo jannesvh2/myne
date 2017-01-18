@@ -74,10 +74,10 @@ var roleDefenders = {
                     }
                 }
             }
-            else {
-                delete creep.memory.rampartId;
-                creep.moveTo50(creep.room.controller, { maxRooms: 1 });
-            }
+            //else {
+            //    delete creep.memory.rampartId;
+            //    creep.moveTo50(creep.room.controller, { maxRooms: 1 });
+            //}
         }
         else {
             if (Game.rooms[creep.memory.sourceRoom]) {
