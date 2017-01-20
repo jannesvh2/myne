@@ -834,7 +834,7 @@ var roleSetup = {
             Memory.spawns[12].summon.h = 0;
             Memory.spawns[12].summon.b = 0;
             Memory.spawns[12].summon.u = 0;
-            Memory.spawns[12].summon.h2 = 4;
+            Memory.spawns[12].summon.h2 = 2;
             Memory.spawns[12].summon.b2 = 1;
             Memory.spawns[12].summon.u2 = 0;
             Memory.spawns[12].summon.users = 1;
@@ -851,9 +851,9 @@ var roleSetup = {
             //Memory.spawns[12].random.upgradeSpots.push({ x: 19, y: 9 });
 
             ////RoomList
-            Memory.spawns[12].random.rooms.push({ name: 'W3S65', spawn: 1 });
+            Memory.spawns[12].random.rooms.push({ name: 'W3S65', spawn: 0 });
             if (!Memory.spawns[12].random.hostiles) {
-                Memory.spawns[12].random.rooms.push({ name: 'W3S64', spawn: 3});
+                Memory.spawns[12].random.rooms.push({ name: 'W3S64', spawn: 2});
             //    //Memory.spawns[12].random.rooms.push({ name: 'W2S55', spawn: 1 });
             }
             //keeper
