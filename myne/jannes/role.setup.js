@@ -732,7 +732,7 @@ var roleSetup = {
             Memory.spawns[9].requests = [];
 
             Memory.spawns[9].requests.push({ m: 'XLHO2', l: '585b69f05ee520677509c5d5' });
-            Memory.spawns[9].requests.push({ m: 'XUH2O', l: '585b4cd43546336847cc5259' });
+            Memory.spawns[9].requests.push({ m: 'XZHO2', l: '585b4cd43546336847cc5259' });
             Memory.spawns[9].requests.push({ m: 'XGHO2', l: '585b893378963fb976605b53' });
             //spawn 10
             //spawn numbers
