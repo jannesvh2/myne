@@ -471,7 +471,7 @@ var roleSetup = {
             //extractor
             Memory.spawns[6].random.extractor = '579fab88b1f02a3b0cff0334';
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
-            Memory.spawns[6].random.defLab = '';
+            Memory.spawns[6].random.defLab = '58503bbbe724324d4dffca99';
             Memory.spawns[6].random.nuker = '584f03089fc4e985206ea7a7';
             Memory.spawns[6].random.runReaction = true;
             Memory.spawns[6].random.runReactionL = { UL: 1000 };
