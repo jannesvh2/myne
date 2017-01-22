@@ -83,7 +83,7 @@ var roleTower = {
                     if (Memory.spawns[a].random.defLab && Game.time % 15 == 0) {
                         var badDamaged = towers[0].pos.findInRange(repList, 49, {
                             filter: (structure) => {
-                                return (structure.hits < Memory.spawns[a].repairHp[structure.id] - 250000)
+                                return (structure.hits < Memory.spawns[a].repairHp[structure.id] - 100000)
                             }
                         });
                             Memory.spawns[a].spawnDefenders = [];
