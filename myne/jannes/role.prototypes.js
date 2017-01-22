@@ -22,7 +22,7 @@ var rolePrototypes = {
             if (this.memory.moved == Game.time || (isNear && !obj.canOn))
                 return OK;
             this.memory.moved = Game.time;
-            let moveReturn = this.moveTo(target, { reusePath: 101, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms });
+            let moveReturn = this.moveTo(target, { reusePath: 101, ignoreCreeps: true, maxRooms: obj.maxRooms == undefined ? 16 : obj.maxRooms, plainCost: obj.plainCost == undefined ? 1 : obj.plainCost });
 
             //dont swap if next to target but still move if target move.
             if (isNear && obj.swapOn)

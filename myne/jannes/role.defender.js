@@ -57,7 +57,7 @@ var roleDefenders = {
                             return;
                         }
 
-                        creep.moveTo50(rampObj, { pri: true, canOn: true, maxRooms: 1 });
+                        creep.moveTo50(rampObj, { pri: true, canOn: true, maxRooms: 1, plainCost: 0 });
                         return;
                     }
                 }
