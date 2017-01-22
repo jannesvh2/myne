@@ -27,7 +27,7 @@ var roleAttackers = {
             moveByFlag = false;
         if (creep.memory.role == 'attackerH' && creep.memory.getBoost) {
             if (creep.memory.getBoostM) {
-                let lab = Game.getObjectById('58171d9d104bf0400291ef6b');
+                let lab = Game.getObjectById('585b69f05ee520677509c5d5');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
                     creep.moveTo(lab);
@@ -36,7 +36,7 @@ var roleAttackers = {
                 return;
             }
             if (creep.memory.getBoostH) {
-                let lab = Game.getObjectById('5820e8f4467b718b553fbdf5');
+                let lab = Game.getObjectById('585b4cd43546336847cc5259');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
                     creep.moveTo(lab);
@@ -45,7 +45,7 @@ var roleAttackers = {
                 return;
             }
             if (creep.memory.getBoostT) {
-                let lab = Game.getObjectById('5816ece205177e013c41ddce');
+                let lab = Game.getObjectById('585b893378963fb976605b53');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
                     creep.moveTo(lab);
@@ -57,7 +57,7 @@ var roleAttackers = {
         }
         if (creep.memory.role == 'attackerM' && creep.memory.getBoost) {
             if (creep.memory.getBoostM) {
-                let lab = Game.getObjectById('5822c32a4186e8930ac80648');
+                let lab = Game.getObjectById('58560a405b86cff8517fcd86');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
                     creep.moveTo(lab);
@@ -66,7 +66,7 @@ var roleAttackers = {
                 return;
             }
             if (creep.memory.getBoostT) {
-                let lab = Game.getObjectById('58231e97f60d44b54edcbaea');
+                let lab = Game.getObjectById('58564554e9f2213046bf41d1');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
                     creep.moveTo(lab);
@@ -75,7 +75,7 @@ var roleAttackers = {
                 return;
             }
             if (creep.memory.getBoostA) {
-                let lab = Game.getObjectById('5819e455c80e052076e314c0');
+                let lab = Game.getObjectById('5855d53782396c315907b5fb');
                 let boost = lab.boostCreep(creep);
                 if (boost == ERR_NOT_IN_RANGE)
                     creep.moveTo(lab);

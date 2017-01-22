@@ -572,6 +572,12 @@ var roleSetup = {
             Memory.spawns[7].reactions[3].push({ m: 'O', l: '583ce4155ecf1e7871c1c0e0', r: 'W9S59' });
             Memory.spawns[7].reactions[3].push({ m: 'H', l: '583cfd1a8494015279f7c0fc', r: 'W9S52' });
 
+
+            Memory.spawns[7].requests = [];
+
+            Memory.spawns[7].requests.push({ m: 'XUH2O', l: '58560a405b86cff8517fcd86' });
+            Memory.spawns[7].requests.push({ m: 'XZHO2', l: '58564554e9f2213046bf41d1' });
+            Memory.spawns[7].requests.push({ m: 'XGHO2', l: '5855d53782396c315907b5fb' });
             //spawn 8
             //spawn numbers
             Memory.spawns[8].summon.spawns = 2;
@@ -696,7 +702,6 @@ var roleSetup = {
 
             Memory.spawns[9].random.upgradeBoost = '';
             Memory.spawns[9].random.runReaction = true;
-            Memory.spawns[9].requests = [];
 
             //Memory.spawns[9].requests.push({ m: 'XGH2O', l: '584ccf25eeca75d04c9b6cf5', r: 'W4S59', r2: 'W9S52' });
 
@@ -724,6 +729,11 @@ var roleSetup = {
             Memory.spawns[9].reactions[3].push({ m: 'G', l: '584d90f7cd035d7e761c690c', r: 'W3S55' });
             Memory.spawns[9].reactions[3].push({ m: 'H', l: '584cf2ac4fe92ed70930e74c', r: 'W9S52' });
 
+            Memory.spawns[9].requests = [];
+
+            Memory.spawns[9].requests.push({ m: 'XLHO2', l: '585b69f05ee520677509c5d5' });
+            Memory.spawns[9].requests.push({ m: 'XZHO2', l: '585b4cd43546336847cc5259' });
+            Memory.spawns[9].requests.push({ m: 'XGHO2', l: '585b893378963fb976605b53' });
             //spawn 10
             //spawn numbers
             Memory.spawns[10].summon.spawns = 0;
