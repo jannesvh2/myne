@@ -791,11 +791,11 @@ var roleSetup = {
 
             //spawn 11
             //spawn numbers
-            Memory.spawns[11].summon.spawns = 2;
+            Memory.spawns[11].summon.spawns = 3;
             Memory.spawns[11].summon.h = 0;
             Memory.spawns[11].summon.b = 0;
             Memory.spawns[11].summon.u = 0;
-            Memory.spawns[11].summon.h2 = 5;
+            Memory.spawns[11].summon.h2 = 10;
             Memory.spawns[11].summon.b2 = 1;
             Memory.spawns[11].summon.u2 = 0;
             Memory.spawns[11].summon.users = 1;
@@ -814,13 +814,15 @@ var roleSetup = {
             ////RoomList
             Memory.spawns[11].random.rooms.push({ name: 'W6S57', spawn: 0 });
             if (!Memory.spawns[11].random.hostiles) {
-                Memory.spawns[11].random.rooms.push({ name: 'W6S56', spawn: 5, sk: true });
+                Memory.spawns[11].random.rooms.push({ name: 'W6S56', spawn: 4, sk: true });
+                Memory.spawns[11].random.rooms.push({ name: 'W6S55', spawn: 7, sk: true });
             //    Memory.spawns[11].random.rooms.push({ name: 'W5S56', spawn: 6, sk: true });
             //    //Memory.spawns[11].random.rooms.push({ name: 'W2S55', spawn: 1 });
             }
             //keeper
             if (!Memory.spawns[11].random.hostiles) {
                 Memory.spawns[11].spots.push({ sourceRoom: 'W6S56', sk: true, x: 36, y: 44 });
+                Memory.spawns[11].spots.push({ sourceRoom: 'W6S55', sk: true, x: 36, y: 45 });
             //    Memory.spawns[11].spots.push({ sourceRoom: 'W5S56', sk: true, x: 45, y: 48 });
             //    //Memory.spawns[11].spots.push({ sourceRoom: 'W2S55' });
             }
@@ -832,7 +834,9 @@ var roleSetup = {
             Memory.spawns[11].links.receiver = '5867d3660c8472706bc0d813';
             Memory.spawns[11].links.producers.push({ id: '586785fc3d7db5165dffce9f', source: true });
             Memory.spawns[11].links.producers.push({ id: '5867b69b4325d1927005fa2a', source: true });
-            //Memory.spawns[11].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
+            Memory.spawns[11].links.producers.push({ id: '588632b4943730242b921035', source: true });
+            Memory.spawns[11].links.producers.push({ id: '58863ad667bda29b6a93d454', source: true });
+            Memory.spawns[11].links.producers.push({ id: '58864980e85a4cf762689300', source: true });
             //extractor
             Memory.spawns[11].random.extractor = '579fab88b1f02a3b0cff0329';
             Memory.spawns[11].random.terminal = '5868f97fa3f3e25a3a98e49a';
