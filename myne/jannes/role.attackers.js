@@ -1,4 +1,3 @@
-var rangeAttack = require('role.rangeattack');
 var roleAttackers = {
 
     /** @param {Creep} creep **/
@@ -147,6 +146,15 @@ var roleAttackers = {
                 targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
                 if (targets.length > 0) {
                     attacked = creep.rangedAttack(targets[0]);
+                    if (targets.length > 2)
+                        creep.rangedMassAttack();
+
+                    //run if melee attacker is close
+                    let isNear = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 2, { filter: i => i.getActiveBodyparts(ATTACK) > 0 });
+                    if (isNear.length) {
+                        creep.moveTo(isNear[0], { maxRooms: 1, flee: true });
+                        return;
+                    }
                 }
                     //attack structure in range in no creeps in range (ranged)
                 else {
@@ -193,7 +201,7 @@ var roleAttackers = {
                 if (creep.getActiveBodyparts(RANGED_ATTACK)) {
                     attacked = creep.rangedAttack(targets[0]);
                     if (attacked == ERR_NOT_IN_RANGE)
-                        rangeAttack.run(creep);
+                        creep.moveTo(targets[0]);
                 }
                 if (creep.getActiveBodyparts(ATTACK)) {
                     attacked = creep.attack(targets[0]);
