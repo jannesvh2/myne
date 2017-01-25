@@ -1035,7 +1035,7 @@ var roleSetup = {
                 for (let myRooms2 = 0, length2 = Memory.global.roomCount; myRooms2 < length2; myRooms2++) {
                     let terminal2 = Game.getObjectById(Memory.spawns[myRooms2].random.terminal);
                     if (terminal2 && terminal2.store.power > 2000)
-                        Game.rooms[Memory.spawns[myRooms2].random.mainRoom].terminal.send(RESOURCE_POWER, 2000, Game.rooms[Memory.spawns[a].random.mainRoom], null);
+                        terminal2.send(RESOURCE_POWER, 2000, Memory.spawns[a].random.mainRoom, null);
                 }
             }
         }
