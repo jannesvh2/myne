@@ -274,10 +274,13 @@ var roleCreateJSON = {
             }
 
             //process power
-            if (Game.time % 20 == 0) {
-                let power = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
-                if (power && power.power > 0)
-                    power.processPower();
+            if (Game.time % 5 == 0) {
+                let store = Game.getObjectById(Memory.spawns[a].random.store);
+                if (store.store.energy > 300000) {
+                    let power = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
+                    if (power && power.power > 0)
+                        power.processPower();
+                }
             }
         }
 

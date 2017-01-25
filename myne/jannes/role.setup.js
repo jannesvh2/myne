@@ -473,6 +473,7 @@ var roleSetup = {
             Memory.spawns[6].random.terminal = '582aa1014b70335918aa1291';
             Memory.spawns[6].random.defLab = '58503bbbe724324d4dffca99';
             Memory.spawns[6].random.nuker = '584f03089fc4e985206ea7a7';
+            Memory.spawns[6].random.powerSpawn = '584f403f671a0e065a325830';
             Memory.spawns[6].random.runReaction = true;
             Memory.spawns[6].random.runReactionL = { UL: 1000 };
             Memory.spawns[6].reactions = [];
@@ -548,6 +549,7 @@ var roleSetup = {
             Memory.spawns[7].random.terminal = '5831d5d8202214f5461bdab4';
             Memory.spawns[7].random.defLab = '58562a346794557c68105bcb';
             Memory.spawns[7].random.nuker = '58559aaad2d6ffc36a0ee779';
+            Memory.spawns[7].random.powerSpawn = '5855f9847b7b7abc59816f6d';
             Memory.spawns[7].random.runReaction = true;
             Memory.spawns[7].random.runReactionL = { OH: 10000 };
             Memory.spawns[7].reactions = [];
@@ -627,6 +629,7 @@ var roleSetup = {
             Memory.spawns[8].random.terminal = '583ed79fa9e44d646c084972';
             Memory.spawns[8].random.nuker = '585b1e015ad0c6b011c0ec86';
             Memory.spawns[8].random.defLab = '585b9f96d1db5c1f24b8f442';
+            Memory.spawns[8].random.powerSpawn = '585b5074e511e35d5d2a37a1';
 
             Memory.spawns[8].random.runReaction = true;
             Memory.spawns[8].random.runReactionL = { G: 3000 };
@@ -701,6 +704,7 @@ var roleSetup = {
             Memory.spawns[9].random.terminal = '584cb297dc6a243227cfcc3d';
             Memory.spawns[9].random.nuker = '585b2ecc1d36722b5a33a404';
             Memory.spawns[9].random.defLab = '585ba9148fa31b1d59bc291f';
+            Memory.spawns[9].random.powerSpawn = '585afbecdc277ecd3f408f1f';
 
             Memory.spawns[9].random.upgradeBoost = '';
             Memory.spawns[9].random.runReaction = true;
@@ -843,6 +847,7 @@ var roleSetup = {
             Memory.spawns[11].random.extractor = '579fab88b1f02a3b0cff0329';
             Memory.spawns[11].random.terminal = '5868f97fa3f3e25a3a98e49a';
             Memory.spawns[11].random.nuker = '5886ba35811551db25daf706';
+            Memory.spawns[11].random.powerSpawn = '58870397399ba0e076a23bbb';
             //Memory.spawns[11].random.defLab = '';
 
             Memory.spawns[11].random.runReaction = true;
@@ -1024,7 +1029,17 @@ var roleSetup = {
                     }
                 }
             }
+            let store = Game.getObjectById(Memory.spawns[a].random.store);
+            let powerSpawn = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
+            if (store && powerSpawn && store.store.energy > 400000 && !terminal.store.power) {
+                for (let myRooms2 = 0, length2 = Memory.spawns[a].random.rooms.length; myRooms2 < length2; myRooms2++) {
+                    let terminal2 = Game.getObjectById(Memory.spawns[myRooms2].random.terminal);
+                    if (terminal2 && terminal2.store.power > 2000)
+                        Game.rooms[Memory.spawns[terminal2].random.mainRoom].terminal.send("power", 2000, Game.rooms[Memory.spawns[a].random.mainRoom], null);
+                }
+            }
         }
+        
 
     }
 };
