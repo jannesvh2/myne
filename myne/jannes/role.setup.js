@@ -1032,7 +1032,7 @@ var roleSetup = {
             let store = Game.getObjectById(Memory.spawns[a].random.storeId);
             let powerSpawn = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
             if (store && powerSpawn && store.store['energy'] > 400000 && !terminal.store.power) {
-                for (let myRooms2 = 0, length2 = Memory.spawns[a].random.rooms.length; myRooms2 < length2; myRooms2++) {
+                for (let myRooms2 = 0, length2 = Memory.global.roomCount; myRooms2 < length2; myRooms2++) {
                     let terminal2 = Game.getObjectById(Memory.spawns[myRooms2].random.terminal);
                     if (terminal2 && terminal2.store.power > 2000)
                         Game.rooms[Memory.spawns[myRooms2].random.mainRoom].terminal.send("power", 2000, Game.rooms[Memory.spawns[a].random.mainRoom], null);
