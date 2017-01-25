@@ -1029,7 +1029,7 @@ var roleSetup = {
                     }
                 }
             }
-            let store = Game.getObjectById(Memory.spawns[a].random.store);
+            let store = Game.getObjectById(Memory.spawns[a].random.storeId);
             let powerSpawn = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
             if (store && powerSpawn && store.store['energy'] > 400000 && !terminal.store.power) {
                 for (let myRooms2 = 0, length2 = Memory.spawns[a].random.rooms.length; myRooms2 < length2; myRooms2++) {
