@@ -267,6 +267,11 @@ var roleTerminalMover = {
                         }
                     }
                     let power = Game.getObjectById(Memory.spawns[creep.memory.spawn].random.powerSpawn);
+
+                    if (power && terminal.store['power'] > 90000) {
+                        power.processPower();
+                    }
+
                     if (power && terminal.store['power'] && power.power == 0) {
                         creep.memory.moveType = 'power';
                         creep.memory.moveTo50R = Memory.spawns[creep.memory.spawn].random.powerSpawn;
