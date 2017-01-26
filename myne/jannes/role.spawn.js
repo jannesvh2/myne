@@ -73,7 +73,7 @@ var roleSpawn = {
                 return;
             }
             //Game.spawns['Spawn00'].createCreep([CARRY, CARRY, MOVE], null, { role: 'terminal', spawn: 0 });
-            if (Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length || Memory.spawns[spawn].creeps.movers.length < 2 && Memory.spawns[spawn].creeps.movers[0] && Game.creeps[Memory.spawns[spawn].creeps.movers[0]].ticksToLive < 75) {
+            if ((Memory.spawns[spawn].random.useLinks && !Memory.spawns[spawn].creeps.movers.length) || (Memory.spawns[spawn].creeps.movers.length < 2 && Memory.spawns[spawn].creeps.movers[0] && Game.creeps[Memory.spawns[spawn].creeps.movers[0]].ticksToLive < 75)) {
                 newName = multiSpawn([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE], { role: 'mover', spawn: spawn });
                 return;
             }
