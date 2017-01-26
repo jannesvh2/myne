@@ -150,7 +150,11 @@ var roleCreateJSON = {
             Memory.global.checkCreeps = false;
             for (let name in Game.creeps) {
                 let creep = Game.creeps[name];
-
+                if (Memory.spawns[creep.memory.spawn] == undefined) {
+                    console.log(JSON.stringify(creep));
+                    creep.suicide();
+                    continue;
+                }
                 Memory.spawns[creep.memory.spawn].counters.creeps++;
                 if (creep.memory.helper)
                     Memory.spawns[creep.memory.spawn].creeps.helpers.push(creep.name);
