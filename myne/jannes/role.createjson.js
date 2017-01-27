@@ -278,7 +278,7 @@ var roleCreateJSON = {
             }
 
             //process power
-            if (Game.time % 5 == 0) {
+            if (Game.time % 4 == 0) {
                 let store = Game.getObjectById(Memory.spawns[a].random.storeId);
                 let power = Game.getObjectById(Memory.spawns[a].random.powerSpawn);
                 if (power && store && store.store['energy'] > 300000 && power.power > 0)
