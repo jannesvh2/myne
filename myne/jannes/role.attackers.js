@@ -283,40 +283,7 @@ var roleAttackers = {
         }
         if (creep.memory.role != 'attackerH')
             return;
-        var inRange = creep.pos.findInRange(FIND_MY_CREEPS, 3, {
-            filter: function (object) {
-                return object.hits < object.hitsMax;
-            }
-        });
-        if (inRange.length) {
-            inRange = _.sortBy(inRange, inR => inR.hits);
-
-            if (creep.pos.isNearTo(inRange[0])) {
-                creep.heal(inRange[0]);
-            }
-            else {
-                creep.rangedHeal(inRange[0]);
-            }
-            if (creep.memory.role == 'attackerH')
-                creep.moveTo(inRange[0]);
-        }
-        else {
-            var targetHeal = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
-                filter: function (object) {
-                    return object.hits < object.hitsMax;
-                }
-            });
-            if (targetHeal) {
-                if (creep.pos.isNearTo(targetHeal)) {
-                    creep.heal(targetHeal);
-                }
-                else {
-                    creep.rangedHeal(targetHeal);
-                }
-                if (creep.memory.role == 'attackerH')
-                    creep.moveTo(targetHeal);
-            }
-        }
+        creep.healNear(sourceRoomH);
         //if ((creep.room.name == sourceRoom || creep.room.name == saveRoom) && creep.hits < (creep.hitsMax * 2 / 3)) {
         //    var exitDir = Game.map.findExit(creep.room.name, saveRoom);
         //    var Exit = creep.pos.findClosestByRange(exitDir);
