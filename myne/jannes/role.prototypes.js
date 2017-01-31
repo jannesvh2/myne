@@ -59,6 +59,60 @@ var rolePrototypes = {
                 this.memory.currentPos = `x:${this.pos.x}y:${this.pos.y}`;
             return moveReturn;
         };
+
+        var healed = {};
+        Creep.prototype.healNear = function (sourceRoomH) {
+            let healAmount = this.getActiveBodyparts(HEAL);
+            if (!healAmount)
+                return;
+            let boosted = 1;
+            if (this.body[0].boost)
+                boosted = 3;
+
+            var inRange = this.pos.findInRange(FIND_MY_CREEPS, 3, {
+                filter: function (object) {
+                    return object.hits < object.hitsMax;
+                }
+            });
+            if (inRange.length) {
+                for (let t in inRange) {
+                    if (healed[inRange[t].name]) {
+                        inRange[t].hits = healed[inRange[t].name].hits;
+                        if (inRange[t].hits >= inRange[t].hitsMax)
+                            inRange.splice(t, 1);
+                    }
+                }
+                if (inRange.length) {
+                    inRange = _.sortBy(inRange, inR => inR.hits);
+                    if (this.pos.isNearTo(inRange[0])) {
+                        this.heal(inRange[0]);
+                        inRange[0].hits += healAmount * 12 * boosted;
+                        healed[inRange[0].name] = inRange[0];
+                    }
+                    else {
+                        this.rangedHeal(inRange[0]);
+                        inRange[0].hits += healAmount * 4 * boosted;
+                        healed[inRange[0].name] = inRange[0];
+                    }
+                    return;
+                }
+            }
+            var inRange = this.pos.findInRange(FIND_MY_CREEPS, 1, { filter: i => !healed[i.name] });
+            inRange = inRange[Math.floor((Math.random() * inRange.length))];
+            healed[inRange.id] = inRange;
+            this.heal(inRange);
+
+            if (this.room.name == sourceRoomH) {
+                var targetHeal = this.pos.findClosestByRange(FIND_MY_CREEPS, {
+                    filter: function (object) {
+                        return object.hits < object.hitsMax;
+                    }
+                });
+                if (targetHeal)
+                    this.moveTo(targetHeal);
+            }
+
+        }
     }
 };
 
