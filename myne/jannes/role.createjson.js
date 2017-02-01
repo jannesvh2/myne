@@ -15,7 +15,7 @@ var roleCreateJSON = {
         }
 
         //init
-        Memory.global.roomCount = 14;
+        Memory.global.roomCount = 15;
         if (!Memory.spawns)
             Memory.spawns = [];
 
