@@ -57,7 +57,7 @@ var roleGetStore = {
 
         if (creep.memory.sourceId) {
             var creepSource = Game.getObjectById(creep.memory.sourceId);
-            if (!creepSource || creepSource.store.energy < 250)
+            if (!creepSource)
                 delete creep.memory.sourceId;
 
             if (creepSource) {
@@ -80,8 +80,14 @@ var roleGetStore = {
                         delete creep.memory.getDropped;
                     }
                 }
-                if (creepSource.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                let transfer = creepSource.transfer(creep, RESOURCE_ENERGY);
+                if (transfer == ERR_NOT_IN_RANGE) {
                     creep.moveTo50(creepSource);
+                }
+                else if (transfer == OK) {
+                    if (!creepSource || creepSource.store.energy < 250)
+                        delete creep.memory.sourceId;
+
                 }
 
             }

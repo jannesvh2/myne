@@ -142,7 +142,7 @@ var roleHarvester = {
                 if (transfer == ERR_NOT_IN_RANGE) {
                     creep.repair(creep.pos.findInRange(FIND_STRUCTURES, 1, {
                         filter: (structure) => {
-                            return (structure.hits < structure.hitsMax - 800 && structure.structureType == STRUCTURE_ROAD)
+                            return (structure.structureType == STRUCTURE_ROAD && structure.hits < structure.hitsMax - 800)
                         }
                     })[0]);
                     creep.moveTo50(targets);
