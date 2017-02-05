@@ -30,7 +30,7 @@ var roleLink = {
         }
 
 
-        if (linkToC && linkToC.energy < 300 && linkTo.energy > 0)
+        if (linkToC && linkToC.energy < 300 && linkTo.energy > 0 && linkToC.cooldown == 0)
             linkTo.transferEnergy(linkToC);
     }
 };
