@@ -965,11 +965,11 @@ var roleSetup = {
             Memory.spawns[14].summon.atkD = 0;
             Memory.spawns[14].random.mainRoom = 'W7S64';
 
-            //Memory.spawns[14].random.useUpgradeSpots = true;
-            //Memory.spawns[14].random.upgradeSpots.push({ x: 19, y: 6 });
-            //Memory.spawns[14].random.upgradeSpots.push({ x: 19, y: 7 });
-            //Memory.spawns[14].random.upgradeSpots.push({ x: 19, y: 8 });
-            //Memory.spawns[14].random.upgradeSpots.push({ x: 19, y: 9 });
+            Memory.spawns[14].random.useUpgradeSpots = true;
+            Memory.spawns[14].random.upgradeSpots.push({ x: 9, y: 28 });
+            Memory.spawns[14].random.upgradeSpots.push({ x: 8, y: 28 });
+            Memory.spawns[14].random.upgradeSpots.push({ x: 7, y: 28 });
+            Memory.spawns[14].random.upgradeSpots.push({ x: 6, y: 28 });
 
             ////RoomList
             Memory.spawns[14].random.rooms.push({ name: 'W7S64', spawn: 1 });
