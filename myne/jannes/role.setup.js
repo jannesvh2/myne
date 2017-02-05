@@ -974,12 +974,12 @@ var roleSetup = {
             ////RoomList
             Memory.spawns[14].random.rooms.push({ name: 'W7S64', spawn: 1 });
             if (!Memory.spawns[14].random.hostiles) {
-                //Memory.spawns[14].random.rooms.push({ name: 'W3S64', spawn: 3 });
+                Memory.spawns[14].random.rooms.push({ name: 'W8S64', spawn: 2 });
                 //    //Memory.spawns[14].random.rooms.push({ name: 'W2S55', spawn: 1 });
             }
             //keeper
             if (!Memory.spawns[14].random.hostiles) {
-                //Memory.spawns[14].spots.push({ sourceRoom: 'W3S64' });
+                Memory.spawns[14].spots.push({ sourceRoom: 'W8S64' });
                 //    //Memory.spawns[14].spots.push({ sourceRoom: 'W2S55' });
             }
             //StoreId
