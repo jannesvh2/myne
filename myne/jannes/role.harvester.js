@@ -6,38 +6,7 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function (creep) {
 
-        //remove
-        if (creep.memory.helper2) {
-
-            if (creep.hits < creep.hitsMax)
-                creep.heal(creep);
-            if (creep.room.name != "W7S64") {
-                //var flag = Game.flags['Flag7'];
-                //if (flag) {
-                //    if (!creep.memory.flag || creep.memory.flag == 1) {
-                //        creep.moveTo50(flag);
-                //        if (flag.room.name == creep.room.name)
-                //            creep.memory.flag = 2;
-                //        return;
-                //    }
-                //    if (creep.memory.flag == 2) {
-
-                //        flag = Game.flags['Flag8'];
-                //        creep.moveTo50(flag);
-                //        if (flag.room.name == creep.room.name)
-                //            creep.memory.flag = 3;
-                //        return;
-                //    }
-                //}
-                //else {
-                var exitDir = Game.map.findExit(creep.room.name, "W7S64");
-                var Exit = creep.pos.findClosestByRange(exitDir);
-                creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
-                return;
-                //}
-            }
-        }
-        else if (creep.memory.helper) {
+        if (creep.memory.helper) {
 
             // if (creep.hits < creep.hitsMax)
             //   creep.heal(creep);

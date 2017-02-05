@@ -938,7 +938,7 @@ var roleSetup = {
             Memory.spawns[13].random.storeId = '5895cb9158b0c00cfee56a21';
             //UseStore
             Memory.spawns[13].random.useStore = true;
-            //Memory.spawns[13].random.useLinks = true;
+            Memory.spawns[13].random.useLinks = true;
             Memory.spawns[13].links.receiver = '5896272dea74d78e49c16429';
             Memory.spawns[13].links.producers.push({ id: '589597ab932aff8c32ba4091', source: true });
             //Memory.spawns[13].links.producers.push({ id: '5867b69b4325d1927005fa2a', source: true });
@@ -986,7 +986,7 @@ var roleSetup = {
             Memory.spawns[14].random.storeId = '5895bff74af485bb71594d5b';
             //UseStore
             Memory.spawns[14].random.useStore = true;
-            //Memory.spawns[14].random.useLinks = true;
+            Memory.spawns[14].random.useLinks = true;
             Memory.spawns[14].links.receiver = '5896f0f332fcbc4011fd36db';
             Memory.spawns[14].links.receiverC = '58238524daeb248c73fa0dd0';
             //Memory.spawns[14].links.producers.push({ id: '5879e0dfd2fa188006a26e43', source: true });
