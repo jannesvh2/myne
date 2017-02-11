@@ -899,7 +899,10 @@ var roleSetup = {
             //extractor
             Memory.spawns[12].random.extractor = '57efa00f195b160f02c75271';
             Memory.spawns[12].random.terminal = '5881814e1d2b37eb52928e1c';
+            Memory.spawns[12].random.nuker = '589f16f9ac9ae5f1593f2c52';
+            Memory.spawns[12].random.powerSpawn = '589f63396e21f329598a5bff';
             //Memory.spawns[12].random.defLab = '';
+            Memory.spawns[12].random.runReaction = true;
 
             //spawn 13
             //spawn numbers
