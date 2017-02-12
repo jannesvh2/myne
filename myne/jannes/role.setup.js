@@ -858,7 +858,7 @@ var roleSetup = {
             Memory.spawns[12].summon.h = 0;
             Memory.spawns[12].summon.b = 0;
             Memory.spawns[12].summon.u = 0;
-            Memory.spawns[12].summon.h2 = 6;
+            Memory.spawns[12].summon.h2 = 12;
             Memory.spawns[12].summon.b2 = 1;
             Memory.spawns[12].summon.u2 = 0;
             Memory.spawns[12].summon.users = 1;
@@ -879,12 +879,14 @@ var roleSetup = {
             if (!Memory.spawns[12].random.hostiles) {
                 Memory.spawns[12].random.rooms.push({ name: 'W3S64', spawn: 2 });
                 Memory.spawns[12].random.rooms.push({ name: 'W4S65', spawn: 4, sk: true });
+                Memory.spawns[12].random.rooms.push({ name: 'W4S66', spawn: 6, sk: true });
             //    //Memory.spawns[12].random.rooms.push({ name: 'W2S55', spawn: 1 });
             }
             //keeper
             if (!Memory.spawns[12].random.hostiles) {
                 Memory.spawns[12].spots.push({ sourceRoom: 'W3S64' });
                 Memory.spawns[12].spots.push({ sourceRoom: 'W4S65', sk: true, x: 45, y: 41 });
+                Memory.spawns[12].spots.push({ sourceRoom: 'W4S66', sk: true, x: 47, y: 3 });
             //    //Memory.spawns[12].spots.push({ sourceRoom: 'W2S55' });
             }
             //StoreId
@@ -896,6 +898,8 @@ var roleSetup = {
             Memory.spawns[12].links.producers.push({ id: '5879e0dfd2fa188006a26e43', source: true });
             Memory.spawns[12].links.producers.push({ id: '58818b07dbcaf12f157e6afe', source: true });
             Memory.spawns[12].links.producers.push({ id: '588d01f9e7a448d25ab73297', source: true });
+            Memory.spawns[12].links.producers.push({ id: '589fcba2ed368f9b09a5018a', source: true });
+            Memory.spawns[12].links.producers.push({ id: '589fc7912e57535b19a69517', source: true });
             //extractor
             Memory.spawns[12].random.extractor = '57efa00f195b160f02c75271';
             Memory.spawns[12].random.terminal = '5881814e1d2b37eb52928e1c';
@@ -996,8 +1000,8 @@ var roleSetup = {
             //Memory.spawns[14].links.producers.push({ id: '5867b69b4325d1927005fa2a', source: true });
             //Memory.spawns[14].links.producers.push({ id: '57e924dce942a7843ffd2d79', source: true });
             //extractor
-            //Memory.spawns[14].random.extractor = '579fab88b1f02a3b0cff0329';
-            //Memory.spawns[14].random.terminal = '5868f97fa3f3e25a3a98e49a';
+            Memory.spawns[14].random.extractor = '57efa00f195b160f02c7523a';
+            Memory.spawns[14].random.terminal = '589f84138c0ecd715df0a840';
             //Memory.spawns[14].random.defLab = '';
 
 
