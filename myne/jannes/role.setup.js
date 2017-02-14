@@ -1021,8 +1021,8 @@ var roleSetup = {
                 Memory.spawns[12].random.overflow = 'W7S53';
             }
             else {
-                Memory.spawns[0].random.overflow = 'W7S64';
-                Memory.spawns[1].random.overflow = 'W7S64';
+                Memory.spawns[0].random.overflow = 'W4S63';
+                Memory.spawns[1].random.overflow = 'W4S63';
                 Memory.spawns[2].random.overflow = 'W7S54';
                 Memory.spawns[3].random.overflow = 'W7S54';
                 Memory.spawns[4].random.overflow = 'W7S54';
@@ -1030,9 +1030,9 @@ var roleSetup = {
                 Memory.spawns[6].random.overflow = 'W7S54';
                 Memory.spawns[7].random.overflow = 'W7S54';
                 Memory.spawns[8].random.overflow = 'W7S54';
-                Memory.spawns[9].random.overflow = 'W7S64';
+                Memory.spawns[9].random.overflow = 'W4S63';
                 Memory.spawns[11].random.overflow = 'W7S54';
-                Memory.spawns[12].random.overflow = 'W7S64';
+                Memory.spawns[12].random.overflow = 'W4S63';
 
             }
 
