@@ -373,7 +373,7 @@ var roleSetup = {
 
             //spawn 5
             //spawn numbers
-            Memory.spawns[5].summon.spawns = 2;
+            Memory.spawns[5].summon.spawns = 3;
             Memory.spawns[5].summon.h = 0;
             Memory.spawns[5].summon.b = 0;
             Memory.spawns[5].summon.u = 0;
@@ -582,7 +582,7 @@ var roleSetup = {
             Memory.spawns[7].requests.push({ m: 'XGHO2', l: '5855d53782396c315907b5fb' });
             //spawn 8
             //spawn numbers
-            Memory.spawns[8].summon.spawns = 2;
+            Memory.spawns[8].summon.spawns = 3;
             Memory.spawns[8].summon.h = 0;
             Memory.spawns[8].summon.b = 0;
             Memory.spawns[8].summon.u = 0;
@@ -854,7 +854,7 @@ var roleSetup = {
 
             //spawn 12
             //spawn numbers
-            Memory.spawns[12].summon.spawns = 2;
+            Memory.spawns[12].summon.spawns = 3;
             Memory.spawns[12].summon.h = 0;
             Memory.spawns[12].summon.b = 0;
             Memory.spawns[12].summon.u = 0;
@@ -910,7 +910,7 @@ var roleSetup = {
 
             //spawn 13
             //spawn numbers
-            Memory.spawns[13].summon.spawns = 2;
+            Memory.spawns[13].summon.spawns = 3;
             Memory.spawns[13].summon.h = 0;
             Memory.spawns[13].summon.b = 0;
             Memory.spawns[13].summon.u = 0;
@@ -958,7 +958,7 @@ var roleSetup = {
 
             //spawn 14
             //spawn numbers
-            Memory.spawns[14].summon.spawns = 1;
+            Memory.spawns[14].summon.spawns = 2;
             Memory.spawns[14].summon.h = 0;
             Memory.spawns[14].summon.b = 0;
             Memory.spawns[14].summon.u = 0;
