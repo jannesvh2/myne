@@ -8,9 +8,9 @@ var roleUpgrader = {
 
         if (creep.memory.helper) {
 
-           // if (creep.hits < creep.hitsMax)
-             //   creep.heal(creep);
-            if (creep.room.name != "W4S63") {
+            if (creep.hits < creep.hitsMax)
+                creep.heal(creep);
+            if (creep.room.name != "W6S67") {
                 //var flag = Game.flags['Flag7'];
                 //if (flag) {
                 //    if (!creep.memory.flag || creep.memory.flag == 1) {
@@ -29,10 +29,10 @@ var roleUpgrader = {
                 //    }
                 //}
                 //else {
-                var exitDir = Game.map.findExit(creep.room.name, "W4S63");
-                    var Exit = creep.pos.findClosestByRange(exitDir);
-                    creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
-                    return;
+                var exitDir = Game.map.findExit(creep.room.name, "W6S67");
+                var Exit = creep.pos.findClosestByRange(exitDir);
+                creep.moveTo50(Exit, { canOn: true, maxRooms: 1 });
+                return;
                 //}
             }
         }
