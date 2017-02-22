@@ -914,7 +914,7 @@ var roleSetup = {
             Memory.spawns[13].summon.h = 0;
             Memory.spawns[13].summon.b = 0;
             Memory.spawns[13].summon.u = 0;
-            Memory.spawns[13].summon.h2 = 10;
+            Memory.spawns[13].summon.h2 = 9;
             Memory.spawns[13].summon.b2 = 1;
             Memory.spawns[13].summon.u2 = 0;
             Memory.spawns[13].summon.users = 1;
@@ -934,7 +934,7 @@ var roleSetup = {
             Memory.spawns[13].random.rooms.push({ name: 'W4S63', spawn: 0 });
             if (!Memory.spawns[13].random.hostiles) {
                 Memory.spawns[13].random.rooms.push({ name: 'W4S64', spawn: 4, sk: true });
-                Memory.spawns[13].random.rooms.push({ name: 'W5S64', spawn: 6, sk: true });
+                Memory.spawns[13].random.rooms.push({ name: 'W5S64', spawn: 5, sk: true });
             }
             //keeper
             if (!Memory.spawns[13].random.hostiles) {
