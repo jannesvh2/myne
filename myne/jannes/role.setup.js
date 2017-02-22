@@ -914,7 +914,7 @@ var roleSetup = {
             Memory.spawns[13].summon.h = 0;
             Memory.spawns[13].summon.b = 0;
             Memory.spawns[13].summon.u = 0;
-            Memory.spawns[13].summon.h2 = 4;
+            Memory.spawns[13].summon.h2 = 10;
             Memory.spawns[13].summon.b2 = 1;
             Memory.spawns[13].summon.u2 = 0;
             Memory.spawns[13].summon.users = 1;
@@ -934,12 +934,12 @@ var roleSetup = {
             Memory.spawns[13].random.rooms.push({ name: 'W4S63', spawn: 0 });
             if (!Memory.spawns[13].random.hostiles) {
                 Memory.spawns[13].random.rooms.push({ name: 'W4S64', spawn: 4, sk: true });
-                //    //Memory.spawns[13].random.rooms.push({ name: 'W2S55', spawn: 1 });
+                Memory.spawns[13].random.rooms.push({ name: 'W5S64', spawn: 6, sk: true });
             }
             //keeper
             if (!Memory.spawns[13].random.hostiles) {
                 Memory.spawns[13].spots.push({ sourceRoom: 'W4S64', sk: true, x: 19, y: 4 });
-                //    //Memory.spawns[13].spots.push({ sourceRoom: 'W2S55' });
+                Memory.spawns[13].spots.push({ sourceRoom: 'W5S64', sk: true, x: 38, y: 19 });
             }
             //StoreId
             Memory.spawns[13].random.storeId = '5895cb9158b0c00cfee56a21';
@@ -950,6 +950,10 @@ var roleSetup = {
             Memory.spawns[13].links.producers.push({ id: '589597ab932aff8c32ba4091', source: true });
             Memory.spawns[13].links.producers.push({ id: '5898421cc99eb8021bd79bf7', source: true });
             Memory.spawns[13].links.producers.push({ id: '58984792657aa406041707fe', source: true });
+            Memory.spawns[13].links.producers.push({ id: '58ad2ad7409a68795fcbd526', source: true });
+            Memory.spawns[13].links.producers.push({ id: '58ad264cc1c44127da56eb9f', source: true });
+            Memory.spawns[13].random.nuker = '58ac93648cb05c1f1cf625e1';
+            Memory.spawns[13].random.powerSpawn = '58ac53462662fb7f072adaf8';
             //extractor
             Memory.spawns[13].random.extractor = '57efa00f195b160f02c75260';
             Memory.spawns[13].random.terminal = '58979be547e421722ca20f45';
