@@ -1086,8 +1086,8 @@ var roleSetup = {
                 Memory.spawns[8].random.overflow = 'W7S54';
                 Memory.spawns[9].random.overflow = 'W7S54';
                 Memory.spawns[11].random.overflow = 'W7S54';
-                Memory.spawns[12].random.overflow = 'W7S64';
-                Memory.spawns[13].random.overflow = 'W7S64';
+                Memory.spawns[12].random.overflow = 'W7S54';
+                Memory.spawns[13].random.overflow = 'W7S54';
 
             }
 
