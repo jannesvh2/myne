@@ -630,6 +630,7 @@ var roleSetup = {
             Memory.spawns[8].random.nuker = '585b1e015ad0c6b011c0ec86';
             Memory.spawns[8].random.defLab = '585b9f96d1db5c1f24b8f442';
             Memory.spawns[8].random.powerSpawn = '585b5074e511e35d5d2a37a1';
+            Memory.spawns[8].random.observer = '58ba9d2cf6447384695fcb5d';
 
             Memory.spawns[8].random.runReaction = true;
             Memory.spawns[8].random.runReactionL = { G: 3000 };

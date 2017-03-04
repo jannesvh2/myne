@@ -53,8 +53,21 @@ var roleCreateJSON = {
         //Memory.global.power.push({ room: 'W4S50', spawn: 5 });
         //Memory.global.power.push({ room: 'W3S50', spawn: 5 });
 
+        //Memory.global.power.push({ room: 'W10S61', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S62', spawn: 1 });
+        //Memory.global.power.push({ room: 'W11S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W12S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W10S63', spawn: 1 });
+        //Memory.global.power.push({ room: 'W13S60', spawn: 1 });
+        //Memory.global.power.push({ room: 'W11S50', spawn: 2 });
+        //Memory.global.power.push({ room: 'W10S49', spawn: 2 });
+        //Memory.global.power.push({ room: 'W0S53', spawn: 8 });
+        //Memory.global.power.push({ room: 'W0S54', spawn: 8 });
+        //Memory.global.power.push({ room: 'W0S55', spawn: 8 });
+        //Memory.global.power.push({ room: 'W0S56', spawn: 8 });
+
         var gMod = Game.time % 300;
-        if (gMod < 40)
+        if (gMod < 50)
             for (let p = 0, lengthP = Memory.global.power.length; p < lengthP; p++) {
                 if (gMod == p) {
                     Game.getObjectById(Memory.spawns[Memory.global.power[p].spawn].random.observer).observeRoom(Memory.global.power[p].room);
